@@ -1,0 +1,36 @@
+.site-header {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: $color-blue;
+    background-image: linear-gradient(to right, $color-blue, $color-green);
+  }
+}
+.primary-header {
+  @extend %white-box;
+  border-radius: 0;
+  padding: $baseline-height * 0.75 $column * 2;
+}
+.site-title {
+  @extend %twenty-one-pixels;
+  font-family: $heading-font-stack;
+
+  a {
+    @extend %gray-link;
+  }
+}
+.title-container {
+  display: inline-block;
+}
+.tagline {
+  @extend %fourteen-pixels;
+  margin: 0;
+  font-style: italic;
+}

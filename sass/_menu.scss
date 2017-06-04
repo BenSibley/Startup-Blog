@@ -1,0 +1,64 @@
+.toggle-navigation {
+  background: none;
+  border: none;
+  margin: 6px 0 0;
+  padding: 0;
+  float: right;
+  transition: fill 0.15s;
+
+  &:hover {
+    cursor: pointer;
+
+    svg g {
+      fill: $color-blue;
+    }
+  }
+  &:focus {
+    outline: none;
+  }
+  &.open {
+
+    svg g {
+      fill: $color-blue;
+    }
+  }
+}
+.menu-primary-container {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s;
+
+  &.open {
+    max-height: none;
+  }
+}
+.menu-primary {
+  margin: $baseline-height * 1.5 0 0;
+}
+.menu-primary-items {
+  list-style: none;
+  margin: 0;
+  text-align: center;
+
+  li {
+    @extend %twelve-pixels;
+    margin: 12px 0;
+
+    &.current-menu-item {
+
+      a {
+        @extend %white-box;
+        box-shadow: 0 0 6px 0 rgba(0,0,0,0.07);
+        border: solid 1px $color-gray-blue;
+        padding: 5px 12px;
+      }
+    }
+  }
+  a {
+    @extend %gray-link;
+    font-family: $heading-font-stack;
+    display: inline-block;
+    padding: 6px 12px;
+
+  }
+}

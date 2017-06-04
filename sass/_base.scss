@@ -36,6 +36,8 @@ p {
 }
 a {
   color: $color-blue;
+  text-decoration: none;
+  transition: color 0.15s;
 
   &:link,
   &:visited {

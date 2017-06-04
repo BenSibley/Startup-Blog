@@ -39,6 +39,8 @@ jQuery(document).ready(function($){
             menuPrimaryContainer.removeClass('open');
             $(this).removeClass('open');
 
+            menuPrimaryContainer.css('max-height', 0 );
+
             // change screen reader text
             //$(this).children('span').text(objectL10n.openMenu);
 
@@ -48,6 +50,12 @@ jQuery(document).ready(function($){
         } else {
             menuPrimaryContainer.addClass('open');
             $(this).addClass('open');
+            var maxHeight = 0;
+            menuPrimaryItems.find('li').each(function(){
+                maxHeight += 60;
+            });
+            maxHeight += 36;
+            menuPrimaryContainer.css('max-height', maxHeight );
 
             // change screen reader text
             //$(this).children('span').text(objectL10n.closeMenu);

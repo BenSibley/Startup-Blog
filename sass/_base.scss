@@ -10,13 +10,11 @@ body {
   font-size: 100%;
   margin: 0;
   padding: 0;
-  //font-family: $primary-font-stack;
+  font-family: $body-font-stack;
   line-height: 1.5;
-//  background: $background;
-//  color: $gray;
+  background: $color-gray-blue;
+  color: $color-gray-20;
   -webkit-font-smoothing: subpixel-antialiased;
-  word-wrap: break-word;
-  -ms-word-wrap: break-word;
 }
 .overflow-container {
   position: relative;
@@ -25,7 +23,6 @@ body {
   min-height: 100%;
 }
 .main {
-//  background: $background;
   margin: 0 auto;
 }
 .loop-container {
@@ -38,34 +35,38 @@ p {
   margin: $baseline-height 0;
 }
 a {
-//  color: $orange;
+  color: $color-blue;
 
   &:link,
   &:visited {
-//    color: $orange;
+    color: $color-blue;
   }
   &:hover,
   &:active,
   &:focus {
-//    color: $orange-dark;
+    color: $color-blue-hover;
   }
 }
 
 h1,h2,h3,h4,h5,h6 {
-  //font-family: $primary-font-stack;
+  font-family: $heading-font-stack;
   margin: 0;
   padding: 0;
   font-weight: 400;
-}
-h1 {
-  @extend %twenty-eight-pixels;
-}
-h2 {
-  @extend %twenty-one-pixels;
-}
-h3, h4, h5, h6 {
   font-size: 1em;
   line-height: 1.5;
+}
+
+@media all and (min-width: $six-hundred) {
+
+  h1 {
+    font-size: 1.3125em; /* 21px / 16px */
+    line-height: 1.143; /* 24px */
+  }
+  h2 {
+    font-size: 1.125em; /* 18px / 16px */
+    line-height: 1.333; /* 24px */
+  }
 }
 ul,
 ol {
@@ -89,18 +90,19 @@ li li {
 
 pre {
   word-wrap: break-word;
-//  background: $off-white;
+  background: $color-gray-blue;
   white-space: pre-wrap;
+  border: solid 1px $color-gray-blue-dark;
   padding: $baseline-height / 2;
 }
 code {
-//  background: $off-white;
+  background: $color-gray-blue;
   padding: 0 $baseline-height / 4;
 }
 blockquote {
   margin: $baseline-height $baseline-height $baseline-height 0;
   padding-left: $baseline-height;
-//  border-left: solid 3px $orange;
+  border-left: solid 3px $color-blue;
 
   cite {
     display: block;
@@ -119,7 +121,7 @@ table {
 td,
 th {
   padding: $baseline-height / 2;
-  //border: solid 1px $color-gray-40;
+  border: solid 1px $color-gray-60;
 }
 
 /* Images */
@@ -156,42 +158,43 @@ img,
 .wp-caption-text,
 .gallery-caption {
   @extend %twelve-pixels;
-//  margin: 0 0 $baseline-height / 0.813;
-//  color: $gray-medium;
+  margin: 0 0 $baseline-height / 0.813;
+  color: $color-gray-60;
 }
 
 /* Form styles */
 
 input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="file"]):not([type="image"]),
 textarea {
-  @extend %twelve-pixels;
+  @extend %fourteen-pixels;
   width: 100%;
-//  font-family: $primary-font-stack;
+  font-family: $body-font-stack;
   padding: 10px 12px;
-  max-width: $baseline-height * 10 * 1.85;
-//  background: $background;
-//  color: $gray-medium;
-//  outline: solid 1px $gray-light;
-  border: none;
-  border-radius: 0;
+  background: $color-gray-blue;
+  color: $color-gray-20;
+  border: solid 1px $color-gray-blue-dark;
+  border-radius: 3px;
   -webkit-appearance: none;
-  transition: all 0.1s ease-in-out;
+  transition: background 0.15s, box-shadow 0.15s;
+
+  &:focus {
+    @extend %box-shadow;
+    outline: none;
+  }
 }
 textarea {
-  max-width: $baseline-height * 15 * 1.85;
   overflow: auto; /* to hide scrollbar in IE */
 }
 input[type="submit"] {
-  @extend %twelve-pixels;
-//  font-family: $primary-font-stack;
+  @extend %fourteen-pixels;
+  font-family: $body-font-stack;
   padding: 10px 12px;
   color: white;
-//  background: $orange;
-  outline: none;
-  border: none;
-  border-radius: 0;
+  background: $color-blue;
+  border: solid 1px $color-gray-blue-dark;
+  border-radius: 3px;
   -webkit-appearance: none;
-  transition: all 0.1s ease-in-out;
+  transition: background 0.15s;
 
   &:hover {
     cursor: pointer;
@@ -199,7 +202,7 @@ input[type="submit"] {
   &:hover,
   &:active,
   &:focus {
-//    background: $color-gray-40;
+    background: $color-blue-hover;
   }
 }
 
@@ -207,20 +210,20 @@ input[type="search"] {
 //  margin-right: $baseline-height;
 //  padding-right: $baseline-height / 4; /* so safari 'x' doesn't get cut off */
 }
-//::-webkit-input-placeholder {
-//  color: $gray-medium;
-//}
-//:-moz-placeholder /* Firefox 18- */ {
-//  color: $gray-medium;
-//}
-//::-moz-placeholder /* Firefox 19+ */ {
-//  color: $gray-medium;
-//}
-//:-ms-input-placeholder {
-//  color: $gray-medium;
-//}
-//
-///* sticky */
+::-webkit-input-placeholder {
+  color: $color-gray-70;
+}
+:-moz-placeholder /* Firefox 18- */ {
+  color: $color-gray-70;
+}
+::-moz-placeholder /* Firefox 19+ */ {
+  color: $color-gray-70;
+}
+:-ms-input-placeholder {
+  color: $color-gray-70;
+}
+
+/* sticky */
 //.excerpt.sticky {
 //  outline: solid 3px $orange;
 //}
@@ -266,7 +269,7 @@ a img {
   color: white !important;
   z-index: 99;
   padding: $baseline-height;
-//  background: $color-gray-20;
+  background: $color-gray-20;
   transition: top 0.2s ease-in-out;
 
   &:focus {

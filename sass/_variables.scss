@@ -1,20 +1,21 @@
 /*===== Variables =====*/
 
-$primary-font-stack: 'Open Sans', sans-serif;
+$heading-font-stack: 'Montserrat', sans-serif;
+$body-font-stack: 'Source Sans Pro', sans-serif;
 $baseline-height: 1.5em;
-$column: 3.125%;
+$column: 2.778%;
 
 /* Theme Colors */
 
-$color-gray-93: #EDEDED;
-$color-gray-87: #DEDEDE;
-$color-gray-85: #D9D9D9;
+$color-blue: #20A4E6;
+$color-blue-hover: #23B6FF;
+$color-green: #17E6C3;
+$color-gray-blue: #F0F5F8;
+$color-gray-blue-dark: #E4E8EB;
 $color-gray-70: #B3B3B3;
-$color-gray-67: #ABABAB;
-$color-gray-40: #666666;
-$color-gray-33: #545454;
-$color-gray-23: #3a3a3a;
-$color-gray-17: #2B2B2B;
+$color-gray-60: #999999;
+$color-gray-30: #4C4C4C;
+$color-gray-20: #333333;
 
 /* Media Query widths */
 
@@ -123,7 +124,7 @@ $tencent-weibo: #20b8e5;
 // 14px font
 %fourteen-pixels {
   font-size: 0.875em; /* 14px / 16px */
-  line-height: 1.714; /* 24px */
+  line-height: 1.571; /* 22px */
 }
 // 12px font
 %twelve-pixels {
@@ -135,6 +136,15 @@ $tencent-weibo: #20b8e5;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+%box-shadow {
+  box-shadow: 0 0 24px 0 rgba(0,0,0,0.05);
+}
+%white-box {
+  @extend %box-shadow;
+  background: #fff;
+  border-radius: 3px
+}
+
 //%dark-link {
 //  color: $color-gray-23;
 //

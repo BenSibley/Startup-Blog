@@ -3,57 +3,53 @@
 #business_blog-dashboard-wrap h2 {
   margin-bottom: 24px;
 }
-
-.content {
+#business_blog-dashboard-wrap .content {
   margin-top: 12px;
   padding: 12px 24px 24px;
   border: solid 1px #e5e5e5;
   background: white;
 }
-.content .button-primary {
+#business_blog-dashboard-wrap .content .button-primary {
   margin: 12px 0;
 }
-.content ul {
+#business_blog-dashboard-wrap .content ul {
   list-style: disc;
   margin-left: 36px;
 }
 
 /* 600px */
 @media all and (min-width: 37.5em) {
-  .content {
+  #business_blog-dashboard-wrap .content {
     width: 39%;
     float: left;
   }
-  .content p {
+  #business_blog-dashboard-wrap .content p {
     min-height: 57px;
   }
-
-  .content-premium-upgrade p {
-    min-height: 0px;
+  #business_blog-dashboard-wrap .content-review {
+    min-height: 192px;
   }
-
-  .content-customization,
-  .content-premium-upgrade {
+  #business_blog-dashboard-wrap .content-customization,
+  #business_blog-dashboard-wrap .content-premium-upgrade,
+  #business_blog-dashboard-wrap .content-review {
     margin-right: 2%;
   }
 }
 /* 1100px */
 @media all and (min-width: 68.75em) {
-  .content {
+  #business_blog-dashboard-wrap .content {
     width: 27%;
   }
-
-  .content-resources {
+  #business_blog-dashboard-wrap .content-resources {
     clear: left;
   }
-
-  .content-customization,
-  .content-support,
-  .content-resources {
+  #business_blog-dashboard-wrap .content-customization,
+  #business_blog-dashboard-wrap .content-support,
+  #business_blog-dashboard-wrap .content-resources,
+  #business_blog-dashboard-wrap .content-review {
     margin-right: 1%;
   }
-
-  .content-premium-upgrade {
+  #business_blog-dashboard-wrap .content-premium-upgrade {
     margin-right: 0;
   }
 }

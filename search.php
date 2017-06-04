@@ -6,9 +6,9 @@
             $total_results = $wp_query->found_posts;
             $s             = htmlentities( $s );
             if ( $total_results ) {
-                printf( _n( '%d search result for "%s"', '%d search results for "%s"', $total_results, 'ct_theme_name' ), $total_results, $s );
+                printf( _n( '%d search result for "%s"', '%d search results for "%s"', $total_results, 'business-blog' ), $total_results, $s );
             } else {
-                printf( __( 'No search results for "%s"', 'ct_theme_name' ), $s );
+                printf( __( 'No search results for "%s"', 'business-blog' ), $s );
             }
             ?>
         </h1>
@@ -32,7 +32,7 @@ $total_results = $wp_query->found_posts;
 if ( $total_results ) {
     ?>
     <div class="search-bottom">
-        <p><?php _e( "Can't find what you're looking for?  Try refining your search:", "ct_theme_name" ); ?></p>
+        <p><?php _e( "Can't find what you're looking for?  Try refining your search:", "business-blog" ); ?></p>
         <?php get_search_form(); ?>
     </div>
 <?php }

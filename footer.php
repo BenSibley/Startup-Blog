@@ -1,10 +1,10 @@
-<?php do_action( 'main_bottom' ); ?>
+<?php do_action( 'business_blog_main_bottom' ); ?>
 </section> <!-- .main -->
 <?php get_sidebar( 'primary' ); ?>
-<?php do_action( 'after_main' ); ?>
+<?php do_action( 'business_blog_after_main' ); ?>
 
 <footer id="site-footer" class="site-footer" role="contentinfo">
-    <?php do_action( 'footer_top' ); ?>
+    <?php do_action( 'business_blog_footer_top' ); ?>
     <div class="design-credit">
         <span>
             <?php
@@ -14,11 +14,12 @@
             ?>
         </span>
     </div>
+    <?php do_action( 'business_blog_footer_bottom' ); ?>
 </footer>
 </div><!-- .max-width -->
 </div><!-- .overflow-container -->
 
-<?php do_action( 'body_bottom' ); ?>
+<?php do_action( 'business_blog_body_bottom' ); ?>
 
 <?php wp_footer(); ?>
 

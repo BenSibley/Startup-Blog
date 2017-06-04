@@ -17,7 +17,7 @@ function ct_business_blog_options_content() {
 	?>
 	<div id="business_blog-dashboard-wrap" class="wrap">
 		<h2><?php _e( 'Business_blog Dashboard', 'business-blog' ); ?></h2>
-		<?php do_action( 'theme_options_before' ); ?>
+		<?php do_action( 'business_blog_theme_options_before' ); ?>
 		<div class="content content-customization">
 			<h3><?php _e( 'Customization', 'business-blog' ); ?></h3>
 			<p><?php _e( 'Click the "Customize" link in your menu, or use the button below to get started customizing Business_blog', 'business-blog' ); ?>.</p>
@@ -68,6 +68,6 @@ function ct_business_blog_options_content() {
 				</p>
 			</form>
 		</div>
-		<?php do_action( 'theme_options_after' ); ?>
+		<?php do_action( 'business_blog_theme_options_after' ); ?>
 	</div>
 <?php }

@@ -22,7 +22,7 @@ function ct_business_blog_load_scripts_styles() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'ct_business-blog_load_scripts_styles' );
+add_action( 'wp_enqueue_scripts', 'ct_business_blog_load_scripts_styles' );
 
 // Back-end scripts
 function ct_business_blog_enqueue_admin_styles( $hook ) {

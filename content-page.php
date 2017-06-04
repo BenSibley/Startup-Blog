@@ -1,5 +1,5 @@
 <div <?php post_class(); ?>>
-	<?php do_action( 'page_before' ); ?>
+	<?php do_action( 'business_blog_page_before' ); ?>
 	<article>
 		<?php ct_business_blog_featured_image(); ?>
 		<div class='post-header'>
@@ -11,7 +11,7 @@
 				'before' => '<p class="singular-pagination">' . __( 'Pages:', 'business-blog' ),
 				'after'  => '</p>',
 			) ); ?>
-			<?php do_action( 'page_after' ); ?>
+			<?php do_action( 'business_blog_page_after' ); ?>
 		</div>
 	</article>
 	<?php comments_template(); ?>

@@ -26,7 +26,7 @@
 .menu-primary-container {
   overflow: hidden;
   max-height: 0;
-  transition: max-height 0.4s;
+  transition: max-height 0.35s;
 
   &.open {
     max-height: none;
@@ -42,15 +42,48 @@
 
   li {
     @extend %twelve-pixels;
-    margin: 12px 0;
+    margin: 6px 0;
 
     &.current-menu-item {
 
-      a {
+      > a {
         @extend %white-box;
         box-shadow: 0 0 6px 0 rgba(0,0,0,0.07);
         border: solid 1px $color-gray-blue;
         padding: 5px 12px;
+      }
+      > .toggle-dropdown {
+        margin-left: 8px;
+      }
+      &.menu-item-has-children {
+        margin-right: -33px;
+
+        ul {
+          margin-left: -27px;
+        }
+      }
+    }
+    &.menu-item-has-children {
+      margin-right: -25px;
+
+      ul {
+        margin-left: -19px;
+      }
+    }
+    &.open {
+
+      > a {
+        color: $color-blue;
+      }
+      > .toggle-dropdown {
+        border-color: $color-blue;
+
+        &:after {
+          content: '\f106';
+        }
+      }
+      > ul {
+        max-height: none;
       }
     }
   }
@@ -59,6 +92,190 @@
     font-family: $heading-font-stack;
     display: inline-block;
     padding: 6px 12px;
+  }
+  ul {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding-bottom: $baseline-height/4;
+    overflow: hidden;
+    max-height: 0;
 
+    li {
+      font-size: 1em;
+    }
+  }
+}
+.toggle-dropdown {
+  position: relative;
+  margin: 0;
+  padding: 5px 8px;
+  border: solid 1px $color-gray-blue-dark;
+  border-radius: 3px;
+  background: none;
+  transition: border-color 0.15s;
+
+  &:hover {
+    cursor: pointer;
+  }
+  &:hover,
+  &:active {
+    border-color: $color-blue;
+  }
+  &:focus {
+    outline: none;
+  }
+  &:after {
+    content: '\f107';
+    font-family: "FontAwesome"
+  }
+}
+
+@media all and (min-width: $eight-hundred) {
+
+  .toggle-navigation {
+    display: none;
+  }
+  .menu-primary-container {
+    max-height: none;
+    overflow: visible;
+    float: right;
+  }
+  .menu-primary {
+    margin: 0;
+  }
+  .menu-primary-items {
+
+    li {
+      display: inline-block;
+      margin: 0;
+
+      &.menu-item-has-children {
+        position: relative;
+        margin-right: 9px;
+
+        &:hover {
+
+          > a,
+          > button {
+            color: $color-blue;
+          }
+          > button {
+            transform: translateY(2px);
+          }
+        }
+      }
+      &.current-menu-item {
+
+        > .toggle-dropdown {
+          margin-left: -9px;
+        }
+        &.menu-item-has-children {
+          margin-right: 0;
+
+          > a {
+            padding-right: 20px;
+          }
+          > .toggle-dropdown {
+            margin-left: -18px;
+          }
+        }
+      }
+    }
+    a {
+      position: relative;
+      z-index: 1;
+
+      &:hover,
+      &:active,
+      &:focus {
+
+        + button {
+          transform: translateY(2px);
+          color: $color-blue;
+        }
+        ~ ul {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(-12px);
+        }
+      }
+    }
+    ul {
+      max-height: none;
+      overflow: visible;
+      position: absolute;
+      z-index: 9;
+      top: calc(100% + 12px);
+      opacity: 0;
+      visibility: hidden;
+      background: white;
+      border-radius: 3px;
+      padding: 12px 6px;
+      box-shadow: 0 0 24px 0 rgba(0,0,0,0.05);
+      transition: opacity 0.15s, visibility 0.15s, transform 0.15s;
+
+      &:before {
+        content: '';
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        border-radius: 3px 3px 0 0;
+        background: $color-blue;
+        background-image: linear-gradient(to right, $color-blue, $color-green);
+      }
+      &:hover {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(-12px);
+      }
+      li {
+        display: block;
+        white-space: nowrap;
+
+        &.menu-item-has-children {
+
+          &:hover {
+
+            > button {
+              transform: translateX(-2px);
+            }
+          }
+        }
+      }
+      a {
+
+        &:hover,
+        &:active,
+        &:focus {
+
+          + button {
+            transform: translateX(-2px);
+          }
+        }
+      }
+      .toggle-dropdown {
+        right: calc(100% - 10px);
+
+        &:after {
+          content: '\f104';
+        }
+      }
+      ul {
+        top: 0;
+        right: 100%;
+      }
+    }
+  }
+  .toggle-dropdown {
+    position: relative;
+    z-index: 0;
+    padding: 0;
+    border: none;
+    margin: 0 0 0 -9px;
+    transition: transform 0.15s, color 0.15s;
   }
 }

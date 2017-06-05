@@ -17,6 +17,10 @@
   @extend %white-box;
   border-radius: 0;
   padding: $baseline-height * 0.75 $column * 2;
+
+  &:after {
+    @include clearfix;
+  }
 }
 .site-title {
   @extend %twenty-one-pixels;
@@ -33,4 +37,19 @@
   @extend %fourteen-pixels;
   margin: 0;
   font-style: italic;
+}
+
+@media all and (min-width: $eight-hundred) {
+
+  .primary-header {
+    padding: $baseline-height $column * 4;
+  }
+  //.site-title {
+  //  font-size: 1.75em; /* 28px / 16px */
+  //  line-height: 1.357; /* 38px */
+  //}
+  //.tagline {
+  //  font-size: 1em;
+  //  line-height: 1.5;
+  //}
 }

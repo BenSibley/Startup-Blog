@@ -13,6 +13,9 @@
     background-image: linear-gradient(to right, $color-blue, $color-green);
   }
 }
+.secondary-header {
+  padding: $baseline-height/4 $column * 2;
+}
 .primary-header {
   @extend %white-box;
   border-radius: 0;
@@ -44,12 +47,7 @@
   .primary-header {
     padding: $baseline-height $column * 4;
   }
-  //.site-title {
-  //  font-size: 1.75em; /* 28px / 16px */
-  //  line-height: 1.357; /* 38px */
-  //}
-  //.tagline {
-  //  font-size: 1em;
-  //  line-height: 1.5;
-  //}
+  .secondary-header {
+    padding: $baseline-height/2 $column * 4;
+  }
 }

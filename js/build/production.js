@@ -86,16 +86,18 @@ jQuery(document).ready(function($){
     var body = $('body');
     var siteHeader = $('#site-header');
     var titleContainer = $('#title-container');
-    var toggleNavigation = $('#toggle-navigation');
     var menuPrimaryContainer = $('#menu-primary-container');
     var menuPrimary = $('#menu-primary');
     var menuPrimaryItems = $('#menu-primary-items');
+    var menuSecondaryContainer = $('#menu-secondary-container');
+    var menuSecondary = $('#menu-secondary');
+    var menuSecondaryItems = $('#menu-secondary-items');
+    var toggleNavigation = $('#toggle-navigation');
+    var toggleNavigationSecondary = $('#toggle-navigation-secondary');
     var toggleDropdown = $('.toggle-dropdown');
     var menuLink = $('.menu-item').children('a');
 
     objectFitAdjustment();
-
-    toggleNavigation.on('click', openPrimaryMenu);
 
     $('.post-content').fitVids({
         customSelector: 'iframe[src*="dailymotion.com"], iframe[src*="slideshare.net"], iframe[src*="animoto.com"], iframe[src*="blip.tv"], iframe[src*="funnyordie.com"], iframe[src*="hulu.com"], iframe[src*="ted.com"], iframe[src*="wordpress.tv"]'
@@ -110,6 +112,8 @@ jQuery(document).ready(function($){
         objectFitAdjustment();
     } );
 
+    toggleNavigation.on('click', openPrimaryMenu);
+
     function openPrimaryMenu() {
 
         if( menuPrimaryContainer.hasClass('open') ) {
@@ -119,7 +123,7 @@ jQuery(document).ready(function($){
             menuPrimaryContainer.css('max-height', 0 );
 
             // change screen reader text
-            //$(this).children('span').text(objectL10n.openMenu);
+            $(this).children('span').text(objectL10n.openMenu);
 
             // change aria text
             $(this).attr('aria-expanded', 'false');
@@ -135,7 +139,41 @@ jQuery(document).ready(function($){
             menuPrimaryContainer.css('max-height', maxHeight );
 
             // change screen reader text
-            //$(this).children('span').text(objectL10n.closeMenu);
+            $(this).children('span').text(objectL10n.closeMenu);
+
+            // change aria text
+            $(this).attr('aria-expanded', 'true');
+        }
+    }
+
+    toggleNavigationSecondary.on('click', openSecondaryMenu);
+
+    function openSecondaryMenu() {
+
+        if( menuSecondaryContainer.hasClass('open') ) {
+            menuSecondaryContainer.removeClass('open');
+            $(this).removeClass('open');
+
+            menuSecondaryContainer.css('max-height', 0 );
+
+            // change screen reader text
+            $(this).children('.screen-reader-text').text(objectL10n.openMenu);
+
+            // change aria text
+            $(this).attr('aria-expanded', 'false');
+
+        } else {
+            menuSecondaryContainer.addClass('open');
+            $(this).addClass('open');
+            var maxHeight = 0;
+            menuSecondaryItems.find('li').each(function(){
+                maxHeight += 60;
+            });
+            maxHeight += 36;
+            menuSecondaryContainer.css('max-height', maxHeight );
+
+            // change screen reader text
+            $(this).children('.screen-reader-text').text(objectL10n.closeMenu);
 
             // change aria text
             $(this).attr('aria-expanded', 'true');

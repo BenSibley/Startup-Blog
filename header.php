@@ -13,7 +13,16 @@
 	<div id="max-width" class="max-width">
 		<?php do_action( 'business_blog_before_header' ); ?>
 		<header class="site-header" id="site-header" role="banner">
-			<div class="secondary-header"></div>
+			<div class="secondary-header">
+				<button id="toggle-navigation-secondary" class="toggle-navigation-secondary" aria-expanded="false">
+					<span class="screen-reader-text"><?php _e( 'open menu', 'business-blog' ); ?></span>
+					<span class="icon">+</span>
+				</button>
+				<div id="menu-secondary-container" class="menu-secondary-container">
+					<?php get_template_part( 'menu', 'secondary' ); ?>
+				</div>
+				<?php ct_business_blog_social_icons_output(); ?>
+			</div>
 			<div class="primary-header">
 				<div id="title-container" class="title-container">
 					<?php get_template_part( 'logo' ) ?>
@@ -28,7 +37,6 @@
 				<div id="menu-primary-container" class="menu-primary-container">
 					<?php get_template_part( 'menu', 'primary' ); ?>
 					<?php get_template_part( 'content/search-bar' ); ?>
-					<?php ct_business_blog_social_icons_output(); ?>
 				</div>
 			</div>
 			

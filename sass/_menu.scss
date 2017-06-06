@@ -25,7 +25,7 @@
 }
 .menu-primary-container {
   overflow: hidden;
-  max-height: 0;
+  //max-height: 0;
   transition: max-height 0.35s;
 
   &.open {
@@ -38,38 +38,40 @@
 .menu-primary-items {
   list-style: none;
   margin: 0;
-  text-align: center;
+  //text-align: center;
 
   li {
-    @extend %twelve-pixels;
-    margin: 6px 0;
+    margin-bottom: $baseline-height/2;
+    //margin: 6px 0;
+
 
     &.current-menu-item {
 
       > a {
-        @extend %white-box;
-        box-shadow: 0 0 6px 0 rgba(0,0,0,0.07);
-        border: solid 1px $color-gray-blue;
-        padding: 5px 12px;
+        color: $color-blue;
+        //@extend %white-box;
+        //box-shadow: 0 0 6px 0 rgba(0,0,0,0.07);
+        //border: solid 1px $color-gray-blue;
+        //padding: 5px 12px;
       }
-      > .toggle-dropdown {
-        margin-left: 8px;
-      }
-      &.menu-item-has-children {
-        margin-right: -33px;
-
-        ul {
-          margin-left: -27px;
-        }
-      }
+      //> .toggle-dropdown {
+      //  margin-left: 8px;
+      //}
+      //&.menu-item-has-children {
+      //  margin-right: -33px;
+      //
+      //  ul {
+      //    margin-left: -27px;
+      //  }
+      //}
     }
-    &.menu-item-has-children {
-      margin-right: -25px;
-
-      ul {
-        margin-left: -19px;
-      }
-    }
+    //&.menu-item-has-children {
+    //  margin-right: -25px;
+    //
+    //  ul {
+    //    margin-left: -19px;
+    //  }
+    //}
     &.open {
 
       > a {
@@ -88,28 +90,38 @@
     }
   }
   a {
+    @extend %twelve-pixels;
     @extend %gray-link;
     font-family: $heading-font-stack;
     display: inline-block;
-    padding: 6px 12px;
+    padding: 3px 6px;
+    margin-left: -3px;
   }
   ul {
     position: relative;
     list-style: none;
-    margin: 0;
-    padding-bottom: $baseline-height/4;
+    margin: 0 0 0 $baseline-height/2;
+    //padding-bottom: $baseline-height/4;
     overflow: hidden;
-    max-height: 0;
+    //max-height: 0;
 
     li {
       font-size: 1em;
+
+      &:first-child {
+        margin-top: $baseline-height/2;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 }
 .toggle-dropdown {
   position: relative;
-  margin: 0;
-  padding: 5px 8px;
+  //margin: 0;
+  margin: 0 0 0 2px;
+  padding: 2px 5px;
   border: solid 1px $color-gray-blue-dark;
   border-radius: 3px;
   background: none;
@@ -130,10 +142,85 @@
     font-family: "FontAwesome"
   }
 }
+.menu-secondary-container {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.35s;
+}
+.menu-secondary-items {
+  list-style: none;
+  margin: $baseline-height/2 0 0;
+
+  li {
+    margin-bottom: $baseline-height/2;
+
+    &.current-menu-item {
+
+      a {
+        color: $color-blue;
+
+        &:link,
+        &:visited {
+          color: $color-blue;
+        }
+      }
+    }
+  }
+  a {
+    @extend %twelve-pixels;
+    font-family: $heading-font-stack;
+    padding: 6px 12px;
+    color: $color-gray-40;
+
+    &:link,
+    &:visited {
+      color: $color-gray-40;
+    }
+    &:hover,
+    &:active,
+    &:focus {
+      color: $color-blue;
+    }
+  }
+  ul {
+    margin: $baseline-height/2;
+    list-style: none;
+  }
+}
+.toggle-navigation-secondary {
+  @extend %twenty-eight-pixels;
+  font-family: $heading-font-stack;
+  margin: 0;
+  padding: 0 8px;
+  border: none;
+  background: none;
+  color: $color-gray-30;
+  transition: color 0.15s, transform 0.3s;
+
+  &:hover {
+    cursor: pointer;
+  }
+  &:hover,
+  &:active {
+    color: $color-blue;
+  }
+  &:focus {
+    outline: none;
+  }
+  &.open {
+    color: $color-blue;
+    transform: rotate(360deg);
+  }
+  .icon {
+    position: relative;
+    top: 3px;
+  }
+}
 
 @media all and (min-width: $eight-hundred) {
 
-  .toggle-navigation {
+  .toggle-navigation,
+  .toggle-navigation-secondary {
     display: none;
   }
   .menu-primary-container {
@@ -277,5 +364,23 @@
     border: none;
     margin: 0 0 0 -9px;
     transition: transform 0.15s, color 0.15s;
+  }
+  .menu-secondary-container {
+    max-height: none;
+  }
+  .menu-secondary-items {
+    margin: 0;
+
+    li {
+      display: inline-block;
+      margin: 0 0 0 -4px;
+
+      &:first-child {
+
+        a {
+          padding-left: 4px;
+        }
+      }
+    }
   }
 }

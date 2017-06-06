@@ -29,7 +29,8 @@ if ( ! function_exists( ( 'ct_business_blog_theme_setup' ) ) ) {
 		}
 
 		register_nav_menus( array(
-			'primary' => __( 'Primary', 'business-blog' )
+			'primary'   => __( 'Primary', 'business-blog' ),
+			'secondary' => __( 'Secondary', 'business-blog' )
 		) );
 
 		load_theme_textdomain( 'business-blog', get_template_directory() . '/languages' );
@@ -378,7 +379,7 @@ function ct_business_blog_nav_dropdown_buttons( $item_output, $item, $depth, $ar
 
 	return $item_output;
 }
-add_filter( 'walker_nav_menu_start_el', 'ct_business_blog_nav_dropdown_buttons', 10, 4 );
+//add_filter( 'walker_nav_menu_start_el', 'ct_business_blog_nav_dropdown_buttons', 10, 4 );
 
 function ct_business_blog_sticky_post_marker() {
 

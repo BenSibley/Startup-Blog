@@ -97,38 +97,6 @@ jQuery(document).ready(function($){
         }
     }
 
-    // display the dropdown menus
-    toggleDropdown.on('click', openDropdownMenu);
-
-    function openDropdownMenu() {
-
-        // get the buttons parent (li)
-        var menuItem = $(this).parent();
-
-        // if already opened
-        if( menuItem.hasClass('open') ) {
-
-            // remove open class
-            menuItem.removeClass('open');
-
-            // change screen reader text
-            //$(this).children('span').text(objectL10n.openMenu);
-
-            // change aria text
-            $(this).attr('aria-expanded', 'false');
-        } else {
-
-            // add class to open the menu
-            menuItem.addClass('open');
-
-            // change screen reader text
-            //$(this).children('span').text(objectL10n.closeMenu);
-
-            // change aria text
-            $(this).attr('aria-expanded', 'true');
-        }
-    }
-
     /* allow keyboard access/visibility for dropdown menu items */
     menuLink.focus(function(){
         $(this).parents('ul').addClass('focused');

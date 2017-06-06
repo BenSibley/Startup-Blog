@@ -1,129 +1,94 @@
-.toggle-navigation {
-  background: none;
-  border: none;
-  margin: 6px 0 0;
-  padding: 0;
-  float: right;
-  transition: fill 0.15s;
-
-  &:hover {
-    cursor: pointer;
-
-    svg g {
-      fill: $color-blue;
-    }
-  }
-  &:focus {
-    outline: none;
-  }
-  &.open {
-
-    svg g {
-      fill: $color-blue;
-    }
-  }
-}
-.menu-primary-container {
+.menu-secondary-container {
   overflow: hidden;
   max-height: 0;
   transition: max-height 0.35s;
-
-  &.open {
-    max-height: none;
-  }
 }
-.menu-primary {
-  margin: $baseline-height * 1.5 0 0;
-}
-.menu-primary-items {
+.menu-secondary-items {
   list-style: none;
-  margin: 0;
+  margin: $baseline-height/2 0 0;
 
   li {
     margin-bottom: $baseline-height/2;
 
     &.current-menu-item {
 
-      > a {
+      a {
         color: $color-blue;
+
+        &:link,
+        &:visited {
+          color: $color-blue;
+        }
       }
     }
   }
   a {
     @extend %twelve-pixels;
-    @extend %gray-link;
     font-family: $heading-font-stack;
-    display: inline-block;
-    padding: 3px 6px;
-    margin-left: -3px;
+    padding: 6px 12px;
+    color: $color-gray-40;
+
+    &:link,
+    &:visited {
+      color: $color-gray-40;
+    }
+    &:hover,
+    &:active,
+    &:focus {
+      color: $color-blue;
+    }
   }
   ul {
-    position: relative;
+    margin: $baseline-height/2;
     list-style: none;
-    margin: 0 0 0 $baseline-height/2;
-    overflow: hidden;
-
-    li {
-      font-size: 1em;
-
-      &:first-child {
-        margin-top: $baseline-height/2;
-      }
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
   }
 }
+.toggle-navigation-secondary {
+  @extend %twenty-eight-pixels;
+  font-family: $heading-font-stack;
+  margin: 0;
+  padding: 0 8px;
+  border: none;
+  background: none;
+  color: $color-gray-30;
+  transition: color 0.15s, transform 0.3s;
 
-
-@media all and (min-width: $five-hundred) {
-
-  .menu-primary-items {
-
-    &:after {
-      @include clearfix;
-    }
-    > li {
-      display: inline-block;
-      vertical-align: top;
-      width: 50%;
-      float: left;
-
-      &:nth-child(even) {
-        float: right;
-      }
-    }
+  &:hover {
+    cursor: pointer;
+  }
+  &:hover,
+  &:active {
+    color: $color-blue;
+  }
+  &:focus {
+    outline: none;
+  }
+  &.open {
+    color: $color-blue;
+    transform: rotate(360deg);
+  }
+  .icon {
+    position: relative;
+    top: 3px;
   }
 }
 
 @media all and (min-width: $eight-hundred) {
 
-  .toggle-navigation,
-  .toggle-navigation-secondary {
-    display: none;
-  }
-  .menu-primary-container {
+  .menu-secondary-container {
     max-height: none;
     overflow: visible;
-    float: right;
   }
-  .menu-primary {
+  .menu-secondary-items {
     margin: 0;
-  }
-  .menu-primary-items {
 
-    > .menu-item-has-children > a {
-      padding-right: 8px;
+    > li:first-child a {
+      padding-left: 4px;
     }
     li {
+      display: inline-block;
       margin: 0 0 0 -4px;
-      width: auto;
-      float: none;
 
-      &:nth-child(even) {
-        float: none;
-      }
       &.menu-item-has-children {
         position: relative;
 
@@ -137,23 +102,19 @@
             top: 2px;
           }
         }
-        > a {
-
-          &:after {
-            content: '\f107';
-            font-family: "FontAwesome";
-            position: relative;
-            margin-left: 4px;
-            transition: top 0.15s, left 0.15s, color 0.15s;
-          }
+        > a:after {
+          content: '\f107';
+          font-family: "FontAwesome";
+          position: relative;
+          margin-left: 4px;
+          transition: top 0.15s, left 0.15s, color 0.15s;
         }
       }
     }
     a {
       position: relative;
       z-index: 1;
-      margin-left: 0;
-      padding: 6px 12px;
+      display: inline-block;
 
       &:after {
         top: 0;
@@ -208,7 +169,11 @@
       li {
         display: block;
         white-space: nowrap;
+        margin-bottom: 0;
 
+        &:first-child {
+          margin-top: $baseline-height/2;
+        }
         &.menu-item-has-children {
 
           &:hover {

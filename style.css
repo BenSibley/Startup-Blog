@@ -22,7 +22,7 @@ Business Blog is distributed under the terms of the GNU GPL
 .toggle-navigation-secondary {
   font-size: 1.75em;
   /* 28px / 16px */
-  line-height: 1.357;
+  line-height: 1.358;
   /* 38px */
 }
 
@@ -34,7 +34,7 @@ Business Blog is distributed under the terms of the GNU GPL
 }
 
 input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="file"]):not([type="image"]),
-textarea, input[type="submit"], .tagline {
+textarea, input[type="submit"], .tagline, .social-media-icons i {
   font-size: 0.875em;
   /* 14px / 16px */
   line-height: 1.571;
@@ -468,6 +468,14 @@ a img {
 .secondary-header {
   padding: 0.375em 5.556%;
 }
+.secondary-header:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
 
 .primary-header {
   border-radius: 0;
@@ -495,13 +503,42 @@ a img {
   font-style: italic;
 }
 
+.social-media-icons {
+  list-style: none;
+  margin: 0.375em 0;
+  text-align: center;
+  float: right;
+}
+.social-media-icons li {
+  display: inline-block;
+  margin-left: 0.75em;
+}
+.social-media-icons a {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.05);
+  -webkit-transition: color 0.15s, background 0.15s;
+  transition: color 0.15s, background 0.15s;
+}
+.social-media-icons a:hover, .social-media-icons a:active, .social-media-icons a:focus {
+  color: #fff;
+  background: #20A4E6;
+}
+.social-media-icons i {
+  display: inline-block;
+  vertical-align: text-top;
+}
+
 @media all and (min-width: 50em) {
   .primary-header {
     padding: 1.5em 11.112%;
   }
 
   .secondary-header {
-    padding: 0.75em 11.112%;
+    padding: 0.375em 11.112%;
   }
 }
 .pagination {
@@ -536,7 +573,6 @@ a img {
 
 .menu-primary-container {
   overflow: hidden;
-  max-height: 0;
   -webkit-transition: max-height 0.35s;
   transition: max-height 0.35s;
 }
@@ -597,6 +633,15 @@ a img {
   }
   .menu-primary-items > li:nth-child(even) {
     float: right;
+  }
+
+  .menu-primary-items:not(.hierarchical) > li {
+    width: auto;
+    float: none;
+    margin-right: 0.75em;
+  }
+  .menu-primary-items:not(.hierarchical) > li:nth-child(even) {
+    float: none;
   }
 }
 @media all and (min-width: 50em) {
@@ -720,6 +765,10 @@ a img {
     top: 0;
     right: 100%;
   }
+
+  .menu-primary-items:not(.hierarchical) > li {
+    margin-right: 0;
+  }
 }
 .menu-secondary-container {
   overflow: hidden;
@@ -758,6 +807,7 @@ a img {
 }
 
 .toggle-navigation-secondary {
+  line-height: 1.286;
   font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 0 8px;
@@ -791,6 +841,9 @@ a img {
   .menu-secondary-container {
     max-height: none;
     overflow: visible;
+    float: left;
+    margin: 6px 0;
+    line-height: 1;
   }
 
   .menu-secondary-items {
@@ -825,6 +878,7 @@ a img {
     position: relative;
     z-index: 1;
     display: inline-block;
+    padding: 0 12px;
   }
   .menu-secondary-items a:after {
     top: 0;
@@ -895,6 +949,9 @@ a img {
   .menu-secondary-items ul li.menu-item-has-children > a:after {
     content: '\f104';
     right: calc(100% + 4px);
+  }
+  .menu-secondary-items ul a {
+    padding: 6px 12px;
   }
   .menu-secondary-items ul ul {
     top: 0;

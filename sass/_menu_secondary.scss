@@ -45,6 +45,7 @@
 }
 .toggle-navigation-secondary {
   @extend %twenty-eight-pixels;
+  line-height: 1.286;
   font-family: $heading-font-stack;
   margin: 0;
   padding: 0 8px;
@@ -78,6 +79,9 @@
   .menu-secondary-container {
     max-height: none;
     overflow: visible;
+    float: left;
+    margin: 6px 0;
+    line-height: 1;
   }
   .menu-secondary-items {
     margin: 0;
@@ -115,6 +119,7 @@
       position: relative;
       z-index: 1;
       display: inline-block;
+      padding: 0 12px;
 
       &:after {
         top: 0;
@@ -200,6 +205,9 @@
             }
           }
         }
+      }
+      a {
+        padding: 6px 12px;
       }
       ul {
         top: 0;

@@ -15,6 +15,10 @@
 }
 .secondary-header {
   padding: $baseline-height/4 $column * 2;
+
+  &:after {
+    @include clearfix;
+  }
 }
 .primary-header {
   @extend %white-box;
@@ -41,6 +45,38 @@
   margin: 0;
   font-style: italic;
 }
+.social-media-icons {
+  list-style: none;
+  margin: $baseline-height/4 0;
+  text-align: center;
+  float: right;
+
+  li {
+    display: inline-block;
+    margin-left: $baseline-height/2;
+  }
+  a {
+    display: inline-block;
+    width: $baseline-height;
+    height: $baseline-height;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 4px 0 rgba(0,0,0,0.05);
+    transition: color 0.15s, background 0.15s;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: #fff;
+      background: $color-blue;
+    }
+  }
+  i {
+    @extend %fourteen-pixels;
+    display: inline-block;
+    vertical-align: text-top;
+  }
+}
 
 @media all and (min-width: $eight-hundred) {
 
@@ -48,6 +84,6 @@
     padding: $baseline-height $column * 4;
   }
   .secondary-header {
-    padding: $baseline-height/2 $column * 4;
+    padding: $baseline-height/4 $column * 4;
   }
 }

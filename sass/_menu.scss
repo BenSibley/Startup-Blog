@@ -25,7 +25,7 @@
 }
 .menu-primary-container {
   overflow: hidden;
-  max-height: 0;
+  //max-height: 0;
   transition: max-height 0.35s;
 
   &.open {
@@ -92,6 +92,18 @@
 
       &:nth-child(even) {
         float: right;
+      }
+    }
+  }
+  .menu-primary-items:not(.hierarchical) {
+
+    > li {
+      width: auto;
+      float: none;
+      margin-right: $baseline-height/2;
+
+      &:nth-child(even) {
+        float: none;
       }
     }
   }
@@ -240,6 +252,12 @@
         top: 0;
         right: 100%;
       }
+    }
+  }
+  .menu-primary-items:not(.hierarchical) {
+
+    > li {
+      margin-right: 0;
     }
   }
 }

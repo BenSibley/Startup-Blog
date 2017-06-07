@@ -251,45 +251,46 @@ if ( ! function_exists( 'ct_business_blog_social_array' ) ) {
 		$social_sites = array(
 			'twitter'       => 'business_blog_twitter_profile',
 			'facebook'      => 'business_blog_facebook_profile',
-			'google-plus'   => 'business_blog_googleplus_profile',
-			'pinterest'     => 'business_blog_pinterest_profile',
-			'linkedin'      => 'business_blog_linkedin_profile',
-			'youtube'       => 'business_blog_youtube_profile',
-			'vimeo'         => 'business_blog_vimeo_profile',
-			'tumblr'        => 'business_blog_tumblr_profile',
 			'instagram'     => 'business_blog_instagram_profile',
-			'flickr'        => 'business_blog_flickr_profile',
-			'dribbble'      => 'business_blog_dribbble_profile',
-			'rss'           => 'business_blog_rss_profile',
-			'reddit'        => 'business_blog_reddit_profile',
-			'soundcloud'    => 'business_blog_soundcloud_profile',
-			'spotify'       => 'business_blog_spotify_profile',
-			'vine'          => 'business_blog_vine_profile',
-			'yahoo'         => 'business_blog_yahoo_profile',
+			'linkedin'      => 'business_blog_linkedin_profile',
+			'pinterest'     => 'business_blog_pinterest_profile',
+			'google-plus'   => 'business_blog_googleplus_profile',
+			'youtube'       => 'business_blog_youtube_profile',
+			'email'         => 'business_blog_email_profile',
+			'email-form'    => 'business_blog_email_form_profile',
+
+			'500px'         => 'business_blog_500px_profile',
 			'behance'       => 'business_blog_behance_profile',
 			'codepen'       => 'business_blog_codepen_profile',
 			'delicious'     => 'business_blog_delicious_profile',
-			'stumbleupon'   => 'business_blog_stumbleupon_profile',
 			'deviantart'    => 'business_blog_deviantart_profile',
 			'digg'          => 'business_blog_digg_profile',
+			'dribbble'      => 'business_blog_dribbble_profile',
+			'flickr'        => 'business_blog_flickr_profile',
+			'foursquare'    => 'business_blog_foursquare_profile',
 			'github'        => 'business_blog_github_profile',
 			'hacker-news'   => 'business_blog_hacker-news_profile',
-			'steam'         => 'business_blog_steam_profile',
-			'vk'            => 'business_blog_vk_profile',
-			'weibo'         => 'business_blog_weibo_profile',
-			'tencent-weibo' => 'business_blog_tencent_weibo_profile',
-			'500px'         => 'business_blog_500px_profile',
-			'foursquare'    => 'business_blog_foursquare_profile',
+			'paypal'        => 'business_blog_paypal_profile',
+			'qq'            => 'business_blog_qq_profile',
+			'reddit'        => 'business_blog_reddit_profile',
+			'rss'           => 'business_blog_rss_profile',
+			'skype'         => 'business_blog_skype_profile',
 			'slack'         => 'business_blog_slack_profile',
 			'slideshare'    => 'business_blog_slideshare_profile',
-			'qq'            => 'business_blog_qq_profile',
-			'whatsapp'      => 'business_blog_whatsapp_profile',
-			'skype'         => 'business_blog_skype_profile',
+			'soundcloud'    => 'business_blog_soundcloud_profile',
+			'spotify'       => 'business_blog_spotify_profile',
+			'steam'         => 'business_blog_steam_profile',
+			'stumbleupon'   => 'business_blog_stumbleupon_profile',
+			'tencent-weibo' => 'business_blog_tencent_weibo_profile',
+			'tumblr'        => 'business_blog_tumblr_profile',
+			'vimeo'         => 'business_blog_vimeo_profile',
+			'vine'          => 'business_blog_vine_profile',
+			'vk'            => 'business_blog_vk_profile',
 			'wechat'        => 'business_blog_wechat_profile',
+			'weibo'         => 'business_blog_weibo_profile',
+			'whatsapp'      => 'business_blog_whatsapp_profile',
 			'xing'          => 'business_blog_xing_profile',
-			'paypal'        => 'business_blog_paypal_profile',
-			'email'         => 'business_blog_email_profile',
-			'email-form'    => 'business_blog_email_form_profile'
+			'yahoo'         => 'business_blog_yahoo_profile',
 		);
 
 		return apply_filters( 'ct_business_blog_social_array_filter', $social_sites );
@@ -556,3 +557,19 @@ function ct_business_blog_allow_skype_protocol( $protocols ){
 	return $protocols;
 }
 add_filter( 'kses_allowed_protocols' , 'ct_business_blog_allow_skype_protocol' );
+
+// Add class to primary menu if single tier so mobile menu items can be listed horizontally instead of vertically
+function ct_business_blog_primary_dropdown_check( $item_output, $item, $depth, $args ) {
+
+	if ( $args->theme_location == 'primary' ) {
+
+		if ( in_array( 'menu-item-has-children', $item->classes ) ) {
+			if ( strpos( $args->menu_class, 'hierarchical' ) == false ) {
+				$args->menu_class .= ' hierarchical';
+			}
+		}
+	}
+
+	return $item_output;
+}
+add_filter( 'walker_nav_menu_start_el', 'ct_business_blog_primary_dropdown_check', 10, 4 );

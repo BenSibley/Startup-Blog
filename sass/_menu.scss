@@ -1,9 +1,12 @@
 .toggle-navigation {
   background: none;
   border: none;
-  margin: 6px 0 0;
+  margin: 0 0 0 auto;
   padding: 0;
-  float: right;
+  align-self: center;
+  //float: right;
+  //margin-left: auto;
+  //display: block;
   transition: fill 0.15s;
 
   &:hover {
@@ -25,7 +28,8 @@
 }
 .menu-primary-container {
   overflow: hidden;
-  //max-height: 0;
+  max-height: 0;
+  margin-left: auto;
   transition: max-height 0.35s;
 
   &.open {
@@ -39,6 +43,9 @@
   list-style: none;
   margin: 0;
 
+  &:after {
+    @include clearfix;
+  }
   li {
     margin-bottom: $baseline-height/2;
 
@@ -81,9 +88,6 @@
 
   .menu-primary-items {
 
-    &:after {
-      @include clearfix;
-    }
     > li {
       display: inline-block;
       vertical-align: top;
@@ -118,7 +122,6 @@
   .menu-primary-container {
     max-height: none;
     overflow: visible;
-    float: right;
   }
   .menu-primary {
     margin: 0;
@@ -159,6 +162,9 @@
             transition: top 0.15s, left 0.15s, color 0.15s;
           }
         }
+      }
+      &:last-child{
+        margin-right: -12px;
       }
     }
     a {

@@ -37,7 +37,7 @@ jQuery(document).ready(function($){
             menuPrimaryContainer.removeClass('open');
             $(this).removeClass('open');
 
-            menuPrimaryContainer.css('max-height', 0 );
+            menuPrimaryContainer.css('max-height','');
 
             // change screen reader text
             $(this).children('span').text(objectL10n.openMenu);

@@ -22,6 +22,8 @@
 }
 .primary-header {
   @extend %white-box;
+  display: flex;
+  flex-flow: row wrap;
   border-radius: 0;
   padding: $baseline-height * 0.75 $column * 2;
 
@@ -39,6 +41,8 @@
 }
 .title-container {
   display: inline-block;
+  flex-shrink: 0;
+  align-self: center;
 }
 .tagline {
   @extend %fourteen-pixels;
@@ -81,9 +85,13 @@
 @media all and (min-width: $eight-hundred) {
 
   .primary-header {
+    flex-flow: row nowrap;
     padding: $baseline-height $column * 4;
   }
   .secondary-header {
     padding: $baseline-height/4 $column * 4;
+  }
+  .title-container {
+    margin-right: $baseline-height * 1.5;
   }
 }

@@ -478,6 +478,12 @@ a img {
 }
 
 .primary-header {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
   border-radius: 0;
   padding: 1.125em 5.556%;
 }
@@ -496,6 +502,12 @@ a img {
 
 .title-container {
   display: inline-block;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
 }
 
 .tagline {
@@ -534,11 +546,18 @@ a img {
 
 @media all and (min-width: 50em) {
   .primary-header {
+    -webkit-flex-flow: row nowrap;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
     padding: 1.5em 11.112%;
   }
 
   .secondary-header {
     padding: 0.375em 11.112%;
+  }
+
+  .title-container {
+    margin-left: 2.25em;
   }
 }
 .pagination {
@@ -552,9 +571,11 @@ a img {
 .toggle-navigation {
   background: none;
   border: none;
-  margin: 6px 0 0;
+  margin: 0 auto 0 0;
   padding: 0;
-  float: left;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
   -webkit-transition: fill 0.15s;
   transition: fill 0.15s;
 }
@@ -573,6 +594,8 @@ a img {
 
 .menu-primary-container {
   overflow: hidden;
+  max-height: 0;
+  margin-right: auto;
   -webkit-transition: max-height 0.35s;
   transition: max-height 0.35s;
 }
@@ -587,6 +610,14 @@ a img {
 .menu-primary-items {
   list-style: none;
   margin: 0;
+}
+.menu-primary-items:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
 }
 .menu-primary-items li {
   margin-bottom: 0.75em;
@@ -617,14 +648,6 @@ a img {
 }
 
 @media all and (min-width: 31.25em) {
-  .menu-primary-items:after {
-    content: ".";
-    display: block;
-    clear: both;
-    visibility: hidden;
-    line-height: 0;
-    height: 0;
-  }
   .menu-primary-items > li {
     display: inline-block;
     vertical-align: top;
@@ -653,7 +676,6 @@ a img {
   .menu-primary-container {
     max-height: none;
     overflow: visible;
-    float: left;
   }
 
   .menu-primary {
@@ -688,6 +710,9 @@ a img {
     margin-right: 4px;
     -webkit-transition: top 0.15s, right 0.15s, color 0.15s;
     transition: top 0.15s, right 0.15s, color 0.15s;
+  }
+  .menu-primary-items li:last-child {
+    margin-left: -12px;
   }
   .menu-primary-items a {
     position: relative;

@@ -4,6 +4,7 @@
   margin: 0 0 0 auto;
   padding: 0;
   align-self: center;
+  flex-shrink: 0;
   //float: right;
   //margin-left: auto;
   //display: block;
@@ -29,7 +30,7 @@
 .menu-primary-container {
   overflow: hidden;
   max-height: 0;
-  margin-left: auto;
+  width: 100%;
   transition: max-height 0.35s;
 
   &.open {
@@ -83,7 +84,6 @@
   }
 }
 
-
 @media all and (min-width: $five-hundred) {
 
   .menu-primary-items {
@@ -122,6 +122,9 @@
   .menu-primary-container {
     max-height: none;
     overflow: visible;
+    align-self: center;
+    margin-left: auto;
+    width: auto;
   }
   .menu-primary {
     margin: 0;
@@ -226,6 +229,7 @@
       li {
         display: block;
         white-space: nowrap;
+        padding-right: 8px;
 
         &.menu-item-has-children {
 
@@ -253,6 +257,10 @@
             }
           }
         }
+      }
+      a {
+        //display: inline-block;
+        //white-space: nowrap;
       }
       ul {
         top: 0;

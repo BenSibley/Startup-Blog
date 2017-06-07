@@ -22,6 +22,12 @@ if ( ! function_exists( ( 'ct_business_blog_theme_setup' ) ) ) {
 			'footer'    => 'overflow-container',
 			'render'    => 'ct_business_blog_infinite_scroll_render'
 		) );
+		add_theme_support( 'custom-logo', array(
+			'height'      => 60,
+			'width'       => 240,
+			'flex-height' => true,
+			'flex-width'  => true
+		) );
 
 		require_once( trailingslashit( get_template_directory() ) . 'theme-options.php' );
 		foreach ( glob( trailingslashit( get_template_directory() ) . 'inc/*' ) as $filename ) {

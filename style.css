@@ -496,10 +496,6 @@ a img {
   height: 0;
 }
 
-.site-title {
-  font-family: "Montserrat", sans-serif;
-}
-
 .title-container {
   display: inline-block;
   -webkit-flex-shrink: 0;
@@ -508,6 +504,16 @@ a img {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
+}
+
+.site-title {
+  font-family: "Montserrat", sans-serif;
+}
+
+.custom-logo {
+  max-width: 100%;
+  width: auto;
+  height: auto;
 }
 
 .tagline {
@@ -549,7 +555,7 @@ a img {
     -webkit-flex-flow: row nowrap;
     -ms-flex-flow: row nowrap;
     flex-flow: row nowrap;
-    padding: 1.5em 11.112%;
+    padding: 1.125em 11.112%;
   }
 
   .secondary-header {
@@ -576,6 +582,9 @@ a img {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   -webkit-transition: fill 0.15s;
   transition: fill 0.15s;
 }
@@ -595,7 +604,7 @@ a img {
 .menu-primary-container {
   overflow: hidden;
   max-height: 0;
-  margin-left: auto;
+  width: 100%;
   -webkit-transition: max-height 0.35s;
   transition: max-height 0.35s;
 }
@@ -676,6 +685,11 @@ a img {
   .menu-primary-container {
     max-height: none;
     overflow: visible;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    margin-left: auto;
+    width: auto;
   }
 
   .menu-primary {
@@ -773,6 +787,7 @@ a img {
   .menu-primary-items ul li {
     display: block;
     white-space: nowrap;
+    padding-right: 8px;
   }
   .menu-primary-items ul li.menu-item-has-children:hover a:after {
     top: 0;
@@ -1048,7 +1063,14 @@ a img {
 
 .entry {
   margin: 1.5em 0;
+}
+
+.post-inner {
   padding: 1.125em 6.2505% 1.5em;
+}
+
+.post-byline {
+  font-style: italic;
 }
 
 .post-content iframe {

@@ -67,6 +67,8 @@
 .entry {
   @extend %white-box;
   margin: $baseline-height 0;
+}
+.post-inner {
   padding: $baseline-height * 0.75 $column * 2 * 1.125 $baseline-height;
 }
 .post-title {
@@ -74,6 +76,9 @@
   a {
     @extend %gray-link;
   }
+}
+.post-byline {
+  font-style: italic;
 }
 .post-content {
 

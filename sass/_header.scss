@@ -31,6 +31,11 @@
     @include clearfix;
   }
 }
+.title-container {
+  display: inline-block;
+  flex-shrink: 0;
+  align-self: center;
+}
 .site-title {
   @extend %twenty-one-pixels;
   font-family: $heading-font-stack;
@@ -39,10 +44,10 @@
     @extend %gray-link;
   }
 }
-.title-container {
-  display: inline-block;
-  flex-shrink: 0;
-  align-self: center;
+.custom-logo {
+  max-width: 100%;
+  width: auto;
+  height: auto;
 }
 .tagline {
   @extend %fourteen-pixels;
@@ -86,7 +91,7 @@
 
   .primary-header {
     flex-flow: row nowrap;
-    padding: $baseline-height $column * 4;
+    padding: $baseline-height * 0.75 $column * 4;
   }
   .secondary-header {
     padding: $baseline-height/4 $column * 4;

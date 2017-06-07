@@ -1,21 +1,17 @@
 <?php
 
-$image = get_theme_mod( 'logo_upload' );
+$logo = get_theme_mod( 'custom_logo' );
 
-if ( $image ) {
-	$image_alt = get_post_meta( attachment_url_to_postid( $image ), '_wp_attachment_image_alt', true);
-	if ( empty( $image_alt ) ) {
-		$image_alt = esc_attr( get_bloginfo( 'name' ) );
+if ( $logo ) {
+	echo "<div id='site-title' class='site-title'>";
+	if ( function_exists( 'the_custom_logo' ) ) {
+		the_custom_logo();
 	}
-	$logo = "<span class='screen-reader-text'>" . get_bloginfo( 'name' ) . "</span><img class='logo' src='" . esc_url( get_theme_mod( 'logo_upload' ) ) . "' alt='" . $image_alt . "' />";
+	echo "</div>";
 } else {
-	$logo = get_bloginfo( 'name' );
+	echo "<div id='site-title' class='site-title'>";
+		echo "<a href='" . esc_url( home_url() ) . "'>";
+			bloginfo( 'name' );
+		echo "</a>";
+	echo "</div>";
 }
-
-$output = "<div id='site-title' class='site-title'>";
-$output .= "<a href='" . esc_url( home_url() ) . "'>";
-$output .= $logo;
-$output .= "</a>";
-$output .= "</div>";
-
-echo $output;

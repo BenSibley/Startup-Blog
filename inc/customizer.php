@@ -20,44 +20,6 @@ function ct_business_blog_add_customizer_content( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
-	/***** Logo Upload *****/
-
-	// section
-	$wp_customize->add_section( 'ct_business_blog_logo_upload', array(
-		'title'    => __( 'Logo', 'business-blog' ),
-		'priority' => 20
-	) );
-	// Upload - setting
-	$wp_customize->add_setting( 'logo_upload', array(
-		'sanitize_callback' => 'esc_url_raw'
-	) );
-	// Upload - control
-	$wp_customize->add_control( new WP_Customize_Image_Control(
-		$wp_customize, 'logo_image', array(
-			'label'    => __( 'Upload custom logo.', 'business-blog' ),
-			'section'  => 'ct_business_blog_logo_upload',
-			'settings' => 'logo_upload'
-		)
-	) );
-	// Size - setting
-	$wp_customize->add_setting( 'logo_size', array(
-		'default'           => '48',
-		'sanitize_callback' => 'absint',
-		'transport'         => 'postMessage'
-	) );
-	// Size - control
-	$wp_customize->add_control( 'logo_size', array(
-		'label'    => __( 'Adjust the size of the logo', 'business-blog' ),
-		'section'  => 'ct_business_blog_logo_upload',
-		'settings' => 'logo_size',
-		'type'     => 'range',
-		'input_attrs' => array(
-			'min'  => 5,
-			'max'  => 750,
-			'step' => 1
-		)
-	) );
-
 	/***** Social Media Icons *****/
 
 	// get the social sites array

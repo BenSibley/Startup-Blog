@@ -148,53 +148,8 @@ if ( ! function_exists( 'ct_business_blog_remove_comments_notes_after' ) ) {
 }
 add_action( 'comment_form_defaults', 'ct_business_blog_remove_comments_notes_after' );
 
-if ( ! function_exists( 'ct_business_blog_excerpt' ) ) {
-	function ct_business_blog_excerpt() {
-
-		global $post;
-		$show_full_post = get_theme_mod( 'full_post' );
-		$read_more_text = get_theme_mod( 'read_more_text' );
-		$ismore         = strpos( $post->post_content, '<!--more-->' );
-
-		if ( ( $show_full_post == 'yes' ) && ! is_search() ) {
-			if ( $ismore ) {
-				// Has to be written this way because i18n text CANNOT be stored in a variable
-				if ( ! empty( $read_more_text ) ) {
-					the_content( $read_more_text . " <span class='screen-reader-text'>" . get_the_title() . "</span>" );
-				} else {
-					the_content( __( 'Continue reading', 'business-blog' ) . " <span class='screen-reader-text'>" . get_the_title() . "</span>" );
-				}
-			} else {
-				the_content();
-			}
-		} elseif ( $ismore ) {
-			if ( ! empty( $read_more_text ) ) {
-				the_content( $read_more_text . " <span class='screen-reader-text'>" . get_the_title() . "</span>" );
-			} else {
-				the_content( __( 'Continue reading', 'business-blog' ) . " <span class='screen-reader-text'>" . get_the_title() . "</span>" );
-			}
-		} else {
-			the_excerpt();
-		}
-	}
-}
-
-if ( ! function_exists( 'ct_business_blog_excerpt_read_more_link' ) ) {
-	function ct_business_blog_excerpt_read_more_link( $output ) {
-
-		$read_more_text = get_theme_mod( 'read_more_text' );
-
-		if ( ! empty( $read_more_text ) ) {
-			return $output . "<p><a class='more-link' href='" . esc_url( get_permalink() ) . "'>" . $read_more_text . " <span class='screen-reader-text'>" . get_the_title() . "</span></a></p>";
-		} else {
-			return $output . "<p><a class='more-link' href='" . esc_url( get_permalink() ) . "'>" . __( 'Continue reading', 'business-blog' ) . " <span class='screen-reader-text'>" . get_the_title() . "</span></a></p>";
-		}
-	}
-}
-add_filter( 'the_excerpt', 'ct_business_blog_excerpt_read_more_link' );
-
-if ( ! function_exists( 'ct_business_blog_custom_excerpt_length' ) ) {
-	function ct_business_blog_custom_excerpt_length( $length ) {
+if ( ! function_exists( 'business_blog_custom_excerpt_length' ) ) {
+	function business_blog_custom_excerpt_length( $length ) {
 
 		$new_excerpt_length = get_theme_mod( 'excerpt_length' );
 
@@ -207,26 +162,21 @@ if ( ! function_exists( 'ct_business_blog_custom_excerpt_length' ) ) {
 		}
 	}
 }
-add_filter( 'excerpt_length', 'ct_business_blog_custom_excerpt_length', 99 );
+add_filter( 'excerpt_length', 'business_blog_custom_excerpt_length', 99 );
 
-if ( ! function_exists( 'ct_business_blog_new_excerpt_more' ) ) {
-	function ct_business_blog_new_excerpt_more( $more ) {
 
-		$new_excerpt_length = get_theme_mod( 'excerpt_length' );
-		$excerpt_more       = ( $new_excerpt_length === 0 ) ? '' : '&#8230;';
-
-		return $excerpt_more;
-	}
+function business_blog_sdfasdfasdf() {
+	return '&#8230;';
 }
-add_filter( 'excerpt_more', 'ct_business_blog_new_excerpt_more' );
+add_filter( 'excerpt_more', 'business_blog_sdfasdfasdf', 10 ); // automatic excerpts
 
-if ( ! function_exists( 'ct_business_blog_remove_more_link_scroll' ) ) {
-	function ct_business_blog_remove_more_link_scroll( $link ) {
+if ( ! function_exists( 'business_blog_remove_more_link_scroll' ) ) {
+	function business_blog_remove_more_link_scroll( $link ) {
 		$link = preg_replace( '|#more-[0-9]+|', '', $link );
 		return $link;
 	}
 }
-add_filter( 'the_content_more_link', 'ct_business_blog_remove_more_link_scroll' );
+add_filter( 'the_content_more_link', 'business_blog_remove_more_link_scroll' );
 
 if ( ! function_exists( 'ct_business_blog_featured_image' ) ) {
 	function ct_business_blog_featured_image() {

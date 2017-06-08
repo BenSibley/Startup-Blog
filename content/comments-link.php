@@ -1,12 +1,19 @@
-<span class="comments-link">
-	<i class="fa fa-comment" title="<?php _e( 'comment icon', 'business-blog' ); ?>"></i>
+<?php
+$classes = 'post-comments-link';
+$icon = 'fa-comment-o';
+if ( !comments_open() ) {
+	$classes .= ' closed';
+	$icon = 'fa-comment';
+}
+
+?>
+<span class="<?php echo $classes; ?>">
 	<?php
-	if ( ! comments_open() && get_comments_number() < 1 ) :
-		comments_number( __( 'Comments closed', 'business-blog' ), __( '1 Comment', 'business-blog' ), __( '% Comments', 'business-blog' ) );
-	else :
-		echo '<a href="' . esc_url( get_comments_link() ) . '">';
-		comments_number( __( 'Leave a Comment', 'business-blog' ), __( '1 Comment', 'business-blog' ), __( '% Comments', 'business-blog' ) );
-		echo '</a>';
-	endif;
+	echo '<a href="' . esc_url( get_comments_link() ) . '">';
+		echo '<i class="fa ' . $icon . '" title="' . __( "comment icon", "business-blog" ) . '"></i>';
+		echo '<span>';
+			comments_number( 0, 1, '%' );
+		echo '</span>';
+	echo '</a>';
 	?>
 </span>

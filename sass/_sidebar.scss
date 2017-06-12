@@ -1,0 +1,26 @@
+.sidebar-primary {
+  margin: $baseline-height * 1.5 0;
+}
+
+@media all and (min-width: $seven-hundred) {
+
+  .sidebar-primary {
+    width: $column * 10 * 1.286;
+    float: right;
+  }
+}
+
+@media all and (min-width: $one-thousand) {
+
+  .sidebar-primary {
+    width: $column * 9 * 1.286;
+  }
+}
+
+
+@media all and (min-width: $twelve-hundred) {
+
+  .sidebar-primary {
+    width: $column * 9 * 1.286;
+  }
+}

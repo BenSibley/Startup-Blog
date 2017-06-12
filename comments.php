@@ -5,15 +5,9 @@ if ( post_password_required() || ( ! have_comments() && ! comments_open() && ! p
 }
 
 if ( comments_open() ) { ?>
-
     <section id="comments" class="comments">
-        <div class="comments-number">
-            <h3>
-                <?php comments_number( __( 'Be First to Comment', 'business-blog' ), __( 'One Comment', 'business-blog' ), __( '% Comments', 'business-blog' ) ); ?>
-            </h3>
-        </div>
         <ol class="comment-list">
-            <?php wp_list_comments( array( 'callback' => 'ct_business_blog_customize_comments', 'max_depth' => '3' ) ); ?>
+            <?php wp_list_comments( array( 'callback' => 'ct_business_blog_customize_comments' ) ); ?>
         </ol>
         <?php
         if ( ( get_option( 'page_comments' ) == 1 ) && ( get_comment_pages_count() > 1 ) ) { ?>
@@ -27,13 +21,8 @@ if ( comments_open() ) { ?>
     <?php
 } elseif ( ! comments_open() && have_comments() && pings_open() ) { ?>
     <section id="comments" class="comments">
-        <div class="comments-number">
-            <h3>
-                <?php comments_number( __( 'Be First to Comment', 'business-blog' ), __( 'One Comment', 'business-blog' ), __( '% Comments', 'business-blog' ) ); ?>
-            </h3>
-        </div>
         <ol class="comment-list">
-            <?php wp_list_comments( array( 'callback' => 'ct_business_blog_customize_comments', 'max_depth' => '3' ) ); ?>
+            <?php wp_list_comments( array( 'callback' => 'ct_business_blog_customize_comments' ) ); ?>
         </ol>
         <?php
         if ( ( get_option( 'page_comments' ) == 1 ) && ( get_comment_pages_count() > 1 ) ) { ?>
@@ -49,13 +38,8 @@ if ( comments_open() ) { ?>
     <?php
 } elseif ( ! comments_open() && have_comments() ) { ?>
     <section id="comments" class="comments">
-        <div class="comments-number">
-            <h3>
-                <?php comments_number( __( 'Be First to Comment', 'business-blog' ), __( 'One Comment', 'business-blog' ), __( '% Comments', 'business-blog' ) ); ?>
-            </h3>
-        </div>
         <ol class="comment-list">
-            <?php wp_list_comments( array( 'callback' => 'ct_business_blog_customize_comments', 'max_depth' => '3' ) ); ?>
+            <?php wp_list_comments( array( 'callback' => 'ct_business_blog_customize_comments' ) ); ?>
         </ol>
         <?php
         if ( ( get_option( 'page_comments' ) == 1 ) && ( get_comment_pages_count() > 1 ) ) { ?>
@@ -72,7 +56,7 @@ if ( comments_open() ) { ?>
 } else { ?>
     <section id="comments" class="comments">
         <p class="comments-closed">
-            <?php _e( 'Comments are closed.', 'business-blog' ); ?>
+            <?php esc_html_e( 'Comments are closed.', 'business-blog' ); ?>
         </p>
     </section>
 <?php }

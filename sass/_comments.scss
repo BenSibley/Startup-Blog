@@ -1,0 +1,124 @@
+.comment-list {
+  margin: 0;
+  list-style: none;
+
+  li.comment,
+  li.pingback {
+    @extend %white-box;
+    position: relative;
+    padding: $baseline-height $column * 2 * 1.125 $baseline-height/2;
+    margin: $baseline-height * 1.5 0;
+
+    .avatar {
+      position: absolute;
+      top: -12px;
+      left: -12px;
+      width: 38px;
+      height: 38px;
+      border: solid 2px #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 12px rgba(0,0,0,0.2);
+    }
+    &.bypostauthor {
+      background: $color-gray-blue;
+    }
+  }
+  .author-name {
+    font-family: $heading-font-stack;
+  }
+  .awaiting-moderation {
+    font-style: italic;
+  }
+  .comment-content {
+
+    > * {
+      margin-top: $baseline-height * 0.75;
+    }
+    &:last-child {
+      margin-bottom: $baseline-height * 0.75;
+    }
+  }
+  .comment-footer {
+    @extend %twelve-pixels;
+    position: absolute;
+    top: $baseline-height * 1.25;
+    right: $column * 2 * 1.125;
+
+    a {
+      @extend %gray-link;
+    }
+    i {
+      margin-right: 4px;
+      font-size: 10px;
+    }
+    .fa-pencil {
+      margin-left: 7px;
+    }
+  }
+  .children {
+    list-style: none;
+    margin: 0;
+
+    > li {
+      box-shadow: none;
+      border: solid 1px $color-gray-blue-dark;
+    }
+    .bypostauthor {
+      //border-color: $color-blue;
+    }
+  }
+}
+.comment-pagination {
+  margin: -$baseline-height/2 0;
+
+  &:after {
+    @include clearfix;
+  }
+  p {
+    @extend %white-box;
+    display: inline-block;
+    margin: 0;
+
+    a {
+      display: inline-block;
+      padding: $baseline-height;
+      border-radius: 3px;
+      transition: color 0.15s, background 0.15s;
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: #fff;
+        background: $color-blue;
+      }
+    }
+  }
+}
+.previous-comment {
+  float: left;
+}
+.next-comment {
+  float: right;
+}
+.comments-closed {
+  @extend %white-box;
+  margin: $baseline-height * 1.5 0;
+  padding: $baseline-height * 0.75 $column * 2 * 1.125;
+  text-align: center;
+}
+
+@media all and (min-width: $one-thousand){
+
+  .comment-list {
+
+    li.comment,
+    .li.pingback {
+      padding: $baseline-height $column * 2.118 $baseline-height/2;
+
+      .avatar {
+        width: 44px;
+        height: 44px;
+      }
+    }
+  }
+}

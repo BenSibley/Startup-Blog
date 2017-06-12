@@ -1,0 +1,23 @@
+.comment-respond {
+  @extend %white-box;
+  margin: $baseline-height * 1.5 0;
+  padding: $baseline-height * 0.75 $column * 2 * 1.125;
+
+  p {
+    margin: $baseline-height/2 0;
+  }
+  label {
+    @extend %fourteen-pixels;
+    margin-bottom: 4px;
+  }
+  .form-submit {
+    margin: $baseline-height 0;
+  }
+}
+
+@media all and (min-width: $one-thousand) {
+
+  .comment-respond {
+    padding: $baseline-height $column * 2.118 $baseline-height/2;
+  }
+}

@@ -1,3 +1,31 @@
-.main {
+.main-content-container {
   padding: 0 $column * 2;
+}
+
+@media all and (min-width: $seven-hundred) {
+
+  .main {
+    width: $column * 17 * 1.286;
+    float: left;
+  }
+}
+
+@media all and (min-width: $one-thousand) {
+
+  .main-content-container {
+    padding: 0 $column * 3;
+  }
+  .main {
+    width: $column * 17 * 1.286;
+  }
+}
+
+@media all and (min-width: $twelve-hundred) {
+
+  .main-content-container {
+    padding: 0 $column * 4;
+  }
+  .main {
+    width: $column * 17 * 1.286;
+  }
 }

@@ -42,12 +42,22 @@
 
   a {
     @extend %gray-link;
+
+    &:hover,
+    &:active,
+    &:focus {
+
+      img {
+        opacity: 0.8;
+      }
+    }
   }
 }
 .custom-logo {
   max-width: 100%;
   width: auto;
   height: auto;
+  transition: opacity 0.15s;
 }
 .tagline {
   @extend %fourteen-pixels;
@@ -58,7 +68,6 @@
   list-style: none;
   margin: $baseline-height/4 0;
   text-align: center;
-  float: right;
 
   li {
     display: inline-block;
@@ -85,6 +94,9 @@
     display: inline-block;
     vertical-align: text-top;
   }
+}
+.site-header .social-media-icons {
+  float: right;
 }
 
 @media all and (min-width: $eight-hundred) {

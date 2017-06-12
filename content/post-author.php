@@ -1,7 +1,12 @@
 <div class="post-author">
-	<?php ct_business_blog_profile_image_output(); ?>
-	<h3><?php echo get_the_author(); ?></h3>
-	<?php ct_business_blog_social_icons_output('author') ?>
+	<div class="avatar-container">
+		<?php echo get_avatar( get_the_author_meta( 'ID' ), 65, '', get_the_author() ); ?>	
+	</div>
+	<h3>
+		<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>">
+			<?php echo get_the_author(); ?>
+		</a>
+	</h3>
 	<p><?php the_author_meta('description'); ?></p>
-	<a href="<?php echo get_author_posts_url( get_the_author_meta('ID') ); ?>">View more posts</a>
+	<?php ct_business_blog_social_icons_output( 'author' ) ?>
 </div>

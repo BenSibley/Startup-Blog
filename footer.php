@@ -2,7 +2,7 @@
 </section> <!-- .main -->
 <?php get_sidebar( 'primary' ); ?>
 <?php do_action( 'business_blog_after_main' ); ?>
-
+</div> <!-- .main-content-container -->
 <footer id="site-footer" class="site-footer" role="contentinfo">
     <?php do_action( 'business_blog_footer_top' ); ?>
     <div class="design-credit">
@@ -16,7 +16,6 @@
     </div>
     <?php do_action( 'business_blog_footer_bottom' ); ?>
 </footer>
-</div><!-- .max-width -->
 </div><!-- .overflow-container -->
 
 <?php do_action( 'business_blog_body_bottom' ); ?>

@@ -59,33 +59,30 @@ function ct_business_blog_register_widget_areas() {
 add_action( 'widgets_init', 'ct_business_blog_register_widget_areas' );
 
 if ( ! function_exists( ( 'ct_business_blog_customize_comments' ) ) ) {
-	function ct_business_blog_customize_comments( $comment, $args, $depth ) {
-		$GLOBALS['comment'] = $comment;
-		global $post;
-		?>
+	function ct_business_blog_customize_comments( $comment, $args, $depth ) { ?>
 		<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 		<article id="comment-<?php comment_ID(); ?>" class="comment">
 			<div class="comment-author">
-				<?php
-				echo get_avatar( get_comment_author_email(), 36, '', get_comment_author() );
-				?>
+				<?php echo get_avatar( get_comment_author_email(), 44, '', get_comment_author() ); ?>
 				<span class="author-name"><?php comment_author_link(); ?></span>
 			</div>
 			<div class="comment-content">
 				<?php if ( $comment->comment_approved == '0' ) : ?>
-					<em><?php _e( 'Your comment is awaiting moderation.', 'business-blog' ) ?></em>
+					<span class="awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'business-blog' ) ?></span>
 					<br/>
 				<?php endif; ?>
 				<?php comment_text(); ?>
 			</div>
 			<div class="comment-footer">
-				<span class="comment-date"><?php comment_date(); ?></span>
 				<?php comment_reply_link( array_merge( $args, array(
-					'reply_text' => __( 'Reply', 'business-blog' ),
 					'depth'      => $depth,
-					'max_depth'  => $args['max_depth']
+					'max_depth'  => $args['max_depth'],
+					'before'     => '<i class="fa fa-reply" aria-hidden="true"></i>'
 				) ) ); ?>
-				<?php edit_comment_link( __( 'Edit', 'business-blog' ) ); ?>
+				<?php edit_comment_link(
+					__( 'Edit', 'business-blog' ),
+					'<i class="fa fa-pencil" aria-hidden="true"></i>'
+				); ?>
 			</div>
 		</article>
 		<?php
@@ -153,12 +150,12 @@ if ( ! function_exists( 'business_blog_custom_excerpt_length' ) ) {
 
 		$new_excerpt_length = get_theme_mod( 'excerpt_length' );
 
-		if ( ! empty( $new_excerpt_length ) && $new_excerpt_length != 25 ) {
+		if ( ! empty( $new_excerpt_length ) && $new_excerpt_length != 35 ) {
 			return $new_excerpt_length;
 		} elseif ( $new_excerpt_length === 0 ) {
 			return 0;
 		} else {
-			return 25;
+			return 35;
 		}
 	}
 }
@@ -254,14 +251,21 @@ if ( ! function_exists( 'ct_business_blog_social_array' ) ) {
 }
 
 if ( ! function_exists( 'ct_business_blog_social_icons_output' ) ) {
-	function ct_business_blog_social_icons_output() {
+	function ct_business_blog_social_icons_output( $source = 'header' ) {
 
 		$social_sites = ct_business_blog_social_array();
 
+		// store the site name and url
 		foreach ( $social_sites as $social_site => $profile ) {
 
-			if ( strlen( get_theme_mod( $social_site ) ) > 0 ) {
-				$active_sites[ $social_site ] = $social_site;
+			if ( $source == 'header' ) {
+				if ( strlen( get_theme_mod( $social_site ) ) > 0 ) {
+					$active_sites[ $social_site ] = $social_site;
+				}
+			} elseif ( $source == 'author' ) {
+				if ( strlen( get_the_author_meta( $profile ) ) > 0 ) {
+					$active_sites[ $profile ] = $social_site;
+				}
 			}
 		}
 

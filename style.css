@@ -34,7 +34,7 @@ Business Blog is distributed under the terms of the GNU GPL
 }
 
 input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="file"]):not([type="image"]),
-textarea, input[type="submit"], .comment-respond label, .tagline, .social-media-icons i, .post-tags a {
+textarea, input[type="submit"], .archive-header h1, .comment-respond label, .tagline, .social-media-icons i, .post-tags a {
   font-size: 0.875em;
   /* 14px / 16px */
   line-height: 1.572;
@@ -49,14 +49,14 @@ textarea, input[type="submit"], .comment-respond label, .tagline, .social-media-
   /* 24px */
 }
 
-.comment-respond, .comment-list li.comment,
+.archive-header, .comment-respond, .comment-list li.comment,
 .comment-list li.pingback, .comment-pagination p, .comments-closed, .primary-header, .pagination a,
 .pagination span, .entry, .widget, input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="file"]):not([type="image"]):focus,
 textarea:focus {
   box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.05);
 }
 
-.comment-respond, .comment-list li.comment,
+.archive-header, .comment-respond, .comment-list li.comment,
 .comment-list li.pingback, .comment-pagination p, .comments-closed, .primary-header, .pagination a,
 .pagination span, .entry, .widget {
   background: #fff;
@@ -370,6 +370,23 @@ a img {
   margin: 0 auto;
 }
 
+.archive-header {
+  padding: 1.125em 6.2505%;
+  margin-top: 2.25em;
+}
+.archive-header i {
+  margin-right: 4px;
+}
+.archive-header p {
+  margin: 0.75em 0;
+  font-style: italic;
+}
+
+@media all and (min-width: 62.5em) {
+  .archive-header {
+    padding: 1.5em 5.8838%;
+  }
+}
 .comment-respond {
   margin: 2.25em 0;
   padding: 1.125em 6.2505%;

@@ -2,7 +2,7 @@
 	<?php do_action( 'business_blog_post_before' ); ?>
 	<article>
 		<div class='post-header'>
-			<h2 class='post-title'><?php the_title(); ?></h2>
+			<h1 class='post-title'><?php the_title(); ?></h1>
 			<?php get_template_part( 'content/post-byline' ); ?>
 			<?php echo get_avatar( get_the_author_meta( 'ID' ), 42, '', get_the_author() ); ?>
 			<?php get_template_part( 'content/comments-link' ); ?>

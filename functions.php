@@ -486,27 +486,14 @@ function ct_business_blog_infinite_scroll_render() {
 	}
 }
 
+// Routing templates this way to follow DRY coding patterns (index.php file only)
 if ( ! function_exists( 'ct_business_blog_get_content_template' ) ) {
 	function ct_business_blog_get_content_template() {
 
-		/* Blog */
-		if ( is_home() ) {
-			get_template_part( 'content', 'archive' );
-		} /* Post */
-		elseif ( is_singular( 'post' ) ) {
-			get_template_part( 'content' );
-		} /* Page */
-		elseif ( is_page() ) {
-			get_template_part( 'content', 'page' );
-		} /* Attachment */
-		elseif ( is_attachment() ) {
-			get_template_part( 'content', 'attachment' );
-		} /* Archive */
-		elseif ( is_archive() ) {
-			get_template_part( 'content', 'archive' );
-		} /* Custom Post Type */
-		else {
-			get_template_part( 'content' );
+		if ( is_home() || is_archive() ) {
+			get_template_part( 'content-archive', get_post_type() );
+		} else {
+			get_template_part( 'content', get_post_type() );
 		}
 	}
 }
@@ -533,3 +520,21 @@ function ct_business_blog_primary_dropdown_check( $item_output, $item, $depth, $
 	return $item_output;
 }
 add_filter( 'walker_nav_menu_start_el', 'ct_business_blog_primary_dropdown_check', 10, 4 );
+
+// Remove label that can't be edited with the_archive_title() e.g. "Category: Business" => "Business"
+function ct_business_blog_modify_archive_titles( $title ) {
+
+	if ( is_category() ) {
+		$title = single_cat_title( '', false );
+	} elseif ( is_tag() ) {
+		$title = single_tag_title( '', false );
+	} elseif ( is_author() ) {
+		$title = get_the_author();
+	} elseif ( is_month() ) {
+		$title = single_month_title(' ');
+	}
+	// is_year() and is_day() neglected b/c there is no analogous function for retrieving the page title
+
+	return $title;
+}
+add_filter( 'get_the_archive_title', 'ct_business_blog_modify_archive_titles' );

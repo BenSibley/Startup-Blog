@@ -50,13 +50,15 @@ textarea, input[type="submit"], .comment-respond label, .tagline, .social-media-
 }
 
 .comment-respond, .comment-list li.comment,
-.comment-list li.pingback, .comment-pagination p, .comments-closed, .primary-header, .entry, .widget, input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="file"]):not([type="image"]):focus,
+.comment-list li.pingback, .comment-pagination p, .comments-closed, .primary-header, .pagination a,
+.pagination span, .entry, .widget, input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="file"]):not([type="image"]):focus,
 textarea:focus {
   box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.05);
 }
 
 .comment-respond, .comment-list li.comment,
-.comment-list li.pingback, .comment-pagination p, .comments-closed, .primary-header, .entry, .widget {
+.comment-list li.pingback, .comment-pagination p, .comments-closed, .primary-header, .pagination a,
+.pagination span, .entry, .widget {
   background: #fff;
   border-radius: 3px;
 }
@@ -709,6 +711,59 @@ a img {
 }
 .pagination {
   clear: both;
+  margin-bottom: 2.25em;
+}
+.pagination .nav-links {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+.pagination a {
+  color: #333333;
+}
+.pagination a:link, .pagination a:visited {
+  color: #333333;
+}
+.pagination a:hover, .pagination a:active, .pagination a:focus {
+  color: #fff;
+  background: #20A4E6;
+}
+.pagination a,
+.pagination span {
+  display: inline-block;
+  padding: 1.125em 0;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  text-align: center;
+  margin: 0 0.375em;
+}
+.pagination a:first-child,
+.pagination span:first-child {
+  margin-left: 0;
+}
+.pagination a:last-child,
+.pagination span:last-child {
+  margin-right: 0;
+}
+.pagination a.current,
+.pagination span.current {
+  background: #F0F5F8;
+}
+.pagination .prev:after,
+.pagination .next:after {
+  position: relative;
+  content: '\f105';
+  font-family: "FontAwesome";
+  top: 6px;
+  font-size: 38px;
+  line-height: 0;
+}
+.pagination .prev:after {
+  content: '\f104';
 }
 
 .main-content-container {
@@ -1323,7 +1378,7 @@ a img {
 }
 
 .post-meta {
-  padding: 0 6.2505%;
+  padding: 1.5em 6.2505% 0;
   margin: 0.75em 0 1.5em;
 }
 
@@ -1374,12 +1429,22 @@ a img {
   color: #fff;
 }
 
+.post-password-form input[type="submit"] {
+  width: 100%;
+  margin-top: 6px;
+}
+
 @media all and (min-width: 37.5em) {
   .post-author .avatar {
     width: 65px;
     height: 65px;
     border: solid 5px #fff;
     margin-top: -33px;
+  }
+
+  .post-password-form input[type="submit"] {
+    width: auto;
+    min-width: 96px;
   }
 }
 @media all and (min-width: 62.5em) {

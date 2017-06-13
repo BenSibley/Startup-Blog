@@ -1,3 +1,61 @@
 .pagination {
   clear: both;
+  margin-bottom: $baseline-height * 1.5;
+
+  .nav-links {
+    display: flex;
+    align-items: stretch;
+    //flex-wrap: wrap;
+  }
+  a {
+    color: $color-gray-20;
+
+    &:link,
+    &:visited {
+      color: $color-gray-20;
+    }
+    &:hover,
+    &:active,
+    &:focus {
+      color: #fff;
+      background: $color-blue;
+    }
+  }
+  a,
+  span {
+    @extend %white-box;
+    display: inline-block;
+    padding: $baseline-height * 0.75 0;
+    flex: 1;
+    text-align: center;
+    margin: 0 $baseline-height/4;
+
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    &.current {
+      background: $color-gray-blue;
+    }
+  }
+  .prev,
+  .next {
+
+    &:after {
+      position: relative;
+      content: '\f105';
+      font-family: "FontAwesome";
+      top: 6px;
+      font-size: 38px;
+      line-height: 0;
+    }
+  }
+  .prev {
+
+    &:after {
+      content: '\f104';
+    }
+  }
 }

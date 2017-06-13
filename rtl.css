@@ -34,7 +34,7 @@ Business Blog is distributed under the terms of the GNU GPL
 }
 
 input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="file"]):not([type="image"]),
-textarea, input[type="submit"], .archive-header h1, .comment-respond label, .tagline, .social-media-icons i, .post-tags a {
+textarea, input[type="submit"], .archive-header h1, .comment-respond label, .site-credit, .tagline, .social-media-icons i, .post-tags a {
   font-size: 0.875em;
   /* 14px / 16px */
   line-height: 1.572;
@@ -42,7 +42,7 @@ textarea, input[type="submit"], .archive-header h1, .comment-respond label, .tag
 }
 
 .wp-caption-text,
-.gallery-caption, .comment-list .comment-footer, .menu-primary-items a, .menu-secondary-items a, .post-byline, .post-comments-link {
+.gallery-caption, .comment-list .comment-footer, .design-credit, .menu-primary-items a, .menu-secondary-items a, .post-byline, .post-comments-link {
   font-size: 0.75em;
   /* 12px / 16px */
   line-height: 2;
@@ -71,6 +71,16 @@ textarea:focus {
 }
 .comment-list .comment-footer a:hover, .site-title a:hover, .menu-primary-items a:hover, .post-title a:hover, .post-comments-link a:hover, .post-author h3 a:hover, .comment-list .comment-footer a:active, .site-title a:active, .menu-primary-items a:active, .post-title a:active, .post-comments-link a:active, .post-author h3 a:active, .comment-list .comment-footer a:focus, .site-title a:focus, .menu-primary-items a:focus, .post-title a:focus, .post-comments-link a:focus, .post-author h3 a:focus {
   color: #20A4E6;
+}
+
+.site-credit a, .design-credit a {
+  color: #fff;
+}
+.site-credit a:link, .design-credit a:link, .site-credit a:visited, .design-credit a:visited {
+  color: #fff;
+}
+.site-credit a:hover, .design-credit a:hover, .site-credit a:active, .design-credit a:active, .site-credit a:focus, .design-credit a:focus {
+  color: #fff;
 }
 
 /*===== Basic Styles =====*/
@@ -251,8 +261,9 @@ img,
 
 .wp-caption-text,
 .gallery-caption {
+  line-height: 1.5;
   margin: 0 0 1.84502em;
-  color: #999999;
+  color: #666666;
 }
 
 /* Form styles */
@@ -518,8 +529,62 @@ a img {
 }
 .site-footer {
   clear: both;
+  background: #333333;
+  padding: 1.5em 5.556%;
+  color: #F0F5F8;
+  text-align: center;
+}
+.site-footer:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
 }
 
+.site-credit a {
+  display: block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.design-credit {
+  margin-top: 1.5em;
+}
+.design-credit a {
+  font-weight: 800;
+}
+
+@media all and (min-width: 43.75em) {
+  .site-footer {
+    text-align: right;
+  }
+
+  .site-credit {
+    float: right;
+  }
+  .site-credit a {
+    display: inline-block;
+    margin-left: 4px;
+  }
+
+  .design-credit {
+    float: left;
+    margin-top: 0;
+  }
+}
+@media all and (min-width: 62.5em) {
+  .site-footer {
+    padding: 1.5em 8.334%;
+  }
+}
+@media all and (min-width: 75em) {
+  .site-footer {
+    padding: 1.5em 11.112%;
+  }
+}
 /**
  * 14.2 Galleries
  */

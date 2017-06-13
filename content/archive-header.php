@@ -15,6 +15,7 @@ if ( is_tag() ) {
 	$prefix = _x( 'Posts published by', 'Posts published by AUTHOR', 'business-blog' );
 } elseif ( is_date() ) {
 	$icon_class = 'calendar';
+	// Repeating default value to add new translator note - context may change word choice
 	$prefix = _x( 'Posts published in', 'Posts published in MONTH', 'business-blog' );
 }
 ?>

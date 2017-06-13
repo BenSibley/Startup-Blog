@@ -1,3 +1,64 @@
 .site-footer {
   clear: both;
+  background: $color-gray-20;
+  padding: $baseline-height $column * 2;
+  color: $color-gray-blue;
+  text-align: center;
+
+  &:after {
+    @include clearfix;
+  }
+}
+.site-credit {
+  @extend %fourteen-pixels;
+
+  a {
+    @extend %white-link;
+    display: block;
+    font-family: $heading-font-stack;
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+.design-credit {
+  @extend %twelve-pixels;
+  margin-top: $baseline-height;
+
+  a {
+    @extend %white-link;
+    font-weight: 800;
+  }
+}
+
+@media all and (min-width: $seven-hundred) {
+
+  .site-footer {
+    text-align: left;
+  }
+  .site-credit {
+    float: left;
+
+    a {
+      display: inline-block;
+      margin-right: 4px;
+    }
+  }
+  .design-credit {
+    float: right;
+    margin-top: 0;
+  }
+}
+
+@media all and (min-width: $one-thousand) {
+
+  .site-footer {
+    padding: $baseline-height $column * 3;
+  }
+}
+
+@media all and (min-width: $twelve-hundred) {
+
+  .site-footer {
+    padding: $baseline-height $column * 4;
+  }
 }

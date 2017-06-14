@@ -34,7 +34,7 @@ Business Blog is distributed under the terms of the GNU GPL
 }
 
 input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="file"]):not([type="image"]),
-textarea, input[type="submit"], .archive-header h1, .comment-respond label, .site-credit, .tagline, .social-media-icons i, .post-tags a, .search-header .post-title, .sidebar-primary .widget > *, .widget-title {
+textarea, input[type="submit"], .archive-header h1, .comment-respond label, .site-credit, .tagline, .social-media-icons i, .post-tags a, .search-header .post-title, .widget > *, .widget-title {
   font-size: 0.875em;
   /* 14px / 16px */
   line-height: 1.572;
@@ -49,7 +49,7 @@ textarea, input[type="submit"], .archive-header h1, .comment-respond label, .sit
   /* 24px */
 }
 
-.widget-title {
+.widget-title, .widget_calendar table caption {
   text-transform: uppercase;
   letter-spacing: 0.02em;
 }
@@ -68,13 +68,13 @@ textarea:focus {
   border-radius: 3px;
 }
 
-.comment-list .comment-footer a, .site-title a, .menu-primary-items a, .post-title a, .post-comments-link a, .post-author h3 a, .sidebar-primary .widget li a {
+.comment-list .comment-footer a, .site-title a, .menu-primary-items a, .post-title a, .post-comments-link a, .post-author h3 a, .widget li a {
   color: #333333;
 }
-.comment-list .comment-footer a:link, .site-title a:link, .menu-primary-items a:link, .post-title a:link, .post-comments-link a:link, .post-author h3 a:link, .sidebar-primary .widget li a:link, .comment-list .comment-footer a:visited, .site-title a:visited, .menu-primary-items a:visited, .post-title a:visited, .post-comments-link a:visited, .post-author h3 a:visited, .sidebar-primary .widget li a:visited {
+.comment-list .comment-footer a:link, .site-title a:link, .menu-primary-items a:link, .post-title a:link, .post-comments-link a:link, .post-author h3 a:link, .widget li a:link, .comment-list .comment-footer a:visited, .site-title a:visited, .menu-primary-items a:visited, .post-title a:visited, .post-comments-link a:visited, .post-author h3 a:visited, .widget li a:visited {
   color: #333333;
 }
-.comment-list .comment-footer a:hover, .site-title a:hover, .menu-primary-items a:hover, .post-title a:hover, .post-comments-link a:hover, .post-author h3 a:hover, .sidebar-primary .widget li a:hover, .comment-list .comment-footer a:active, .site-title a:active, .menu-primary-items a:active, .post-title a:active, .post-comments-link a:active, .post-author h3 a:active, .sidebar-primary .widget li a:active, .comment-list .comment-footer a:focus, .site-title a:focus, .menu-primary-items a:focus, .post-title a:focus, .post-comments-link a:focus, .post-author h3 a:focus, .sidebar-primary .widget li a:focus {
+.comment-list .comment-footer a:hover, .site-title a:hover, .menu-primary-items a:hover, .post-title a:hover, .post-comments-link a:hover, .post-author h3 a:hover, .widget li a:hover, .comment-list .comment-footer a:active, .site-title a:active, .menu-primary-items a:active, .post-title a:active, .post-comments-link a:active, .post-author h3 a:active, .widget li a:active, .comment-list .comment-footer a:focus, .site-title a:focus, .menu-primary-items a:focus, .post-title a:focus, .post-comments-link a:focus, .post-author h3 a:focus, .widget li a:focus {
   color: #20A4E6;
 }
 
@@ -1639,12 +1639,83 @@ a img {
   padding: 1.5em 6.2505%;
   margin: 1.5em 0;
 }
-.sidebar-primary .widget ul {
-  list-style: none;
-  margin: 1.5em 0 0.75em;
+.sidebar-primary .widget_media_image {
+  padding: 0;
+  background: none;
+  box-shadow: none;
 }
-.sidebar-primary .widget li {
+.sidebar-primary .widget_media_image img {
+  border-radius: 3px;
+}
+
+.widget ul {
+  list-style: none;
+  margin: 18px 0;
+}
+.widget li {
   margin-bottom: 12px;
+}
+.widget select {
+  margin-bottom: 12px;
+}
+
+.widget-title {
+  margin-bottom: 18px;
+}
+
+.widget_calendar {
+  text-align: center;
+}
+.widget_calendar table {
+  margin: 0 auto;
+  width: 100%;
+}
+.widget_calendar table caption {
+  margin-bottom: 6px;
+}
+.widget_calendar td,
+.widget_calendar th {
+  padding: 4px 0;
+}
+.widget_calendar #prev,
+.widget_calendar #next {
+  padding: 0;
+}
+.widget_calendar #prev a,
+.widget_calendar #next a {
+  display: block;
+  border: none;
+  padding: 4px 0;
+}
+.widget_calendar #prev a:hover, .widget_calendar #prev a:active, .widget_calendar #prev a:focus,
+.widget_calendar #next a:hover,
+.widget_calendar #next a:active,
+.widget_calendar #next a:focus {
+  color: #fff;
+  background: #20A4E6;
+}
+.widget_calendar #today {
+  border: solid 2px #20A4E6;
+}
+
+.widget_categories ul ul,
+.widget_nav_menu ul ul,
+.widget_pages ul ul {
+  margin-right: 12px;
+}
+
+.widget_recent_comments a,
+.widget_recent_comments span {
+  font-style: italic;
+}
+.widget_recent_comments li a {
+  color: #20A4E6;
+}
+.widget_recent_comments li a:link, .widget_recent_comments li a:visited {
+  color: #20A4E6;
+}
+.widget_recent_comments li a:hover, .widget_recent_comments li a:active, .widget_recent_comments li a:focus {
+  color: #23B6FF;
 }
 
 @media all and (min-width: 43.75em) {
@@ -1655,5 +1726,8 @@ a img {
 @media all and (min-width: 62.5em) {
   .sidebar-primary .widget {
     padding: 1.5em 11.10922%;
+  }
+  .sidebar-primary .widget_media_image {
+    padding: 0;
   }
 }

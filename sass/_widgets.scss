@@ -4,26 +4,107 @@
     @extend %white-box;
     padding: $baseline-height $column * 2 * 1.125;
     margin: $baseline-height 0;
+  }
+  .widget_media_image {
+    padding: 0;
+    background: none;
+    box-shadow: none;
 
-    > * {
-      @extend %fourteen-pixels;
+    img {
+      border-radius: 3px;
     }
-    ul {
-      list-style: none;
-      margin: $baseline-height 0 $baseline-height/2;
-    }
-    li {
-      margin-bottom: 12px;
+  }
+}
+.widget {
 
-      a {
-        @extend %gray-link;
-      }
+  > * {
+    @extend %fourteen-pixels;
+  }
+  ul {
+    list-style: none;
+    margin: 18px 0;
+  }
+  li {
+    margin-bottom: 12px;
+
+    a {
+      @extend %gray-link;
     }
+  }
+  select {
+    margin-bottom: 12px;
   }
 }
 .widget-title {
   @extend %fourteen-pixels;
   @extend %uppercase;
+  margin-bottom: 18px;
+}
+.widget_calendar {
+  text-align: center;
+
+  table {
+    margin: 0 auto;
+    width: 100%;
+
+    caption {
+      @extend %uppercase;
+      margin-bottom: 6px;
+    }
+  }
+  td,
+  th {
+    padding: 4px 0;
+  }
+  #prev,
+  #next {
+    padding: 0;
+
+    a {
+      display: block;
+      border: none;
+      padding: 4px 0;
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: #fff;
+        background: $color-blue;
+      }
+    }
+  }
+  #today {
+    border: solid 2px $color-blue;
+  }
+}
+.widget_categories,
+.widget_nav_menu,
+.widget_pages {
+
+  ul ul {
+    margin-left: 12px;
+  }
+}
+.widget_recent_comments {
+
+  a,
+  span {
+    //font-weight: 800;
+    font-style: italic;
+  }
+  li a {
+    color: $color-blue;
+
+    &:link,
+    &:visited {
+      color: $color-blue;
+    }
+    &:hover,
+    &:active,
+    &:focus {
+      color: $color-blue-hover;
+    }
+  }
 }
 
 @media all and (min-width: $seven-hundred) {
@@ -45,6 +126,9 @@
 
     .widget {
       padding: $baseline-height $column * 3.999;
+    }
+    .widget_media_image {
+      padding: 0;
     }
   }
 }

@@ -533,7 +533,7 @@ function ct_business_blog_modify_archive_titles( $title ) {
 	} elseif ( is_month() ) {
 		$title = single_month_title(' ');
 	}
-	// is_year() and is_day() neglected b/c there is no analogous function for retrieving the page title
+	// is_year() and is_day() neglected b/c there is no analagous function for retrieving the page title
 
 	return $title;
 }

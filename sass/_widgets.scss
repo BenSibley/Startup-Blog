@@ -2,13 +2,16 @@
 
   .widget {
     @extend %white-box;
-    padding: $baseline-height $column * 2 * 1.125;
+    padding: $baseline-height $column * 2 * 1.125 $baseline-height/2;
     margin: $baseline-height 0;
   }
-  .widget_media_image {
+  .widget_media_image,
+  .widget_media_video {
     padding: 0;
     background: none;
     box-shadow: none;
+  }
+  .widget_media_image {
 
     img {
       border-radius: 3px;
@@ -106,6 +109,60 @@
     }
   }
 }
+.widget_recent_entries {
+
+  a {
+    display: block;
+  }
+  span {
+    font-size: 12px;
+    line-height: 1;
+    font-style: italic;
+  }
+}
+.widget_rss {
+
+  .widget-title {
+
+    img {
+      margin-right: 4px;
+    }
+    a {
+
+      &:hover,
+      &:active,
+      &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+  .rssSummary {
+    margin: $baseline-height / 2 $baseline-height;
+    color: $color-gray-40;
+
+    + cite {
+      display: block;
+      margin: 0 0 $baseline-height $baseline-height;
+    }
+  }
+  .rss-date {
+    font-style: italic;
+  }
+  li {
+    display: block;
+  }
+  cite,
+  span {
+    margin-bottom: $baseline-height;
+    display: block;
+  }
+  span {
+
+    + cite {
+      margin-top: -$baseline-height;
+    }
+  }
+}
 
 @media all and (min-width: $seven-hundred) {
 
@@ -125,9 +182,10 @@
   .sidebar-primary {
 
     .widget {
-      padding: $baseline-height $column * 3.999;
+      padding: $baseline-height $column * 3.999 $baseline-height/2;
     }
-    .widget_media_image {
+    .widget_media_image,
+    .widget_media_video {
       padding: 0;
     }
   }

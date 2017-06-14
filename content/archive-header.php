@@ -28,7 +28,9 @@ if ( is_tag() ) {
 		the_archive_title( '&ldquo;', '&rdquo;' );
 		?>
 	</h1>
+	<?php if ( get_the_archive_description() != '' ) : ?>
 	<p class="description">
 		<?php the_archive_description(); ?>
 	</p>
+	<?php endif; ?>
 </div>

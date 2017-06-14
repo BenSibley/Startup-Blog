@@ -1348,15 +1348,15 @@ a img {
   transition: opacity 0.1s ease-in-out;
 }
 .featured-image > a:hover:after, .featured-image > a:active:after {
-  opacity: 0.5;
+  opacity: 0.4;
 }
 .featured-image > a:hover > img, .featured-image > a:active > img {
-  -webkit-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
 }
 .featured-image > a:focus:after {
-  opacity: 0.6;
+  opacity: 0.5;
 }
 .featured-image > img,
 .featured-image > a > img {
@@ -1365,8 +1365,8 @@ a img {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: transform 0.3s;
+  -webkit-transition: -webkit-transform 0.25s;
+  transition: transform 0.25s;
 }
 .featured-image > img.no-object-fit,
 .featured-image > a > img.no-object-fit {
@@ -1595,7 +1595,7 @@ a img {
     top: 0;
     left: 0;
     width: auto;
-    min-width: 84px;
+    min-width: 72px;
     margin-top: 0;
     border-radius: 3px 0 0 3px;
   }
@@ -1636,10 +1636,11 @@ a img {
   }
 }
 .sidebar-primary .widget {
-  padding: 1.5em 6.2505%;
+  padding: 1.5em 6.2505% 0.75em;
   margin: 1.5em 0;
 }
-.sidebar-primary .widget_media_image {
+.sidebar-primary .widget_media_image,
+.sidebar-primary .widget_media_video {
   padding: 0;
   background: none;
   box-shadow: none;
@@ -1718,6 +1719,44 @@ a img {
   color: #23B6FF;
 }
 
+.widget_recent_entries a {
+  display: block;
+}
+.widget_recent_entries span {
+  font-size: 12px;
+  line-height: 1;
+  font-style: italic;
+}
+
+.widget_rss .widget-title img {
+  margin-left: 4px;
+}
+.widget_rss .widget-title a:hover, .widget_rss .widget-title a:active, .widget_rss .widget-title a:focus {
+  text-decoration: none;
+}
+.widget_rss .rssSummary {
+  margin: 0.75em 1.5em;
+  color: #666666;
+}
+.widget_rss .rssSummary + cite {
+  display: block;
+  margin: 0 1.5em 1.5em 0;
+}
+.widget_rss .rss-date {
+  font-style: italic;
+}
+.widget_rss li {
+  display: block;
+}
+.widget_rss cite,
+.widget_rss span {
+  margin-bottom: 1.5em;
+  display: block;
+}
+.widget_rss span + cite {
+  margin-top: -1.5em;
+}
+
 @media all and (min-width: 43.75em) {
   .sidebar-primary .widget:first-child {
     margin-top: 0;
@@ -1725,9 +1764,10 @@ a img {
 }
 @media all and (min-width: 62.5em) {
   .sidebar-primary .widget {
-    padding: 1.5em 11.10922%;
+    padding: 1.5em 11.10922% 0.75em;
   }
-  .sidebar-primary .widget_media_image {
+  .sidebar-primary .widget_media_image,
+  .sidebar-primary .widget_media_video {
     padding: 0;
   }
 }

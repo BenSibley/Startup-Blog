@@ -83,6 +83,8 @@ function ct_business_blog_add_customizer_content( $wp_customize ) {
 				$label = 'PayPal';
 			} elseif ( $social_site == 'email-form' ) {
 				$label = 'Contact Form';
+			} elseif ( $social_site == 'google-wallet' ) {
+				$label = 'Google Wallet';
 			}
 
 			if ( $social_site == 'skype' ) {
@@ -115,31 +117,7 @@ function ct_business_blog_add_customizer_content( $wp_customize ) {
 		// increment the priority for next site
 		$priority = $priority + 5;
 	}
-
-	/***** Search Bar *****/
-
-	// section
-	$wp_customize->add_section( 'business_blog_search_bar', array(
-		'title'    => __( 'Search Bar', 'business-blog' ),
-		'priority' => 37
-	) );
-	// setting
-	$wp_customize->add_setting( 'search_bar', array(
-		'default'           => 'hide',
-		'sanitize_callback' => 'ct_business_blog_sanitize_show_hide'
-	) );
-	// control
-	$wp_customize->add_control( 'search_bar', array(
-		'type'    => 'radio',
-		'label'   => __( 'Show search bar at top of site?', 'business-blog' ),
-		'section' => 'business_blog_search_bar',
-		'setting' => 'search_bar',
-		'choices' => array(
-			'show' => __( 'Show', 'business-blog' ),
-			'hide' => __( 'Hide', 'business-blog' )
-		),
-	) );
-
+	
 	/***** Blog *****/
 
 	// section
@@ -174,18 +152,6 @@ function ct_business_blog_add_customizer_content( $wp_customize ) {
 		'section'  => 'business_blog_blog',
 		'settings' => 'excerpt_length',
 		'type'     => 'number'
-	) );
-	// Read More text - setting
-	$wp_customize->add_setting( 'read_more_text', array(
-		'default'           => __( 'Continue Reading', 'business-blog' ),
-		'sanitize_callback' => 'ct_business_blog_sanitize_text'
-	) );
-	// Read More text - control
-	$wp_customize->add_control( 'read_more_text', array(
-		'label'    => __( 'Read More button text', 'business-blog' ),
-		'section'  => 'business_blog_blog',
-		'settings' => 'read_more_text',
-		'type'     => 'text'
 	) );
 
 	/***** Additional Options *****/

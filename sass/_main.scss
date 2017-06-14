@@ -1,5 +1,9 @@
 .main-content-container {
   padding: 0 $column * 2;
+
+  &:after {
+    @include clearfix;
+  }
 }
 
 @media all and (min-width: $seven-hundred) {

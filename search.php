@@ -1,16 +1,7 @@
 <?php get_header(); ?>
     <div class="post-header search-header">
         <h1 class="post-title">
-            <?php
-            global $wp_query;
-            $total_results = $wp_query->found_posts;
-            $s             = htmlentities( $s );
-            if ( $total_results ) {
-                printf( _n( '%d search result for "%s"', '%d search results for "%s"', $total_results, 'business-blog' ), $total_results, $s );
-            } else {
-                printf( __( 'No search results for "%s"', 'business-blog' ), $s );
-            }
-            ?>
+            <?php printf( __( 'Search Results for %s', 'business-blog' ), '<span>&ldquo;' . get_search_query() . '&rdquo;</span>' ); ?>
         </h1>
         <?php get_search_form(); ?>
     </div>
@@ -25,16 +16,11 @@
         ?>
     </div>
 
-<?php the_posts_pagination();
+<?php the_posts_pagination(); ?>
 
-// only display bottom search bar if there are search results
-$total_results = $wp_query->found_posts;
-if ( $total_results ) {
-    ?>
-    <div class="search-bottom">
-        <p><?php _e( "Can't find what you're looking for?  Try refining your search:", "business-blog" ); ?></p>
-        <?php get_search_form(); ?>
-    </div>
-<?php }
+<div class="post-header search-header bottom">
+    <p><?php _e( "Can't find what you're looking for?  Try refining your search:", "business-blog" ); ?></p>
+    <?php get_search_form(); ?>
+</div>
 
-get_footer();
+<?php get_footer();

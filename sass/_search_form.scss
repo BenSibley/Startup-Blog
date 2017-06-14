@@ -1,0 +1,25 @@
+.search-form {
+  margin: $baseline-height * 0.75 0 $baseline-height/4;
+
+  input[type="submit"] {
+    width: 100%;
+    margin-top: 6px;
+  }
+}
+
+@media all and (min-width: $six-hundred) {
+
+  .search-form {
+    position: relative;
+
+    input[type="submit"] {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: auto;
+      min-width: 84px;
+      margin-top: 0;
+      border-radius: 0 3px 3px 0;
+    }
+  }
+}

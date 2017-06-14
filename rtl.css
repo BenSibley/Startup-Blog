@@ -34,7 +34,7 @@ Business Blog is distributed under the terms of the GNU GPL
 }
 
 input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="file"]):not([type="image"]),
-textarea, input[type="submit"], .archive-header h1, .comment-respond label, .site-credit, .tagline, .social-media-icons i, .post-tags a {
+textarea, input[type="submit"], .archive-header h1, .comment-respond label, .site-credit, .tagline, .social-media-icons i, .post-tags a, .search-header .post-title, .sidebar-primary .widget > *, .widget-title {
   font-size: 0.875em;
   /* 14px / 16px */
   line-height: 1.572;
@@ -49,27 +49,32 @@ textarea, input[type="submit"], .archive-header h1, .comment-respond label, .sit
   /* 24px */
 }
 
+.widget-title {
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
 .archive-header, .comment-respond, .comment-list li.comment,
 .comment-list li.pingback, .comment-pagination p, .comments-closed, .primary-header, .pagination a,
-.pagination span, .entry, .widget, input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="file"]):not([type="image"]):focus,
+.pagination span, .entry, .search-header, .sidebar-primary .widget, input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="file"]):not([type="image"]):focus,
 textarea:focus {
   box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.05);
 }
 
 .archive-header, .comment-respond, .comment-list li.comment,
 .comment-list li.pingback, .comment-pagination p, .comments-closed, .primary-header, .pagination a,
-.pagination span, .entry, .widget {
+.pagination span, .entry, .search-header, .sidebar-primary .widget {
   background: #fff;
   border-radius: 3px;
 }
 
-.comment-list .comment-footer a, .site-title a, .menu-primary-items a, .post-title a, .post-comments-link a, .post-author h3 a {
+.comment-list .comment-footer a, .site-title a, .menu-primary-items a, .post-title a, .post-comments-link a, .post-author h3 a, .sidebar-primary .widget li a {
   color: #333333;
 }
-.comment-list .comment-footer a:link, .site-title a:link, .menu-primary-items a:link, .post-title a:link, .post-comments-link a:link, .post-author h3 a:link, .comment-list .comment-footer a:visited, .site-title a:visited, .menu-primary-items a:visited, .post-title a:visited, .post-comments-link a:visited, .post-author h3 a:visited {
+.comment-list .comment-footer a:link, .site-title a:link, .menu-primary-items a:link, .post-title a:link, .post-comments-link a:link, .post-author h3 a:link, .sidebar-primary .widget li a:link, .comment-list .comment-footer a:visited, .site-title a:visited, .menu-primary-items a:visited, .post-title a:visited, .post-comments-link a:visited, .post-author h3 a:visited, .sidebar-primary .widget li a:visited {
   color: #333333;
 }
-.comment-list .comment-footer a:hover, .site-title a:hover, .menu-primary-items a:hover, .post-title a:hover, .post-comments-link a:hover, .post-author h3 a:hover, .comment-list .comment-footer a:active, .site-title a:active, .menu-primary-items a:active, .post-title a:active, .post-comments-link a:active, .post-author h3 a:active, .comment-list .comment-footer a:focus, .site-title a:focus, .menu-primary-items a:focus, .post-title a:focus, .post-comments-link a:focus, .post-author h3 a:focus {
+.comment-list .comment-footer a:hover, .site-title a:hover, .menu-primary-items a:hover, .post-title a:hover, .post-comments-link a:hover, .post-author h3 a:hover, .sidebar-primary .widget li a:hover, .comment-list .comment-footer a:active, .site-title a:active, .menu-primary-items a:active, .post-title a:active, .post-comments-link a:active, .post-author h3 a:active, .sidebar-primary .widget li a:active, .comment-list .comment-footer a:focus, .site-title a:focus, .menu-primary-items a:focus, .post-title a:focus, .post-comments-link a:focus, .post-author h3 a:focus, .sidebar-primary .widget li a:focus {
   color: #20A4E6;
 }
 
@@ -381,6 +386,10 @@ a img {
   margin: 0 auto;
 }
 
+.error404 .post-content {
+  padding-bottom: 1.5em;
+}
+
 .archive-header {
   padding: 1.125em 6.2505%;
   margin-top: 2.25em;
@@ -531,6 +540,7 @@ a img {
   clear: both;
   background: #333333;
   padding: 1.5em 5.556%;
+  margin-top: 3em;
   color: #F0F5F8;
   text-align: center;
 }
@@ -578,6 +588,7 @@ a img {
 @media all and (min-width: 62.5em) {
   .site-footer {
     padding: 1.5em 8.334%;
+    margin-top: 4.5em;
   }
 }
 @media all and (min-width: 75em) {
@@ -850,6 +861,14 @@ a img {
 
 .main-content-container {
   padding: 0 5.556%;
+}
+.main-content-container:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
 }
 
 @media all and (min-width: 43.75em) {
@@ -1559,6 +1578,48 @@ a img {
     padding: 1.5em 5.8838% 0;
   }
 }
+.search-form {
+  margin: 1.125em 0 0.375em;
+}
+.search-form input[type="submit"] {
+  width: 100%;
+  margin-top: 6px;
+}
+
+@media all and (min-width: 37.5em) {
+  .search-form {
+    position: relative;
+  }
+  .search-form input[type="submit"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    min-width: 84px;
+    margin-top: 0;
+    border-radius: 3px 0 0 3px;
+  }
+}
+.search-header {
+  margin-top: 2.25em;
+  padding-bottom: 1.5em;
+}
+.search-header form {
+  margin: 1.125em 0 0.375em;
+}
+
+.search-header.bottom {
+  margin: 0 0 2.25em;
+}
+.search-header.bottom p {
+  margin: 0;
+}
+
+@media all and (min-width: 62.5em) {
+  .search-header {
+    padding-top: 1.125em;
+  }
+}
 .sidebar-primary {
   margin: 2.25em 0;
 }
@@ -1574,8 +1635,25 @@ a img {
     width: 32.15257%;
   }
 }
-@media all and (min-width: 75em) {
-  .sidebar-primary {
-    width: 32.15257%;
+.sidebar-primary .widget {
+  padding: 1.5em 6.2505%;
+  margin: 1.5em 0;
+}
+.sidebar-primary .widget ul {
+  list-style: none;
+  margin: 1.5em 0 0.75em;
+}
+.sidebar-primary .widget li {
+  margin-bottom: 12px;
+}
+
+@media all and (min-width: 43.75em) {
+  .sidebar-primary .widget:first-child {
+    margin-top: 0;
+  }
+}
+@media all and (min-width: 62.5em) {
+  .sidebar-primary .widget {
+    padding: 1.5em 11.10922%;
   }
 }

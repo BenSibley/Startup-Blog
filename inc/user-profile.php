@@ -50,7 +50,7 @@ function business_blog_add_social_profile_settings( $user ) {
 				$label = 'Tencent Weibo';
 			} elseif ( $key == 'paypal' ) {
 				$label = 'PayPal';
-			} elseif ( $key == 'email_form' ) {
+			} elseif ( $key == 'email-form' ) {
 				$label = 'Contact Form';
 			}
 			?>

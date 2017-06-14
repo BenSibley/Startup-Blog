@@ -1,0 +1,49 @@
+.search-header {
+  @extend %white-box;
+  margin-top: $baseline-height * 1.5;
+  padding-bottom: $baseline-height; // already has other padding due to .post-header class
+
+  .post-title {
+    @extend %fourteen-pixels;
+  }
+  form {
+    margin: $baseline-height * 0.75 0 $baseline-height/4;
+  }
+  //input[type="submit"] {
+  //  width: 100%;
+  //  margin-top: 6px;
+  //}
+}
+.search-header.bottom {
+  margin: 0 0 $baseline-height * 1.5;
+
+  p {
+    margin: 0;
+  }
+}
+
+//@media all and (min-width: $six-hundred) {
+//
+//  .search-header {
+//
+//    form {
+//      position: relative;
+//    }
+//    input[type="submit"] {
+//      position: absolute;
+//      top: 0;
+//      right: 0;
+//      width: auto;
+//      min-width: 84px;
+//      margin-top: 0;
+//      border-radius: 0 3px 3px 0;
+//    }
+//  }
+//}
+
+@media all and (min-width: $one-thousand) {
+
+  .search-header {
+    padding-top: $baseline-height * 0.75;
+  }
+}

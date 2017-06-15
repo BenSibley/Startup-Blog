@@ -56,6 +56,7 @@ function ct_business_blog_register_widget_areas() {
 		'after_title'   => '</h2>'
 	) );
 }
+
 add_action( 'widgets_init', 'ct_business_blog_register_widget_areas' );
 
 if ( ! function_exists( ( 'ct_business_blog_customize_comments' ) ) ) {
@@ -68,16 +69,17 @@ if ( ! function_exists( ( 'ct_business_blog_customize_comments' ) ) ) {
 			</div>
 			<div class="comment-content">
 				<?php if ( $comment->comment_approved == '0' ) : ?>
-					<span class="awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'business-blog' ) ?></span>
+					<span
+						class="awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'business-blog' ) ?></span>
 					<br/>
 				<?php endif; ?>
 				<?php comment_text(); ?>
 			</div>
 			<div class="comment-footer">
 				<?php comment_reply_link( array_merge( $args, array(
-					'depth'      => $depth,
-					'max_depth'  => $args['max_depth'],
-					'before'     => '<i class="fa fa-reply" aria-hidden="true"></i>'
+					'depth'     => $depth,
+					'max_depth' => $args['max_depth'],
+					'before'    => '<i class="fa fa-reply" aria-hidden="true"></i>'
 				) ) ); ?>
 				<?php edit_comment_link(
 					__( 'Edit', 'business-blog' ),
@@ -140,6 +142,7 @@ add_filter( 'comment_form_field_comment', 'ct_business_blog_update_comment_field
 if ( ! function_exists( 'ct_business_blog_remove_comments_notes_after' ) ) {
 	function ct_business_blog_remove_comments_notes_after( $defaults ) {
 		$defaults['comment_notes_after'] = '';
+
 		return $defaults;
 	}
 }
@@ -174,11 +177,13 @@ add_filter( 'excerpt_length', 'business_blog_custom_excerpt_length', 99 );
 function business_blog_sdfasdfasdf() {
 	return '&#8230;';
 }
+
 add_filter( 'excerpt_more', 'business_blog_sdfasdfasdf', 10 ); // automatic excerpts
 
 if ( ! function_exists( 'business_blog_remove_more_link_scroll' ) ) {
 	function business_blog_remove_more_link_scroll( $link ) {
 		$link = preg_replace( '|#more-[0-9]+|', '', $link );
+
 		return $link;
 	}
 }
@@ -211,15 +216,15 @@ if ( ! function_exists( 'ct_business_blog_social_array' ) ) {
 	function ct_business_blog_social_array() {
 
 		$social_sites = array(
-			'twitter'       => 'business_blog_twitter_profile',
-			'facebook'      => 'business_blog_facebook_profile',
-			'instagram'     => 'business_blog_instagram_profile',
-			'linkedin'      => 'business_blog_linkedin_profile',
-			'pinterest'     => 'business_blog_pinterest_profile',
-			'google-plus'   => 'business_blog_googleplus_profile',
-			'youtube'       => 'business_blog_youtube_profile',
-			'email'         => 'business_blog_email_profile',
-			'email-form'    => 'business_blog_email_form_profile',
+			'twitter'     => 'business_blog_twitter_profile',
+			'facebook'    => 'business_blog_facebook_profile',
+			'instagram'   => 'business_blog_instagram_profile',
+			'linkedin'    => 'business_blog_linkedin_profile',
+			'pinterest'   => 'business_blog_pinterest_profile',
+			'google-plus' => 'business_blog_googleplus_profile',
+			'youtube'     => 'business_blog_youtube_profile',
+			'email'       => 'business_blog_email_profile',
+			'email-form'  => 'business_blog_email_form_profile',
 
 			'500px'         => 'business_blog_500px_profile',
 			'amazon'        => 'business_blog_amazon_profile',
@@ -347,6 +352,7 @@ if ( ! function_exists( '_wp_render_title_tag' ) ) :
 		<title><?php wp_title( ' | ' ); ?></title>
 		<?php
 	}
+
 	add_action( 'wp_head', 'ct_business_blog_add_title_tag' );
 endif;
 
@@ -361,6 +367,7 @@ function ct_business_blog_nav_dropdown_buttons( $item_output, $item, $depth, $ar
 
 	return $item_output;
 }
+
 //add_filter( 'walker_nav_menu_start_el', 'ct_business_blog_nav_dropdown_buttons', 10, 4 );
 
 function ct_business_blog_sticky_post_marker() {
@@ -369,6 +376,7 @@ function ct_business_blog_sticky_post_marker() {
 		echo '<div class="sticky-status"><span>' . __( "Featured", "business-blog" ) . '</span></div>';
 	}
 }
+
 add_action( 'sticky_post_status', 'ct_business_blog_sticky_post_marker' );
 
 function ct_business_blog_reset_customizer_options() {
@@ -415,6 +423,7 @@ function ct_business_blog_reset_customizer_options() {
 	wp_safe_redirect( $redirect );
 	exit;
 }
+
 add_action( 'admin_init', 'ct_business_blog_reset_customizer_options' );
 
 function ct_business_blog_delete_settings_notice() {
@@ -427,12 +436,13 @@ function ct_business_blog_delete_settings_notice() {
 		<?php
 	}
 }
+
 add_action( 'admin_notices', 'ct_business_blog_delete_settings_notice' );
 
 function ct_business_blog_body_class( $classes ) {
 
 	global $post;
-	$full_post = get_theme_mod( 'full_post' );
+	$full_post       = get_theme_mod( 'full_post' );
 	$sidebar_display = get_theme_mod( 'sidebar' );
 
 	if ( $full_post == 'yes' ) {
@@ -444,12 +454,15 @@ function ct_business_blog_body_class( $classes ) {
 
 	return $classes;
 }
+
 add_filter( 'body_class', 'ct_business_blog_body_class' );
 
 function ct_business_blog_post_class( $classes ) {
 	$classes[] = 'entry';
+
 	return $classes;
 }
+
 add_filter( 'post_class', 'ct_business_blog_post_class' );
 
 function ct_business_blog_svg_output( $type ) {
@@ -476,6 +489,7 @@ function ct_business_blog_add_meta_elements() {
 
 	echo $meta_elements;
 }
+
 add_action( 'wp_head', 'ct_business_blog_add_meta_elements', 1 );
 
 // Move the WordPress generator to a better priority.
@@ -502,11 +516,13 @@ if ( ! function_exists( 'ct_business_blog_get_content_template' ) ) {
 }
 
 // allow skype URIs to be used
-function ct_business_blog_allow_skype_protocol( $protocols ){
+function ct_business_blog_allow_skype_protocol( $protocols ) {
 	$protocols[] = 'skype';
+
 	return $protocols;
 }
-add_filter( 'kses_allowed_protocols' , 'ct_business_blog_allow_skype_protocol' );
+
+add_filter( 'kses_allowed_protocols', 'ct_business_blog_allow_skype_protocol' );
 
 // Add class to primary menu if single tier so mobile menu items can be listed horizontally instead of vertically
 function ct_business_blog_primary_dropdown_check( $item_output, $item, $depth, $args ) {
@@ -522,6 +538,7 @@ function ct_business_blog_primary_dropdown_check( $item_output, $item, $depth, $
 
 	return $item_output;
 }
+
 add_filter( 'walker_nav_menu_start_el', 'ct_business_blog_primary_dropdown_check', 10, 4 );
 
 // Remove label that can't be edited with the_archive_title() e.g. "Category: Business" => "Business"
@@ -534,10 +551,93 @@ function ct_business_blog_modify_archive_titles( $title ) {
 	} elseif ( is_author() ) {
 		$title = get_the_author();
 	} elseif ( is_month() ) {
-		$title = single_month_title(' ');
+		$title = single_month_title( ' ' );
 	}
+
 	// is_year() and is_day() neglected b/c there is no analagous function for retrieving the page title
 
 	return $title;
 }
+
 add_filter( 'get_the_archive_title', 'ct_business_blog_modify_archive_titles' );
+
+// Update the colors used throughout the site based on the user's Customizer selected color
+function ct_business_blog_override_colors() {
+
+	$color_css       = '';
+	$primary_color   = get_theme_mod( 'color_primary' );
+	$secondary_color = get_theme_mod( 'color_secondary' );
+	$bg_color        = get_theme_mod( 'color_background' );
+
+	if ( $primary_color == '' ) {
+		$primary_color = '#20a4e6';
+	}
+	if ( $secondary_color == '' ) {
+		$secondary_color = '#17e6c3';
+	}
+	if ( $bg_color == '' ) {
+		$bg_color = '#f0f5f8';
+	}
+	// Update all instances of the default blue color being used
+	if ( $primary_color != '#20a4e6' ) {
+		$color_css .= "a,a:link,a:visited,.menu-primary-items a:hover,.menu-primary-items a:active,.menu-primary-items a:focus,.menu-primary-items li.current-menu-item > a,.menu-secondary-items li.current-menu-item a,.menu-secondary-items li.current-menu-item a:link,.menu-secondary-items li.current-menu-item a:visited,.menu-secondary-items a:hover,.menu-secondary-items a:active,.menu-secondary-items a:focus,.toggle-navigation-secondary:hover,.toggle-navigation-secondary:active,.toggle-navigation-secondary.open,.widget li a:hover,.widget li a:active,.widget li a:focus,.widget_recent_comments li a,.widget_recent_comments li a:link,.widget_recent_comments li a:visited,.post-comments-link a:hover,.post-comments-link a:active,.post-comments-link a:focus,.post-title a:hover,.post-title a:active,.post-title a:focus {
+		  color: $primary_color;
+		}";
+		$color_css .= "@media all and (min-width: 50em) { .menu-primary-items li.menu-item-has-children:hover > a,.menu-primary-items li.menu-item-has-children:hover > a:after,.menu-primary-items a:hover:after,.menu-primary-items a:active:after,.menu-primary-items a:focus:after,.menu-secondary-items li.menu-item-has-children:hover > a,.menu-secondary-items li.menu-item-has-children:hover > a:after,.menu-secondary-items a:hover:after,.menu-secondary-items a:active:after,.menu-secondary-items a:focus:after {
+		  color: $primary_color;
+		} }";
+		$color_css .= "input[type=\"submit\"],.comment-pagination a:hover,.comment-pagination a:active,.comment-pagination a:focus,.site-header:before,.social-media-icons a:hover,.social-media-icons a:active,.social-media-icons a:focus,.pagination a:hover,.pagination a:active,.pagination a:focus,.featured-image > a:after,.entry:before,.post-tags a,.widget_calendar #prev a:hover,.widget_calendar #prev a:active,.widget_calendar #prev a:focus,.widget_calendar #next a:hover,.widget_calendar #next a:active,.widget_calendar #next a:focus {
+			background: $primary_color;
+		}";
+		$color_css .= "@media all and (min-width: 50em) { .menu-primary-items ul:before,.menu-secondary-items ul:before {
+			background: $primary_color;
+		} }";
+		$color_css .= "blockquote,.widget_calendar #today {
+			border-color: $primary_color;
+		}";
+		$color_css .= ".toggle-navigation:hover svg g,.toggle-navigation.open svg g {
+			fill: $primary_color;
+		}";
+
+		// Create translucent variation and apply to hovers
+		$red   = hexdec( substr( $primary_color, 1, 2 ) );
+		$green = hexdec( substr( $primary_color, 3, 2 ) );
+		$blue  = hexdec( substr( $primary_color, 5, 2 ) );
+
+		$primary_color_hover = "rgba($red, $green, $blue, 0.6)";
+
+		$color_css .= "a:hover,a:active,a:focus,.widget_recent_comments li a:hover,.widget_recent_comments li a:active,.widget_recent_comments li a:focus {
+		  color: $primary_color_hover;
+		}";
+		$color_css .= "input[type=\"submit\"]:hover,input[type=\"submit\"]:active,input[type=\"submit\"]:focus,.post-tags a:hover,.post-tags a:active,.post-tags a:focus {
+		  background: $primary_color_hover;
+		}";
+	}
+	if ( $primary_color != '#20a4e6' || $secondary_color != '#17e6c3' ) {
+
+		$color_css .= ".site-header:before,.featured-image > a:after,.entry:before {
+		  background-image: -webkit-linear-gradient(left, $primary_color, $secondary_color);
+		  background-image: linear-gradient(to right, $primary_color, $secondary_color);
+		}";
+		$color_css .= "@media all and (min-width: 50em) { .menu-primary-items ul:before,.menu-secondary-items ul:before {
+		  background-image: -webkit-linear-gradient(left, $primary_color, $secondary_color);
+		  background-image: linear-gradient(to right, $primary_color, $secondary_color);
+		} }";
+	}
+	if ( $bg_color != '#f0f5f8' ) {
+		$color_css .= "body {background: $bg_color;}";
+	}
+	if ( $primary_color != '#20a4e6' || $secondary_color != '#17e6c3' || $bg_color != '#f0f5f8' ) {
+		wp_add_inline_style( 'ct-business-blog-style', ct_business_blog_sanitize_css( $color_css ) );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'ct_business_blog_override_colors', 20 );
+
+// sanitize CSS and allow ">" only so direct descendant selectors work
+function ct_business_blog_sanitize_css( $css ) {
+	$css = wp_kses( $css, '' );
+	$css = str_replace( '&gt;', '>', $css );
+
+	return $css;
+}
+

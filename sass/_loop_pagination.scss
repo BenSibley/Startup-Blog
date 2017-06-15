@@ -9,6 +9,7 @@
   }
   a {
     color: $color-gray-20;
+    transition: color 0.2s, background 0.2s;
 
     &:link,
     &:visited {

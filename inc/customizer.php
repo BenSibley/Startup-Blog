@@ -20,6 +20,56 @@ function ct_business_blog_add_customizer_content( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
+	/***** Colors *****/
+
+	// section
+	$wp_customize->add_section( 'business_blog_colors', array(
+		'title'    => __( 'Colors', 'business-blog' ),
+		'priority' => 20
+	) );
+	// setting
+	$wp_customize->add_setting( 'color_primary', array(
+		'default'           => '#20a4e6',
+		'sanitize_callback' => 'sanitize_hex_color'
+	) );
+	// control
+	$wp_customize->add_control( new WP_Customize_Color_Control(
+		$wp_customize, 'color_primary', array(
+			'label'       => __( 'Primary Color', 'business-blog' ),
+			'section'     => 'business_blog_colors',
+			'settings'    => 'color_primary',
+			'priority'    => 10
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'color_secondary', array(
+		'default'           => '#17e6c3',
+		'sanitize_callback' => 'sanitize_hex_color'
+	) );
+	// control
+	$wp_customize->add_control( new WP_Customize_Color_Control(
+		$wp_customize, 'color_secondary', array(
+			'label'       => __( 'Secondary Color', 'business-blog' ),
+			'section'     => 'business_blog_colors',
+			'settings'    => 'color_secondary',
+			'priority'    => 10
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'color_background', array(
+		'default'           => '#f0f5f8',
+		'sanitize_callback' => 'sanitize_hex_color'
+	) );
+	// control
+	$wp_customize->add_control( new WP_Customize_Color_Control(
+		$wp_customize, 'color_background', array(
+			'label'       => __( 'Background Color', 'business-blog' ),
+			'section'     => 'business_blog_colors',
+			'settings'    => 'color_background',
+			'priority'    => 10
+		)
+	) );
+	
 	/***** Social Media Icons *****/
 
 	// get the social sites array

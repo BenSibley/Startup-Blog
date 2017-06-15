@@ -499,14 +499,14 @@ a img {
   display: inline-block;
   margin: 0;
 }
-.comment-pagination p a {
+.comment-pagination a {
   display: inline-block;
   padding: 1.5em;
   border-radius: 3px;
   -webkit-transition: color 0.15s, background 0.15s;
   transition: color 0.15s, background 0.15s;
 }
-.comment-pagination p a:hover, .comment-pagination p a:active, .comment-pagination p a:focus {
+.comment-pagination a:hover, .comment-pagination a:active, .comment-pagination a:focus {
   color: #fff;
   background: #20A4E6;
 }
@@ -816,6 +816,8 @@ a img {
 }
 .pagination a {
   color: #333333;
+  -webkit-transition: color 0.2s, background 0.2s;
+  transition: color 0.2s, background 0.2s;
 }
 .pagination a:link, .pagination a:visited {
   color: #333333;

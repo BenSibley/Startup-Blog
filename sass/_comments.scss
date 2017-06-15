@@ -78,19 +78,18 @@
     @extend %white-box;
     display: inline-block;
     margin: 0;
+  }
+  a {
+    display: inline-block;
+    padding: $baseline-height;
+    border-radius: 3px;
+    transition: color 0.15s, background 0.15s;
 
-    a {
-      display: inline-block;
-      padding: $baseline-height;
-      border-radius: 3px;
-      transition: color 0.15s, background 0.15s;
-
-      &:hover,
-      &:active,
-      &:focus {
-        color: #fff;
-        background: $color-blue;
-      }
+    &:hover,
+    &:active,
+    &:focus {
+      color: #fff;
+      background: $color-blue;
     }
   }
 }

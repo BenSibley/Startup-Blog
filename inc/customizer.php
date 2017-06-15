@@ -117,13 +117,120 @@ function ct_business_blog_add_customizer_content( $wp_customize ) {
 		// increment the priority for next site
 		$priority = $priority + 5;
 	}
-	
+
+	/***** Show/Hide *****/
+
+	// section
+	$wp_customize->add_section( 'business_blog_show_hide', array(
+		'title'    => __( 'Show/Hide Elements', 'business-blog' ),
+		'priority' => 45
+	) );
+	// setting
+	$wp_customize->add_setting( 'tagline', array(
+		'default'           => 'header-footer',
+		'sanitize_callback' => 'ct_business_blog_sanitize_tagline_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'tagline', array(
+		'label'    => __( 'Show the tagline?', 'business-blog' ),
+		'section'  => 'business_blog_show_hide',
+		'settings' => 'tagline',
+		'type'     => 'radio',
+		'choices'  => array(
+			'header-footer' => __( 'Yes, in the header & footer', 'business-blog' ),
+			'header'        => __( 'Yes, in the header', 'business-blog' ),
+			'footer'        => __( 'Yes, in the footer', 'business-blog' ),
+			'no'            => __( 'No', 'business-blog' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'post_byline_date', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_business_blog_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'post_byline_date', array(
+		'label'    => __( 'Show date in post byline?', 'business-blog' ),
+		'section'  => 'business_blog_show_hide',
+		'settings' => 'post_byline_date',
+		'type'     => 'radio',
+		'choices'  => array(
+			'yes' => __( 'Yes', 'business-blog' ),
+			'no'  => __( 'No', 'business-blog' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'post_byline_author', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_business_blog_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'post_byline_author', array(
+		'label'    => __( 'Show author name in post byline?', 'business-blog' ),
+		'section'  => 'business_blog_show_hide',
+		'settings' => 'post_byline_author',
+		'type'     => 'radio',
+		'choices'  => array(
+			'yes' => __( 'Yes', 'business-blog' ),
+			'no'  => __( 'No', 'business-blog' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'author_avatars', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_business_blog_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'author_avatars', array(
+		'label'    => __( 'Show post author avatars?', 'business-blog' ),
+		'section'  => 'business_blog_show_hide',
+		'settings' => 'author_avatars',
+		'type'     => 'radio',
+		'choices'  => array(
+			'yes' => __( 'Yes', 'business-blog' ),
+			'no'  => __( 'No', 'business-blog' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'author_box', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_business_blog_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'author_box', array(
+		'label'    => __( 'Show author box after posts?', 'business-blog' ),
+		'section'  => 'business_blog_show_hide',
+		'settings' => 'author_box',
+		'type'     => 'radio',
+		'choices'  => array(
+			'yes' => __( 'Yes', 'business-blog' ),
+			'no'  => __( 'No', 'business-blog' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'sidebar', array(
+		'default'           => 'after',
+		'sanitize_callback' => 'ct_business_blog_sanitize_sidebar_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'sidebar', array(
+		'label'    => __( 'Show sidebar on mobile devices?', 'business-blog' ),
+		'section'  => 'business_blog_show_hide',
+		'settings' => 'sidebar',
+		'type'     => 'radio',
+		'choices'  => array(
+			'after'  => __( 'Yes, after main content', 'business-blog' ),
+			'before' => __( 'Yes, before main content', 'business-blog' ),
+			'no'     => __( 'No', 'business-blog' )
+		)
+	) );
+
 	/***** Blog *****/
 
 	// section
 	$wp_customize->add_section( 'business_blog_blog', array(
 		'title'    => __( 'Blog', 'business-blog' ),
-		'priority' => 45
+		'priority' => 50
 	) );
 	// setting
 	$wp_customize->add_setting( 'full_post', array(
@@ -152,66 +259,6 @@ function ct_business_blog_add_customizer_content( $wp_customize ) {
 		'section'  => 'business_blog_blog',
 		'settings' => 'excerpt_length',
 		'type'     => 'number'
-	) );
-
-	/***** Additional Options *****/
-
-	// section
-	$wp_customize->add_section( 'business_blog_additional', array(
-		'title'    => __( 'Additional Options', 'business-blog' ),
-		'priority' => 70
-	) );
-	// extra-wide post - setting
-	$wp_customize->add_setting( 'full_width_post', array(
-		'default'           => 'yes',
-		'sanitize_callback' => 'ct_business_blog_sanitize_yes_no_settings'
-	) );
-	// extra-wide post - control
-	$wp_customize->add_control( 'full_width_post', array(
-		'label'    => __( 'Make first post on blog extra wide?', 'business-blog' ),
-		'section'  => 'business_blog_additional',
-		'settings' => 'full_width_post',
-		'type'     => 'radio',
-		'choices'  => array(
-			'yes' => __( 'Yes', 'business-blog' ),
-			'no'  => __( 'No', 'business-blog' )
-		)
-	) );
-	// author byline - setting
-	$wp_customize->add_setting( 'author_byline', array(
-		'default'           => 'no',
-		'sanitize_callback' => 'ct_business_blog_sanitize_yes_no_settings'
-	) );
-	// author byline - control
-	$wp_customize->add_control( 'author_byline', array(
-		'label'    => __( 'Display post author name in byline?', 'business-blog' ),
-		'section'  => 'business_blog_additional',
-		'settings' => 'author_byline',
-		'type'     => 'radio',
-		'choices'  => array(
-			'yes' => __( 'Yes', 'business-blog' ),
-			'no'  => __( 'No', 'business-blog' )
-		)
-	) );
-
-	/***** Custom CSS *****/
-
-	// section
-	$wp_customize->add_section( 'business_blog_custom_css', array(
-		'title'    => __( 'Custom CSS', 'business-blog' ),
-		'priority' => 75
-	) );
-	// setting
-	$wp_customize->add_setting( 'custom_css', array(
-		'sanitize_callback' => 'ct_business_blog_sanitize_css',
-		'transport'         => 'postMessage'
-	) );
-	// control
-	$wp_customize->add_control( 'custom_css', array(
-		'type'     => 'textarea',
-		'label'    => __( 'Add Custom CSS Here:', 'business-blog' ),
-		'section'  => 'business_blog_custom_css',
-		'settings' => 'custom_css'
 	) );
 }
 
@@ -258,11 +305,27 @@ function ct_business_blog_sanitize_skype( $input ) {
 	return esc_url_raw( $input, array( 'http', 'https', 'skype' ) );
 }
 
-function ct_business_blog_sanitize_css( $css ) {
-	$css = wp_kses( $css, array( '\'', '\"' ) );
-	$css = str_replace( '&gt;', '>', $css );
+function ct_business_blog_sanitize_tagline_settings( $input ) {
 
-	return $css;
+	$valid = array(
+		'header-footer' => __( 'Yes, in the header & footer', 'business-blog' ),
+		'header'        => __( 'Yes, in the header', 'business-blog' ),
+		'footer'        => __( 'Yes, in the footer', 'business-blog' ),
+		'no'            => __( 'No', 'business-blog' )
+	);
+
+	return array_key_exists( $input, $valid ) ? $input : '';
+}
+
+function ct_business_blog_sanitize_sidebar_settings( $input ) {
+
+	$valid = array(
+		'after'  => __( 'Yes, after main content', 'business-blog' ),
+		'before' => __( 'Yes, before main content', 'business-blog' ),
+		'no'     => __( 'No', 'business-blog' )
+	);
+
+	return array_key_exists( $input, $valid ) ? $input : '';
 }
 
 /***** Helper Functions *****/

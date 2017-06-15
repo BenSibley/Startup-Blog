@@ -11,6 +11,7 @@
     bottom: 0;
     left: 0;
     font-size: 0;
+    backface-visibility: hidden;
 
     &:after {
       content: '';
@@ -23,6 +24,7 @@
       background-image: linear-gradient(to right, $color-blue, $color-green);
       opacity: 0;
       transition: opacity 0.1s ease-in-out;
+      backface-visibility: hidden;
     }
     &:hover,
     &:active {
@@ -37,7 +39,7 @@
     &:focus {
 
       &:after {
-        opacity: 0.5;
+        opacity: 0.55;
       }
     }
   }

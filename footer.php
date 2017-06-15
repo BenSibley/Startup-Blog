@@ -1,12 +1,19 @@
 <?php do_action( 'business_blog_main_bottom' ); ?>
 </section> <!-- .main -->
-<?php get_sidebar( 'primary' ); ?>
+<?php if ( get_theme_mod( 'sidebar' ) != 'before' ) {
+    get_sidebar( 'primary' );
+} ?>
 <?php do_action( 'business_blog_after_main' ); ?>
 </div> <!-- .main-content-container -->
 <footer id="site-footer" class="site-footer" role="contentinfo">
     <?php do_action( 'business_blog_footer_top' ); ?>
     <div class="site-credit">
-        <?php echo '<a href="' . esc_url( get_home_url() ) . '">' . get_bloginfo( 'name' ) . '</a> ' . get_bloginfo( 'description' ); ?>
+        <?php
+        echo '<a href="' . esc_url( get_home_url() ) . '">' . get_bloginfo( 'name' ) . '</a>';
+        if ( get_theme_mod( 'tagline' ) != 'header' && get_theme_mod( 'tagline' ) != 'no' ) {
+            bloginfo( 'description' );
+        }
+        ?>
     </div>
     <div class="design-credit">
         <span>

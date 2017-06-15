@@ -25,7 +25,7 @@
 		<div class="primary-header">
 			<div id="title-container" class="title-container">
 				<?php get_template_part( 'logo' ) ?>
-				<?php if ( get_bloginfo( 'description' ) ) {
+				<?php if ( get_bloginfo( 'description' ) && get_theme_mod( 'tagline' ) != 'footer' && get_theme_mod( 'tagline' ) != 'no' ) {
 					echo '<p class="tagline">' . get_bloginfo( 'description' ) . '</p>';
 				} ?>
 			</div>
@@ -42,6 +42,9 @@
 	</header>
 	<?php do_action( 'business_blog_after_header' ); ?>
 	<div class="main-content-container">
+		<?php if ( get_theme_mod( 'sidebar' ) == 'before' ) {
+			get_sidebar( 'primary' );
+		} ?>
 		<section id="main" class="main" role="main">
 			<?php do_action( 'business_blog_main_top' );
 			if ( function_exists( 'yoast_breadcrumb' ) ) {

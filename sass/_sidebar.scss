@@ -1,12 +1,18 @@
 .sidebar-primary {
   margin: $baseline-height * 1.5 0;
 }
+.hide-sidebar .sidebar-primary {
+  display: none;
+}
 
 @media all and (min-width: $seven-hundred) {
 
   .sidebar-primary {
     width: $column * 10 * 1.286;
     float: right;
+  }
+  .hide-sidebar .sidebar-primary {
+    display: block;
   }
 }
 

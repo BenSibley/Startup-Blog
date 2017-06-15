@@ -145,6 +145,15 @@ if ( ! function_exists( 'ct_business_blog_remove_comments_notes_after' ) ) {
 }
 add_action( 'comment_form_defaults', 'ct_business_blog_remove_comments_notes_after' );
 
+if ( ! function_exists( 'ct_business_blog_excerpt' ) ) {
+	function ct_business_blog_excerpt() {
+		if ( get_theme_mod( 'full_post' ) == 'yes' ) {
+			return wpautop( get_the_content() );
+		} else {
+			return wpautop( get_the_excerpt() );
+		}
+	}
+}
 if ( ! function_exists( 'business_blog_custom_excerpt_length' ) ) {
 	function business_blog_custom_excerpt_length( $length ) {
 
@@ -383,8 +392,7 @@ function ct_business_blog_reset_customizer_options() {
 		'excerpt_length',
 		'read_more_text',
 		'full_width_post',
-		'author_byline',
-		'custom_css'
+		'author_byline'
 	);
 
 	$social_sites = ct_business_blog_social_array();
@@ -424,10 +432,14 @@ add_action( 'admin_notices', 'ct_business_blog_delete_settings_notice' );
 function ct_business_blog_body_class( $classes ) {
 
 	global $post;
-	$full_post       = get_theme_mod( 'full_post' );
+	$full_post = get_theme_mod( 'full_post' );
+	$sidebar_display = get_theme_mod( 'sidebar' );
 
 	if ( $full_post == 'yes' ) {
 		$classes[] = 'full-post';
+	}
+	if ( $sidebar_display == 'no' ) {
+		$classes[] = 'hide-sidebar';
 	}
 
 	return $classes;
@@ -439,27 +451,6 @@ function ct_business_blog_post_class( $classes ) {
 	return $classes;
 }
 add_filter( 'post_class', 'ct_business_blog_post_class' );
-
-function ct_business_blog_custom_css_output() {
-
-	$custom_css = get_theme_mod( 'custom_css' );
-	$logo_size = get_theme_mod( 'logo_size' );
-
-	if ( $logo_size != 48 && ! empty( $logo_size ) ) {
-		$logo_size_css = '.logo {
-							width: ' . $logo_size . 'px;
-						  }';
-		$custom_css .= $logo_size_css;
-	}
-
-	if ( $custom_css ) {
-		$custom_css = ct_business_blog_sanitize_css( $custom_css );
-
-		wp_add_inline_style( 'ct-business_blog-style', $custom_css );
-		wp_add_inline_style( 'ct-business_blog-style-rtl', $custom_css );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'ct_business_blog_custom_css_output', 20 );
 
 function ct_business_blog_svg_output( $type ) {
 

@@ -7,7 +7,7 @@ function ct_business_blog_add_customizer_content( $wp_customize ) {
 
 	/***** Reorder default sections *****/
 
-	$wp_customize->get_section( 'title_tagline' )->priority = 1;
+	$wp_customize->get_section( 'title_tagline' )->priority = 2;
 
 	// check if exists in case user has no pages
 	if ( is_object( $wp_customize->get_section( 'static_front_page' ) ) ) {
@@ -20,7 +20,23 @@ function ct_business_blog_add_customizer_content( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
-	/***** Ignite Plus Control *****/
+	/***** Custom Controls *****/
+
+	class ct_business_blog_pro_ad extends WP_Customize_Control {
+		public function render_content() {
+			$link = 'https://www.competethemes.com/business-blog-pro/';
+			echo "<a href='" . $link . "' target='_blank'><img src='" . get_template_directory_uri() . "/assets/images/business-blog-pro.png' srcset='" . get_template_directory_uri() . "/assets/images/business-blog-pro-2x.png 2x' /></a>";
+			echo "<p class='bold'>" . sprintf( __('<a target="_blank" href="%1$s">%2$s Pro</a> makes advanced customization simple - and fun too!', 'business-blog'), $link, wp_get_theme( get_template() ) ) . "</p>";
+			echo "<p>" . sprintf( __('%s Pro adds the following features:', 'business-blog'), wp_get_theme( get_template() ) ) . "</p>";
+			echo "<ul>
+					<li>" . __('6 new layouts', 'business-blog') . "</li>
+					<li>" . __('Custom colors', 'business-blog') . "</li>
+					<li>" . __('New fonts', 'business-blog') . "</li>
+					<li>" . __('+ 11 more features', 'business-blog') . "</li>
+				  </ul>";
+			echo "<p class='button-wrapper'><a target=\"_blank\" class='business-blog-plus-button' href='" . $link . "'>" . sprintf( __('View %s Pro', 'business-blog'), wp_get_theme( get_template() ) ) . "</a></p>";
+		}
+	}
 
 	class ct_business_blog_slider_howto extends WP_Customize_Control {
 		public function render_content() {
@@ -53,6 +69,23 @@ function ct_business_blog_add_customizer_content( $wp_customize ) {
 			'description' => __( 'Setup the slider', 'business-blog' )
 		) );
 	}
+
+	/***** Business Blog Pro Section *****/
+
+	// section
+	$wp_customize->add_section( 'ct_business_blog_pro', array(
+		'title'    => sprintf( __( '%s Pro', 'business-blog' ), wp_get_theme( get_template() ) ),
+		'priority' => 1
+	) );
+	// setting
+	$wp_customize->add_setting( 'business_blog_pro' );
+	// control
+	$wp_customize->add_control( new ct_business_blog_pro_ad(
+		$wp_customize, 'business_blog_pro', array(
+			'section'  => 'ct_business_blog_pro',
+			'settings' => 'business_blog_pro'
+		)
+	) );
 
 	/***** Slider *****/
 

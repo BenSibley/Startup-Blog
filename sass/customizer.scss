@@ -7,11 +7,86 @@
     margin: $baseline-height/2 0;
   }
 }
+
+// Business Blog Pro section
+#accordion-section-ct_business_blog_pro {
+
+  .accordion-section-title {
+    color: #fff;
+    background: #05B0E7;
+    transition: background 0.2s;
+
+    &:after {
+      color: #fff;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: #3A96B5 !important;
+      color: #fff !important;
+
+      &:after {
+        color: #fff !important;
+      }
+    }
+  }
+}
 #sub-accordion-section-ct_business_blog_social_media_icons {
 
   #customize-control-email-form {
     padding-bottom: 24px;
     margin-bottom: 24px;
     border-bottom: solid 1px #d5d5d5;
+  }
+}
+
+#customize-control-business_blog_pro {
+  background: white;
+  border: solid 1px $color-gray-70;
+  padding: 6px 24px;
+  box-sizing: border-box;
+
+  ul {
+    list-style: disc;
+    padding-left: 15px;
+  }
+  img {
+    position: relative;
+    max-width: calc(100% + 48px);
+    top: -6px;
+    left: -24px;
+    border-bottom: solid 1px $color-gray-70;
+  }
+  .bold {
+    font-weight: 600;
+    font-size: 16px;
+  }
+  .button-wrapper {
+    text-align: center;
+  }
+  .business-blog-pro-button {
+    display: inline-block;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 15px 24px;
+    margin: 12px auto;
+    background: #FF931E;
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.2s;
+
+    &:before {
+      content: '\f06e';
+      font-family: 'FontAwesome';
+      margin-right: 6px;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: #FF8A23;
+    }
   }
 }

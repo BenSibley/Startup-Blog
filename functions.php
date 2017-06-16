@@ -649,33 +649,33 @@ function ct_business_blog_slider() {
 
 	if ( $the_query->have_posts() ) {
 		echo '<div id="bb-slider" class="bb-slider">';
-		echo '<ul class="slider-parent">';
-		while ( $the_query->have_posts() ) {
-			$the_query->the_post();
-			$classes = 'slide slide-' . $counter;
-			if ( $counter == 1 ) {
-				$classes .= ' current';
+			echo '<ul class="slider-parent">';
+			while ( $the_query->have_posts() ) {
+				$the_query->the_post();
+				$classes = 'slide slide-' . $counter;
+				if ( $counter == 1 ) {
+					$classes .= ' current';
+				}
+				include( locate_template( 'content-slide.php', false, false ) );
+				$counter++;
 			}
-			echo '<li class="' . $classes . '">';
-				echo '<div class="content-container">';
-					echo '<div class="title">' . get_the_title() . '</div>';
-					echo ct_business_blog_excerpt();
-					echo '<a class="read-more" href="' . get_permalink() . '">Read more</a>';
-				echo '</div>';
-				echo '<div class="image-container">';
-					the_post_thumbnail();
-				echo '</div>';
-			echo '</li>';
-			$counter++;
-		}
-		echo '</ul>';
-		echo '<div class="arrow-navigation">';
-			echo '<a id="bb-slider-left" class="left" href="#"><i class="fa fa-angle-left"></i></a>';
-			echo '<a id="bb-slider-right" class="right" href="#"><i class="fa fa-angle-right"></i></a>';
-		echo '</div>';
+			echo '</ul>';
+			echo '<div class="arrow-navigation">';
+				echo '<a id="bb-slider-left" class="left" href="#"><i class="fa fa-angle-left"></i></a>';
+				echo '<a id="bb-slider-right" class="right" href="#"><i class="fa fa-angle-right"></i></a>';
+			echo '</div>';
+			$nav_counter = 0;
+			echo '<ul class="dot-navigation">';
+				while ( $nav_counter < 4 ) {
+					$dot_class = 'dot';
+					if ( $nav_counter == 0 ) {
+						$dot_class .= ' current';
+					}
+					echo '<li class="' . $dot_class .'"><a href="#"></a></li>';
+					$nav_counter++;
+				}
+			echo '</ul>';
 		echo '</div>';
 		wp_reset_postdata();
-	} else {
-		// no posts found
 	}
 }

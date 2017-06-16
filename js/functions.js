@@ -173,7 +173,7 @@ jQuery(document).ready(function($){
             }
         }
         current = slider.find('.current');
-        slider.css('min-height', current.find('.content-container').outerHeight() + 48);
+        slider.css('min-height', current.find('.content-container').outerHeight() + 60);
     }
 });
 

@@ -13,7 +13,7 @@ jQuery(document).ready(function($){
     var toggleNavigationSecondary = $('#toggle-navigation-secondary');
     var toggleDropdown = $('.toggle-dropdown');
     var menuLink = $('.menu-item').children('a');
-    var slider = $('#bb-slider');
+    var slider = $('#bb-slide-list');
 
     objectFitAdjustment();
 
@@ -154,26 +154,43 @@ jQuery(document).ready(function($){
         }
     }
 
-    $('#bb-slider-left').on('click', navigateSlider);
-    $('#bb-slider-right').on('click', navigateSlider);
+    $('.slide-nav').on('click', navigateSlider);
 
     function navigateSlider() {
         var current = slider.find('.current').removeClass('current');
-        if ( $(this).attr('id') == 'bb-slider-left' ) {
+        var currentDot = $('#dot-navigation').children('.current').removeClass('current');
+        if ( $(this).hasClass('left') ) {
             if( current.prev().length ) {
                 current.prev().addClass('current');
+                currentDot.prev().addClass('current');
             } else {
                 current.siblings(":last").addClass('current');
+                currentDot.siblings(":last").addClass('current');
             }
         } else {
             if( current.next().length ) {
                 current.next().addClass('current');
+                currentDot.next().addClass('current');
             } else {
                 current.siblings(":first").addClass('current');
+                currentDot.siblings(":first").addClass('current');
             }
         }
         current = slider.find('.current');
-        slider.css('min-height', current.find('.content-container').outerHeight() + 60);
+        slider.parent().css('min-height', current.find('.content-container').outerHeight() + 60);
+    }
+    
+    $('.dot').on('click', selectSlide);
+    
+    function selectSlide() {
+        var currentSlide = slider.find('.current').removeClass('current');
+        var currentDot = $('#dot-navigation').children('.current').removeClass('current');
+        $(this).addClass('current');
+        var slideNumber = $(this).index() + 1;
+        currentSlide = slider.find('.slide-' + slideNumber);
+        currentSlide.addClass('current');
+        slider.parent().css('min-height', currentSlide.find('.content-container').outerHeight() + 60);
+
     }
 });
 

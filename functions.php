@@ -649,7 +649,7 @@ function ct_business_blog_slider() {
 
 	if ( $the_query->have_posts() ) {
 		echo '<div id="bb-slider" class="bb-slider">';
-			echo '<ul class="slider-parent">';
+			echo '<ul id="bb-slide-list" class="slide-list">';
 			while ( $the_query->have_posts() ) {
 				$the_query->the_post();
 				$classes = 'slide slide-' . $counter;
@@ -661,14 +661,14 @@ function ct_business_blog_slider() {
 			}
 			echo '</ul>';
 			echo '<div class="arrow-navigation">';
-				echo '<a id="bb-slider-left" class="left" href="#"><i class="fa fa-angle-left"></i></a>';
-				echo '<a id="bb-slider-right" class="right" href="#"><i class="fa fa-angle-right"></i></a>';
+				echo '<a id="bb-slider-left" class="left slide-nav" href="#"><i class="fa fa-angle-left"></i></a>';
+				echo '<a id="bb-slider-right" class="right slide-nav" href="#"><i class="fa fa-angle-right"></i></a>';
 			echo '</div>';
-			$nav_counter = 0;
-			echo '<ul class="dot-navigation">';
-				while ( $nav_counter < 4 ) {
-					$dot_class = 'dot';
-					if ( $nav_counter == 0 ) {
+			$nav_counter = 1;
+			echo '<ul id="dot-navigation" class="dot-navigation">';
+				while ( $nav_counter < 5 ) {
+					$dot_class = 'dot ' . $nav_counter;
+					if ( $nav_counter == 1 ) {
 						$dot_class .= ' current';
 					}
 					echo '<li class="' . $dot_class .'"><a href="#"></a></li>';

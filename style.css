@@ -1842,6 +1842,7 @@ a img {
 }
 .bb-slider .title {
   font-family: "Montserrat", sans-serif;
+  margin-bottom: 18px;
 }
 .bb-slider .read-more {
   display: inline-block;
@@ -1971,6 +1972,9 @@ a img {
   }
   .bb-slider .content-container p {
     font-size: 1em;
+  }
+  .bb-slider .title {
+    margin-bottom: 24px;
   }
 }
 @media all and (min-width: 37.5em) {

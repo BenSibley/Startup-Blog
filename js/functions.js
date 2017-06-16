@@ -14,6 +14,7 @@ jQuery(document).ready(function($){
     var toggleDropdown = $('.toggle-dropdown');
     var menuLink = $('.menu-item').children('a');
     var slider = $('#bb-slide-list');
+    var sliderContainer = $('#bb-slider');
 
     objectFitAdjustment();
 
@@ -154,8 +155,9 @@ jQuery(document).ready(function($){
         }
     }
 
-    $('.slide-nav').on('click', navigateSlider);
+    sliderContainer.css('min-height', sliderContainer.find('.slide.current').find('.content-container').outerHeight() + 60);
 
+    $('.slide-nav').on('click', navigateSlider);
     function navigateSlider() {
         var current = slider.find('.current').removeClass('current');
         var currentDot = $('#dot-navigation').children('.current').removeClass('current');
@@ -177,11 +179,10 @@ jQuery(document).ready(function($){
             }
         }
         current = slider.find('.current');
-        slider.parent().css('min-height', current.find('.content-container').outerHeight() + 60);
+        sliderContainer.css('min-height', current.find('.content-container').outerHeight() + 60);
     }
     
     $('.dot').on('click', selectSlide);
-    
     function selectSlide() {
         var currentSlide = slider.find('.current').removeClass('current');
         var currentDot = $('#dot-navigation').children('.current').removeClass('current');
@@ -189,7 +190,7 @@ jQuery(document).ready(function($){
         var slideNumber = $(this).index() + 1;
         currentSlide = slider.find('.slide-' + slideNumber);
         currentSlide.addClass('current');
-        slider.parent().css('min-height', currentSlide.find('.content-container').outerHeight() + 60);
+        sliderContainer.css('min-height', currentSlide.find('.content-container').outerHeight() + 60);
 
     }
 });

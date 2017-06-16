@@ -14,5 +14,5 @@
 			<?php do_action( 'business_blog_page_after' ); ?>
 		</div>
 	</article>
-	<?php comments_template(); ?>
 </div>
+<?php comments_template(); ?>

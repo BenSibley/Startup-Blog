@@ -3,8 +3,6 @@
   z-index: 2;
   height: 280px;
   min-height: 280px;
-  //padding-bottom: 33%;
-  //padding-bottom: 60%;
   color: #fff;
   overflow: hidden;
   display: flex;
@@ -35,7 +33,6 @@
   }
   .content-container {
     position: absolute;
-    //position: relative;
     z-index: 9;
     top: calc(50% - 18px);
     transform: translateY(-50%);
@@ -52,6 +49,7 @@
   .title {
     @extend %twenty-one-pixels;
     font-family: $heading-font-stack;
+    margin-bottom: 18px;
   }
   .read-more {
     display: inline-block;
@@ -190,6 +188,9 @@
       p {
         font-size: 1em;
       }
+    }
+    .title {
+      margin-bottom: 24px;
     }
   }
 }

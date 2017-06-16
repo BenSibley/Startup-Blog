@@ -28,6 +28,8 @@ if ( ! function_exists( ( 'ct_business_blog_theme_setup' ) ) ) {
 			'flex-height' => true,
 			'flex-width'  => true
 		) );
+		// Pages can be added to the slider
+		add_post_type_support( 'page', 'excerpt' );
 
 		require_once( trailingslashit( get_template_directory() ) . 'theme-options.php' );
 		foreach ( glob( trailingslashit( get_template_directory() ) . 'inc/*' ) as $filename ) {
@@ -605,7 +607,7 @@ function ct_business_blog_override_colors() {
 
 		$primary_color_hover = "rgba($red, $green, $blue, 0.6)";
 
-		$color_css .= "a:hover,a:active,a:focus,.widget_recent_comments li a:hover,.widget_recent_comments li a:active,.widget_recent_comments li a:focus {
+		$color_css .= "a:hover,a:active,a:focus,.site-title a:hover,.site-title a:active,.site-title a:focus,.widget_recent_comments li a:hover,.widget_recent_comments li a:active,.widget_recent_comments li a:focus {
 		  color: $primary_color_hover;
 		}";
 		$color_css .= "input[type=\"submit\"]:hover,input[type=\"submit\"]:active,input[type=\"submit\"]:focus,.post-tags a:hover,.post-tags a:active,.post-tags a:focus {
@@ -640,13 +642,36 @@ function ct_business_blog_sanitize_css( $css ) {
 	return $css;
 }
 
+// Create and output the slider
 function ct_business_blog_slider() {
 
-	$the_query = new WP_Query( array(
-		'posts_per_page' => 4
-	) );
-	$counter = 1;
+	// Decide if slider should be displayed based on user's Customizer settings
+	$display = get_theme_mod( 'slider_display' );
+	if ( ($display == 'homepage' || $display == '') && !is_front_page() ) return;
+	if ( $display == 'blog' && !is_home() ) return;
+	if ( $display == 'no' ) return;
 
+	// Setup other variables needed
+	$counter = 1;
+	$nav_counter = 1;
+	$display_arrows = get_theme_mod( 'slider_arrow_navigation' );
+	$display_dots = get_theme_mod( 'slider_dot_navigation' );
+	$num_posts = get_theme_mod( 'slider_recent_posts' );
+	if ( $num_posts == '' ) {
+		$num_posts = 5;
+	}
+	$args = array( 'posts_per_page' => $num_posts );
+	$post_category = get_theme_mod( 'slider_post_category' );
+	if ( $post_category != '' && $post_category != 'all' ) {
+		$args['cat'] = $post_category;
+	}
+	if ( get_theme_mod( 'slider_type' ) == 'custom' ) {
+		
+	}
+
+	$the_query = new WP_Query( $args );
+
+	// Loop through posts
 	if ( $the_query->have_posts() ) {
 		echo '<div id="bb-slider" class="bb-slider">';
 			echo '<ul id="bb-slide-list" class="slide-list">';
@@ -656,25 +681,29 @@ function ct_business_blog_slider() {
 				if ( $counter == 1 ) {
 					$classes .= ' current';
 				}
+				// Getting template this way instead of using get_template_part() so variables are accessible
 				include( locate_template( 'content-slide.php', false, false ) );
 				$counter++;
 			}
 			echo '</ul>';
-			echo '<div class="arrow-navigation">';
-				echo '<a id="bb-slider-left" class="left slide-nav" href="#"><i class="fa fa-angle-left"></i></a>';
-				echo '<a id="bb-slider-right" class="right slide-nav" href="#"><i class="fa fa-angle-right"></i></a>';
-			echo '</div>';
-			$nav_counter = 1;
-			echo '<ul id="dot-navigation" class="dot-navigation">';
-				while ( $nav_counter < 5 ) {
-					$dot_class = 'dot ' . $nav_counter;
-					if ( $nav_counter == 1 ) {
-						$dot_class .= ' current';
+			if ( $display_arrows != 'no' ) {
+				echo '<div class="arrow-navigation">';
+					echo '<a id="bb-slider-left" class="left slide-nav" href="#"><i class="fa fa-angle-left"></i></a>';
+					echo '<a id="bb-slider-right" class="right slide-nav" href="#"><i class="fa fa-angle-right"></i></a>';
+				echo '</div>';
+			}
+			if ( $display_dots != 'no' ) {
+				echo '<ul id="dot-navigation" class="dot-navigation">';
+					while ( $nav_counter <= $the_query->post_count ) {
+						$dot_class = 'dot ' . $nav_counter;
+						if ( $nav_counter == 1 ) {
+							$dot_class .= ' current';
+						}
+						echo '<li class="' . esc_attr( $dot_class ) . '"><a href="#"></a></li>';
+						$nav_counter ++;
 					}
-					echo '<li class="' . $dot_class .'"><a href="#"></a></li>';
-					$nav_counter++;
-				}
-			echo '</ul>';
+				echo '</ul>';
+			}
 		echo '</div>';
 		wp_reset_postdata();
 	}

@@ -38,8 +38,8 @@
 				<?php get_template_part( 'content/search-bar' ); ?>
 			</div>
 		</div>
-		
 	</header>
+	<?php ct_business_blog_slider(); ?>
 	<?php do_action( 'business_blog_after_header' ); ?>
 	<div class="main-content-container">
 		<?php if ( get_theme_mod( 'sidebar' ) == 'before' ) {

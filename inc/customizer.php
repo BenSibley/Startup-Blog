@@ -300,7 +300,7 @@ function ct_business_blog_add_customizer_content( $wp_customize ) {
 	) );
 	// setting
 	$wp_customize->add_setting( 'excerpt_length', array(
-		'default'           => '25',
+		'default'           => '30',
 		'sanitize_callback' => 'absint'
 	) );
 	// control

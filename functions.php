@@ -162,12 +162,12 @@ if ( ! function_exists( 'business_blog_custom_excerpt_length' ) ) {
 
 		$new_excerpt_length = get_theme_mod( 'excerpt_length' );
 
-		if ( ! empty( $new_excerpt_length ) && $new_excerpt_length != 35 ) {
+		if ( ! empty( $new_excerpt_length ) && $new_excerpt_length != 30 ) {
 			return $new_excerpt_length;
 		} elseif ( $new_excerpt_length === 0 ) {
 			return 0;
 		} else {
-			return 35;
+			return 30;
 		}
 	}
 }
@@ -225,7 +225,6 @@ if ( ! function_exists( 'ct_business_blog_social_array' ) ) {
 			'youtube'     => 'business_blog_youtube_profile',
 			'email'       => 'business_blog_email_profile',
 			'email-form'  => 'business_blog_email_form_profile',
-
 			'500px'         => 'business_blog_500px_profile',
 			'amazon'        => 'business_blog_amazon_profile',
 			'bandcamp'      => 'business_blog_bandcamp_profile',
@@ -586,7 +585,7 @@ function ct_business_blog_override_colors() {
 		$color_css .= "@media all and (min-width: 50em) { .menu-primary-items li.menu-item-has-children:hover > a,.menu-primary-items li.menu-item-has-children:hover > a:after,.menu-primary-items a:hover:after,.menu-primary-items a:active:after,.menu-primary-items a:focus:after,.menu-secondary-items li.menu-item-has-children:hover > a,.menu-secondary-items li.menu-item-has-children:hover > a:after,.menu-secondary-items a:hover:after,.menu-secondary-items a:active:after,.menu-secondary-items a:focus:after {
 		  color: $primary_color;
 		} }";
-		$color_css .= "input[type=\"submit\"],.comment-pagination a:hover,.comment-pagination a:active,.comment-pagination a:focus,.site-header:before,.social-media-icons a:hover,.social-media-icons a:active,.social-media-icons a:focus,.pagination a:hover,.pagination a:active,.pagination a:focus,.featured-image > a:after,.entry:before,.post-tags a,.widget_calendar #prev a:hover,.widget_calendar #prev a:active,.widget_calendar #prev a:focus,.widget_calendar #next a:hover,.widget_calendar #next a:active,.widget_calendar #next a:focus {
+		$color_css .= "input[type=\"submit\"],.comment-pagination a:hover,.comment-pagination a:active,.comment-pagination a:focus,.site-header:before,.social-media-icons a:hover,.social-media-icons a:active,.social-media-icons a:focus,.pagination a:hover,.pagination a:active,.pagination a:focus,.featured-image > a:after,.entry:before,.post-tags a,.widget_calendar #prev a:hover,.widget_calendar #prev a:active,.widget_calendar #prev a:focus,.widget_calendar #next a:hover,.widget_calendar #next a:active,.widget_calendar #next a:focus,.bb-slider .image-container:after {
 			background: $primary_color;
 		}";
 		$color_css .= "@media all and (min-width: 50em) { .menu-primary-items ul:before,.menu-secondary-items ul:before {
@@ -615,7 +614,7 @@ function ct_business_blog_override_colors() {
 	}
 	if ( $primary_color != '#20a4e6' || $secondary_color != '#17e6c3' ) {
 
-		$color_css .= ".site-header:before,.featured-image > a:after,.entry:before {
+		$color_css .= ".site-header:before,.featured-image > a:after,.entry:before,.bb-slider .image-container:after {
 		  background-image: -webkit-linear-gradient(left, $primary_color, $secondary_color);
 		  background-image: linear-gradient(to right, $primary_color, $secondary_color);
 		}";
@@ -641,3 +640,42 @@ function ct_business_blog_sanitize_css( $css ) {
 	return $css;
 }
 
+function ct_business_blog_slider() {
+
+	$the_query = new WP_Query( array(
+		'posts_per_page' => 4
+	) );
+	$counter = 1;
+
+	if ( $the_query->have_posts() ) {
+		echo '<div id="bb-slider" class="bb-slider">';
+		echo '<ul class="slider-parent">';
+		while ( $the_query->have_posts() ) {
+			$the_query->the_post();
+			$classes = 'slide slide-' . $counter;
+			if ( $counter == 1 ) {
+				$classes .= ' current';
+			}
+			echo '<li class="' . $classes . '">';
+				echo '<div class="content-container">';
+					echo '<div class="title">' . get_the_title() . '</div>';
+					echo ct_business_blog_excerpt();
+					echo '<a class="read-more" href="' . get_permalink() . '">Read more</a>';
+				echo '</div>';
+				echo '<div class="image-container">';
+					the_post_thumbnail();
+				echo '</div>';
+			echo '</li>';
+			$counter++;
+		}
+		echo '</ul>';
+		echo '<div class="arrow-navigation">';
+			echo '<a id="bb-slider-left" class="left" href="#"><i class="fa fa-angle-left"></i></a>';
+			echo '<a id="bb-slider-right" class="right" href="#"><i class="fa fa-angle-right"></i></a>';
+		echo '</div>';
+		echo '</div>';
+		wp_reset_postdata();
+	} else {
+		// no posts found
+	}
+}

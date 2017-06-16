@@ -1,0 +1,223 @@
+.bb-slider {
+  position: relative;
+  z-index: 2;
+  height: 280px;
+  min-height: 280px;
+  //padding-bottom: 33%;
+  //padding-bottom: 60%;
+  color: #fff;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  transition: min-height 0.4s;
+
+  ul {
+    margin: 0;
+    list-style: none;
+  }
+  li {
+    position: absolute;
+    z-index: 3;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.4s;
+
+    &.current {
+      z-index: 4;
+      opacity: 1;
+
+      .content-container {
+        opacity: 1;
+      }
+    }
+  }
+  .content-container {
+    position: absolute;
+    //position: relative;
+    z-index: 9;
+    top: calc(50% - 18px);
+    transform: translateY(-50%);
+    padding: $baseline-height $column * 2;
+    opacity: 0;
+    transition: opacity 0.5s;
+
+    p {
+      @extend %twelve-pixels;
+      line-height: 1.5;
+      max-width: 600px;
+    }
+  }
+  .title {
+    @extend %twenty-one-pixels;
+    font-family: $heading-font-stack;
+  }
+  .read-more {
+    display: inline-block;
+    padding: $baseline-height/4 $baseline-height/2;
+    color: $color-gray-20;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: none;
+    transition: box-shadow 0.15s, transform 0.15s;
+
+    &:hover,
+    &:active,
+    &:focus {
+      box-shadow: 0 2px 12px 0 rgba(0,0,0,0.1);
+      transform: translateY(-2px);
+    }
+  }
+  .image-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    min-width: 100%;
+    min-height: 100%;
+
+    img {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      max-width: none;
+      max-height: none;
+      left: 0;
+      object-fit: cover;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      opacity: 0.8;
+      background: $color-blue;
+      background-image: linear-gradient(to right, $color-blue, $color-green);
+    }
+  }
+  .arrow-navigation {
+    position: absolute;
+    z-index: 5;
+    bottom: 24px;
+    //top: 50%;
+    //transform: translateY(-50%);
+    left: 0;
+    width: 100%;
+    height: 30px;
+
+    a {
+      @extend %twenty-one-pixels;
+      line-height: 30px;
+      position: absolute;
+      display: inline-block;
+      height: 30px;
+      width: 30px;
+      background: rgba(51,51,51,0.2);
+      border-radius: 50%;
+      color: #fff;
+      text-align: center;
+      transition: color 0.15s, background 0.15s, box-shadow 0.15s, transform 0.15s;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background: #fff;
+        color: $color-gray-20;
+        box-shadow: 0 2px 12px 0 rgba(0,0,0,0.1);
+        transform: translateX(-1px);
+      }
+    }
+    .left {
+      left: $column * 2;
+
+      i {
+        margin-left: -2px;
+      }
+    }
+    .right {
+      right: $column * 2;
+
+      &:hover,
+      &:active,
+      &:focus {
+        transform: translateX(1px);
+      }
+      i {
+        margin-right: -2px;
+      }
+    }
+  }
+}
+
+@media all and (min-width: $five-hundred) {
+
+  .bb-slider {
+    height: 330px;
+
+    .content-container {
+
+      p {
+        font-size: 1em;
+      }
+    }
+  }
+}
+
+@media all and (min-width: $six-hundred) {
+
+  .bb-slider {
+    height: 350px;
+
+    .title {
+      font-size: 1.75em; /* 28px / 16px */
+      line-height: 1.358; /* 38px */
+    }
+  }
+}
+
+@media all and (min-width: $eight-hundred){
+
+  .bb-slider {
+
+    .content-container {
+      padding: 0 $column * 4;
+      top: 50%;
+    }
+    .arrow-navigation {
+      bottom: auto;
+      height: 42px;
+      top: 50%;
+      transform: translateY(-50%);
+
+      a {
+        width: 42px;
+        height: 42px;
+        line-height: 42px;
+        font-size: 38px;
+      }
+      .left {
+        left: $column;
+      }
+      .right {
+        right: $column;
+      }
+    }
+  }
+}
+
+@media all and (min-width: $one-thousand) {
+
+  .bb-slider {
+
+    .title {
+      font-size: 2.375em; /* 38px / 16px */
+      line-height: 1.342; /* 51px */
+    }
+    .read-more {
+      padding: $baseline-height/2 $baseline-height;
+    }
+  }
+}

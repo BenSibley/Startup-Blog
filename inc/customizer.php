@@ -61,14 +61,14 @@ function ct_business_blog_add_customizer_content( $wp_customize ) {
 	/********** Add Panels **********/
 
 	// Add panel for colors
-	if ( method_exists( 'WP_Customize_Manager', 'add_panel' ) ) {
-
-		$wp_customize->add_panel( 'business_blog_slider_panel', array(
-			'priority'    => 20,
-			'title'       => __( 'Slider', 'business-blog' ),
-			'description' => __( 'Setup the slider', 'business-blog' )
-		) );
-	}
+//	if ( method_exists( 'WP_Customize_Manager', 'add_panel' ) ) {
+//
+//		$wp_customize->add_panel( 'business_blog_slider_panel', array(
+//			'priority'    => 20,
+//			'title'       => __( 'Slider', 'business-blog' ),
+//			'description' => __( 'Setup the slider', 'business-blog' )
+//		) );
+//	}
 
 	/***** Business Blog Pro Section *****/
 
@@ -91,25 +91,54 @@ function ct_business_blog_add_customizer_content( $wp_customize ) {
 
 	// section
 	$wp_customize->add_section( 'business_blog_slider_settings', array(
-		'title'    => __( 'Settings', 'business-blog' ),
-		'priority' => 1,
-		'panel'    => 'business_blog_slider_panel'
+		'title'    => __( 'Recent Posts Slider', 'business-blog' ),
+		'priority' => 20
+//		'panel'    => 'business_blog_slider_panel'
 	) );
 	// setting
-	$wp_customize->add_setting( 'slider_type', array(
-		'default'           => 'recent-posts',
-		'sanitize_callback' => 'ct_business_blog_sanitize_slider_type'
+//	$wp_customize->add_setting( 'slider_type', array(
+//		'default'           => 'recent-posts',
+//		'sanitize_callback' => 'ct_business_blog_sanitize_slider_type'
+//	) );
+//	// control
+//	$wp_customize->add_control( 'slider_type', array(
+//		'label'    => __( 'Slider type', 'business-blog' ),
+//		'section'  => 'business_blog_slider_settings',
+//		'settings' => 'slider_type',
+//		'type'     => 'radio',
+//		'choices'  => array(
+//			'recent-posts' => __( 'Recent Posts', 'business-blog' ),
+//			'custom'       => __( 'Custom', 'business-blog' )
+//		)
+//	) );
+	// setting
+	$wp_customize->add_setting( 'slider_recent_posts', array(
+		'default'           => '5',
+		'sanitize_callback' => 'absint'
 	) );
 	// control
-	$wp_customize->add_control( 'slider_type', array(
-		'label'    => __( 'Slider type', 'business-blog' ),
+	$wp_customize->add_control( 'slider_recent_posts', array(
+		'label'    => __( 'Number of posts in slider', 'business-blog' ),
 		'section'  => 'business_blog_slider_settings',
-		'settings' => 'slider_type',
-		'type'     => 'radio',
-		'choices'  => array(
-			'recent-posts' => __( 'Recent Posts', 'business-blog' ),
-			'custom'       => __( 'Custom', 'business-blog' )
-		)
+		'settings' => 'slider_recent_posts',
+		'type'     => 'number'
+	) );
+	// setting
+	$wp_customize->add_setting( 'slider_post_category', array(
+		'default'           => 'all',
+		'sanitize_callback' => 'ct_business_blog_sanitize_post_categories'
+	) );
+	$categories_array = array( 'all' => 'All' );
+	foreach ( get_categories() as $category ) {
+		$categories_array[$category->term_id] = $category->name;
+	}
+	// control
+	$wp_customize->add_control( 'slider_post_category', array(
+		'label'    => __( 'Post category', 'business-blog' ),
+		'section'  => 'business_blog_slider_settings',
+		'settings' => 'slider_post_category',
+		'type'     => 'select',
+		'choices' => $categories_array
 	) );
 	// setting
 	$wp_customize->add_setting( 'slider_display', array(
@@ -174,79 +203,79 @@ function ct_business_blog_add_customizer_content( $wp_customize ) {
 		'type'     => 'text'
 	) );
 	// section
-	$wp_customize->add_section( 'business_blog_slider_recent_posts', array(
-		'title'    => __( 'Recent Posts', 'business-blog' ),
-		'description'    => __( 'Select the "Recent Posts" slider type in Slider > Settings to use these options.', 'business-blog' ),
-		'priority' => 1,
-		'panel' => 'business_blog_slider_panel'
-	) );
-	// setting
-	$wp_customize->add_setting( 'slider_recent_posts', array(
-		'default'           => '5',
-		'sanitize_callback' => 'absint'
-	) );
-	// control
-	$wp_customize->add_control( 'slider_recent_posts', array(
-		'label'    => __( 'Number of posts in slider', 'business-blog' ),
-		'section'  => 'business_blog_slider_recent_posts',
-		'settings' => 'slider_recent_posts',
-		'type'     => 'number'
-	) );
-	// setting
-	$wp_customize->add_setting( 'slider_post_category', array(
-		'default'           => 'all',
-		'sanitize_callback' => 'ct_business_blog_sanitize_post_categories'
-	) );
-	$categories_array = array( 'all' => 'All' );
-	foreach ( get_categories() as $category ) {
-		$categories_array[$category->term_id] = $category->name;
-	}
-	// control
-	$wp_customize->add_control( 'slider_post_category', array(
-		'label'    => __( 'Post category', 'business-blog' ),
-		'section'  => 'business_blog_slider_recent_posts',
-		'settings' => 'slider_post_category',
-		'type'     => 'select',
-		'choices' => $categories_array
-	) );
-	// Setting
-	$wp_customize->add_setting( 'slider_howto' );
-	// Control
-	$wp_customize->add_control( new ct_business_blog_slider_howto(
-		$wp_customize, 'slider_howto', array(
-			'section'  => 'business_blog_slider_recent_posts',
-			'settings' => 'slider_howto'
-		)
-	) );
+//	$wp_customize->add_section( 'business_blog_slider_recent_posts', array(
+//		'title'    => __( 'Recent Posts', 'business-blog' ),
+//		'description'    => __( 'Select the "Recent Posts" slider type in Slider > Settings to use these options.', 'business-blog' ),
+//		'priority' => 1,
+//		'panel' => 'business_blog_slider_panel'
+//	) );
+//	// setting
+//	$wp_customize->add_setting( 'slider_recent_posts', array(
+//		'default'           => '5',
+//		'sanitize_callback' => 'absint'
+//	) );
+//	// control
+//	$wp_customize->add_control( 'slider_recent_posts', array(
+//		'label'    => __( 'Number of posts in slider', 'business-blog' ),
+//		'section'  => 'business_blog_slider_recent_posts',
+//		'settings' => 'slider_recent_posts',
+//		'type'     => 'number'
+//	) );
+//	// setting
+//	$wp_customize->add_setting( 'slider_post_category', array(
+//		'default'           => 'all',
+//		'sanitize_callback' => 'ct_business_blog_sanitize_post_categories'
+//	) );
+//	$categories_array = array( 'all' => 'All' );
+//	foreach ( get_categories() as $category ) {
+//		$categories_array[$category->term_id] = $category->name;
+//	}
+//	// control
+//	$wp_customize->add_control( 'slider_post_category', array(
+//		'label'    => __( 'Post category', 'business-blog' ),
+//		'section'  => 'business_blog_slider_recent_posts',
+//		'settings' => 'slider_post_category',
+//		'type'     => 'select',
+//		'choices' => $categories_array
+//	) );
+//	// Setting
+//	$wp_customize->add_setting( 'slider_howto' );
+//	// Control
+//	$wp_customize->add_control( new ct_business_blog_slider_howto(
+//		$wp_customize, 'slider_howto', array(
+//			'section'  => 'business_blog_slider_recent_posts',
+//			'settings' => 'slider_howto'
+//		)
+//	) );
 	// section
-	$wp_customize->add_section( 'business_blog_slider_custom', array(
-		'title'    => __( 'Custom', 'business-blog' ),
-		'description'    => __( 'Select the "Custom" slider type in Slider > Settings to use these options.', 'business-blog' ),
-		'priority' => 2,
-		'panel' => 'business_blog_slider_panel'
-	) );
-	// setting
-	$wp_customize->add_setting( 'slider_ids', array(
-		'default'           => '',
-		'sanitize_callback' => 'ct_business_blog_sanitize_text'
-	) );
-	// control
-	$wp_customize->add_control( 'slider_ids', array(
-		'label'    => __( 'Post/Page IDs', 'business-blog' ),
-		'description'    => __( 'Comma separated list of IDs (ex. 9,23,7) ', 'business-blog' ),
-		'section'  => 'business_blog_slider_custom',
-		'settings' => 'slider_ids',
-		'type'     => 'text'
-	) );
-	// Setting
-	$wp_customize->add_setting( 'slider_howto_custom' );
-	// Control
-	$wp_customize->add_control( new ct_business_blog_slider_custom_howto(
-		$wp_customize, 'slider_howto_custom', array(
-			'section'  => 'business_blog_slider_custom',
-			'settings' => 'slider_howto_custom'
-		)
-	) );
+//	$wp_customize->add_section( 'business_blog_slider_custom', array(
+//		'title'    => __( 'Custom', 'business-blog' ),
+//		'description'    => __( 'Select the "Custom" slider type in Slider > Settings to use these options.', 'business-blog' ),
+//		'priority' => 2,
+//		'panel' => 'business_blog_slider_panel'
+//	) );
+//	// setting
+//	$wp_customize->add_setting( 'slider_ids', array(
+//		'default'           => '',
+//		'sanitize_callback' => 'ct_business_blog_sanitize_text'
+//	) );
+//	// control
+//	$wp_customize->add_control( 'slider_ids', array(
+//		'label'    => __( 'Post/Page IDs', 'business-blog' ),
+//		'description'    => __( 'Comma separated list of IDs (ex. 9,23,7) ', 'business-blog' ),
+//		'section'  => 'business_blog_slider_custom',
+//		'settings' => 'slider_ids',
+//		'type'     => 'text'
+//	) );
+//	// Setting
+//	$wp_customize->add_setting( 'slider_howto_custom' );
+//	// Control
+//	$wp_customize->add_control( new ct_business_blog_slider_custom_howto(
+//		$wp_customize, 'slider_howto_custom', array(
+//			'section'  => 'business_blog_slider_custom',
+//			'settings' => 'slider_howto_custom'
+//		)
+//	) );
 	
 	/***** Colors *****/
 

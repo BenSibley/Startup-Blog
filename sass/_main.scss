@@ -16,6 +16,15 @@
     width: $column * 17 * 1.286;
     float: left;
   }
+  .left-sidebar {
+
+    .main {
+      float: right;
+    }
+  }
+  .rtl .left-sidebar .main {
+    float: left;
+  }
 }
 
 @media all and (min-width: $one-thousand) {

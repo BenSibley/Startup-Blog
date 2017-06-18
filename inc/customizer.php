@@ -185,8 +185,7 @@ function ct_business_blog_add_customizer_content( $wp_customize ) {
 		$wp_customize, 'color_primary', array(
 			'label'       => __( 'Primary Color', 'business-blog' ),
 			'section'     => 'business_blog_colors',
-			'settings'    => 'color_primary',
-			'priority'    => 10
+			'settings'    => 'color_primary'
 		)
 	) );
 	// setting
@@ -199,8 +198,7 @@ function ct_business_blog_add_customizer_content( $wp_customize ) {
 		$wp_customize, 'color_secondary', array(
 			'label'       => __( 'Secondary Color', 'business-blog' ),
 			'section'     => 'business_blog_colors',
-			'settings'    => 'color_secondary',
-			'priority'    => 10
+			'settings'    => 'color_secondary'
 		)
 	) );
 	// setting
@@ -213,8 +211,31 @@ function ct_business_blog_add_customizer_content( $wp_customize ) {
 		$wp_customize, 'color_background', array(
 			'label'       => __( 'Background Color', 'business-blog' ),
 			'section'     => 'business_blog_colors',
-			'settings'    => 'color_background',
-			'priority'    => 10
+			'settings'    => 'color_background'
+		)
+	) );
+
+	/***** Layout *****/
+
+	// section
+	$wp_customize->add_section( 'business_blog_layout', array(
+		'title'    => __( 'Layout', 'business-blog' ),
+		'priority' => 25
+	) );
+	// setting
+	$wp_customize->add_setting( 'layout', array(
+		'default'           => 'right-sidebar',
+		'sanitize_callback' => 'ct_business_blog_sanitize_layout'
+	) );
+	// control
+	$wp_customize->add_control( 'layout', array(
+		'label'    => __( 'Choose a Layout', 'business-blog' ),
+		'section'  => 'business_blog_layout',
+		'settings' => 'layout',
+		'type'     => 'radio',
+		'choices'  => array(
+			'right-sidebar' => __( 'Right sidebar', 'business-blog' ),
+			'left-sidebar'  => __( 'Left sidebar', 'business-blog' )
 		)
 	) );
 	
@@ -528,4 +549,14 @@ function ct_business_blog_sanitize_post_categories( $input ) {
 	}
 
 	return array_key_exists( $input, $categories_array ) ? $input : '';
+}
+
+function ct_business_blog_sanitize_layout( $input ) {
+
+	$valid = array(
+		'right-sidebar' => __( 'Right sidebar', 'business-blog' ),
+		'left-sidebar'  => __( 'Left sidebar', 'business-blog' )
+	);
+
+	return array_key_exists( $input, $valid ) ? $input : '';
 }

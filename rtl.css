@@ -899,6 +899,14 @@ a img {
     width: 60.73264%;
     float: right;
   }
+
+  .left-sidebar .main {
+    float: left;
+  }
+
+  .rtl .left-sidebar .main {
+    float: right;
+  }
 }
 @media all and (min-width: 62.5em) {
   .main-content-container {
@@ -1705,6 +1713,14 @@ a img {
 
   .hide-sidebar .sidebar-primary {
     display: block;
+  }
+
+  .left-sidebar .sidebar-primary {
+    float: right;
+  }
+
+  .rtl .left-sidebar .sidebar-primary {
+    float: left;
   }
 }
 @media all and (min-width: 62.5em) {

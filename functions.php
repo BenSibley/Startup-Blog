@@ -439,6 +439,7 @@ if ( ! function_exists( 'ct_business_blog_body_class' ) ) {
 		global $post;
 		$full_post       = get_theme_mod( 'full_post' );
 		$sidebar_display = get_theme_mod( 'sidebar' );
+		$layout          = get_theme_mod( 'layout' );
 
 		if ( $full_post == 'yes' ) {
 			$classes[] = 'full-post';
@@ -446,6 +447,7 @@ if ( ! function_exists( 'ct_business_blog_body_class' ) ) {
 		if ( $sidebar_display == 'no' ) {
 			$classes[] = 'hide-sidebar';
 		}
+		$classes[] = $layout;
 
 		return $classes;
 	}

@@ -527,6 +527,11 @@ a img {
   text-align: center;
 }
 
+.rtl .comment-list .comment-footer {
+  left: auto;
+  right: 6.2505%;
+}
+
 @media all and (min-width: 62.5em) {
   .comment-list li.comment,
   .comment-list .li.pingback {
@@ -790,6 +795,11 @@ a img {
   float: right;
 }
 
+.rtl .social-media-icons li {
+  margin-right: 0;
+  margin-left: 0.75em;
+}
+
 @media all and (min-width: 50em) {
   .primary-header {
     padding: 1.125em 11.112%;
@@ -806,6 +816,10 @@ a img {
 
   .title-container {
     margin-right: 2.25em;
+  }
+
+  .rtl .title-container {
+    margin-right: 0;
   }
 }
 .pagination {
@@ -1138,6 +1152,11 @@ a img {
 
   .menu-primary-items:not(.hierarchical) > li {
     margin-right: 0;
+  }
+
+  .rtl .menu-primary-container {
+    margin-right: 0;
+    margin-left: auto;
   }
 }
 .menu-secondary-container {
@@ -1568,6 +1587,11 @@ a img {
   padding: 0 6.2505% 1.5em;
 }
 
+.rtl .post-comments-link {
+  right: 6.2505%;
+  left: auto;
+}
+
 @media all and (min-width: 37.5em) {
   .post-author .avatar {
     width: 65px;
@@ -1965,12 +1989,14 @@ a img {
 }
 .bb-slider .arrow-navigation .left {
   left: 5.556%;
+  right: auto;
 }
 .bb-slider .arrow-navigation .left i {
   margin-left: -2px;
 }
 .bb-slider .arrow-navigation .right {
   right: 5.556%;
+  left: auto;
 }
 .bb-slider .arrow-navigation .right:hover, .bb-slider .arrow-navigation .right:active {
   -webkit-transform: translateX(2px);
@@ -2004,6 +2030,15 @@ a img {
   margin-right: 8px;
   -webkit-transition: background 0.4s;
   transition: background 0.4s;
+}
+
+.rtl .bb-slider .arrow-navigation .left {
+  right: 5.556%;
+  left: auto;
+}
+.rtl .bb-slider .arrow-navigation .right {
+  left: 5.556%;
+  right: auto;
 }
 
 @media all and (min-width: 31.25em) {
@@ -2059,6 +2094,13 @@ a img {
   .bb-slider .dot-navigation a {
     margin-right: 12px;
   }
+
+  .rtl .bb-slider .arrow-navigation .left {
+    right: 2.778%;
+  }
+  .rtl .bb-slider .arrow-navigation .right {
+    left: 2.778%;
+  }
 }
 @media all and (min-width: 62.5em) {
   .bb-slider .title {
@@ -2077,5 +2119,12 @@ a img {
   }
   .bb-slider .arrow-navigation .right {
     right: 5.556%;
+  }
+
+  .rtl .bb-slider .arrow-navigation .left {
+    right: 5.556%;
+  }
+  .rtl .bb-slider .arrow-navigation .right {
+    left: 5.556%;
   }
 }

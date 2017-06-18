@@ -258,6 +258,13 @@
 .attachment .post-content {
   padding: 0 $column * 2 * 1.125 $baseline-height;
 }
+.rtl {
+
+  .post-comments-link {
+    right: $column * 2 * 1.125;
+    left: auto;
+  }
+}
 
 @media all and (min-width: $six-hundred) {
 

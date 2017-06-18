@@ -106,6 +106,17 @@
   text-align: center;
 }
 
+.rtl {
+
+  .comment-list {
+
+    .comment-footer {
+      left: auto;
+      right: $column * 2 * 1.125;
+    }
+  }
+}
+
 @media all and (min-width: $one-thousand){
 
   .comment-list {

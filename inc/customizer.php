@@ -15,11 +15,6 @@ function ct_business_blog_add_customizer_content( $wp_customize ) {
 		$wp_customize->get_section( 'static_front_page' )->title    = __( 'Front Page', 'business-blog' );
 	}
 
-	/***** Add PostMessage Support *****/
-
-	$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
-	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
-
 	/***** Custom Controls *****/
 
 	class ct_business_blog_pro_ad extends WP_Customize_Control {
@@ -448,24 +443,6 @@ function ct_business_blog_add_customizer_content( $wp_customize ) {
 
 /***** Custom Sanitization Functions *****/
 
-/*
- * Sanitize settings with show/hide as options
- * Used in: search bar
- */
-function ct_business_blog_sanitize_show_hide( $input ) {
-
-	$valid = array(
-		'show' => __( 'Show', 'business-blog' ),
-		'hide' => __( 'Hide', 'business-blog' )
-	);
-
-	return array_key_exists( $input, $valid ) ? $input : '';
-}
-
-/*
- * sanitize email address
- * Used in: Social Media Icons
- */
 function ct_business_blog_sanitize_email( $input ) {
 	return sanitize_email( $input );
 }
@@ -507,16 +484,6 @@ function ct_business_blog_sanitize_sidebar_settings( $input ) {
 		'after'  => __( 'Yes, after main content', 'business-blog' ),
 		'before' => __( 'Yes, before main content', 'business-blog' ),
 		'no'     => __( 'No', 'business-blog' )
-	);
-
-	return array_key_exists( $input, $valid ) ? $input : '';
-}
-
-function ct_business_blog_sanitize_slider_type( $input ) {
-
-	$valid = array(
-		'recent-posts' => __( 'Recent Posts', 'business-blog' ),
-		'custom'       => __( 'Custom', 'business-blog' )
 	);
 
 	return array_key_exists( $input, $valid ) ? $input : '';

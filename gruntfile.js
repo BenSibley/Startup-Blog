@@ -14,9 +14,7 @@ module.exports = function(grunt) {
         uglify: {
             dist: {
                 files: {
-                    'js/build/production.min.js' : 'js/build/production.js',
-                    'js/build/customizer.min.js' : 'js/customizer.js',
-                    'js/build/postMessage.min.js' : 'js/postMessage.js'
+                    'js/build/production.min.js' : 'js/build/production.js'
                 }
             }
         },

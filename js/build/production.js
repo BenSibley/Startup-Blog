@@ -237,7 +237,7 @@ jQuery(document).ready(function($){
             });
         }
     }
-
+    
     sliderContainer.css('min-height', sliderContainer.find('.slide.current').find('.content-container').outerHeight() + 60);
 
     $('.slide-nav').on('click', navigateSlider);

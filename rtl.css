@@ -197,6 +197,7 @@ pre {
   background: #F0F5F8;
   white-space: pre-wrap;
   border: solid 1px #E4E8EB;
+  border-radius: 3px;
   padding: 0.75em;
 }
 
@@ -465,6 +466,9 @@ a img {
 .comment-list li.comment.bypostauthor,
 .comment-list li.pingback.bypostauthor {
   background: #F0F5F8;
+}
+.comment-list .comment-author {
+  max-width: calc(100% - 100px);
 }
 .comment-list .author-name {
   font-family: "Montserrat", sans-serif;

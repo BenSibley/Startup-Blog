@@ -724,3 +724,12 @@ if ( ! function_exists( 'ct_business_blog_slider' ) ) {
 		}
 	}
 }
+
+// provide a fallback title on the off-chance a post is untitled so it remains clickable on the blog
+function ct_business_blog_no_missing_titles( $title, $id = null ) {
+	if ( $title == '' ) {
+		$title = '(title)';
+	}
+	return $title;
+}
+add_filter( 'the_title', 'ct_business_blog_no_missing_titles', 10, 2 );

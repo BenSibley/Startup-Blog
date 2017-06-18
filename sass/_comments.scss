@@ -23,6 +23,9 @@
       background: $color-gray-blue;
     }
   }
+  .comment-author {
+    max-width: calc(100% - 100px); // to prevent running into repy/edit links
+  }
   .author-name {
     font-family: $heading-font-stack;
   }

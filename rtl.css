@@ -409,6 +409,19 @@ a img {
     padding: 1.5em 5.8838%;
   }
 }
+#infinite-handle {
+  margin: 2.25em 0;
+}
+#infinite-handle span {
+  display: inline-block;
+  padding: 0;
+  background: #20A4E6;
+}
+#infinite-handle button {
+  padding: 14px 24px !important;
+  border-radius: 3px;
+}
+
 .comment-respond {
   margin: 2.25em 0;
   padding: 1.125em 6.2505%;

@@ -1,0 +1,13 @@
+#infinite-handle {
+  margin: $baseline-height * 1.5 0;
+
+  span {
+    display: inline-block;
+    padding: 0;
+    background: $color-blue;
+  }
+  button {
+    padding: 14px 24px !important;
+    border-radius: 3px;
+  }
+}

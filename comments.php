@@ -32,7 +32,10 @@ if ( comments_open() ) { ?>
             </nav>
         <?php } ?>
         <p class="comments-closed pings-open">
-            <?php printf( esc_html__( 'Comments are closed, but <a href="%s" title="Trackback URL for this post">trackbacks</a> and pingbacks are open.', 'business-blog' ), esc_url( get_trackback_url() ) ); ?>
+            <?php
+            // translators: placeholder is link to the trackback URL
+            printf( esc_html__( 'Comments are closed, but <a href="%s" title="Trackback URL for this post">trackbacks</a> and pingbacks are open.', 'business-blog' ), esc_url( get_trackback_url() ) );
+            ?>
         </p>
     </section>
     <?php

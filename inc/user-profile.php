@@ -52,28 +52,30 @@ function business_blog_add_social_profile_settings( $user ) {
 				$label = 'PayPal';
 			} elseif ( $key == 'email-form' ) {
 				$label = 'Contact Form';
+			} elseif ( $key == 'google-wallet' ) {
+				$label = 'Google Wallet';
 			}
 			?>
 			<tr>
 				<th>
 					<?php if ( $key == 'email' ) : ?>
-						<label for="<?php echo $key; ?>-profile"><?php _e( 'Email Address', 'business-blog' ); ?></label>
+						<label for="<?php echo esc_attr( $key ); ?>-profile"><?php esc_html_e( 'Email Address', 'business-blog' ); ?></label>
 					<?php else : ?>
-						<label for="<?php echo $key; ?>-profile"><?php echo $label; ?></label>
+						<label for="<?php echo esc_attr( $key ); ?>-profile"><?php echo esc_html( $label ); ?></label>
 					<?php endif; ?>
 				</th>
 				<td>
 					<?php if ( $key == 'email' ) { ?>
-						<input type='text' id='<?php echo $key; ?>-profile' class='regular-text'
-						       name='<?php echo $key; ?>-profile'
+						<input type='text' id='<?php echo esc_attr( $key ); ?>-profile' class='regular-text'
+						       name='<?php echo esc_attr( $key ); ?>-profile'
 						       value='<?php echo is_email( get_the_author_meta( $social_site, $user->ID ) ); ?>'/>
 					<?php } elseif ( $key == 'skype' ) { ?>
-						<input type='url' id='<?php echo $key; ?>-profile' class='regular-text'
-						       name='<?php echo $key; ?>-profile'
+						<input type='url' id='<?php echo esc_attr( $key ); ?>-profile' class='regular-text'
+						       name='<?php echo esc_attr( $key ); ?>-profile'
 						       value='<?php echo esc_url( get_the_author_meta( $social_site, $user->ID ), array( 'http', 'https', 'skype' ) ); ?>'/>
 					<?php } else { ?>
-						<input type='url' id='<?php echo $key; ?>-profile' class='regular-text'
-						       name='<?php echo $key; ?>-profile'
+						<input type='url' id='<?php echo esc_attr( $key ); ?>-profile' class='regular-text'
+						       name='<?php echo esc_attr( $key ); ?>-profile'
 						       value='<?php echo esc_url( get_the_author_meta( $social_site, $user->ID ) ); ?>'/>
 					<?php } ?>
 				</td>
@@ -112,6 +114,5 @@ function business_blog_save_social_profiles( $user_id ) {
 		}
 	}
 }
-
 add_action( 'personal_options_update', 'business_blog_save_social_profiles' );
 add_action( 'edit_user_profile_update', 'business_blog_save_social_profiles' );

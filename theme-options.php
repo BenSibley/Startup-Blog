@@ -25,7 +25,7 @@ function ct_business_blog_options_content() {
 				<p><?php printf( esc_html__( 'Not sure where to start? The %1$s Support Center is filled with tutorials that will take you step-by-step through every feature in %1$s.', 'business-blog' ), wp_get_theme( get_template() ) ); ?></p>
 				<p>
 					<a target="_blank" class="button-primary"
-					   href="https://www.competethemes.com/documentation/business-blog-support-center/"><?php _e( 'Visit Support Center', 'business-blog' ); ?></a>
+					   href="https://www.competethemes.com/documentation/business-blog-support-center/"><?php esc_html_e( 'Visit Support Center', 'business-blog' ); ?></a>
 				</p>
 			</div>
 			<?php if ( !function_exists( 'ct_business_blog_pro_init' ) ) : ?>
@@ -41,12 +41,12 @@ function ct_business_blog_options_content() {
 			<div class="content content-review">
 				<h3><?php esc_html_e( 'Leave a Review', 'business-blog' ); ?></h3>
 				<p><?php printf( esc_html__( 'Help others find %s by leaving a review on wordpress.org.', 'business-blog' ), wp_get_theme( get_template() ) ); ?></p>
-				<a target="_blank" class="button-primary" href="https://wordpress.org/support/theme/business-blog/reviews/"><?php _e( 'Leave a Review', 'business-blog' ); ?></a>
+				<a target="_blank" class="button-primary" href="https://wordpress.org/support/theme/business-blog/reviews/"><?php esc_html_e( 'Leave a Review', 'business-blog' ); ?></a>
 			</div>
 			<div class="content content-presspad">
 				<h3><?php esc_html_e( 'Turn Business Blog into a Mobile App', 'business-blog' ); ?></h3>
 				<p><?php printf( esc_html__( '%s can be converted into a mobile app and listed on the App Store with the help of PressPad News. Read our tutorial to learn more.', 'business-blog' ), wp_get_theme( get_template() ) ); ?></p>
-				<a target="_blank" class="button-primary" href="https://www.competethemes.com/help/convert-mobile-app-business-blog/"><?php _e( 'Read Tutorial', 'business-blog' ); ?></a>
+				<a target="_blank" class="button-primary" href="https://www.competethemes.com/help/convert-mobile-app-business-blog/"><?php esc_html_e( 'Read Tutorial', 'business-blog' ); ?></a>
 			</div>
 			<div class="content content-delete-settings">
 				<h3><?php esc_html_e( 'Reset Customizer Settings', 'business-blog' ); ?></h3>

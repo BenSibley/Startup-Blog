@@ -22,14 +22,15 @@ function ct_business_blog_add_customizer_content( $wp_customize ) {
 			$link = 'https://www.competethemes.com/business-blog-pro/';
 			echo "<a href='" . $link . "' target='_blank'><img src='" . get_template_directory_uri() . "/assets/images/business-blog-pro.png' srcset='" . get_template_directory_uri() . "/assets/images/business-blog-pro-2x.png 2x' /></a>";
 			echo "<p class='bold'>" . sprintf( esc_html__('<a target="_blank" href="%1$s">%2$s Pro</a> makes advanced customization simple - and fun too!', 'business-blog'), $link, wp_get_theme( get_template() ) ) . "</p>";
-			echo "<p>" . sprintf( esc_html__('%s Pro adds the following features:', 'business-blog'), wp_get_theme( get_template() ) ) . "</p>";
+			echo "<p>" . sprintf( esc_html_x('%s Pro adds the following features:', ' Business Blog Pro adds the following features:', 'business-blog'), wp_get_theme( get_template() ) ) . "</p>";
 			echo "<ul>
 					<li>" . esc_html__('6 new layouts', 'business-blog') . "</li>
 					<li>" . esc_html__('Custom colors', 'business-blog') . "</li>
 					<li>" . esc_html__('New fonts', 'business-blog') . "</li>
 					<li>" . esc_html__('+ 11 more features', 'business-blog') . "</li>
 				  </ul>";
-			echo "<p class='button-wrapper'><a target=\"_blank\" class='business-blog-plus-button' href='" . $link . "'>" . sprintf( esc_html__('View %s Pro', 'business-blog'), wp_get_theme( get_template() ) ) . "</a></p>";
+			// translators: placeholder is "Business Blog"
+			echo "<p class='button-wrapper'><a target=\"_blank\" class='business-blog-plus-button' href='" . $link . "'>" . sprintf( esc_html_x('View %s Pro', 'View Business Blog Pro', 'business-blog'), wp_get_theme( get_template() ) ) . "</a></p>";
 		}
 	}
 
@@ -41,7 +42,9 @@ function ct_business_blog_add_customizer_content( $wp_customize ) {
 		'priority' => 1
 	) );
 	// setting
-	$wp_customize->add_setting( 'business_blog_pro' );
+	$wp_customize->add_setting( 'business_blog_pro', array(
+		'sanitize_callback' => 'absint'
+	) );
 	// control
 	$wp_customize->add_control( new ct_business_blog_pro_ad(
 		$wp_customize, 'business_blog_pro', array(

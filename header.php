@@ -6,7 +6,7 @@
 	<?php wp_head(); ?>
 </head>
 
-<body id="<?php print get_stylesheet(); ?>" <?php body_class(); ?>>
+<body id="<?php print esc_attr( get_stylesheet() ); ?>" <?php body_class(); ?>>
 <?php do_action( 'business_blog_body_top' ); ?>
 <a class="skip-content" href="#main"><?php esc_html_e( 'Press "Enter" to skip to content', 'business-blog' ); ?></a>
 <div id="overflow-container" class="overflow-container">
@@ -29,7 +29,7 @@
 				<div id="title-container" class="title-container">
 					<?php get_template_part( 'logo' ) ?>
 					<?php if ( get_bloginfo( 'description' ) && get_theme_mod( 'tagline' ) != 'footer' && get_theme_mod( 'tagline' ) != 'no' ) {
-						echo '<p class="tagline">' . get_bloginfo( 'description' ) . '</p>';
+						echo '<p class="tagline">' . esc_html( get_bloginfo( 'description' ) ) . '</p>';
 					} ?>
 				</div>
 				<button id="toggle-navigation" class="toggle-navigation" name="toggle-navigation" aria-expanded="false">

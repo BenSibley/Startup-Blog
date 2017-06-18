@@ -22,7 +22,7 @@ if ( is_tag() ) {
 
 <div class='archive-header'>
 	<h1>
-		<i class="fa fa-<?php echo $icon_class; ?>"></i>
+		<i class="fa fa-<?php echo esc_attr( $icon_class ); ?>"></i>
 		<?php
 		echo esc_html( $prefix ) . ' ';
 		the_archive_title( '&ldquo;', '&rdquo;' );

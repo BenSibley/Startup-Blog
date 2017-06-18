@@ -476,7 +476,7 @@ if ( ! function_exists( 'ct_business_blog_add_meta_elements' ) ) {
 
 		$meta_elements = '';
 
-		$meta_elements .= sprintf( '<meta charset="%s" />' . "\n", get_bloginfo( 'charset' ) );
+		$meta_elements .= sprintf( '<meta charset="%s" />' . "\n", esc_attr( get_bloginfo( 'charset' ) ) );
 		$meta_elements .= '<meta name="viewport" content="width=device-width, initial-scale=1" />' . "\n";
 
 		$theme    = wp_get_theme( get_template() );

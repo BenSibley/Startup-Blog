@@ -83,9 +83,6 @@
 })( window.jQuery || window.Zepto );
 jQuery(document).ready(function($){
 
-    var body = $('body');
-    var siteHeader = $('#site-header');
-    var titleContainer = $('#title-container');
     var menuPrimaryContainer = $('#menu-primary-container');
     var menuPrimary = $('#menu-primary');
     var menuPrimaryItems = $('#menu-primary-items');
@@ -94,29 +91,24 @@ jQuery(document).ready(function($){
     var menuSecondaryItems = $('#menu-secondary-items');
     var toggleNavigation = $('#toggle-navigation');
     var toggleNavigationSecondary = $('#toggle-navigation-secondary');
-    var toggleDropdown = $('.toggle-dropdown');
     var menuLink = $('.menu-item').children('a');
     var slider = $('#bb-slide-list');
     var sliderContainer = $('#bb-slider');
-
-    objectFitAdjustment();
 
     $('.post-content').fitVids({
         customSelector: 'iframe[src*="dailymotion.com"], iframe[src*="slideshare.net"], iframe[src*="animoto.com"], iframe[src*="blip.tv"], iframe[src*="funnyordie.com"], iframe[src*="hulu.com"], iframe[src*="ted.com"], iframe[src*="wordpress.tv"]'
     });
 
+    objectFitAdjustment();
     $(window).resize(function(){
         objectFitAdjustment();
     });
-
     // Jetpack infinite scroll event that reloads posts.
     $( document.body ).on( 'post-load', function () {
         objectFitAdjustment();
     } );
 
-    toggleNavigation.on('click', openPrimaryMenu);
-
-    function openPrimaryMenu() {
+    toggleNavigation.on('click', function() {
 
         if( menuPrimaryContainer.hasClass('open') ) {
             menuPrimaryContainer.removeClass('open');
@@ -146,11 +138,9 @@ jQuery(document).ready(function($){
             // change aria text
             $(this).attr('aria-expanded', 'true');
         }
-    }
+    });
 
-    toggleNavigationSecondary.on('click', openSecondaryMenu);
-
-    function openSecondaryMenu() {
+    toggleNavigationSecondary.on('click', function() {
 
         if( menuSecondaryContainer.hasClass('open') ) {
             menuSecondaryContainer.removeClass('open');
@@ -180,14 +170,42 @@ jQuery(document).ready(function($){
             // change aria text
             $(this).attr('aria-expanded', 'true');
         }
-    }
-
-    /* allow keyboard access/visibility for dropdown menu items */
-    menuLink.focus(function(){
-        $(this).parents('ul').addClass('focused');
     });
-    menuLink.focusout(function(){
-        $(this).parents('ul').removeClass('focused');
+    
+    sliderContainer.css('min-height', sliderContainer.find('.slide.current').find('.content-container').outerHeight() + 60);
+
+    $('.slide-nav').on('click', function() {
+        var current = slider.find('.current').removeClass('current');
+        var currentDot = $('#dot-navigation').children('.current').removeClass('current');
+        if ( $(this).hasClass('left') ) {
+            if( current.prev().length ) {
+                current.prev().addClass('current');
+                currentDot.prev().addClass('current');
+            } else {
+                current.siblings(":last").addClass('current');
+                currentDot.siblings(":last").addClass('current');
+            }
+        } else {
+            if( current.next().length ) {
+                current.next().addClass('current');
+                currentDot.next().addClass('current');
+            } else {
+                current.siblings(":first").addClass('current');
+                currentDot.siblings(":first").addClass('current');
+            }
+        }
+        current = slider.find('.current');
+        sliderContainer.css('min-height', current.find('.content-container').outerHeight() + 60);
+    });
+    
+    $('.dot').on('click', function() {
+        var currentSlide = slider.find('.current').removeClass('current');
+        var currentDot = $('#dot-navigation').children('.current').removeClass('current');
+        $(this).addClass('current');
+        var slideNumber = $(this).index() + 1;
+        currentSlide = slider.find('.slide-' + slideNumber);
+        currentSlide.addClass('current');
+        sliderContainer.css('min-height', currentSlide.find('.content-container').outerHeight() + 60);
     });
 
     // mimic cover positioning without using cover
@@ -236,45 +254,6 @@ jQuery(document).ready(function($){
                 }
             });
         }
-    }
-    
-    sliderContainer.css('min-height', sliderContainer.find('.slide.current').find('.content-container').outerHeight() + 60);
-
-    $('.slide-nav').on('click', navigateSlider);
-    function navigateSlider() {
-        var current = slider.find('.current').removeClass('current');
-        var currentDot = $('#dot-navigation').children('.current').removeClass('current');
-        if ( $(this).hasClass('left') ) {
-            if( current.prev().length ) {
-                current.prev().addClass('current');
-                currentDot.prev().addClass('current');
-            } else {
-                current.siblings(":last").addClass('current');
-                currentDot.siblings(":last").addClass('current');
-            }
-        } else {
-            if( current.next().length ) {
-                current.next().addClass('current');
-                currentDot.next().addClass('current');
-            } else {
-                current.siblings(":first").addClass('current');
-                currentDot.siblings(":first").addClass('current');
-            }
-        }
-        current = slider.find('.current');
-        sliderContainer.css('min-height', current.find('.content-container').outerHeight() + 60);
-    }
-    
-    $('.dot').on('click', selectSlide);
-    function selectSlide() {
-        var currentSlide = slider.find('.current').removeClass('current');
-        var currentDot = $('#dot-navigation').children('.current').removeClass('current');
-        $(this).addClass('current');
-        var slideNumber = $(this).index() + 1;
-        currentSlide = slider.find('.slide-' + slideNumber);
-        currentSlide.addClass('current');
-        sliderContainer.css('min-height', currentSlide.find('.content-container').outerHeight() + 60);
-
     }
 });
 

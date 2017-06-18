@@ -1564,6 +1564,10 @@ a img {
   color: white;
 }
 
+.attachment .post-content {
+  padding: 0 6.2505% 1.5em;
+}
+
 @media all and (min-width: 37.5em) {
   .post-author .avatar {
     width: 65px;
@@ -1613,6 +1617,10 @@ a img {
 
   .sticky-status {
     margin-top: -1.5em;
+  }
+
+  .attachment .post-content {
+    padding: 0 5.8838% 1.5em;
   }
 }
 .search-form {

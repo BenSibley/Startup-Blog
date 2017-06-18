@@ -255,6 +255,9 @@
     color: white;
   }
 }
+.attachment .post-content {
+  padding: 0 $column * 2 * 1.125 $baseline-height;
+}
 
 @media all and (min-width: $six-hundred) {
 
@@ -308,5 +311,8 @@
   }
   .sticky-status {
     margin-top: -$baseline-height;
+  }
+  .attachment .post-content {
+    padding: 0 $column * 2.118 $baseline-height;
   }
 }

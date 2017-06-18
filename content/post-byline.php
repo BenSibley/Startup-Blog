@@ -11,10 +11,10 @@ $date   = date_i18n( get_option( 'date_format' ), strtotime( get_the_date() ) );
 
 echo '<div class="post-byline">';
 if ( $author_display == 'no' ) {
-	printf( _x( 'Published %s', 'This blog post was published on some date', 'business-blog' ), $date );
+	printf( esc_html_x( 'Published %s', 'This blog post was published on some date', 'business-blog' ), $date );
 } elseif ( $date_display == 'no' ) {
-	printf( _x( 'Published by %s', 'This blog post was published by some author', 'business-blog' ), $author );
+	printf( esc_html_x( 'Published by %s', 'This blog post was published by some author', 'business-blog' ), $author );
 } else {
-	printf( _x( 'Published %1$s by %2$s', 'This blog post was published on some date by some author', 'business-blog' ), $date, $author );
+	printf( esc_html_x( 'Published %1$s by %2$s', 'This blog post was published on some date by some author', 'business-blog' ), $date, $author );
 }
 echo '</div>';

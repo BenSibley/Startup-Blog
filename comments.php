@@ -32,7 +32,7 @@ if ( comments_open() ) { ?>
             </nav>
         <?php } ?>
         <p class="comments-closed pings-open">
-            <?php printf( __( 'Comments are closed, but <a href="%s" title="Trackback URL for this post">trackbacks</a> and pingbacks are open.', 'business-blog' ), esc_url( get_trackback_url() ) ); ?>
+            <?php printf( esc_html__( 'Comments are closed, but <a href="%s" title="Trackback URL for this post">trackbacks</a> and pingbacks are open.', 'business-blog' ), esc_url( get_trackback_url() ) ); ?>
         </p>
     </section>
     <?php
@@ -49,7 +49,7 @@ if ( comments_open() ) { ?>
             </nav>
         <?php } ?>
         <p class="comments-closed">
-            <?php _e( 'Comments are closed.', 'business-blog' ); ?>
+            <?php esc_html_e( 'Comments are closed.', 'business-blog' ); ?>
         </p>
     </section>
     <?php

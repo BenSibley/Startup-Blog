@@ -5,9 +5,14 @@ foreach ( glob( trailingslashit( get_template_directory() ) . 'inc/*' ) as $file
 	include $filename;
 }
 
-if ( ! isset( $content_width ) ) {
-	$content_width = 891;
+if ( ! function_exists( ( 'ct_business_blog_set_content_width' ) ) ) {
+	function ct_business_blog_set_content_width() {
+		if ( ! isset( $content_width ) ) {
+			$content_width = 780;
+		}
+	}
 }
+add_action( 'after_setup_theme', 'ct_business_blog_set_content_width', 0 );
 
 if ( ! function_exists( ( 'ct_business_blog_theme_setup' ) ) ) {
 	function ct_business_blog_theme_setup() {
@@ -22,6 +27,7 @@ if ( ! function_exists( ( 'ct_business_blog_theme_setup' ) ) ) {
 			'gallery',
 			'caption'
 		) );
+		// Support for infinite scroll in jetpack
 		add_theme_support( 'infinite-scroll', array(
 			'container' => 'loop-container',
 			'footer'    => 'overflow-container',
@@ -35,8 +41,8 @@ if ( ! function_exists( ( 'ct_business_blog_theme_setup' ) ) ) {
 		) );
 
 		register_nav_menus( array(
-			'primary'   => __( 'Primary', 'business-blog' ),
-			'secondary' => __( 'Secondary', 'business-blog' )
+			'primary'   => esc_html__( 'Primary', 'business-blog' ),
+			'secondary' => esc_html__( 'Secondary', 'business-blog' )
 		) );
 
 		load_theme_textdomain( 'business-blog', get_template_directory() . '/languages' );
@@ -48,9 +54,9 @@ if ( ! function_exists( ( 'ct_business_blog_register_widget_areas' ) ) ) {
 	function ct_business_blog_register_widget_areas() {
 
 		register_sidebar( array(
-			'name'          => __( 'Primary Sidebar', 'business-blog' ),
+			'name'          => esc_html__( 'Primary Sidebar', 'business-blog' ),
 			'id'            => 'primary',
-			'description'   => __( 'Widgets in this area will be shown in the sidebar next to the main post content', 'business-blog' ),
+			'description'   => esc_html__( 'Widgets in this area will be shown in the sidebar next to the main post content', 'business-blog' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -71,7 +77,7 @@ if ( ! function_exists( ( 'ct_business_blog_customize_comments' ) ) ) {
 			<div class="comment-content">
 				<?php if ( $comment->comment_approved == '0' ) : ?>
 					<span
-						class="awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'business-blog' ) ?></span>
+						class="awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'business-blog' ) ?></span>
 					<br/>
 				<?php endif; ?>
 				<?php comment_text(); ?>
@@ -83,7 +89,7 @@ if ( ! function_exists( ( 'ct_business_blog_customize_comments' ) ) ) {
 					'before'    => '<i class="fa fa-reply" aria-hidden="true"></i>'
 				) ) ); ?>
 				<?php edit_comment_link(
-					__( 'Edit', 'business-blog' ),
+					esc_html__( 'Edit', 'business-blog' ),
 					'<i class="fa fa-pencil" aria-hidden="true"></i>'
 				); ?>
 			</div>
@@ -97,26 +103,26 @@ if ( ! function_exists( 'ct_business_blog_update_fields' ) ) {
 
 		$commenter = wp_get_current_commenter();
 		$req       = get_option( 'require_name_email' );
-		$label     = $req ? '*' : ' ' . __( '(optional)', 'business-blog' );
+		$label     = $req ? '*' : ' ' . esc_html__( '(optional)', 'business-blog' );
 		$aria_req  = $req ? "aria-required='true'" : '';
 
 		$fields['author'] =
 			'<p class="comment-form-author">
-	            <label for="author">' . __( "Name", "business-blog" ) . $label . '</label>
-	            <input id="author" name="author" type="text" placeholder="' . __( "Jane Doe", "business-blog" ) . '" value="' . esc_attr( $commenter['comment_author'] ) .
-			'" size="30" ' . $aria_req . ' />
+	            <label for="author">' . esc_html__( "Name", "business-blog" ) . $label . '</label>
+	            <input id="author" name="author" type="text" placeholder="' . esc_attr__( "Jane Doe", "business-blog" ) . '" value="' . esc_attr( $commenter['comment_author'] ) .
+			'" size="30" ' . esc_html( $aria_req ) . ' />
 	        </p>';
 
 		$fields['email'] =
 			'<p class="comment-form-email">
-	            <label for="email">' . __( "Email", "business-blog" ) . $label . '</label>
-	            <input id="email" name="email" type="email" placeholder="' . __( "name@email.com", "business-blog" ) . '" value="' . esc_attr( $commenter['comment_author_email'] ) .
-			'" size="30" ' . $aria_req . ' />
+	            <label for="email">' . esc_html__( "Email", "business-blog" ) . $label . '</label>
+	            <input id="email" name="email" type="email" placeholder="' . esc_attr__( "name@email.com", "business-blog" ) . '" value="' . esc_attr( $commenter['comment_author_email'] ) .
+			'" size="30" ' . esc_html( $aria_req ) . ' />
 	        </p>';
 
 		$fields['url'] =
 			'<p class="comment-form-url">
-	            <label for="url">' . __( "Website", "business-blog" ) . '</label>
+	            <label for="url">' . esc_html__( "Website", "business-blog" ) . '</label>
 	            <input id="url" name="url" type="url" placeholder="http://google.com" value="' . esc_attr( $commenter['comment_author_url'] ) .
 			'" size="30" />
 	            </p>';
@@ -131,7 +137,7 @@ if ( ! function_exists( 'ct_business_blog_update_comment_field' ) ) {
 
 		$comment_field =
 			'<p class="comment-form-comment">
-	            <label for="comment">' . __( "Comment", "business-blog" ) . '</label>
+	            <label for="comment">' . esc_html__( "Comment", "business-blog" ) . '</label>
 	            <textarea required id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
 	        </p>';
 
@@ -143,7 +149,6 @@ add_filter( 'comment_form_field_comment', 'ct_business_blog_update_comment_field
 if ( ! function_exists( 'ct_business_blog_remove_comments_notes_after' ) ) {
 	function ct_business_blog_remove_comments_notes_after( $defaults ) {
 		$defaults['comment_notes_after'] = '';
-
 		return $defaults;
 	}
 }
@@ -201,7 +206,7 @@ if ( ! function_exists( 'ct_business_blog_featured_image' ) ) {
 			if ( is_singular() ) {
 				$featured_image = '<div class="featured-image">' . get_the_post_thumbnail( $post->ID, 'full' ) . '</div>';
 			} else {
-				$featured_image = '<div class="featured-image"><a href="' . esc_url( get_permalink() ) . '">' . get_the_title() . get_the_post_thumbnail( $post->ID, 'full' ) . '</a></div>';
+				$featured_image = '<div class="featured-image"><a href="' . esc_url( get_permalink() ) . '">' . esc_html( get_the_title() ) . get_the_post_thumbnail( $post->ID, 'full' ) . '</a></div>';
 			}
 		}
 
@@ -217,15 +222,15 @@ if ( ! function_exists( 'ct_business_blog_social_array' ) ) {
 	function ct_business_blog_social_array() {
 
 		$social_sites = array(
-			'twitter'     => 'business_blog_twitter_profile',
-			'facebook'    => 'business_blog_facebook_profile',
-			'instagram'   => 'business_blog_instagram_profile',
-			'linkedin'    => 'business_blog_linkedin_profile',
-			'pinterest'   => 'business_blog_pinterest_profile',
-			'google-plus' => 'business_blog_googleplus_profile',
-			'youtube'     => 'business_blog_youtube_profile',
-			'email'       => 'business_blog_email_profile',
-			'email-form'  => 'business_blog_email_form_profile',
+			'twitter'       => 'business_blog_twitter_profile',
+			'facebook'      => 'business_blog_facebook_profile',
+			'instagram'     => 'business_blog_instagram_profile',
+			'linkedin'      => 'business_blog_linkedin_profile',
+			'pinterest'     => 'business_blog_pinterest_profile',
+			'google-plus'   => 'business_blog_googleplus_profile',
+			'youtube'       => 'business_blog_youtube_profile',
+			'email'         => 'business_blog_email_profile',
+			'email-form'    => 'business_blog_email_form_profile',
 			'500px'         => 'business_blog_500px_profile',
 			'amazon'        => 'business_blog_amazon_profile',
 			'bandcamp'      => 'business_blog_bandcamp_profile',
@@ -350,7 +355,7 @@ if ( ! function_exists( 'ct_business_blog_wp_page_menu' ) ) {
 if ( ! function_exists( 'ct_business_blog_sticky_post_marker' ) ) {
 	function ct_business_blog_sticky_post_marker() {
 		if ( is_sticky() && ! is_archive() ) {
-			echo '<div class="sticky-status"><span>' . __( "Featured", "business-blog" ) . '</span></div>';
+			echo '<div class="sticky-status"><span>' . esc_html__( "Featured", "business-blog" ) . '</span></div>';
 		}
 	}
 }
@@ -420,7 +425,7 @@ if ( ! function_exists( 'ct_business_blog_delete_settings_notice' ) ) {
 		if ( isset( $_GET['business_blog_status'] ) ) {
 			?>
 			<div class="updated">
-				<p><?php _e( 'Customizer settings deleted', 'business-blog' ); ?>.</p>
+				<p><?php esc_html_e( 'Customizer settings deleted', 'business-blog' ); ?>.</p>
 			</div>
 			<?php
 		}
@@ -510,7 +515,6 @@ if ( ! function_exists( 'ct_business_blog_get_content_template' ) ) {
 if ( ! function_exists( 'ct_business_blog_allow_skype_protocol' ) ) {
 	function ct_business_blog_allow_skype_protocol( $protocols ) {
 		$protocols[] = 'skype';
-
 		return $protocols;
 	}
 }

@@ -1,55 +1,51 @@
 /* Back-end styles */
 /* styles for theme options page */
-#business_blog-dashboard-wrap h2 {
+#business-blog-dashboard-wrap h2 {
   margin-bottom: 24px;
 }
-#business_blog-dashboard-wrap .content {
+#business-blog-dashboard-wrap .content {
+  box-sizing: border-box;
   margin-top: 12px;
   padding: 12px 24px 24px;
   border: solid 1px #e5e5e5;
   background: white;
 }
-#business_blog-dashboard-wrap .content .button-primary {
+#business-blog-dashboard-wrap .content .button-primary,
+#business-blog-dashboard-wrap .content #delete {
   margin: 12px 0;
 }
-#business_blog-dashboard-wrap .content ul {
+#business-blog-dashboard-wrap .content ul {
   list-style: disc;
   margin-left: 36px;
 }
 
 /* 600px */
 @media all and (min-width: 37.5em) {
-  #business_blog-dashboard-wrap .content {
-    width: 39%;
+  #business-blog-dashboard-wrap .content {
+    width: 49%;
     float: left;
-  }
-  #business_blog-dashboard-wrap .content p {
-    min-height: 57px;
-  }
-  #business_blog-dashboard-wrap .content-review {
-    min-height: 192px;
-  }
-  #business_blog-dashboard-wrap .content-customization,
-  #business_blog-dashboard-wrap .content-premium-upgrade,
-  #business_blog-dashboard-wrap .content-review {
     margin-right: 2%;
+    min-height: 250px;
+  }
+  #business-blog-dashboard-wrap .content:nth-child(2n) {
+    margin-right: 0;
+  }
+  #business-blog-dashboard-wrap .content p {
+    min-height: 57px;
   }
 }
 /* 1100px */
 @media all and (min-width: 68.75em) {
-  #business_blog-dashboard-wrap .content {
-    width: 27%;
+  #business-blog-dashboard-wrap .content {
+    width: 32%;
   }
-  #business_blog-dashboard-wrap .content-resources {
-    clear: left;
+  #business-blog-dashboard-wrap .content:nth-child(2n) {
+    margin-right: 2%;
   }
-  #business_blog-dashboard-wrap .content-customization,
-  #business_blog-dashboard-wrap .content-support,
-  #business_blog-dashboard-wrap .content-resources,
-  #business_blog-dashboard-wrap .content-review {
-    margin-right: 1%;
-  }
-  #business_blog-dashboard-wrap .content-premium-upgrade {
+  #business-blog-dashboard-wrap .content:nth-child(3n) {
     margin-right: 0;
+  }
+  #business-blog-dashboard-wrap .content:nth-child(4n) {
+    clear: left;
   }
 }

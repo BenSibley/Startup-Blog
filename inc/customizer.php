@@ -148,6 +148,22 @@ function ct_business_blog_add_customizer_content( $wp_customize ) {
 		'settings' => 'slider_button_text',
 		'type'     => 'text'
 	) );
+	// setting
+	$wp_customize->add_setting( 'slider_sticky', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_business_blog_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'slider_sticky', array(
+		'label'    => __( 'Include "sticky" posts?', 'business-blog' ),
+		'section'  => 'business_blog_slider_settings',
+		'settings' => 'slider_sticky',
+		'type'     => 'radio',
+		'choices'  => array(
+			'yes' => __( 'Yes', 'business-blog' ),
+			'no'  => __( 'No', 'business-blog' )
+		)
+	) );
 	
 	/***** Colors *****/
 

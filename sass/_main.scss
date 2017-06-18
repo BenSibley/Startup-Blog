@@ -1,8 +1,12 @@
 .main-content-container {
   padding: 0 $column * 2;
+  min-height: calc(100% - 154px);
 
-  &:after {
-    @include clearfix;
+  .max-width {
+
+    &:after {
+      @include clearfix;
+    }
   }
 }
 

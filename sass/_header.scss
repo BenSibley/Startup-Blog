@@ -22,13 +22,15 @@
 }
 .primary-header {
   @extend %white-box;
-  display: flex;
-  flex-flow: row wrap;
-  border-radius: 0;
   padding: $baseline-height * 0.75 $column * 2;
 
   &:after {
     @include clearfix;
+  }
+  .max-width {
+    display: flex;
+    flex-flow: row wrap;
+    border-radius: 0;
   }
 }
 .title-container {
@@ -102,8 +104,11 @@
 @media all and (min-width: $eight-hundred) {
 
   .primary-header {
-    flex-flow: row nowrap;
     padding: $baseline-height * 0.75 $column * 4;
+
+    .max-width {
+      flex-flow: row nowrap;
+    }
   }
   .secondary-header {
     padding: $baseline-height/4 $column * 4;

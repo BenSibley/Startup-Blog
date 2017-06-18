@@ -1,5 +1,10 @@
 <?php
 
+require_once( trailingslashit( get_template_directory() ) . 'theme-options.php' );
+foreach ( glob( trailingslashit( get_template_directory() ) . 'inc/*' ) as $filename ) {
+	include $filename;
+}
+
 if ( ! isset( $content_width ) ) {
 	$content_width = 891;
 }
@@ -28,13 +33,6 @@ if ( ! function_exists( ( 'ct_business_blog_theme_setup' ) ) ) {
 			'flex-height' => true,
 			'flex-width'  => true
 		) );
-		// Pages can be added to the slider
-		add_post_type_support( 'page', 'excerpt' );
-
-		require_once( trailingslashit( get_template_directory() ) . 'theme-options.php' );
-		foreach ( glob( trailingslashit( get_template_directory() ) . 'inc/*' ) as $filename ) {
-			include $filename;
-		}
 
 		register_nav_menus( array(
 			'primary'   => __( 'Primary', 'business-blog' ),
@@ -160,8 +158,8 @@ if ( ! function_exists( 'ct_business_blog_excerpt' ) ) {
 		}
 	}
 }
-if ( ! function_exists( 'business_blog_custom_excerpt_length' ) ) {
-	function business_blog_custom_excerpt_length( $length ) {
+if ( ! function_exists( 'ct_business_blog_custom_excerpt_length' ) ) {
+	function ct_business_blog_custom_excerpt_length( $length ) {
 
 		$new_excerpt_length = get_theme_mod( 'excerpt_length' );
 
@@ -174,7 +172,7 @@ if ( ! function_exists( 'business_blog_custom_excerpt_length' ) ) {
 		}
 	}
 }
-add_filter( 'excerpt_length', 'business_blog_custom_excerpt_length', 99 );
+add_filter( 'excerpt_length', 'ct_business_blog_custom_excerpt_length', 99 );
 
 // add plain ellipsis for automatic excerpts (removes [])
 if ( ! function_exists( 'ct_business_blog_excerpt_ellipsis' ) ) {
@@ -184,13 +182,13 @@ if ( ! function_exists( 'ct_business_blog_excerpt_ellipsis' ) ) {
 }
 add_filter( 'excerpt_more', 'ct_business_blog_excerpt_ellipsis', 10 );
 
-if ( ! function_exists( 'business_blog_remove_more_link_scroll' ) ) {
-	function business_blog_remove_more_link_scroll( $link ) {
+if ( ! function_exists( 'ct_business_blog_remove_more_link_scroll' ) ) {
+	function ct_business_blog_remove_more_link_scroll( $link ) {
 		$link = preg_replace( '|#more-[0-9]+|', '', $link );
 		return $link;
 	}
 }
-add_filter( 'the_content_more_link', 'business_blog_remove_more_link_scroll' );
+add_filter( 'the_content_more_link', 'ct_business_blog_remove_more_link_scroll' );
 
 if ( ! function_exists( 'ct_business_blog_featured_image' ) ) {
 	function ct_business_blog_featured_image() {
@@ -356,7 +354,7 @@ if ( ! function_exists( 'ct_business_blog_sticky_post_marker' ) ) {
 		}
 	}
 }
-add_action( 'sticky_post_status', 'ct_business_blog_sticky_post_marker' );
+add_action( 'business_blog_sticky_post_status', 'ct_business_blog_sticky_post_marker' );
 
 if ( ! function_exists( 'ct_business_blog_reset_customizer_options' ) ) {
 	function ct_business_blog_reset_customizer_options() {
@@ -374,13 +372,23 @@ if ( ! function_exists( 'ct_business_blog_reset_customizer_options' ) ) {
 		}
 
 		$mods_array = array(
-			'logo_upload',
-			'search_bar',
+			'slider_recent_posts',
+			'slider_post_category',
+			'slider_display',
+			'slider_arrow_navigation',
+			'slider_dot_navigation',
+			'slider_button_text',
+			'color_primary',
+			'color_secondary',
+			'color_background',
+			'tagline',
+			'post_byline_date',
+			'post_byline_author',
+			'author_avatars',
+			'author_box',
+			'sidebar',
 			'full_post',
-			'excerpt_length',
-			'read_more_text',
-			'full_width_post',
-			'author_byline'
+			'excerpt_length'
 		);
 
 		$social_sites = ct_business_blog_social_array();
@@ -396,7 +404,7 @@ if ( ! function_exists( 'ct_business_blog_reset_customizer_options' ) ) {
 			remove_theme_mod( $theme_mod );
 		}
 
-		$redirect = admin_url( 'themes.php?page=business_blog-options' );
+		$redirect = admin_url( 'themes.php?page=business-blog-options' );
 		$redirect = add_query_arg( 'business_blog_status', 'deleted', $redirect );
 
 		// safely redirect
@@ -571,7 +579,7 @@ if ( ! function_exists( 'ct_business_blog_override_colors' ) ) {
 			$color_css .= "@media all and (min-width: 50em) { .menu-primary-items li.menu-item-has-children:hover > a,.menu-primary-items li.menu-item-has-children:hover > a:after,.menu-primary-items a:hover:after,.menu-primary-items a:active:after,.menu-primary-items a:focus:after,.menu-secondary-items li.menu-item-has-children:hover > a,.menu-secondary-items li.menu-item-has-children:hover > a:after,.menu-secondary-items a:hover:after,.menu-secondary-items a:active:after,.menu-secondary-items a:focus:after {
 		  color: $primary_color;
 		} }";
-			$color_css .= "input[type=\"submit\"],.comment-pagination a:hover,.comment-pagination a:active,.comment-pagination a:focus,.site-header:before,.social-media-icons a:hover,.social-media-icons a:active,.social-media-icons a:focus,.pagination a:hover,.pagination a:active,.pagination a:focus,.featured-image > a:after,.entry:before,.post-tags a,.widget_calendar #prev a:hover,.widget_calendar #prev a:active,.widget_calendar #prev a:focus,.widget_calendar #next a:hover,.widget_calendar #next a:active,.widget_calendar #next a:focus,.bb-slider .image-container:after {
+			$color_css .= "input[type=\"submit\"],.comment-pagination a:hover,.comment-pagination a:active,.comment-pagination a:focus,.site-header:before,.social-media-icons a:hover,.social-media-icons a:active,.social-media-icons a:focus,.pagination a:hover,.pagination a:active,.pagination a:focus,.featured-image > a:after,.entry:before,.post-tags a,.widget_calendar #prev a:hover,.widget_calendar #prev a:active,.widget_calendar #prev a:focus,.widget_calendar #next a:hover,.widget_calendar #next a:active,.widget_calendar #next a:focus,.bb-slider .image-container:after,.sticky-status span {
 			background: $primary_color;
 		}";
 			$color_css .= "@media all and (min-width: 50em) { .menu-primary-items ul:before,.menu-secondary-items ul:before {
@@ -664,8 +672,8 @@ if ( ! function_exists( 'ct_business_blog_slider' ) ) {
 		if ( $post_category != '' && $post_category != 'all' ) {
 			$args['cat'] = $post_category;
 		}
-		if ( get_theme_mod( 'slider_type' ) == 'custom' ) {
-
+		if ( get_theme_mod( 'slider_sticky' ) == 'no' ) {
+			$args['ignore_sticky_posts'] = true;
 		}
 
 		$the_query = new WP_Query( $args );
@@ -687,8 +695,8 @@ if ( ! function_exists( 'ct_business_blog_slider' ) ) {
 			echo '</ul>';
 			if ( $display_arrows != 'no' ) {
 				echo '<div class="arrow-navigation">';
-				echo '<a id="bb-slider-left" class="left slide-nav" href="#"><i class="fa fa-angle-left"></i></a>';
-				echo '<a id="bb-slider-right" class="right slide-nav" href="#"><i class="fa fa-angle-right"></i></a>';
+					echo '<a id="bb-slider-left" class="left slide-nav" href="#"><i class="fa fa-angle-left"></i></a>';
+					echo '<a id="bb-slider-right" class="right slide-nav" href="#"><i class="fa fa-angle-right"></i></a>';
 				echo '</div>';
 			}
 			if ( $display_dots != 'no' ) {

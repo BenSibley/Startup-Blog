@@ -238,6 +238,23 @@
     margin-top: 6px;
   }
 }
+.sticky-status {
+  margin: -$baseline-height * 0.75 0 $baseline-height/3;
+  padding-left: 12px;
+
+  span {
+    @extend %uppercase;
+    display: inline-block;
+    font-family: $heading-font-stack;
+    font-size: 10px;
+    line-height: 1.2;
+    font-weight: 800;
+    padding: 6px 12px;
+    border-radius: 0 0 3px 3px;
+    background: $color-blue;
+    color: white;
+  }
+}
 
 @media all and (min-width: $six-hundred) {
 
@@ -256,6 +273,9 @@
       width: auto;
       min-width: 96px;
     }
+  }
+  .sticky-status {
+    padding-left: 0;
   }
 }
 
@@ -285,5 +305,8 @@
   }
   .post-meta {
     padding: $baseline-height $column * 2.118 0;
+  }
+  .sticky-status {
+    margin-top: -$baseline-height;
   }
 }

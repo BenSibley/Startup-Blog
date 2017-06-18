@@ -7,9 +7,11 @@ if ( $button_text == '' ) {
 ?>
 <li class="<?php esc_attr_e( $classes ); ?>">
 	<div class="content-container">
-		<div class="title"><?php the_title(); ?></div>
-		<?php echo ct_business_blog_excerpt(); ?>
-		<a class="read-more" href="<?php the_permalink(); ?>"><?php esc_html_e( $button_text ); ?></a>
+		<div class="max-width">
+			<div class="title"><?php the_title(); ?></div>
+			<?php the_excerpt(); ?>
+			<a class="read-more" href="<?php the_permalink(); ?>"><?php esc_html_e( $button_text ); ?></a>
+		</div>
 	</div>
 	<div class="image-container">
 		<?php the_post_thumbnail(); ?>

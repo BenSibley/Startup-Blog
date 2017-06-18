@@ -4,7 +4,9 @@
 *, *:before, *:after {
   -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
-
+html {
+  height: 100%;
+}
 body {
   height: 100%;
   font-size: 100%;
@@ -19,8 +21,8 @@ body {
 }
 .overflow-container {
   position: relative;
-  overflow: hidden;
-  height: auto;
+  //overflow: hidden;
+  height: 100%;
   min-height: 100%;
 }
 .main {
@@ -210,11 +212,6 @@ input[type="submit"] {
     background: $color-blue-hover;
   }
 }
-
-input[type="search"] {
-//  margin-right: $baseline-height;
-//  padding-right: $baseline-height / 4; /* so safari 'x' doesn't get cut off */
-}
 ::-webkit-input-placeholder {
   color: $color-gray-70;
 }
@@ -227,11 +224,6 @@ input[type="search"] {
 :-ms-input-placeholder {
   color: $color-gray-70;
 }
-
-/* sticky */
-//.excerpt.sticky {
-//  outline: solid 3px $orange;
-//}
 
 /* ie image border fix */
 
@@ -289,6 +281,6 @@ a img {
   }
 }
 .max-width {
-  max-width: 1400px;
+  max-width: 1300px;
   margin: 0 auto;
 }

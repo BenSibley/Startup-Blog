@@ -3,6 +3,9 @@
   max-height: 0;
   transition: max-height 0.35s;
 }
+.menu-secondary {
+  margin: 0 0 $baseline-height/4 $column * 2;
+}
 .menu-secondary-items {
   list-style: none;
   margin: $baseline-height/2 0 0;
@@ -12,7 +15,7 @@
 
     &.current-menu-item {
 
-      a {
+      > a {
         color: $color-blue;
 
         &:link,
@@ -47,7 +50,7 @@
   @extend %twenty-eight-pixels;
   line-height: 1.2;
   font-family: $heading-font-stack;
-  margin: 0;
+  margin: 6px $column * 2;
   padding: 0 8px 3px;
   border: none;
   background: none;
@@ -80,8 +83,12 @@
     max-height: none;
     overflow: visible;
     float: left;
-    margin: 6px 0;
+    margin: $baseline-height/2 0 $baseline-height/2 $column * 4;
     line-height: 1;
+    //padding: $baseline-height/4 $column * 4;
+  }
+  .menu-secondary {
+    margin: 0;
   }
   .menu-secondary-items {
     margin: 0;

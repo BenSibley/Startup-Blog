@@ -40,6 +40,9 @@ jQuery(document).ready(function($){
             $(this).attr('aria-expanded', 'false');
 
         } else {
+            if ( menuPrimaryItems.length == 0 ) {
+                menuPrimaryItems = $('.menu-unset');
+            }
             menuPrimaryContainer.addClass('open');
             $(this).addClass('open');
             var maxHeight = 0;

@@ -14,14 +14,17 @@
 	<header class="site-header" id="site-header" role="banner">
 		<div class="secondary-header">
 			<div class="max-width">
-				<?php ct_startup_blog_social_icons_output(); ?>
-				<button id="toggle-navigation-secondary" class="toggle-navigation-secondary" aria-expanded="false">
-					<span class="screen-reader-text"><?php esc_html_e( 'open menu', 'startup-blog' ); ?></span>
-					<span class="icon">+</span>
-				</button>
-				<div id="menu-secondary-container" class="menu-secondary-container">
-					<?php get_template_part( 'menu', 'secondary' ); ?>
-				</div>
+				<?php
+				ct_startup_blog_social_icons_output();
+				if ( has_nav_menu( 'secondary' ) ) : ?>
+					<button id="toggle-navigation-secondary" class="toggle-navigation-secondary" aria-expanded="false">
+						<span class="screen-reader-text"><?php esc_html_e( 'open menu', 'startup-blog' ); ?></span>
+						<span class="icon">+</span>
+					</button>
+					<div id="menu-secondary-container" class="menu-secondary-container">
+						<?php get_template_part( 'menu', 'secondary' ); ?>
+					</div>
+				<?php endif; ?>
 			</div>
 		</div>
 		<div class="primary-header">

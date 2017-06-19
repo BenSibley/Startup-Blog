@@ -40,7 +40,8 @@
 .menu-primary {
   margin: $baseline-height * 1.5 0 0;
 }
-.menu-primary-items {
+.menu-primary-items,
+.menu-unset ul {
   list-style: none;
   margin: 0;
 
@@ -86,7 +87,8 @@
 
 @media all and (min-width: $five-hundred) {
 
-  .menu-primary-items {
+  .menu-primary-items,
+  .menu-unset ul {
 
     > li {
       display: inline-block;
@@ -99,7 +101,8 @@
       }
     }
   }
-  .menu-primary-items:not(.hierarchical) {
+  .menu-primary-items:not(.hierarchical),
+  .menu-unset ul:not(.hierarchical) {
 
     > li {
       width: auto;
@@ -129,7 +132,8 @@
   .menu-primary {
     margin: 0;
   }
-  .menu-primary-items {
+  .menu-primary-items,
+  .menu-unset ul {
 
     > .menu-item-has-children > a {
       padding-right: 8px;
@@ -268,7 +272,8 @@
       }
     }
   }
-  .menu-primary-items:not(.hierarchical) {
+  .menu-primary-items:not(.hierarchical),
+  .menu-unset ul:not(.hierarchical) {
 
     > li {
       margin-right: 0;

@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Business Blog 0.1\n"
+"Project-Id-Version: Startup Blog 1.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2017-06-19 16:03:19+00:00\n"
+"POT-Creation-Date: 2017-06-19 18:09:16+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -391,7 +391,7 @@ msgid "Visit Support Center"
 msgstr ""
 
 #: theme-options.php:33
-msgid "Business Blog Pro"
+msgid "Startup Blog Pro"
 msgstr ""
 
 #: theme-options.php:34
@@ -424,11 +424,11 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"Business Blog is a modern and minimalist theme for blogging. Use it for "
-"your company's blog or a personal blog on professional topics. It's fully "
+"Startup Blog is a modern and minimalist theme for blogging. Use it for your "
+"company's blog or a personal blog on professional topics. It's fully "
 "responsive (mobile-friendly), so it looks great on all devices. The simple "
 "and clean aesthetic will put emphasis on your content and help it perform "
-"well across platforms. Business Blog comes with a \"Recent Posts\" slider, "
+"well across platforms. Startup Blog comes with a \"Recent Posts\" slider, "
 "custom colors, two layouts, display options, and over 50+ social media "
 "icons."
 msgstr ""

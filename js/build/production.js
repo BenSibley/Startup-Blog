@@ -174,9 +174,12 @@ jQuery(document).ready(function($){
     
     sliderContainer.css('min-height', sliderContainer.find('.slide.current').find('.content-container').outerHeight() + 60);
 
-    $('.slide-nav').on('click', function() {
-        var current = slider.find('.current').removeClass('current');
-        var currentDot = $('#dot-navigation').children('.current').removeClass('current');
+    $('.slide-nav').on('click', function(e) {
+        e.preventDefault();
+        var current = slider.find('.current');
+        current .removeClass('current');
+        var currentDot = $('#dot-navigation').children('.current');
+        currentDot.removeClass('current');
         if ( $(this).hasClass('left') ) {
             if( current.prev().length ) {
                 current.prev().addClass('current');
@@ -198,7 +201,8 @@ jQuery(document).ready(function($){
         sliderContainer.css('min-height', current.find('.content-container').outerHeight() + 60);
     });
     
-    $('.dot').on('click', function() {
+    $('.dot').on('click', function(e) {
+        e.preventDefault();
         var currentSlide = slider.find('.current').removeClass('current');
         var currentDot = $('#dot-navigation').children('.current').removeClass('current');
         $(this).addClass('current');

@@ -45,10 +45,10 @@
 }
 .toggle-navigation-secondary {
   @extend %twenty-eight-pixels;
-  line-height: 1.286;
+  line-height: 1.2;
   font-family: $heading-font-stack;
   margin: 0;
-  padding: 0 8px;
+  padding: 0 8px 3px;
   border: none;
   background: none;
   color: $color-gray-30;

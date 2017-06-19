@@ -22,7 +22,5 @@ $button_text = get_theme_mod('slider_button_text');
 			</a>
 		</div>
 	</div>
-	<div class="image-container">
-		<?php the_post_thumbnail(); ?>
-	</div>
+	<div class="image-container" style="background-image: url('<?php the_post_thumbnail_url(); ?>');"></div>
 </li>

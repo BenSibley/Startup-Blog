@@ -50,7 +50,6 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
-    transition: transform 0.25s;
 
     &.no-object-fit {
       min-width: 0;
@@ -76,6 +75,15 @@
     color: white;
     padding: 4px 4px 4px 12px;
     font-size: 13px;
+  }
+}
+// so the object-fit polyfill isn't animated on single posts
+.archive,
+.blog,
+.search {
+
+  .featured-image > a > img {
+    transition: transform 0.25s;
   }
 }
 .entry {

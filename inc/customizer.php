@@ -22,19 +22,19 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 			$link = 'https://www.competethemes.com/startup-blog-pro/';
 			echo "<a href='" . $link . "' target='_blank'><img src='" . get_template_directory_uri() . "/assets/images/startup-blog-pro.png' srcset='" . get_template_directory_uri() . "/assets/images/startup-blog-pro-2x.png 2x' /></a>";
 			echo "<p class='bold'>" . sprintf( __('<a target="_blank" href="%1$s">%2$s Pro</a> makes advanced customization simple - and fun too!', 'startup-blog'), $link, wp_get_theme( get_template() ) ) . "</p>";
-			echo "<p>" . sprintf( esc_html_x('%s Pro adds the following features:', ' Business Blog Pro adds the following features:', 'startup-blog'), wp_get_theme( get_template() ) ) . "</p>";
+			echo "<p>" . sprintf( esc_html_x('%s Pro adds the following features:', 'Startup Blog Pro adds the following features:', 'startup-blog'), wp_get_theme( get_template() ) ) . "</p>";
 			echo "<ul>
 					<li>" . esc_html__('6 new layouts', 'startup-blog') . "</li>
 					<li>" . esc_html__('Custom colors', 'startup-blog') . "</li>
 					<li>" . esc_html__('New fonts', 'startup-blog') . "</li>
 					<li>" . esc_html__('+ 11 more features', 'startup-blog') . "</li>
 				  </ul>";
-			// translators: placeholder is "Business Blog"
-			echo "<p class='button-wrapper'><a target=\"_blank\" class='startup-blog-pro-button' href='" . $link . "'>" . sprintf( esc_html_x('View %s Pro', 'View Business Blog Pro', 'startup-blog'), wp_get_theme( get_template() ) ) . "</a></p>";
+			// translators: placeholder is "Startup Blog"
+			echo "<p class='button-wrapper'><a target=\"_blank\" class='startup-blog-pro-button' href='" . $link . "'>" . sprintf( esc_html_x('View %s Pro', 'View Startup Blog Pro', 'startup-blog'), wp_get_theme( get_template() ) ) . "</a></p>";
 		}
 	}
 
-	/***** Business Blog Pro Section *****/
+	/***** Startup Blog Pro Section *****/
 
 	// section
 	$wp_customize->add_section( 'ct_startup_blog_pro', array(

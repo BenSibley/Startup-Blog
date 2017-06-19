@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Startup Blog 1.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2017-06-19 18:09:16+00:00\n"
+"POT-Creation-Date: 2017-06-19 18:12:42+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -61,7 +61,7 @@ msgstr ""
 
 #: footer.php:24
 #. translators: placeholder is a URL to the theme's page
-msgid "<a href=\"%s\">Business Blog</a> by Compete Themes."
+msgid "<a href=\"%1$s\">%2$s</a> by Compete Themes."
 msgstr ""
 
 #: functions.php:44
@@ -484,12 +484,12 @@ msgid "View all posts in %s"
 msgstr ""
 
 #: inc/customizer.php:25
-msgctxt " Business Blog Pro adds the following features:"
+msgctxt "Startup Blog Pro adds the following features:"
 msgid "%s Pro adds the following features:"
 msgstr ""
 
 #: inc/customizer.php:33
-#. translators: placeholder is "Business Blog"
-msgctxt "View Business Blog Pro"
+#. translators: placeholder is "Startup Blog"
+msgctxt "View Startup Blog Pro"
 msgid "View %s Pro"
 msgstr ""

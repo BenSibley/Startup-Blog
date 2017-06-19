@@ -114,14 +114,14 @@ module.exports = function(grunt) {
             zip: {
                 command: [
                     // delete existing copies (if they exist)
-                    'rm -R /Users/bensibley/Documents/compete-themes/dist/business_blog || true',
-                    'rm -R /Users/bensibley/Documents/compete-themes/dist/business_blog.zip || true',
+                    'rm -R /Users/bensibley/Documents/compete-themes/dist/business-blog || true',
+                    'rm -R /Users/bensibley/Documents/compete-themes/dist/business-blog.zip || true',
                     // copy folder without any project/meta files
-                    'rsync -r /Applications/MAMP/htdocs/wordpress/wp-content/themes/business_blog /Users/bensibley/Documents/compete-themes/dist/ <%= excludeFiles %>',
+                    'rsync -r /Applications/MAMP/htdocs/wordpress/wp-content/themes/business-blog /Users/bensibley/Documents/compete-themes/dist/ <%= excludeFiles %>',
                     // open dist
                     'cd /Users/bensibley/Documents/compete-themes/dist/',
                     // zip the business_blog folder
-                    'zip -r business_blog.zip business_blog'
+                    'zip -r business-blog.zip business-blog'
                 ].join('&&')
             }
         }

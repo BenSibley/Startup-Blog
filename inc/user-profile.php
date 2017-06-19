@@ -1,6 +1,6 @@
 <?php
 
-function business_blog_add_social_profile_settings( $user ) {
+function startup_blog_add_social_profile_settings( $user ) {
 
 	$user_id = get_current_user_id();
 
@@ -8,13 +8,13 @@ function business_blog_add_social_profile_settings( $user ) {
 		return false;
 	}
 
-	$social_sites = ct_business_blog_social_array();
+	$social_sites = ct_startup_blog_social_array();
 
 	?>
 	<table class="form-table">
 		<tr>
 			<th>
-				<h3><?php esc_html_e( 'Social Profiles', 'business-blog' ); ?></h3>
+				<h3><?php esc_html_e( 'Social Profiles', 'startup-blog' ); ?></h3>
 			</th>
 		</tr>
 		<?php
@@ -59,7 +59,7 @@ function business_blog_add_social_profile_settings( $user ) {
 			<tr>
 				<th>
 					<?php if ( $key == 'email' ) : ?>
-						<label for="<?php echo esc_attr( $key ); ?>-profile"><?php esc_html_e( 'Email Address', 'business-blog' ); ?></label>
+						<label for="<?php echo esc_attr( $key ); ?>-profile"><?php esc_html_e( 'Email Address', 'startup-blog' ); ?></label>
 					<?php else : ?>
 						<label for="<?php echo esc_attr( $key ); ?>-profile"><?php echo esc_html( $label ); ?></label>
 					<?php endif; ?>
@@ -85,16 +85,16 @@ function business_blog_add_social_profile_settings( $user ) {
 	<?php
 }
 
-add_action( 'show_user_profile', 'business_blog_add_social_profile_settings' );
-add_action( 'edit_user_profile', 'business_blog_add_social_profile_settings' );
+add_action( 'show_user_profile', 'startup_blog_add_social_profile_settings' );
+add_action( 'edit_user_profile', 'startup_blog_add_social_profile_settings' );
 
-function business_blog_save_social_profiles( $user_id ) {
+function startup_blog_save_social_profiles( $user_id ) {
 
 	if ( ! current_user_can( 'edit_user', $user_id ) ) {
 		return false;
 	}
 
-	$social_sites = ct_business_blog_social_array();
+	$social_sites = ct_startup_blog_social_array();
 
 	foreach ( $social_sites as $key => $social_site ) {
 		if ( $key == 'email' ) {
@@ -114,5 +114,5 @@ function business_blog_save_social_profiles( $user_id ) {
 		}
 	}
 }
-add_action( 'personal_options_update', 'business_blog_save_social_profiles' );
-add_action( 'edit_user_profile_update', 'business_blog_save_social_profiles' );
+add_action( 'personal_options_update', 'startup_blog_save_social_profiles' );
+add_action( 'edit_user_profile_update', 'startup_blog_save_social_profiles' );

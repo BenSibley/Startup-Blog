@@ -14,7 +14,7 @@ $button_text = get_theme_mod('slider_button_text');
 			<a class="read-more" href="<?php the_permalink(); ?>">
 				<?php
 				if ( $button_text == '' ) {
-					esc_html_e( 'Read more', 'business-blog');
+					esc_html_e( 'Read more', 'startup-blog');
 				} else {
 					echo esc_html( $button_text );
 				}

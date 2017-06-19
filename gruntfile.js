@@ -84,7 +84,7 @@ module.exports = function(grunt) {
                 options: {
                     domainPath: '/languages',
                     exclude: ['library/.*/.*'],
-                    potFilename: 'business_blog.pot',
+                    potFilename: 'startup_blog.pot',
                     type: 'wp-theme',
                     processPot: function( pot ) {
                         var translation,
@@ -114,14 +114,14 @@ module.exports = function(grunt) {
             zip: {
                 command: [
                     // delete existing copies (if they exist)
-                    'rm -R /Users/bensibley/Documents/compete-themes/dist/business-blog || true',
-                    'rm -R /Users/bensibley/Documents/compete-themes/dist/business-blog.zip || true',
+                    'rm -R /Users/bensibley/Documents/compete-themes/dist/startup-blog || true',
+                    'rm -R /Users/bensibley/Documents/compete-themes/dist/startup-blog.zip || true',
                     // copy folder without any project/meta files
-                    'rsync -r /Applications/MAMP/htdocs/wordpress/wp-content/themes/business-blog /Users/bensibley/Documents/compete-themes/dist/ <%= excludeFiles %>',
+                    'rsync -r /Applications/MAMP/htdocs/wordpress/wp-content/themes/startup-blog /Users/bensibley/Documents/compete-themes/dist/ <%= excludeFiles %>',
                     // open dist
                     'cd /Users/bensibley/Documents/compete-themes/dist/',
-                    // zip the business_blog folder
-                    'zip -r business-blog.zip business-blog'
+                    // zip the startup_blog folder
+                    'zip -r startup-blog.zip startup-blog'
                 ].join('&&')
             }
         }

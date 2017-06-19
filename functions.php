@@ -5,17 +5,17 @@ foreach ( glob( trailingslashit( get_template_directory() ) . 'inc/*' ) as $file
 	include $filename;
 }
 
-if ( ! function_exists( ( 'ct_business_blog_set_content_width' ) ) ) {
-	function ct_business_blog_set_content_width() {
+if ( ! function_exists( ( 'ct_startup_blog_set_content_width' ) ) ) {
+	function ct_startup_blog_set_content_width() {
 		if ( ! isset( $content_width ) ) {
 			$content_width = 780;
 		}
 	}
 }
-add_action( 'after_setup_theme', 'ct_business_blog_set_content_width', 0 );
+add_action( 'after_setup_theme', 'ct_startup_blog_set_content_width', 0 );
 
-if ( ! function_exists( ( 'ct_business_blog_theme_setup' ) ) ) {
-	function ct_business_blog_theme_setup() {
+if ( ! function_exists( ( 'ct_startup_blog_theme_setup' ) ) ) {
+	function ct_startup_blog_theme_setup() {
 
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'automatic-feed-links' );
@@ -31,7 +31,7 @@ if ( ! function_exists( ( 'ct_business_blog_theme_setup' ) ) ) {
 		add_theme_support( 'infinite-scroll', array(
 			'container' => 'loop-container',
 			'footer'    => 'overflow-container',
-			'render'    => 'ct_business_blog_infinite_scroll_render'
+			'render'    => 'ct_startup_blog_infinite_scroll_render'
 		) );
 		add_theme_support( 'custom-logo', array(
 			'height'      => 60,
@@ -41,22 +41,22 @@ if ( ! function_exists( ( 'ct_business_blog_theme_setup' ) ) ) {
 		) );
 
 		register_nav_menus( array(
-			'primary'   => esc_html__( 'Primary', 'business-blog' ),
-			'secondary' => esc_html__( 'Secondary', 'business-blog' )
+			'primary'   => esc_html__( 'Primary', 'startup-blog' ),
+			'secondary' => esc_html__( 'Secondary', 'startup-blog' )
 		) );
 
-		load_theme_textdomain( 'business-blog', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'startup-blog', get_template_directory() . '/languages' );
 	}
 }
-add_action( 'after_setup_theme', 'ct_business_blog_theme_setup', 10 );
+add_action( 'after_setup_theme', 'ct_startup_blog_theme_setup', 10 );
 
-if ( ! function_exists( ( 'ct_business_blog_register_widget_areas' ) ) ) {
-	function ct_business_blog_register_widget_areas() {
+if ( ! function_exists( ( 'ct_startup_blog_register_widget_areas' ) ) ) {
+	function ct_startup_blog_register_widget_areas() {
 
 		register_sidebar( array(
-			'name'          => esc_html__( 'Primary Sidebar', 'business-blog' ),
+			'name'          => esc_html__( 'Primary Sidebar', 'startup-blog' ),
 			'id'            => 'primary',
-			'description'   => esc_html__( 'Widgets in this area will be shown in the sidebar next to the main post content', 'business-blog' ),
+			'description'   => esc_html__( 'Widgets in this area will be shown in the sidebar next to the main post content', 'startup-blog' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -64,10 +64,10 @@ if ( ! function_exists( ( 'ct_business_blog_register_widget_areas' ) ) ) {
 		) );
 	}
 }
-add_action( 'widgets_init', 'ct_business_blog_register_widget_areas' );
+add_action( 'widgets_init', 'ct_startup_blog_register_widget_areas' );
 
-if ( ! function_exists( ( 'ct_business_blog_customize_comments' ) ) ) {
-	function ct_business_blog_customize_comments( $comment, $args, $depth ) { ?>
+if ( ! function_exists( ( 'ct_startup_blog_customize_comments' ) ) ) {
+	function ct_startup_blog_customize_comments( $comment, $args, $depth ) { ?>
 		<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 		<article id="comment-<?php comment_ID(); ?>" class="comment">
 			<div class="comment-author">
@@ -77,7 +77,7 @@ if ( ! function_exists( ( 'ct_business_blog_customize_comments' ) ) ) {
 			<div class="comment-content">
 				<?php if ( $comment->comment_approved == '0' ) : ?>
 					<span
-						class="awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'business-blog' ) ?></span>
+						class="awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'startup-blog' ) ?></span>
 					<br/>
 				<?php endif; ?>
 				<?php comment_text(); ?>
@@ -89,7 +89,7 @@ if ( ! function_exists( ( 'ct_business_blog_customize_comments' ) ) ) {
 					'before'    => '<i class="fa fa-reply" aria-hidden="true"></i>'
 				) ) ); ?>
 				<?php edit_comment_link(
-					esc_html__( 'Edit', 'business-blog' ),
+					esc_html__( 'Edit', 'startup-blog' ),
 					'<i class="fa fa-pencil" aria-hidden="true"></i>'
 				); ?>
 			</div>
@@ -98,31 +98,31 @@ if ( ! function_exists( ( 'ct_business_blog_customize_comments' ) ) ) {
 	}
 }
 
-if ( ! function_exists( 'ct_business_blog_update_fields' ) ) {
-	function ct_business_blog_update_fields( $fields ) {
+if ( ! function_exists( 'ct_startup_blog_update_fields' ) ) {
+	function ct_startup_blog_update_fields( $fields ) {
 
 		$commenter = wp_get_current_commenter();
 		$req       = get_option( 'require_name_email' );
-		$label     = $req ? '*' : ' ' . esc_html__( '(optional)', 'business-blog' );
+		$label     = $req ? '*' : ' ' . esc_html__( '(optional)', 'startup-blog' );
 		$aria_req  = $req ? "aria-required='true'" : '';
 
 		$fields['author'] =
 			'<p class="comment-form-author">
-	            <label for="author">' . esc_html__( "Name", "business-blog" ) . $label . '</label>
-	            <input id="author" name="author" type="text" placeholder="' . esc_attr__( "Jane Doe", "business-blog" ) . '" value="' . esc_attr( $commenter['comment_author'] ) .
+	            <label for="author">' . esc_html__( "Name", "startup-blog" ) . $label . '</label>
+	            <input id="author" name="author" type="text" placeholder="' . esc_attr__( "Jane Doe", "startup-blog" ) . '" value="' . esc_attr( $commenter['comment_author'] ) .
 			'" size="30" ' . esc_html( $aria_req ) . ' />
 	        </p>';
 
 		$fields['email'] =
 			'<p class="comment-form-email">
-	            <label for="email">' . esc_html__( "Email", "business-blog" ) . $label . '</label>
-	            <input id="email" name="email" type="email" placeholder="' . esc_attr__( "name@email.com", "business-blog" ) . '" value="' . esc_attr( $commenter['comment_author_email'] ) .
+	            <label for="email">' . esc_html__( "Email", "startup-blog" ) . $label . '</label>
+	            <input id="email" name="email" type="email" placeholder="' . esc_attr__( "name@email.com", "startup-blog" ) . '" value="' . esc_attr( $commenter['comment_author_email'] ) .
 			'" size="30" ' . esc_html( $aria_req ) . ' />
 	        </p>';
 
 		$fields['url'] =
 			'<p class="comment-form-url">
-	            <label for="url">' . esc_html__( "Website", "business-blog" ) . '</label>
+	            <label for="url">' . esc_html__( "Website", "startup-blog" ) . '</label>
 	            <input id="url" name="url" type="url" placeholder="http://google.com" value="' . esc_attr( $commenter['comment_author_url'] ) .
 			'" size="30" />
 	            </p>';
@@ -130,32 +130,32 @@ if ( ! function_exists( 'ct_business_blog_update_fields' ) ) {
 		return $fields;
 	}
 }
-add_filter( 'comment_form_default_fields', 'ct_business_blog_update_fields' );
+add_filter( 'comment_form_default_fields', 'ct_startup_blog_update_fields' );
 
-if ( ! function_exists( 'ct_business_blog_update_comment_field' ) ) {
-	function ct_business_blog_update_comment_field( $comment_field ) {
+if ( ! function_exists( 'ct_startup_blog_update_comment_field' ) ) {
+	function ct_startup_blog_update_comment_field( $comment_field ) {
 
 		$comment_field =
 			'<p class="comment-form-comment">
-	            <label for="comment">' . esc_html__( "Comment", "business-blog" ) . '</label>
+	            <label for="comment">' . esc_html__( "Comment", "startup-blog" ) . '</label>
 	            <textarea required id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
 	        </p>';
 
 		return $comment_field;
 	}
 }
-add_filter( 'comment_form_field_comment', 'ct_business_blog_update_comment_field' );
+add_filter( 'comment_form_field_comment', 'ct_startup_blog_update_comment_field' );
 
-if ( ! function_exists( 'ct_business_blog_remove_comments_notes_after' ) ) {
-	function ct_business_blog_remove_comments_notes_after( $defaults ) {
+if ( ! function_exists( 'ct_startup_blog_remove_comments_notes_after' ) ) {
+	function ct_startup_blog_remove_comments_notes_after( $defaults ) {
 		$defaults['comment_notes_after'] = '';
 		return $defaults;
 	}
 }
-add_action( 'comment_form_defaults', 'ct_business_blog_remove_comments_notes_after' );
+add_action( 'comment_form_defaults', 'ct_startup_blog_remove_comments_notes_after' );
 
-if ( ! function_exists( 'ct_business_blog_excerpt' ) ) {
-	function ct_business_blog_excerpt() {
+if ( ! function_exists( 'ct_startup_blog_excerpt' ) ) {
+	function ct_startup_blog_excerpt() {
 		if ( get_theme_mod( 'full_post' ) == 'yes' ) {
 			return wpautop( get_the_content() );
 		} else {
@@ -163,8 +163,8 @@ if ( ! function_exists( 'ct_business_blog_excerpt' ) ) {
 		}
 	}
 }
-if ( ! function_exists( 'ct_business_blog_custom_excerpt_length' ) ) {
-	function ct_business_blog_custom_excerpt_length( $length ) {
+if ( ! function_exists( 'ct_startup_blog_custom_excerpt_length' ) ) {
+	function ct_startup_blog_custom_excerpt_length( $length ) {
 
 		$new_excerpt_length = get_theme_mod( 'excerpt_length' );
 
@@ -177,26 +177,26 @@ if ( ! function_exists( 'ct_business_blog_custom_excerpt_length' ) ) {
 		}
 	}
 }
-add_filter( 'excerpt_length', 'ct_business_blog_custom_excerpt_length', 99 );
+add_filter( 'excerpt_length', 'ct_startup_blog_custom_excerpt_length', 99 );
 
 // add plain ellipsis for automatic excerpts (removes [])
-if ( ! function_exists( 'ct_business_blog_excerpt_ellipsis' ) ) {
-	function ct_business_blog_excerpt_ellipsis() {
+if ( ! function_exists( 'ct_startup_blog_excerpt_ellipsis' ) ) {
+	function ct_startup_blog_excerpt_ellipsis() {
 		return '&#8230;';
 	}
 }
-add_filter( 'excerpt_more', 'ct_business_blog_excerpt_ellipsis', 10 );
+add_filter( 'excerpt_more', 'ct_startup_blog_excerpt_ellipsis', 10 );
 
-if ( ! function_exists( 'ct_business_blog_remove_more_link_scroll' ) ) {
-	function ct_business_blog_remove_more_link_scroll( $link ) {
+if ( ! function_exists( 'ct_startup_blog_remove_more_link_scroll' ) ) {
+	function ct_startup_blog_remove_more_link_scroll( $link ) {
 		$link = preg_replace( '|#more-[0-9]+|', '', $link );
 		return $link;
 	}
 }
-add_filter( 'the_content_more_link', 'ct_business_blog_remove_more_link_scroll' );
+add_filter( 'the_content_more_link', 'ct_startup_blog_remove_more_link_scroll' );
 
-if ( ! function_exists( 'ct_business_blog_featured_image' ) ) {
-	function ct_business_blog_featured_image() {
+if ( ! function_exists( 'ct_startup_blog_featured_image' ) ) {
+	function ct_startup_blog_featured_image() {
 
 		global $post;
 		$featured_image = '';
@@ -210,7 +210,7 @@ if ( ! function_exists( 'ct_business_blog_featured_image' ) ) {
 			}
 		}
 
-		$featured_image = apply_filters( 'ct_business_blog_featured_image', $featured_image );
+		$featured_image = apply_filters( 'ct_startup_blog_featured_image', $featured_image );
 
 		if ( $featured_image ) {
 			echo $featured_image;
@@ -218,73 +218,73 @@ if ( ! function_exists( 'ct_business_blog_featured_image' ) ) {
 	}
 }
 
-if ( ! function_exists( 'ct_business_blog_social_array' ) ) {
-	function ct_business_blog_social_array() {
+if ( ! function_exists( 'ct_startup_blog_social_array' ) ) {
+	function ct_startup_blog_social_array() {
 
 		$social_sites = array(
-			'twitter'       => 'business_blog_twitter_profile',
-			'facebook'      => 'business_blog_facebook_profile',
-			'instagram'     => 'business_blog_instagram_profile',
-			'linkedin'      => 'business_blog_linkedin_profile',
-			'pinterest'     => 'business_blog_pinterest_profile',
-			'google-plus'   => 'business_blog_googleplus_profile',
-			'youtube'       => 'business_blog_youtube_profile',
-			'email'         => 'business_blog_email_profile',
-			'email-form'    => 'business_blog_email_form_profile',
-			'500px'         => 'business_blog_500px_profile',
-			'amazon'        => 'business_blog_amazon_profile',
-			'bandcamp'      => 'business_blog_bandcamp_profile',
-			'behance'       => 'business_blog_behance_profile',
-			'codepen'       => 'business_blog_codepen_profile',
-			'delicious'     => 'business_blog_delicious_profile',
-			'deviantart'    => 'business_blog_deviantart_profile',
-			'digg'          => 'business_blog_digg_profile',
-			'dribbble'      => 'business_blog_dribbble_profile',
-			'etsy'          => 'business_blog_etsy_profile',
-			'flickr'        => 'business_blog_flickr_profile',
-			'foursquare'    => 'business_blog_foursquare_profile',
-			'github'        => 'business_blog_github_profile',
-			'google-wallet' => 'business_blog_google_wallet_profile',
-			'hacker-news'   => 'business_blog_hacker-news_profile',
-			'meetup'        => 'business_blog_meetup_profile',
-			'paypal'        => 'business_blog_paypal_profile',
-			'podcast'       => 'business_blog_podcast_profile',
-			'quora'         => 'business_blog_quora_profile',
-			'qq'            => 'business_blog_qq_profile',
-			'ravelry'       => 'business_blog_ravelry_profile',
-			'reddit'        => 'business_blog_reddit_profile',
-			'rss'           => 'business_blog_rss_profile',
-			'skype'         => 'business_blog_skype_profile',
-			'slack'         => 'business_blog_slack_profile',
-			'slideshare'    => 'business_blog_slideshare_profile',
-			'snapchat'      => 'business_blog_snapchat_profile',
-			'soundcloud'    => 'business_blog_soundcloud_profile',
-			'spotify'       => 'business_blog_spotify_profile',
-			'steam'         => 'business_blog_steam_profile',
-			'stumbleupon'   => 'business_blog_stumbleupon_profile',
-			'telegram'      => 'business_blog_telegram_profile',
-			'tencent-weibo' => 'business_blog_tencent_weibo_profile',
-			'tumblr'        => 'business_blog_tumblr_profile',
-			'twitch'        => 'business_blog_twitch_profile',
-			'vimeo'         => 'business_blog_vimeo_profile',
-			'vine'          => 'business_blog_vine_profile',
-			'vk'            => 'business_blog_vk_profile',
-			'wechat'        => 'business_blog_wechat_profile',
-			'weibo'         => 'business_blog_weibo_profile',
-			'whatsapp'      => 'business_blog_whatsapp_profile',
-			'xing'          => 'business_blog_xing_profile',
-			'yahoo'         => 'business_blog_yahoo_profile',
-			'yelp'          => 'business_blog_yelp_profile'
+			'twitter'       => 'startup_blog_twitter_profile',
+			'facebook'      => 'startup_blog_facebook_profile',
+			'instagram'     => 'startup_blog_instagram_profile',
+			'linkedin'      => 'startup_blog_linkedin_profile',
+			'pinterest'     => 'startup_blog_pinterest_profile',
+			'google-plus'   => 'startup_blog_googleplus_profile',
+			'youtube'       => 'startup_blog_youtube_profile',
+			'email'         => 'startup_blog_email_profile',
+			'email-form'    => 'startup_blog_email_form_profile',
+			'500px'         => 'startup_blog_500px_profile',
+			'amazon'        => 'startup_blog_amazon_profile',
+			'bandcamp'      => 'startup_blog_bandcamp_profile',
+			'behance'       => 'startup_blog_behance_profile',
+			'codepen'       => 'startup_blog_codepen_profile',
+			'delicious'     => 'startup_blog_delicious_profile',
+			'deviantart'    => 'startup_blog_deviantart_profile',
+			'digg'          => 'startup_blog_digg_profile',
+			'dribbble'      => 'startup_blog_dribbble_profile',
+			'etsy'          => 'startup_blog_etsy_profile',
+			'flickr'        => 'startup_blog_flickr_profile',
+			'foursquare'    => 'startup_blog_foursquare_profile',
+			'github'        => 'startup_blog_github_profile',
+			'google-wallet' => 'startup_blog_google_wallet_profile',
+			'hacker-news'   => 'startup_blog_hacker-news_profile',
+			'meetup'        => 'startup_blog_meetup_profile',
+			'paypal'        => 'startup_blog_paypal_profile',
+			'podcast'       => 'startup_blog_podcast_profile',
+			'quora'         => 'startup_blog_quora_profile',
+			'qq'            => 'startup_blog_qq_profile',
+			'ravelry'       => 'startup_blog_ravelry_profile',
+			'reddit'        => 'startup_blog_reddit_profile',
+			'rss'           => 'startup_blog_rss_profile',
+			'skype'         => 'startup_blog_skype_profile',
+			'slack'         => 'startup_blog_slack_profile',
+			'slideshare'    => 'startup_blog_slideshare_profile',
+			'snapchat'      => 'startup_blog_snapchat_profile',
+			'soundcloud'    => 'startup_blog_soundcloud_profile',
+			'spotify'       => 'startup_blog_spotify_profile',
+			'steam'         => 'startup_blog_steam_profile',
+			'stumbleupon'   => 'startup_blog_stumbleupon_profile',
+			'telegram'      => 'startup_blog_telegram_profile',
+			'tencent-weibo' => 'startup_blog_tencent_weibo_profile',
+			'tumblr'        => 'startup_blog_tumblr_profile',
+			'twitch'        => 'startup_blog_twitch_profile',
+			'vimeo'         => 'startup_blog_vimeo_profile',
+			'vine'          => 'startup_blog_vine_profile',
+			'vk'            => 'startup_blog_vk_profile',
+			'wechat'        => 'startup_blog_wechat_profile',
+			'weibo'         => 'startup_blog_weibo_profile',
+			'whatsapp'      => 'startup_blog_whatsapp_profile',
+			'xing'          => 'startup_blog_xing_profile',
+			'yahoo'         => 'startup_blog_yahoo_profile',
+			'yelp'          => 'startup_blog_yelp_profile'
 		);
 
-		return apply_filters( 'ct_business_blog_social_array_filter', $social_sites );
+		return apply_filters( 'ct_startup_blog_social_array_filter', $social_sites );
 	}
 }
 
-if ( ! function_exists( 'ct_business_blog_social_icons_output' ) ) {
-	function ct_business_blog_social_icons_output( $source = 'header' ) {
+if ( ! function_exists( 'ct_startup_blog_social_icons_output' ) ) {
+	function ct_startup_blog_social_icons_output( $source = 'header' ) {
 
-		$social_sites = ct_business_blog_social_array();
+		$social_sites = ct_startup_blog_social_array();
 
 		// store the site name and url
 		foreach ( $social_sites as $social_site => $profile ) {
@@ -316,7 +316,7 @@ if ( ! function_exists( 'ct_business_blog_social_icons_output' ) ) {
 				if ( $active_site == 'email' ) { ?>
 					<a class="email" target="_blank"
 					   href="mailto:<?php echo antispambot( is_email( get_theme_mod( $key ) ) ); ?>">
-						<i class="fa fa-envelope" title="<?php esc_attr_e( 'email', 'business-blog' ); ?>"></i>
+						<i class="fa fa-envelope" title="<?php esc_attr_e( 'email', 'startup-blog' ); ?>"></i>
 					</a>
 				<?php } elseif ( $active_site == 'skype' ) { ?>
 					<a class="<?php echo esc_attr( $active_site ); ?>" target="_blank"
@@ -343,8 +343,8 @@ if ( ! function_exists( 'ct_business_blog_social_icons_output' ) ) {
  * WP will apply the ".menu-primary-items" class & id to the containing <div> instead of <ul>
  * making styling difficult and confusing. Using this wrapper to add a unique class to make styling easier.
  */
-if ( ! function_exists( 'ct_business_blog_wp_page_menu' ) ) {
-	function ct_business_blog_wp_page_menu() {
+if ( ! function_exists( 'ct_startup_blog_wp_page_menu' ) ) {
+	function ct_startup_blog_wp_page_menu() {
 		wp_page_menu( array(
 				"menu_class" => "menu-unset",
 				"depth"      => - 1
@@ -352,23 +352,23 @@ if ( ! function_exists( 'ct_business_blog_wp_page_menu' ) ) {
 		);
 	}
 }
-if ( ! function_exists( 'ct_business_blog_sticky_post_marker' ) ) {
-	function ct_business_blog_sticky_post_marker() {
+if ( ! function_exists( 'ct_startup_blog_sticky_post_marker' ) ) {
+	function ct_startup_blog_sticky_post_marker() {
 		if ( is_sticky() && ! is_archive() ) {
-			echo '<div class="sticky-status"><span>' . esc_html__( "Featured", "business-blog" ) . '</span></div>';
+			echo '<div class="sticky-status"><span>' . esc_html__( "Featured", "startup-blog" ) . '</span></div>';
 		}
 	}
 }
-add_action( 'business_blog_sticky_post_status', 'ct_business_blog_sticky_post_marker' );
+add_action( 'startup_blog_sticky_post_status', 'ct_startup_blog_sticky_post_marker' );
 
-if ( ! function_exists( 'ct_business_blog_reset_customizer_options' ) ) {
-	function ct_business_blog_reset_customizer_options() {
+if ( ! function_exists( 'ct_startup_blog_reset_customizer_options' ) ) {
+	function ct_startup_blog_reset_customizer_options() {
 
-		if ( empty( $_POST['business_blog_reset_customizer'] ) || 'business_blog_reset_customizer_settings' !== $_POST['business_blog_reset_customizer'] ) {
+		if ( empty( $_POST['startup_blog_reset_customizer'] ) || 'startup_blog_reset_customizer_settings' !== $_POST['startup_blog_reset_customizer'] ) {
 			return;
 		}
 
-		if ( ! wp_verify_nonce( $_POST['business_blog_reset_customizer_nonce'], 'business_blog_reset_customizer_nonce' ) ) {
+		if ( ! wp_verify_nonce( $_POST['startup_blog_reset_customizer_nonce'], 'startup_blog_reset_customizer_nonce' ) ) {
 			return;
 		}
 
@@ -398,45 +398,45 @@ if ( ! function_exists( 'ct_business_blog_reset_customizer_options' ) ) {
 			'excerpt_length'
 		);
 
-		$social_sites = ct_business_blog_social_array();
+		$social_sites = ct_startup_blog_social_array();
 
 		// add social site settings to mods array
 		foreach ( $social_sites as $social_site => $value ) {
 			$mods_array[] = $social_site;
 		}
 
-		$mods_array = apply_filters( 'ct_business_blog_mods_to_remove', $mods_array );
+		$mods_array = apply_filters( 'ct_startup_blog_mods_to_remove', $mods_array );
 
 		foreach ( $mods_array as $theme_mod ) {
 			remove_theme_mod( $theme_mod );
 		}
 
-		$redirect = admin_url( 'themes.php?page=business-blog-options' );
-		$redirect = add_query_arg( 'business_blog_status', 'deleted', $redirect );
+		$redirect = admin_url( 'themes.php?page=startup-blog-options' );
+		$redirect = add_query_arg( 'startup_blog_status', 'deleted', $redirect );
 
 		// safely redirect
 		wp_safe_redirect( $redirect );
 		exit;
 	}
 }
-add_action( 'admin_init', 'ct_business_blog_reset_customizer_options' );
+add_action( 'admin_init', 'ct_startup_blog_reset_customizer_options' );
 
-if ( ! function_exists( 'ct_business_blog_delete_settings_notice' ) ) {
-	function ct_business_blog_delete_settings_notice() {
+if ( ! function_exists( 'ct_startup_blog_delete_settings_notice' ) ) {
+	function ct_startup_blog_delete_settings_notice() {
 
-		if ( isset( $_GET['business_blog_status'] ) ) {
+		if ( isset( $_GET['startup_blog_status'] ) ) {
 			?>
 			<div class="updated">
-				<p><?php esc_html_e( 'Customizer settings deleted', 'business-blog' ); ?>.</p>
+				<p><?php esc_html_e( 'Customizer settings deleted', 'startup-blog' ); ?>.</p>
 			</div>
 			<?php
 		}
 	}
 }
-add_action( 'admin_notices', 'ct_business_blog_delete_settings_notice' );
+add_action( 'admin_notices', 'ct_startup_blog_delete_settings_notice' );
 
-if ( ! function_exists( 'ct_business_blog_body_class' ) ) {
-	function ct_business_blog_body_class( $classes ) {
+if ( ! function_exists( 'ct_startup_blog_body_class' ) ) {
+	function ct_startup_blog_body_class( $classes ) {
 
 		global $post;
 		$full_post       = get_theme_mod( 'full_post' );
@@ -454,19 +454,19 @@ if ( ! function_exists( 'ct_business_blog_body_class' ) ) {
 		return $classes;
 	}
 }
-add_filter( 'body_class', 'ct_business_blog_body_class' );
+add_filter( 'body_class', 'ct_startup_blog_body_class' );
 
 // add a shared class for post divs on archive and single pages
-if ( ! function_exists( 'ct_business_blog_post_class' ) ) {
-	function ct_business_blog_post_class( $classes ) {
+if ( ! function_exists( 'ct_startup_blog_post_class' ) ) {
+	function ct_startup_blog_post_class( $classes ) {
 		$classes[] = 'entry';
 		return $classes;
 	}
 }
-add_filter( 'post_class', 'ct_business_blog_post_class' );
+add_filter( 'post_class', 'ct_startup_blog_post_class' );
 
-if ( ! function_exists( 'ct_business_blog_svg_output' ) ) {
-	function ct_business_blog_svg_output( $type ) {
+if ( ! function_exists( 'ct_startup_blog_svg_output' ) ) {
+	function ct_startup_blog_svg_output( $type ) {
 
 		$svg = '';
 		if ( $type == 'toggle-navigation' ) {
@@ -475,8 +475,8 @@ if ( ! function_exists( 'ct_business_blog_svg_output' ) ) {
 		return $svg;
 	}
 }
-if ( ! function_exists( 'ct_business_blog_add_meta_elements' ) ) {
-	function ct_business_blog_add_meta_elements() {
+if ( ! function_exists( 'ct_startup_blog_add_meta_elements' ) ) {
+	function ct_startup_blog_add_meta_elements() {
 
 		$meta_elements = '';
 
@@ -490,10 +490,10 @@ if ( ! function_exists( 'ct_business_blog_add_meta_elements' ) ) {
 		echo $meta_elements;
 	}
 }
-add_action( 'wp_head', 'ct_business_blog_add_meta_elements', 1 );
+add_action( 'wp_head', 'ct_startup_blog_add_meta_elements', 1 );
 
-if ( ! function_exists( 'ct_business_blog_infinite_scroll_render' ) ) {
-	function ct_business_blog_infinite_scroll_render() {
+if ( ! function_exists( 'ct_startup_blog_infinite_scroll_render' ) ) {
+	function ct_startup_blog_infinite_scroll_render() {
 		while ( have_posts() ) {
 			the_post();
 			get_template_part( 'content', 'archive' );
@@ -504,8 +504,8 @@ if ( ! function_exists( 'ct_business_blog_infinite_scroll_render' ) ) {
 /* Routing templates this way to follow DRY coding patterns
 * (using index.php file only instead of duplicating loop in page.php, post.php, etc.)
 */
-if ( ! function_exists( 'ct_business_blog_get_content_template' ) ) {
-	function ct_business_blog_get_content_template() {
+if ( ! function_exists( 'ct_startup_blog_get_content_template' ) ) {
+	function ct_startup_blog_get_content_template() {
 
 		if ( is_home() || is_archive() ) {
 			get_template_part( 'content-archive', get_post_type() );
@@ -516,17 +516,17 @@ if ( ! function_exists( 'ct_business_blog_get_content_template' ) ) {
 }
 
 // allow skype URIs to be used
-if ( ! function_exists( 'ct_business_blog_allow_skype_protocol' ) ) {
-	function ct_business_blog_allow_skype_protocol( $protocols ) {
+if ( ! function_exists( 'ct_startup_blog_allow_skype_protocol' ) ) {
+	function ct_startup_blog_allow_skype_protocol( $protocols ) {
 		$protocols[] = 'skype';
 		return $protocols;
 	}
 }
-add_filter( 'kses_allowed_protocols', 'ct_business_blog_allow_skype_protocol' );
+add_filter( 'kses_allowed_protocols', 'ct_startup_blog_allow_skype_protocol' );
 
 // Add class to primary menu if single tier so mobile menu items can be listed horizontally instead of vertically
-if ( ! function_exists( 'ct_business_blog_primary_dropdown_check' ) ) {
-	function ct_business_blog_primary_dropdown_check( $item_output, $item, $depth, $args ) {
+if ( ! function_exists( 'ct_startup_blog_primary_dropdown_check' ) ) {
+	function ct_startup_blog_primary_dropdown_check( $item_output, $item, $depth, $args ) {
 
 		if ( $args->theme_location == 'primary' ) {
 
@@ -539,11 +539,11 @@ if ( ! function_exists( 'ct_business_blog_primary_dropdown_check' ) ) {
 		return $item_output;
 	}
 }
-add_filter( 'walker_nav_menu_start_el', 'ct_business_blog_primary_dropdown_check', 10, 4 );
+add_filter( 'walker_nav_menu_start_el', 'ct_startup_blog_primary_dropdown_check', 10, 4 );
 
 // Remove label that can't be edited with the_archive_title() e.g. "Category: Business" => "Business"
-if ( ! function_exists( 'ct_business_blog_modify_archive_titles' ) ) {
-	function ct_business_blog_modify_archive_titles( $title ) {
+if ( ! function_exists( 'ct_startup_blog_modify_archive_titles' ) ) {
+	function ct_startup_blog_modify_archive_titles( $title ) {
 
 		if ( is_category() ) {
 			$title = single_cat_title( '', false );
@@ -559,11 +559,11 @@ if ( ! function_exists( 'ct_business_blog_modify_archive_titles' ) ) {
 		return $title;
 	}
 }
-add_filter( 'get_the_archive_title', 'ct_business_blog_modify_archive_titles' );
+add_filter( 'get_the_archive_title', 'ct_startup_blog_modify_archive_titles' );
 
 // Update the colors used throughout the site based on the user's Customizer selected color
-if ( ! function_exists( 'ct_business_blog_override_colors' ) ) {
-	function ct_business_blog_override_colors() {
+if ( ! function_exists( 'ct_startup_blog_override_colors' ) ) {
+	function ct_startup_blog_override_colors() {
 
 		$color_css       = '';
 		$primary_color   = get_theme_mod( 'color_primary' );
@@ -634,15 +634,15 @@ if ( ! function_exists( 'ct_business_blog_override_colors' ) ) {
 		}
 		// Add CSS if any one of the colors has changed
 		if ( $primary_color != '#20a4e6' || $secondary_color != '#17e6c3' || $bg_color != '#f0f5f8' ) {
-			wp_add_inline_style( 'ct-business-blog-style', ct_business_blog_sanitize_css( $color_css ) );
+			wp_add_inline_style( 'ct-startup-blog-style', ct_startup_blog_sanitize_css( $color_css ) );
 		}
 	}
 }
-add_action( 'wp_enqueue_scripts', 'ct_business_blog_override_colors', 20 );
+add_action( 'wp_enqueue_scripts', 'ct_startup_blog_override_colors', 20 );
 
 // sanitize CSS and convert HTML character codes back into ">" character so direct descendant CSS selectors work
-if ( ! function_exists( 'ct_business_blog_sanitize_css' ) ) {
-	function ct_business_blog_sanitize_css( $css ) {
+if ( ! function_exists( 'ct_startup_blog_sanitize_css' ) ) {
+	function ct_startup_blog_sanitize_css( $css ) {
 		$css = wp_kses( $css, '' );
 		$css = str_replace( '&gt;', '>', $css );
 
@@ -651,8 +651,8 @@ if ( ! function_exists( 'ct_business_blog_sanitize_css' ) ) {
 }
 
 // Create and output the slider
-if ( ! function_exists( 'ct_business_blog_slider' ) ) {
-	function ct_business_blog_slider() {
+if ( ! function_exists( 'ct_startup_blog_slider' ) ) {
+	function ct_startup_blog_slider() {
 
 		// Decide if slider should be displayed based on user's Customizer settings
 		$display = get_theme_mod( 'slider_display' );
@@ -726,10 +726,10 @@ if ( ! function_exists( 'ct_business_blog_slider' ) ) {
 }
 
 // provide a fallback title on the off-chance a post is untitled so it remains clickable on the blog
-function ct_business_blog_no_missing_titles( $title, $id = null ) {
+function ct_startup_blog_no_missing_titles( $title, $id = null ) {
 	if ( $title == '' ) {
 		$title = '(title)';
 	}
 	return $title;
 }
-add_filter( 'the_title', 'ct_business_blog_no_missing_titles', 10, 2 );
+add_filter( 'the_title', 'ct_startup_blog_no_missing_titles', 10, 2 );

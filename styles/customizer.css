@@ -9,54 +9,54 @@
   margin: 0.75em 0;
 }
 
-#accordion-section-ct_business_blog_pro .accordion-section-title {
+#accordion-section-ct_startup_blog_pro .accordion-section-title {
   color: #fff;
   background: #05B0E7;
   -webkit-transition: background 0.2s;
   transition: background 0.2s;
 }
-#accordion-section-ct_business_blog_pro .accordion-section-title:after {
+#accordion-section-ct_startup_blog_pro .accordion-section-title:after {
   color: #fff;
 }
-#accordion-section-ct_business_blog_pro .accordion-section-title:hover, #accordion-section-ct_business_blog_pro .accordion-section-title:active, #accordion-section-ct_business_blog_pro .accordion-section-title:focus {
+#accordion-section-ct_startup_blog_pro .accordion-section-title:hover, #accordion-section-ct_startup_blog_pro .accordion-section-title:active, #accordion-section-ct_startup_blog_pro .accordion-section-title:focus {
   background: #3A96B5 !important;
   color: #fff !important;
 }
-#accordion-section-ct_business_blog_pro .accordion-section-title:hover:after, #accordion-section-ct_business_blog_pro .accordion-section-title:active:after, #accordion-section-ct_business_blog_pro .accordion-section-title:focus:after {
+#accordion-section-ct_startup_blog_pro .accordion-section-title:hover:after, #accordion-section-ct_startup_blog_pro .accordion-section-title:active:after, #accordion-section-ct_startup_blog_pro .accordion-section-title:focus:after {
   color: #fff !important;
 }
 
-#sub-accordion-section-ct_business_blog_social_media_icons #customize-control-email-form {
+#sub-accordion-section-ct_startup_blog_social_media_icons #customize-control-email-form {
   padding-bottom: 24px;
   margin-bottom: 24px;
   border-bottom: solid 1px #d5d5d5;
 }
 
-#customize-control-business_blog_pro {
+#customize-control-startup_blog_pro {
   background: white;
-  border: solid 1px #B3B3B3;
+  border: solid 1px #E4E8EB;
   padding: 6px 24px;
   box-sizing: border-box;
 }
-#customize-control-business_blog_pro ul {
+#customize-control-startup_blog_pro ul {
   list-style: disc;
   padding-left: 15px;
 }
-#customize-control-business_blog_pro img {
+#customize-control-startup_blog_pro img {
   position: relative;
   max-width: calc(100% + 48px);
   top: -6px;
   left: -24px;
   border-bottom: solid 1px #B3B3B3;
 }
-#customize-control-business_blog_pro .bold {
+#customize-control-startup_blog_pro .bold {
   font-weight: 600;
   font-size: 16px;
 }
-#customize-control-business_blog_pro .button-wrapper {
+#customize-control-startup_blog_pro .button-wrapper {
   text-align: center;
 }
-#customize-control-business_blog_pro .business-blog-pro-button {
+#customize-control-startup_blog_pro .startup-blog-pro-button {
   display: inline-block;
   font-size: 12px;
   text-transform: uppercase;
@@ -69,11 +69,11 @@
   -webkit-transition: background 0.2s;
   transition: background 0.2s;
 }
-#customize-control-business_blog_pro .business-blog-pro-button:before {
+#customize-control-startup_blog_pro .startup-blog-pro-button:before {
   content: '\f06e';
   font-family: 'FontAwesome';
   margin-right: 6px;
 }
-#customize-control-business_blog_pro .business-blog-pro-button:hover, #customize-control-business_blog_pro .business-blog-pro-button:active, #customize-control-business_blog_pro .business-blog-pro-button:focus {
+#customize-control-startup_blog_pro .startup-blog-pro-button:hover, #customize-control-startup_blog_pro .startup-blog-pro-button:active, #customize-control-startup_blog_pro .startup-blog-pro-button:focus {
   background: #FF8A23;
 }

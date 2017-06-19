@@ -7,7 +7,7 @@ if ( post_password_required() || ( ! have_comments() && ! comments_open() && ! p
 if ( comments_open() ) { ?>
     <section id="comments" class="comments">
         <ol class="comment-list">
-            <?php wp_list_comments( array( 'callback' => 'ct_business_blog_customize_comments' ) ); ?>
+            <?php wp_list_comments( array( 'callback' => 'ct_startup_blog_customize_comments' ) ); ?>
         </ol>
         <?php
         if ( ( get_option( 'page_comments' ) == 1 ) && ( get_comment_pages_count() > 1 ) ) { ?>
@@ -22,7 +22,7 @@ if ( comments_open() ) { ?>
 } elseif ( ! comments_open() && have_comments() && pings_open() ) { ?>
     <section id="comments" class="comments">
         <ol class="comment-list">
-            <?php wp_list_comments( array( 'callback' => 'ct_business_blog_customize_comments' ) ); ?>
+            <?php wp_list_comments( array( 'callback' => 'ct_startup_blog_customize_comments' ) ); ?>
         </ol>
         <?php
         if ( ( get_option( 'page_comments' ) == 1 ) && ( get_comment_pages_count() > 1 ) ) { ?>
@@ -34,7 +34,7 @@ if ( comments_open() ) { ?>
         <p class="comments-closed pings-open">
             <?php
             // translators: placeholder is link to the trackback URL
-            printf( esc_html__( 'Comments are closed, but <a href="%s" title="Trackback URL for this post">trackbacks</a> and pingbacks are open.', 'business-blog' ), esc_url( get_trackback_url() ) );
+            printf( esc_html__( 'Comments are closed, but <a href="%s" title="Trackback URL for this post">trackbacks</a> and pingbacks are open.', 'startup-blog' ), esc_url( get_trackback_url() ) );
             ?>
         </p>
     </section>
@@ -42,7 +42,7 @@ if ( comments_open() ) { ?>
 } elseif ( ! comments_open() && have_comments() ) { ?>
     <section id="comments" class="comments">
         <ol class="comment-list">
-            <?php wp_list_comments( array( 'callback' => 'ct_business_blog_customize_comments' ) ); ?>
+            <?php wp_list_comments( array( 'callback' => 'ct_startup_blog_customize_comments' ) ); ?>
         </ol>
         <?php
         if ( ( get_option( 'page_comments' ) == 1 ) && ( get_comment_pages_count() > 1 ) ) { ?>
@@ -52,14 +52,14 @@ if ( comments_open() ) { ?>
             </nav>
         <?php } ?>
         <p class="comments-closed">
-            <?php esc_html_e( 'Comments are closed.', 'business-blog' ); ?>
+            <?php esc_html_e( 'Comments are closed.', 'startup-blog' ); ?>
         </p>
     </section>
     <?php
 } else { ?>
     <section id="comments" class="comments">
         <p class="comments-closed">
-            <?php esc_html_e( 'Comments are closed.', 'business-blog' ); ?>
+            <?php esc_html_e( 'Comments are closed.', 'startup-blog' ); ?>
         </p>
     </section>
 <?php }

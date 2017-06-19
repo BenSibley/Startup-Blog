@@ -5,18 +5,18 @@ if ( ! is_archive() ) {
 }
 
 $icon_class = 'folder-open';
-$prefix = esc_html_x( 'Posts published in', 'Posts published in CATEGORY', 'business-blog' );
+$prefix = esc_html_x( 'Posts published in', 'Posts published in CATEGORY', 'startup-blog' );
 
 if ( is_tag() ) {
 	$icon_class = 'tag';
-	$prefix = esc_html__( 'Posts tagged as', 'business-blog' );
+	$prefix = esc_html__( 'Posts tagged as', 'startup-blog' );
 } elseif ( is_author() ) {
 	$icon_class = 'user';
-	$prefix = esc_html_x( 'Posts published by', 'Posts published by AUTHOR', 'business-blog' );
+	$prefix = esc_html_x( 'Posts published by', 'Posts published by AUTHOR', 'startup-blog' );
 } elseif ( is_date() ) {
 	$icon_class = 'calendar';
 	// Repeating default value to add new translator note - context may change word choice
-	$prefix = esc_html_x( 'Posts published in', 'Posts published in MONTH', 'business-blog' );
+	$prefix = esc_html_x( 'Posts published in', 'Posts published in MONTH', 'startup-blog' );
 }
 ?>
 

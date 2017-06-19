@@ -9,5 +9,5 @@
 		</a>
 	</h3>
 	<p><?php the_author_meta('description'); ?></p>
-	<?php ct_business_blog_social_icons_output( 'author' ) ?>
+	<?php ct_startup_blog_social_icons_output( 'author' ) ?>
 </div>

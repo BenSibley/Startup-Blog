@@ -9,7 +9,7 @@
 }
 
 // Business Blog Pro section
-#accordion-section-ct_business_blog_pro {
+#accordion-section-ct_startup_blog_pro {
 
   .accordion-section-title {
     color: #fff;
@@ -32,7 +32,7 @@
     }
   }
 }
-#sub-accordion-section-ct_business_blog_social_media_icons {
+#sub-accordion-section-ct_startup_blog_social_media_icons {
 
   #customize-control-email-form {
     padding-bottom: 24px;
@@ -41,9 +41,9 @@
   }
 }
 
-#customize-control-business_blog_pro {
+#customize-control-startup_blog_pro {
   background: white;
-  border: solid 1px $color-gray-70;
+  border: solid 1px $color-gray-blue-dark;
   padding: 6px 24px;
   box-sizing: border-box;
 
@@ -65,7 +65,7 @@
   .button-wrapper {
     text-align: center;
   }
-  .business-blog-pro-button {
+  .startup-blog-pro-button {
     display: inline-block;
     font-size: 12px;
     text-transform: uppercase;

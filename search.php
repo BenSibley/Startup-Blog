@@ -1,7 +1,7 @@
 <?php get_header(); ?>
     <div class="post-header search-header">
         <h1 class="post-title">
-            <?php printf( esc_html__( 'Search Results for %s', 'business-blog' ), '<span>&ldquo;' . get_search_query() . '&rdquo;</span>' ); ?>
+            <?php printf( esc_html__( 'Search Results for %s', 'startup-blog' ), '<span>&ldquo;' . get_search_query() . '&rdquo;</span>' ); ?>
         </h1>
         <?php get_search_form(); ?>
     </div>
@@ -19,7 +19,7 @@
 <?php the_posts_pagination(); ?>
 
 <div class="post-header search-header bottom">
-    <p><?php esc_html_e( "Can't find what you're looking for?  Try refining your search:", "business-blog" ); ?></p>
+    <p><?php esc_html_e( "Can't find what you're looking for?  Try refining your search:", "startup-blog" ); ?></p>
     <?php get_search_form(); ?>
 </div>
 

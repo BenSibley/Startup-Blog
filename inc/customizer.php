@@ -220,7 +220,8 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 	// section
 	$wp_customize->add_section( 'startup_blog_layout', array(
 		'title'    => __( 'Layout', 'startup-blog' ),
-		'priority' => 25
+		'priority' => 25,
+		'description' => sprintf( __( 'Want more layouts? Check out the <a target="_blank" href="%1$s">%2$s Pro plugin</a>.', 'startup-blog' ), 'https://www.competethemes.com/startup-blog/', wp_get_theme( get_template() ) )
 	) );
 	// setting
 	$wp_customize->add_setting( 'layout', array(

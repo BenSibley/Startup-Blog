@@ -90,3 +90,35 @@
     }
   }
 }
+
+// layout picture controls
+#customize-control-layout {
+
+  .customize-control-title {
+    margin-bottom: 12px;
+  }
+  label {
+    display: inline-block;
+    margin-bottom: 12px;
+    margin-left: 0;
+    padding: 0;
+    width: 123px;
+    height: 72px;
+    background-size: cover;
+    transition: opacity 0.2s ease;
+    color: transparent; // hides the description text eg "Right sidebar"
+
+    &:nth-child(even) {
+      margin-right: 9px; // +4 from inline-block
+    }
+    &.selected {
+      outline: solid 1px #05B0E7;
+    }
+  }
+}
+#customize-control-layout label:hover {
+  opacity: 0.8;
+}
+#customize-control-layout input {
+  display: none;
+}

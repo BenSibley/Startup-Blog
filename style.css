@@ -724,7 +724,11 @@ a img {
   background-image: linear-gradient(to right, #20A4E6, #17E6C3);
 }
 
-.secondary-header .max-width:after {
+.secondary-header {
+  max-width: 1665px;
+  margin: 0 auto;
+}
+.secondary-header:after {
   content: ".";
   display: block;
   clear: both;

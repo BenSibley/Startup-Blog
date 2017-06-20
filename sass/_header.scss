@@ -14,11 +14,11 @@
   }
 }
 .secondary-header {
+  max-width: 1665px;
+  margin: 0 auto;
 
-  .max-width {
-    &:after {
+  &:after {
       @include clearfix;
-    }
   }
 }
 .primary-header {

@@ -14,7 +14,7 @@
 		</div>
 		<?php ct_startup_blog_featured_image(); ?>
 		<div class="post-content">
-			<?php echo ct_startup_blog_excerpt(); ?>
+			<?php echo wp_kses_post( ct_startup_blog_excerpt() ); ?>
 		</div>
 	</article>
 	<?php do_action( 'startup_blog_archive_post_after' ); ?>

@@ -118,6 +118,7 @@
     border: solid 2px #fff;
     width: 38px;
     height: 38px;
+    margin: 0; // to prevent WP User Avatar from messing up positioning
     box-shadow: 0 0 12px 0 rgba(0,0,0,0.2);
   }
 }

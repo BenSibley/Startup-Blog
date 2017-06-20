@@ -10,12 +10,21 @@
 			$image_meta = wp_prepare_attachment_for_js($post->ID);
 			?>
 			<div class="attachment-container">
-				<?php echo $image; ?>
+				<?php echo wp_kses( $image, array(
+					'img' => array(
+						'width' => array(),
+						'height' => array(),
+						'src' => array(),
+						'class' => array(),
+						'alt' => array(),
+						'srcset' => array(),
+						'sizes' => array(),
+					) ) ); ?>
 				<span class="attachment-caption">
-					<?php echo esc_html( $image_meta['caption'] ); ?>
+					<?php echo wp_kses_post( $image_meta['caption'] ); ?>
 				</span>
 			</div>
-			<?php echo wpautop( esc_html( $image_meta['description'] ) ); ?>
+			<?php echo wp_kses_post( wpautop( $image_meta['description'] ) ); ?>
 		</div>
 	</article>
 	<?php do_action( 'startup_blog_attachment_after' ); ?>

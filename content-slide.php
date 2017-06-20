@@ -1,8 +1,7 @@
 <?php
 $button_text = get_theme_mod('slider_button_text');
-// Using esc_html() on L5 because "esc_attr" strips the classes due to the use of numbers e.g slider-2
 ?>
-<li class="<?php echo esc_html( $classes ); ?>">
+<li class="<?php echo esc_attr( $classes ); ?>">
 	<div class="content-container">
 		<div class="max-width">
 			<div class="title"><?php the_title(); ?></div>

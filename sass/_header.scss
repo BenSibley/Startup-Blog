@@ -126,6 +126,11 @@
   }
   .site-header .social-media-icons {
     margin: $baseline-height/2 $column * 4 $baseline-height/2 0;
+    flex-shrink: 0;
+  }
+  .secondary-header {
+    display: flex;
+    flex-flow: row-reverse nowrap;
   }
   .rtl {
 

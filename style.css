@@ -841,6 +841,18 @@ a img {
 
   .site-header .social-media-icons {
     margin: 0.75em 11.112% 0.75em 0;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+  }
+
+  .secondary-header {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row-reverse nowrap;
+    -ms-flex-flow: row-reverse nowrap;
+    flex-flow: row-reverse nowrap;
   }
 
   .rtl .title-container {
@@ -1309,7 +1321,7 @@ a img {
     max-height: none;
     overflow: visible;
     float: left;
-    margin: 0.75em 0 0.75em 11.112%;
+    margin: 0.75em auto 0.75em 11.112%;
     line-height: 1;
   }
 

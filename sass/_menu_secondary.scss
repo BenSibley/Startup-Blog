@@ -83,9 +83,8 @@
     max-height: none;
     overflow: visible;
     float: left;
-    margin: $baseline-height/2 0 $baseline-height/2 $column * 4;
+    margin: $baseline-height/2 auto $baseline-height/2 $column * 4;
     line-height: 1;
-    //padding: $baseline-height/4 $column * 4;
   }
   .menu-secondary {
     margin: 0;

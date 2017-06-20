@@ -1,7 +1,7 @@
 <?php
 
 function ct_startup_blog_register_theme_page() {
-	add_theme_page( sprintf( esc_html__( '%s Dashboard', 'startup-blog' ), wp_get_theme( get_template() ) ), sprintf( esc_html__( '%s', 'startup-blog' ), wp_get_theme( get_template() ) ), 'edit_theme_options', 'startup-blog-options', 'ct_startup_blog_options_content', 'ct_startup_blog_options_content' );
+	add_theme_page( sprintf( esc_html__( '%s Dashboard', 'startup-blog' ), wp_get_theme( get_template() ) ), wp_get_theme( get_template() ), 'edit_theme_options', 'startup-blog-options', 'ct_startup_blog_options_content', 'ct_startup_blog_options_content' );
 }
 add_action( 'admin_menu', 'ct_startup_blog_register_theme_page' );
 

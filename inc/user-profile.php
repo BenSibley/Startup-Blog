@@ -84,7 +84,6 @@ function startup_blog_add_social_profile_settings( $user ) {
 	</table>
 	<?php
 }
-
 add_action( 'show_user_profile', 'startup_blog_add_social_profile_settings' );
 add_action( 'edit_user_profile', 'startup_blog_add_social_profile_settings' );
 
@@ -100,16 +99,16 @@ function startup_blog_save_social_profiles( $user_id ) {
 		if ( $key == 'email' ) {
 			// if email, only accept 'mailto' protocol
 			if ( isset( $_POST["$key-profile"] ) ) {
-				update_user_meta( $user_id, $social_site, sanitize_email( $_POST["$key-profile"] ) );
+				update_user_meta( $user_id, $social_site, sanitize_email( wp_unslash( $_POST["$key-profile"] ) ) );
 			}
 		} elseif ( $key == 'skype' ) {
 			// accept skype protocol
 			if ( isset( $_POST["$key-profile"] ) ) {
-				update_user_meta( $user_id, $social_site, esc_url_raw( $_POST["$key-profile"], array( 'http', 'https', 'skype' ) ) );
+				update_user_meta( $user_id, $social_site, esc_url_raw( wp_unslash( $_POST["$key-profile"] ), array( 'http', 'https', 'skype' ) ) );
 			}
 		} else {
 			if ( isset( $_POST["$key-profile"] ) ) {
-				update_user_meta( $user_id, $social_site, esc_url_raw( $_POST["$key-profile"] ) );
+				update_user_meta( $user_id, $social_site, esc_url_raw( wp_unslash( $_POST["$key-profile"] ) ) );
 			}
 		}
 	}

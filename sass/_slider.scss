@@ -53,6 +53,7 @@
     @extend %twenty-one-pixels;
     font-family: $heading-font-stack;
     margin-bottom: 18px;
+    max-width: 880px;
   }
   .read-more {
     display: inline-block;

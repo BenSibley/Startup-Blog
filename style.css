@@ -2027,6 +2027,7 @@ a img {
 .bb-slider .title {
   font-family: "Montserrat", sans-serif;
   margin-bottom: 18px;
+  max-width: 880px;
 }
 .bb-slider .read-more {
   display: inline-block;

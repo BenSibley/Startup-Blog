@@ -1,4 +1,5 @@
 <?php
+if ( get_theme_mod( 'post_categories') == 'no' ) return;
 
 $categories = get_the_category( $post->ID );
 $separator  = ', ';

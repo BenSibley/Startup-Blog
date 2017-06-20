@@ -1,4 +1,6 @@
 <?php
+if ( get_theme_mod( 'post_tags') == 'no' ) return;
+
 $tags   = get_the_tags( $post->ID );
 $output = '';
 if ( $tags ) {

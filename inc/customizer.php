@@ -428,6 +428,38 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 		)
 	) );
 	// setting
+	$wp_customize->add_setting( 'post_categories', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_startup_blog_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'post_categories', array(
+		'label'    => __( 'Show categories after the post?', 'startup-blog' ),
+		'section'  => 'startup_blog_show_hide',
+		'settings' => 'post_categories',
+		'type'     => 'radio',
+		'choices'  => array(
+			'yes' => __( 'Yes', 'startup-blog' ),
+			'no'  => __( 'No', 'startup-blog' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'post_tags', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_startup_blog_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'post_tags', array(
+		'label'    => __( 'Show tags after the post?', 'startup-blog' ),
+		'section'  => 'startup_blog_show_hide',
+		'settings' => 'post_tags',
+		'type'     => 'radio',
+		'choices'  => array(
+			'yes' => __( 'Yes', 'startup-blog' ),
+			'no'  => __( 'No', 'startup-blog' )
+		)
+	) );
+	// setting
 	$wp_customize->add_setting( 'sidebar', array(
 		'default'           => 'after',
 		'sanitize_callback' => 'ct_startup_blog_sanitize_sidebar_settings'

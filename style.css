@@ -1641,6 +1641,9 @@ a img {
   font-weight: 800;
 }
 
+.post-tags {
+  margin: 1.5em 0;
+}
 .post-tags ul {
   list-style: none;
   margin: 0;

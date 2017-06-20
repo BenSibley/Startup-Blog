@@ -14,7 +14,6 @@
   }
 }
 .secondary-header {
-  //padding: $baseline-height/4 $column * 2;
 
   .max-width {
     &:after {
@@ -70,7 +69,6 @@
 }
 .social-media-icons {
   list-style: none;
-  margin: $baseline-height/2 $column * 2;
   text-align: center;
 
   li {
@@ -101,6 +99,7 @@
 }
 .site-header .social-media-icons {
   float: right;
+  margin: $baseline-height/2 $column * 2;
 }
 .rtl {
 
@@ -122,13 +121,10 @@
       flex-flow: row nowrap;
     }
   }
-  .secondary-header {
-    //padding: $baseline-height/4 $column * 4;
-  }
   .title-container {
     margin-right: $baseline-height * 1.5;
   }
-  .social-media-icons {
+  .site-header .social-media-icons {
     margin: $baseline-height/2 $column * 4 $baseline-height/2 0;
   }
   .rtl {

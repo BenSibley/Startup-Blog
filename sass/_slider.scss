@@ -56,6 +56,7 @@
     max-width: 880px;
   }
   .read-more {
+    transform: translateZ(0);
     display: inline-block;
     padding: $baseline-height/4 $baseline-height/2;
     color: $color-gray-20;
@@ -63,12 +64,11 @@
     border-radius: 3px;
     box-shadow: none;
     backface-visibility: hidden;
-    transition: box-shadow 0.15s;
+    transition: all 0.15s;
 
-    &:hover,
-    &:active,
-    &:focus {
+    &:hover {
       box-shadow: 0 2px 12px 0 rgba(0,0,0,0.1);
+      transform: translateY(-3px);
     }
   }
   .image-container {
@@ -202,7 +202,7 @@
     .content-container {
 
       p {
-        font-size: 1em;
+        font-size: 16px;
       }
     }
     .title {
@@ -217,8 +217,8 @@
     height: 350px;
 
     .title {
-      font-size: 1.75em; /* 28px / 16px */
-      line-height: 1.358; /* 38px */
+      font-size: 28px; /* 28px / 16px */
+      line-height: 38px; /* 38px */
     }
   }
 }
@@ -280,11 +280,11 @@
   .bb-slider {
 
     .title {
-      font-size: 2.375em; /* 38px / 16px */
-      line-height: 1.342; /* 51px */
+      font-size: 38px;
+      line-height: 50px; // had to switch to 50px instead of 51px or FF makes button wiggle on hover
     }
     .read-more {
-      padding: $baseline-height/2 $baseline-height;
+      padding: 12px 24px;
     }
   }
 }

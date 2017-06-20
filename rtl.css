@@ -2030,6 +2030,8 @@ a img {
   max-width: 880px;
 }
 .bb-slider .read-more {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
   display: inline-block;
   padding: 0.375em 0.75em;
   color: #333333;
@@ -2038,11 +2040,14 @@ a img {
   box-shadow: none;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  -webkit-transition: box-shadow 0.15s;
-  transition: box-shadow 0.15s;
+  -webkit-transition: all 0.15s;
+  transition: all 0.15s;
 }
-.bb-slider .read-more:hover, .bb-slider .read-more:active, .bb-slider .read-more:focus {
+.bb-slider .read-more:hover {
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  -webkit-transform: translateY(-3px);
+  -ms-transform: translateY(-3px);
+  transform: translateY(-3px);
 }
 .bb-slider .image-container {
   position: absolute;
@@ -2159,7 +2164,7 @@ a img {
     height: 330px;
   }
   .bb-slider .content-container p {
-    font-size: 1em;
+    font-size: 16px;
   }
   .bb-slider .title {
     margin-bottom: 24px;
@@ -2170,9 +2175,9 @@ a img {
     height: 350px;
   }
   .bb-slider .title {
-    font-size: 1.75em;
+    font-size: 28px;
     /* 28px / 16px */
-    line-height: 1.358;
+    line-height: 38px;
     /* 38px */
   }
 }
@@ -2217,13 +2222,11 @@ a img {
 }
 @media all and (min-width: 62.5em) {
   .bb-slider .title {
-    font-size: 2.375em;
-    /* 38px / 16px */
-    line-height: 1.342;
-    /* 51px */
+    font-size: 38px;
+    line-height: 50px;
   }
   .bb-slider .read-more {
-    padding: 0.75em 1.5em;
+    padding: 12px 24px;
   }
 }
 @media all and (min-width: 93.75em) {

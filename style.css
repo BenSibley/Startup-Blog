@@ -1610,6 +1610,10 @@ a img {
   margin-right: 4px;
 }
 
+.sticky .post-comments-link {
+  top: 32px;
+}
+
 .post-meta {
   padding: 1.5em 6.2505% 0;
   margin: 0.75em 0 1.5em;
@@ -1729,6 +1733,10 @@ a img {
 
   .post-comments-link {
     top: 24px;
+  }
+
+  .sticky .post-comments-link {
+    top: 36px;
   }
 
   .post-content {

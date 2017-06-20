@@ -178,6 +178,9 @@
     margin-right: 4px;
   }
 }
+.sticky .post-comments-link {
+  top: 32px;
+}
 .post-meta {
   padding: $baseline-height $column * 2 * 1.125 0;
   margin: $baseline-height/2 0 $baseline-height;
@@ -318,6 +321,9 @@
   }
   .post-comments-link {
     top: 24px;
+  }
+  .sticky .post-comments-link {
+    top: 36px;
   }
   .post-content {
     padding: 0 $column * 2.118 0;

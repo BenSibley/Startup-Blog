@@ -213,22 +213,7 @@ if ( ! function_exists( 'ct_startup_blog_featured_image' ) ) {
 		$featured_image = apply_filters( 'ct_startup_blog_featured_image', $featured_image );
 
 		if ( $featured_image ) {
-			echo wp_kses( $featured_image, array(
-				'div' => array(
-					'class' => array()
-				),
-				'a' => array(
-					'href' => array()
-				),
-				'img' => array(
-					'width' => array(),
-					'height' => array(),
-					'src' => array(),
-					'class' => array(),
-					'alt' => array(),
-					'srcset' => array(),
-					'sizes' => array(),
-			) ) );
+			echo $featured_image;
 		}
 	}
 }

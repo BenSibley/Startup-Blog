@@ -586,9 +586,20 @@ function ct_startup_blog_sanitize_post_categories( $input ) {
 
 function ct_startup_blog_sanitize_layout( $input ) {
 
+	/*
+	 * Also allow layouts only included in the premium plugin.
+	 * Needs to be done this way b/c sanitize_callback cannot by updated
+	 * via get_setting()
+	 */
 	$valid = array(
 		'right-sidebar' => __( 'Right sidebar', 'startup-blog' ),
-		'left-sidebar'  => __( 'Left sidebar', 'startup-blog' )
+		'left-sidebar'  => __( 'Left sidebar', 'startup-blog' ),
+		'narrow'        => __( 'No sidebar - Narrow', 'startup-blog' ),
+		'wide'          => __( 'No sidebar - Wide', 'startup-blog' ),
+		'two-right'     => __( 'Two column - Right sidebar', 'startup-blog' ),
+		'two-left'      => __( 'Two column - Left sidebar', 'startup-blog' ),
+		'two-narrow'    => __( 'Two column - No Sidebar - Narrow', 'startup-blog' ),
+		'two-wide'      => __( 'Two column - No Sidebar - Wide', 'startup-blog' )
 	);
 
 	return array_key_exists( $input, $valid ) ? $input : '';

@@ -861,7 +861,7 @@ a img {
 }
 .pagination {
   clear: both;
-  margin-bottom: 2.25em;
+  margin: 0.75em 0 2.25em;
 }
 .pagination .nav-links {
   display: -webkit-flex;

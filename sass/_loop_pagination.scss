@@ -1,6 +1,6 @@
 .pagination {
   clear: both;
-  margin-bottom: $baseline-height * 1.5;
+  margin: $baseline-height/2 0 $baseline-height * 1.5;
 
   .nav-links {
     display: flex;

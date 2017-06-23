@@ -7,6 +7,11 @@ if ( $author_display == 'no' && $date_display == 'no' ) {
 }
 
 $author = get_the_author();
+// add compatibility when used in header before loop
+if ( empty( $author ) ) {
+	global $post;
+	$author = get_the_author_meta( 'display_name', $post->post_author );
+}
 $date   = date_i18n( get_option( 'date_format' ), strtotime( get_the_date() ) );
 
 echo '<div class="post-byline">';

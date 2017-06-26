@@ -1,0 +1,16 @@
+.sidebar-after-post-content,
+.sidebar-after-page-content {
+  margin-bottom: $baseline-height * 2;
+  border-top: solid 1px $color-gray-blue-dark;
+  padding-top: $baseline-height;
+}
+.sidebar-after-page-content {
+  margin-bottom: $baseline-height;
+}
+
+@media all and (min-width: $six-hundred) {
+
+  .sidebar-after-post-content {
+    margin-bottom: $baseline-height * 2.5;
+  }
+}

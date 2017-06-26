@@ -19,6 +19,7 @@
 			<?php do_action( 'startup_blog_post_after' ); ?>
 		</div>
 		<div class="post-meta">
+			<?php get_sidebar( 'after-post-content' ); ?>
 			<?php get_template_part( 'content/post-author' ); ?>
 			<?php get_template_part( 'content/post-categories' ); ?>
 			<?php get_template_part( 'content/post-tags' ); ?>

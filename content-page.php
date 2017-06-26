@@ -13,6 +13,9 @@
 			) ); ?>
 			<?php do_action( 'startup_blog_page_after' ); ?>
 		</div>
+		<div class="post-meta">
+			<?php get_sidebar( 'after-page-content' ); ?>
+		</div>
 	</article>
 </div>
 <?php comments_template(); ?>

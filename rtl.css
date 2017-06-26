@@ -2253,3 +2253,19 @@ a img {
     right: 5.556%;
   }
 }
+.sidebar-after-post-content,
+.sidebar-after-page-content {
+  margin-bottom: 3em;
+  border-top: solid 1px #E4E8EB;
+  padding-top: 1.5em;
+}
+
+.sidebar-after-page-content {
+  margin-bottom: 1.5em;
+}
+
+@media all and (min-width: 37.5em) {
+  .sidebar-after-post-content {
+    margin-bottom: 3.75em;
+  }
+}

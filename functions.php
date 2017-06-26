@@ -56,7 +56,25 @@ if ( ! function_exists( ( 'ct_startup_blog_register_widget_areas' ) ) ) {
 		register_sidebar( array(
 			'name'          => esc_html__( 'Primary Sidebar', 'startup-blog' ),
 			'id'            => 'primary',
-			'description'   => esc_html__( 'Widgets in this area will be shown in the sidebar next to the main post content', 'startup-blog' ),
+			'description'   => esc_html__( 'Widgets in this area will be shown in the sidebar next to the main content.', 'startup-blog' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>'
+		) );
+		register_sidebar( array(
+			'name'          => esc_html__( 'After Post Content', 'startup-blog' ),
+			'id'            => 'after-post-content',
+			'description'   => esc_html__( 'Widgets in this area will be shown on posts after the content.', 'startup-blog' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>'
+		) );
+		register_sidebar( array(
+			'name'          => esc_html__( 'After Page Content', 'startup-blog' ),
+			'id'            => 'after-page-content',
+			'description'   => esc_html__( 'Widgets in this area will be shown on pages after the content.', 'startup-blog' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',

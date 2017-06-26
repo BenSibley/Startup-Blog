@@ -19,6 +19,12 @@
     font-family: $heading-font-stack;
     font-size: 18px;
     line-height: 24px;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $color-blue;
+    }
   }
 }
 .design-credit {
@@ -28,6 +34,12 @@
   a {
     @extend %white-link;
     font-weight: 800;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $color-blue;
+    }
   }
 }
 

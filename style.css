@@ -590,12 +590,18 @@ a img {
   font-size: 18px;
   line-height: 24px;
 }
+.site-credit a:hover, .site-credit a:active, .site-credit a:focus {
+  color: #20A4E6;
+}
 
 .design-credit {
   margin-top: 1.5em;
 }
 .design-credit a {
   font-weight: 800;
+}
+.design-credit a:hover, .design-credit a:active, .design-credit a:focus {
+  color: #20A4E6;
 }
 
 @media all and (min-width: 43.75em) {

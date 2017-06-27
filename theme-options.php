@@ -31,7 +31,7 @@ function ct_startup_blog_options_content() {
 			<?php if ( !function_exists( 'ct_startup_blog_pro_init' ) ) : ?>
 				<div class="content content-premium-upgrade">
 					<h3><?php printf( esc_html__( 'Startup Blog Pro', 'startup-blog' ), wp_get_theme( get_template() ) ); ?></h3>
-					<p><?php printf( esc_html__( 'Download the %s Pro plugin and unlock custom colors, new fonts, sliders, and more', 'startup-blog' ), wp_get_theme( get_template() ) ); ?>...</p>
+					<p><?php printf( esc_html__( 'Download the %s Pro plugin and unlock six new layouts, four post templates, advanced color controls, and more.', 'startup-blog' ), wp_get_theme( get_template() ) ); ?></p>
 					<p>
 						<a target="_blank" class="button-primary"
 						   href="https://www.competethemes.com/startup-blog-pro/"><?php esc_html_e( 'See Full Feature List', 'startup-blog' ); ?></a>

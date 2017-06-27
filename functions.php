@@ -467,7 +467,10 @@ if ( ! function_exists( 'ct_startup_blog_body_class' ) ) {
 		if ( $sidebar_display == 'no' ) {
 			$classes[] = 'hide-sidebar';
 		}
-		$classes[] = $layout;
+		// don't add layout classes if PRO plugin is active
+		if ( !defined( 'STARTUP_BLOG_PRO_FILE' ) ) {
+			$classes[] = $layout;
+		}
 
 		return $classes;
 	}

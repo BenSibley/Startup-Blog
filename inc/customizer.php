@@ -36,22 +36,25 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 
 	/***** Startup Blog Pro Section *****/
 
-	// section
-	$wp_customize->add_section( 'ct_startup_blog_pro', array(
-		'title'    => sprintf( __( '%s Pro', 'startup-blog' ), wp_get_theme( get_template() ) ),
-		'priority' => 1
-	) );
-	// setting
-	$wp_customize->add_setting( 'startup_blog_pro', array(
-		'sanitize_callback' => 'absint'
-	) );
-	// control
-	$wp_customize->add_control( new ct_startup_blog_pro_ad(
-		$wp_customize, 'startup_blog_pro', array(
-			'section'  => 'ct_startup_blog_pro',
-			'settings' => 'startup_blog_pro'
-		)
-	) );
+	// don't add if Startup Blog Pro is active
+	if ( !defined( 'STARTUP_BLOG_PRO_FILE' ) ) {
+		// section
+		$wp_customize->add_section( 'ct_startup_blog_pro', array(
+			'title'    => sprintf( __( '%s Pro', 'startup-blog' ), wp_get_theme( get_template() ) ),
+			'priority' => 1
+		) );
+		// setting
+		$wp_customize->add_setting( 'startup_blog_pro', array(
+			'sanitize_callback' => 'absint'
+		) );
+		// control
+		$wp_customize->add_control( new ct_startup_blog_pro_ad(
+			$wp_customize, 'startup_blog_pro', array(
+				'section'  => 'ct_startup_blog_pro',
+				'settings' => 'startup_blog_pro'
+			)
+		) );
+	}
 
 	/***** Slider *****/
 

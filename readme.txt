@@ -31,14 +31,13 @@ Startup Blog includes the following features:
 
 Startup Blog also has a premium plugin upgrade called Startup Blog Pro that includes the following features:
 
-    * Custom colors
-    * Featured sliders
+    * 6 layouts
+    * 4 post templates
+    * Advanced color controls
+    * over 700+ fonts
+    * 8 font size controls
     * Featured videos
-    * Additional layouts
-    * Flexible header image
-    * Google fonts
-    * More widget areas
-    * Display controls
+    * Featured image sizes
     * Custom footer text
 
 Startup Blog Pro: https://www.competethemes.com/startup-blog-pro/

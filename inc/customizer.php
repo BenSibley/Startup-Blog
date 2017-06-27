@@ -15,6 +15,11 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 		$wp_customize->get_section( 'static_front_page' )->title    = __( 'Front Page', 'startup-blog' );
 	}
 
+	/***** Add PostMessage Support *****/
+
+	$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
+	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
+
 	/***** Custom Controls *****/
 
 	class ct_startup_blog_pro_ad extends WP_Customize_Control {

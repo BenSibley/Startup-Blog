@@ -35,3 +35,13 @@ function ct_startup_blog_enqueue_customizer_scripts() {
 	wp_enqueue_script( 'ct-startup-blog-customizer-js', get_template_directory_uri() . '/js/build/customizer.min.js', array( 'jquery' ), '', true );
 }
 add_action( 'customize_controls_enqueue_scripts', 'ct_startup_blog_enqueue_customizer_scripts' );
+
+/*
+ * Script for live updating with customizer options. Has to be loaded separately on customize_preview_init hook
+ * transport => postMessage
+ */
+function ct_startup_blog_enqueue_customizer_post_message_scripts() {
+	wp_enqueue_script( 'ct-startup-blog-customizer-post-message-js', get_template_directory_uri() . '/js/build/postMessage.min.js', array( 'jquery' ), '', true );
+
+}
+add_action( 'customize_preview_init', 'ct_startup_blog_enqueue_customizer_post_message_scripts' );

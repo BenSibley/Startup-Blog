@@ -25,14 +25,14 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 	class ct_startup_blog_pro_ad extends WP_Customize_Control {
 		public function render_content() {
 			$link = 'https://www.competethemes.com/startup-blog-pro/';
-			echo "<a href='" . $link . "' target='_blank'><img src='" . get_template_directory_uri() . "/assets/images/startup-blog-pro.png' srcset='" . get_template_directory_uri() . "/assets/images/startup-blog-pro-2x.png 2x' /></a>";
+			echo "<a href='" . $link . "' target='_blank'><img src='" . get_template_directory_uri() . "/assets/images/startup-blog-pro.gif' /></a>";
 			echo "<p class='bold'>" . sprintf( __('<a target="_blank" href="%1$s">%2$s Pro</a> makes advanced customization simple - and fun too!', 'startup-blog'), $link, wp_get_theme( get_template() ) ) . "</p>";
 			echo "<p>" . sprintf( esc_html_x('%s Pro adds the following features:', 'Startup Blog Pro adds the following features:', 'startup-blog'), wp_get_theme( get_template() ) ) . "</p>";
 			echo "<ul>
 					<li>" . esc_html__('6 new layouts', 'startup-blog') . "</li>
-					<li>" . esc_html__('Custom colors', 'startup-blog') . "</li>
-					<li>" . esc_html__('New fonts', 'startup-blog') . "</li>
-					<li>" . esc_html__('+ 11 more features', 'startup-blog') . "</li>
+					<li>" . esc_html__('4 post templates', 'startup-blog') . "</li>
+					<li>" . esc_html__('61 advanced color controls', 'startup-blog') . "</li>
+					<li>" . esc_html__('+ 5 more features', 'startup-blog') . "</li>
 				  </ul>";
 			// translators: placeholder is "Startup Blog"
 			echo "<p class='button-wrapper'><a target=\"_blank\" class='startup-blog-pro-button' href='" . $link . "'>" . sprintf( esc_html_x('View %s Pro', 'View Startup Blog Pro', 'startup-blog'), wp_get_theme( get_template() ) ) . "</a></p>";

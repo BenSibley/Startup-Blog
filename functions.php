@@ -469,7 +469,7 @@ if ( ! function_exists( 'ct_startup_blog_body_class' ) ) {
 		}
 		// don't add layout classes if PRO plugin is active
 		if ( !defined( 'STARTUP_BLOG_PRO_FILE' ) ) {
-			$classes[] = $layout;
+			$classes[] = esc_attr( $layout );
 		}
 
 		return $classes;

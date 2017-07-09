@@ -126,14 +126,14 @@ if ( ! function_exists( 'ct_startup_blog_update_fields' ) ) {
 
 		$fields['author'] =
 			'<p class="comment-form-author">
-	            <label for="author">' . esc_html__( "Name", "startup-blog" ) . $label . '</label>
+	            <label for="author">' . esc_html__( "Name", "startup-blog" ) . esc_html( $label ) . '</label>
 	            <input id="author" name="author" type="text" placeholder="' . esc_attr__( "Jane Doe", "startup-blog" ) . '" value="' . esc_attr( $commenter['comment_author'] ) .
 			'" size="30" ' . esc_html( $aria_req ) . ' />
 	        </p>';
 
 		$fields['email'] =
 			'<p class="comment-form-email">
-	            <label for="email">' . esc_html__( "Email", "startup-blog" ) . $label . '</label>
+	            <label for="email">' . esc_html__( "Email", "startup-blog" ) . esc_html( $label ) . '</label>
 	            <input id="email" name="email" type="email" placeholder="' . esc_attr__( "name@email.com", "startup-blog" ) . '" value="' . esc_attr( $commenter['comment_author_email'] ) .
 			'" size="30" ' . esc_html( $aria_req ) . ' />
 	        </p>';

@@ -33,7 +33,13 @@ Startup Blog is distributed under the terms of the GNU GPL
   /* 24px */
 }
 
-input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="file"]):not([type="image"]),
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
 textarea, input[type="submit"], .archive-header h1, .comment-respond label, .site-credit, .tagline, .social-media-icons i, .post-tags a, .search-header .post-title, .widget > *, .widget-title {
   font-size: 0.875em;
   /* 14px / 16px */
@@ -57,7 +63,13 @@ textarea, input[type="submit"], .archive-header h1, .comment-respond label, .sit
 
 .archive-header, .comment-respond, .comment-list li.comment,
 .comment-list li.pingback, .comment-pagination p, .comments-closed, .primary-header, .pagination a,
-.pagination span, .entry, .search-header, .sidebar-primary .widget, input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="file"]):not([type="image"]):focus,
+.pagination span, .entry, .search-header, .sidebar-primary .widget, input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
 textarea:focus {
   box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.05);
 }
@@ -283,7 +295,13 @@ img,
 }
 
 /* Form styles */
-input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="file"]):not([type="image"]),
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
 textarea {
   font-family: "Source Sans Pro", sans-serif;
   width: 100%;
@@ -296,7 +314,13 @@ textarea {
   -webkit-transition: background 0.15s, box-shadow 0.15s;
   transition: background 0.15s, box-shadow 0.15s;
 }
-input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="file"]):not([type="image"]):focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
 textarea:focus {
   background: #fff;
   outline: none;
@@ -1774,14 +1798,20 @@ a img {
 
 @media all and (min-width: 37.5em) {
   .search-form {
-    position: relative;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .search-form label {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .search-form label input {
+    border-radius: 0 3px 3px 0;
   }
   .search-form input[type="submit"] {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: auto;
-    min-width: 72px;
     margin-top: 0;
     border-radius: 3px 0 0 3px;
   }

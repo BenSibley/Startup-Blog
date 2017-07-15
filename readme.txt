@@ -1,70 +1,26 @@
+=== Startup Blog ===
+Contributors: bensibley
+Tags: two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-logo, custom-menu, featured-images, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, blog, education, news
+Requires at least: 4.5
+Tested up to: 4.8
+Stable tag: 1.02
 
-Thanks for downloading Startup Blog!
+Startup Blog is a beautiful modern WordPress theme for business blogs.
 
--------------------------------------------------------
-    Support
--------------------------------------------------------
+== Description ==
 
-You can find tutorials and other support resources in the Startup Blog Support Center:
-https://www.competethemes.com/documentation/startup-blog-support-center/
+Startup Blog is a modern and minimalist theme for blogging. Use it for your company\'s business blog or a personal blog on professional topics. It\'s fully responsive (mobile-friendly), so it looks great on all devices. The simple and clean aesthetic will put emphasis on your content and help it perform well across platforms.
 
-Additional support resources:
+**Live Demo**
 
-Support forum: http://wordpress.org/support/theme/startup-blog
-Changelog: https://www.competethemes.com/startup-blog-changelog/
-Startup Blog on Github: https://github.com/BenSibley/startup-blog
+View a fully-setup live demo of Startup Blog here: [Live demo](https://www.competethemes.com/demos/?theme=Startup%20Blog)
 
--------------------------------------------------------
-    Features
--------------------------------------------------------
+**Features**
 
-Startup Blog includes the following features:
+Startup Blog comes with the following features:
 
-    * Recent Posts slider
-    * Custom logo
-    * Custom colors
-    * 2 layouts
-    * Show/Hide display controls
-    * Social media icons
-    * Show full posts or excerpts
-    * Custom excerpt length
-
-Startup Blog also has a premium plugin upgrade called Startup Blog Pro that includes the following features:
-
-    * 6 layouts
-    * 4 post templates
-    * Advanced color controls
-    * over 700+ fonts
-    * 8 font size controls
-    * Featured videos
-    * Featured image sizes
-    * Custom footer text
-
-Startup Blog Pro: https://www.competethemes.com/startup-blog-pro/
-
--------------------------------------------------------
-    Additional Info:
--------------------------------------------------------
-
-    * All menus in Startup Blog support 1-3 tiers
-    * Featured Images have a 2x1 ratio at all screen sizes
-    * Startup Blog is child theme compatible. Download a starter child theme here:
-        https://www.competethemes.com/help/child-theme-startup-blog/
-
-
--------------------------------------------------------
-    Licenses:
--------------------------------------------------------
-
-Startup Blog WordPress Theme, Copyright 2017 Compete Themes
-Startup Blog is distributed under the terms of the GNU GPL
-
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-
-Startup Blog also uses:
-
-* Fitvids, by Chris Coyier & Dave Ruper, https://github.com/davatron5000/FitVids.js/, licensed under the WTFPL license.
-* Google Fonts, http://google.com/fonts, licensed under open source licenses, see: https://developers.google.com/fonts/faq#Any_Page_OK.
-* Font Awesome by Dave Gandy, licensed under open source licenses, see: http://fortawesome.github.io/Font-Awesome/license/.
-* iPad & iMac image in screenshot.png : CC0 by William Iven, https://pixabay.com/en/imac-apple-mockup-app-ipad-mouse-606765/, licensed under Public Domain, see: https://pixabay.com/en/service/terms/#usage
+* Recent Posts slider,
+* Custom colors
+* Two layouts
+* Show/Hide elements
+* Over 50+ social media icons

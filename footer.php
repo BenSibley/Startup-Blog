@@ -20,7 +20,7 @@
         <div class="design-credit">
             <span>
                 <?php
-                // translators: placeholder is a URL to the theme's page
+                // translators: %1$s = URL to the theme's page. %2$s = theme name
                 $footer_text = sprintf( __( '<a href="%1$s">%2$s</a> by Compete Themes.', 'startup-blog' ), 'https://www.competethemes.com/startup-blog/', wp_get_theme( get_template() ) );
                 $footer_text = apply_filters( 'ct_startup_blog_footer_text', $footer_text );
                 echo wp_kses_post( $footer_text );

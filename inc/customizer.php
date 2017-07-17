@@ -26,7 +26,9 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 		public function render_content() {
 			$link = 'https://www.competethemes.com/startup-blog-pro/';
 			echo "<a href='" . $link . "' target='_blank'><img src='" . get_template_directory_uri() . "/assets/images/startup-blog-pro.gif' /></a>";
+			// translators: %1$s = link to theme page. %2$s = theme name
 			echo "<p class='bold'>" . sprintf( __('<a target="_blank" href="%1$s">%2$s Pro</a> makes advanced customization simple - and fun too!', 'startup-blog'), $link, wp_get_theme( get_template() ) ) . "</p>";
+			// translators: %s = theme name
 			echo "<p>" . sprintf( esc_html_x('%s Pro adds the following features:', 'Startup Blog Pro adds the following features:', 'startup-blog'), wp_get_theme( get_template() ) ) . "</p>";
 			echo "<ul>
 					<li>" . esc_html__('6 new layouts', 'startup-blog') . "</li>
@@ -34,7 +36,7 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 					<li>" . esc_html__('61 advanced color controls', 'startup-blog') . "</li>
 					<li>" . esc_html__('+ 5 more features', 'startup-blog') . "</li>
 				  </ul>";
-			// translators: placeholder is "Startup Blog"
+			// translators: %s = theme name
 			echo "<p class='button-wrapper'><a target=\"_blank\" class='startup-blog-pro-button' href='" . $link . "'>" . sprintf( esc_html_x('View %s Pro', 'View Startup Blog Pro', 'startup-blog'), wp_get_theme( get_template() ) ) . "</a></p>";
 		}
 	}
@@ -45,6 +47,7 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 	if ( !defined( 'STARTUP_BLOG_PRO_FILE' ) ) {
 		// section
 		$wp_customize->add_section( 'ct_startup_blog_pro', array(
+			// translators: %s = theme name
 			'title'    => sprintf( __( '%s Pro', 'startup-blog' ), wp_get_theme( get_template() ) ),
 			'priority' => 1
 		) );
@@ -227,8 +230,9 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 
 	// section
 	$wp_customize->add_section( 'startup_blog_layout', array(
-		'title'    => __( 'Layout', 'startup-blog' ),
-		'priority' => 25,
+		'title'       => __( 'Layout', 'startup-blog' ),
+		'priority'    => 25,
+		// translators: %1$s = link to theme page. %2$s = theme name
 		'description' => sprintf( __( 'Want more layouts? Check out the <a target="_blank" href="%1$s">%2$s Pro plugin</a>.', 'startup-blog' ), 'https://www.competethemes.com/startup-blog/', wp_get_theme( get_template() ) )
 	) );
 	// setting
@@ -324,6 +328,7 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 				$wp_customize->add_control( $social_site, array(
 					'type'        => 'url',
 					'label'       => $label,
+					// translators: %s = link to article
 					'description' => sprintf( __( 'Accepts Skype link protocol (<a href="%s" target="_blank">learn more</a>)', 'startup-blog' ), 'https://www.competethemes.com/blog/skype-links-wordpress/' ),
 					'section'     => 'ct_startup_blog_social_media_icons',
 					'priority'    => $priority

@@ -33,7 +33,7 @@ if ( comments_open() ) { ?>
         <?php } ?>
         <p class="comments-closed pings-open">
             <?php
-            // translators: placeholder is link to the trackback URL
+            // translators: %s = link to the trackback URL
             printf( esc_html__( 'Comments are closed, but <a href="%s" title="Trackback URL for this post">trackbacks</a> and pingbacks are open.', 'startup-blog' ), esc_url( get_trackback_url() ) );
             ?>
         </p>

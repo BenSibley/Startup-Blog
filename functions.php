@@ -372,7 +372,7 @@ if ( ! function_exists( 'ct_startup_blog_wp_page_menu' ) ) {
 }
 if ( ! function_exists( 'ct_startup_blog_sticky_post_marker' ) ) {
 	function ct_startup_blog_sticky_post_marker() {
-		if ( is_sticky() && ! is_archive() ) {
+		if ( is_sticky() && !is_archive() && !is_search() ) {
 			echo '<div class="sticky-status"><span>' . esc_html__( "Featured", "startup-blog" ) . '</span></div>';
 		}
 	}

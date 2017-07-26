@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Startup Blog 1.01\n"
+"Project-Id-Version: Startup Blog 1.04\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2017-06-27 20:40:23+00:00\n"
+"POT-Creation-Date: 2017-07-26 14:08:04+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -28,7 +28,7 @@ msgid ""
 msgstr ""
 
 #: comments.php:37
-#. translators: placeholder is link to the trackback URL
+#. translators: %s = link to the trackback URL
 msgid ""
 "Comments are closed, but <a href=\"%s\" title=\"Trackback URL for this "
 "post\">trackbacks</a> and pingbacks are open."
@@ -47,7 +47,7 @@ msgid "comment icon"
 msgstr ""
 
 #: content/post-tags.php:11
-#. translators: placeholder is the name of the post tag
+#. translators: %s = the name of the post tag
 msgid "View all posts tagged %s"
 msgstr ""
 
@@ -55,12 +55,12 @@ msgstr ""
 msgid "Pages:"
 msgstr ""
 
-#: content-slide.php:16 inc/customizer.php:152
+#: content-slide.php:16 inc/customizer.php:155
 msgid "Read more"
 msgstr ""
 
 #: footer.php:24
-#. translators: placeholder is a URL to the theme's page
+#. translators: %1$s = URL to the theme's page. %2$s = theme name
 msgid "<a href=\"%1$s\">%2$s</a> by Compete Themes."
 msgstr ""
 
@@ -144,6 +144,10 @@ msgstr ""
 msgid "Customizer settings deleted"
 msgstr ""
 
+#: functions.php:764
+msgid "(title)"
+msgstr ""
+
 #: header.php:11
 msgid "Press \"Enter\" to skip to content"
 msgstr ""
@@ -156,236 +160,240 @@ msgstr ""
 msgid "Front Page"
 msgstr ""
 
-#: inc/customizer.php:29
+#: inc/customizer.php:30
+#. translators: %1$s = link to theme page. %2$s = theme name
 msgid ""
 "<a target=\"_blank\" href=\"%1$s\">%2$s Pro</a> makes advanced "
 "customization simple - and fun too!"
 msgstr ""
 
-#: inc/customizer.php:32
+#: inc/customizer.php:34
 msgid "6 new layouts"
 msgstr ""
 
-#: inc/customizer.php:33
+#: inc/customizer.php:35
 msgid "4 post templates"
 msgstr ""
 
-#: inc/customizer.php:34
+#: inc/customizer.php:36
 msgid "61 advanced color controls"
 msgstr ""
 
-#: inc/customizer.php:35
+#: inc/customizer.php:37
 msgid "+ 5 more features"
 msgstr ""
 
-#: inc/customizer.php:48
+#: inc/customizer.php:51
+#. translators: %s = theme name
 msgid "%s Pro"
 msgstr ""
 
-#: inc/customizer.php:68
+#: inc/customizer.php:71
 msgid "Recent Posts Slider"
 msgstr ""
 
-#: inc/customizer.php:78
+#: inc/customizer.php:81
 msgid "Number of posts in slider"
 msgstr ""
 
-#: inc/customizer.php:94
+#: inc/customizer.php:97
 msgid "Post category"
 msgstr ""
 
-#: inc/customizer.php:107
+#: inc/customizer.php:110
 msgid "Display slider on:"
 msgstr ""
 
-#: inc/customizer.php:112 inc/customizer.php:576
+#: inc/customizer.php:115 inc/customizer.php:581
 msgid "Homepage"
 msgstr ""
 
-#: inc/customizer.php:113 inc/customizer.php:492 inc/customizer.php:577
+#: inc/customizer.php:116 inc/customizer.php:497 inc/customizer.php:582
 msgid "Blog"
 msgstr ""
 
-#: inc/customizer.php:114 inc/customizer.php:578
+#: inc/customizer.php:117 inc/customizer.php:583
 msgid "All Pages"
 msgstr ""
 
-#: inc/customizer.php:115 inc/customizer.php:579
+#: inc/customizer.php:118 inc/customizer.php:584
 msgid "Do not display"
 msgstr ""
 
-#: inc/customizer.php:125
+#: inc/customizer.php:128
 msgid "Display arrow navigation?"
 msgstr ""
 
-#: inc/customizer.php:130 inc/customizer.php:146 inc/customizer.php:174
-#: inc/customizer.php:386 inc/customizer.php:402 inc/customizer.php:418
-#: inc/customizer.php:434 inc/customizer.php:450 inc/customizer.php:466
-#: inc/customizer.php:507 inc/customizer.php:535
+#: inc/customizer.php:133 inc/customizer.php:149 inc/customizer.php:177
+#: inc/customizer.php:391 inc/customizer.php:407 inc/customizer.php:423
+#: inc/customizer.php:439 inc/customizer.php:455 inc/customizer.php:471
+#: inc/customizer.php:512 inc/customizer.php:540
 msgid "Yes"
 msgstr ""
 
-#: inc/customizer.php:131 inc/customizer.php:147 inc/customizer.php:175
-#: inc/customizer.php:371 inc/customizer.php:387 inc/customizer.php:403
-#: inc/customizer.php:419 inc/customizer.php:435 inc/customizer.php:451
-#: inc/customizer.php:467 inc/customizer.php:484 inc/customizer.php:508
-#: inc/customizer.php:536 inc/customizer.php:556 inc/customizer.php:567
+#: inc/customizer.php:134 inc/customizer.php:150 inc/customizer.php:178
+#: inc/customizer.php:376 inc/customizer.php:392 inc/customizer.php:408
+#: inc/customizer.php:424 inc/customizer.php:440 inc/customizer.php:456
+#: inc/customizer.php:472 inc/customizer.php:489 inc/customizer.php:513
+#: inc/customizer.php:541 inc/customizer.php:561 inc/customizer.php:572
 msgid "No"
 msgstr ""
 
-#: inc/customizer.php:141
+#: inc/customizer.php:144
 msgid "Display dot navigation?"
 msgstr ""
 
-#: inc/customizer.php:157
+#: inc/customizer.php:160
 msgid "Button text"
 msgstr ""
 
-#: inc/customizer.php:169
+#: inc/customizer.php:172
 msgid "Include \"sticky\" posts?"
 msgstr ""
 
-#: inc/customizer.php:183
+#: inc/customizer.php:186
 msgid "Colors"
 msgstr ""
 
-#: inc/customizer.php:194
+#: inc/customizer.php:197
 msgid "Primary Color"
 msgstr ""
 
-#: inc/customizer.php:207
+#: inc/customizer.php:210
 msgid "Secondary Color"
 msgstr ""
 
-#: inc/customizer.php:220
+#: inc/customizer.php:223
 msgid "Background Color"
 msgstr ""
 
-#: inc/customizer.php:230
+#: inc/customizer.php:233
 msgid "Layout"
 msgstr ""
 
-#: inc/customizer.php:232
+#: inc/customizer.php:236
+#. translators: %1$s = link to theme page. %2$s = theme name
 msgid ""
 "Want more layouts? Check out the <a target=\"_blank\" href=\"%1$s\">%2$s "
 "Pro plugin</a>."
 msgstr ""
 
-#: inc/customizer.php:241
+#: inc/customizer.php:245
 msgid "Choose a Layout"
 msgstr ""
 
-#: inc/customizer.php:246 inc/customizer.php:603
+#: inc/customizer.php:250 inc/customizer.php:608
 msgid "Right sidebar"
 msgstr ""
 
-#: inc/customizer.php:247 inc/customizer.php:604
+#: inc/customizer.php:251 inc/customizer.php:609
 msgid "Left sidebar"
 msgstr ""
 
-#: inc/customizer.php:261
+#: inc/customizer.php:265
 msgid "Social Media Icons"
 msgstr ""
 
-#: inc/customizer.php:263
+#: inc/customizer.php:267
 msgid "Add the URL for each of your social profiles."
 msgstr ""
 
-#: inc/customizer.php:276 inc/user-profile.php:62
+#: inc/customizer.php:280 inc/user-profile.php:62
 msgid "Email Address"
 msgstr ""
 
-#: inc/customizer.php:327
+#: inc/customizer.php:332
+#. translators: %s = link to article
 msgid ""
 "Accepts Skype link protocol (<a href=\"%s\" target=\"_blank\">learn "
 "more</a>)"
 msgstr ""
 
-#: inc/customizer.php:353
+#: inc/customizer.php:358
 msgid "Show/Hide Elements"
 msgstr ""
 
-#: inc/customizer.php:363
+#: inc/customizer.php:368
 msgid "Show the tagline?"
 msgstr ""
 
-#: inc/customizer.php:368 inc/customizer.php:553
+#: inc/customizer.php:373 inc/customizer.php:558
 msgid "Yes, in the header & footer"
 msgstr ""
 
-#: inc/customizer.php:369 inc/customizer.php:554
+#: inc/customizer.php:374 inc/customizer.php:559
 msgid "Yes, in the header"
 msgstr ""
 
-#: inc/customizer.php:370 inc/customizer.php:555
+#: inc/customizer.php:375 inc/customizer.php:560
 msgid "Yes, in the footer"
 msgstr ""
 
-#: inc/customizer.php:381
+#: inc/customizer.php:386
 msgid "Show date in post byline?"
 msgstr ""
 
-#: inc/customizer.php:397
+#: inc/customizer.php:402
 msgid "Show author name in post byline?"
 msgstr ""
 
-#: inc/customizer.php:413
+#: inc/customizer.php:418
 msgid "Show post author avatars?"
 msgstr ""
 
-#: inc/customizer.php:429
+#: inc/customizer.php:434
 msgid "Show author box after posts?"
 msgstr ""
 
-#: inc/customizer.php:445
+#: inc/customizer.php:450
 msgid "Show categories after the post?"
 msgstr ""
 
-#: inc/customizer.php:461
+#: inc/customizer.php:466
 msgid "Show tags after the post?"
 msgstr ""
 
-#: inc/customizer.php:477
+#: inc/customizer.php:482
 msgid "Show sidebar on mobile devices?"
 msgstr ""
 
-#: inc/customizer.php:482 inc/customizer.php:565
+#: inc/customizer.php:487 inc/customizer.php:570
 msgid "Yes, after main content"
 msgstr ""
 
-#: inc/customizer.php:483 inc/customizer.php:566
+#: inc/customizer.php:488 inc/customizer.php:571
 msgid "Yes, before main content"
 msgstr ""
 
-#: inc/customizer.php:502
+#: inc/customizer.php:507
 msgid "Show full posts on blog?"
 msgstr ""
 
-#: inc/customizer.php:518
+#: inc/customizer.php:523
 msgid "Excerpt word count"
 msgstr ""
 
-#: inc/customizer.php:605
+#: inc/customizer.php:610
 msgid "No sidebar - Narrow"
 msgstr ""
 
-#: inc/customizer.php:606
+#: inc/customizer.php:611
 msgid "No sidebar - Wide"
 msgstr ""
 
-#: inc/customizer.php:607
+#: inc/customizer.php:612
 msgid "Two column - Right sidebar"
 msgstr ""
 
-#: inc/customizer.php:608
+#: inc/customizer.php:613
 msgid "Two column - Left sidebar"
 msgstr ""
 
-#: inc/customizer.php:609
+#: inc/customizer.php:614
 msgid "Two column - No Sidebar - Narrow"
 msgstr ""
 
-#: inc/customizer.php:610
+#: inc/customizer.php:615
 msgid "Two column - No Sidebar - Wide"
 msgstr ""
 
@@ -405,71 +413,65 @@ msgstr ""
 msgid "Social Profiles"
 msgstr ""
 
-#: search.php:4
+#: search.php:6
+#. translators: %s = search query
 msgid "Search Results for %s"
 msgstr ""
 
-#: search.php:22
+#: search.php:25
 msgid "Can't find what you're looking for?  Try refining your search:"
 msgstr ""
 
-#: searchform.php:3 searchform.php:6
-msgid "Search"
-msgstr ""
-
-#: searchform.php:5
-msgid "Search for:"
-msgstr ""
-
-#: searchform.php:5
-msgid " Search for..."
-msgstr ""
-
-#: theme-options.php:4 theme-options.php:20
+#: theme-options.php:5 theme-options.php:24
+#. translators: %s = theme name
 msgid "%s Dashboard"
 msgstr ""
 
-#: theme-options.php:24
+#: theme-options.php:30
 msgid "Get Started"
 msgstr ""
 
-#: theme-options.php:25
+#: theme-options.php:34
+#. translators: %s = theme name
 msgid ""
 "Not sure where to start? The %1$s Support Center is filled with tutorials "
 "that will take you step-by-step through every feature in %1$s."
 msgstr ""
 
-#: theme-options.php:28
+#: theme-options.php:39
 msgid "Visit Support Center"
 msgstr ""
 
-#: theme-options.php:33
+#: theme-options.php:44
 msgid "Startup Blog Pro"
 msgstr ""
 
-#: theme-options.php:34
+#: theme-options.php:48
+#. translators: %s = theme name
 msgid ""
 "Download the %s Pro plugin and unlock six new layouts, four post templates, "
 "advanced color controls, and more."
 msgstr ""
 
-#: theme-options.php:37
+#: theme-options.php:53
 msgid "See Full Feature List"
 msgstr ""
 
-#: theme-options.php:42 theme-options.php:44
+#: theme-options.php:58 theme-options.php:65
 msgid "Leave a Review"
 msgstr ""
 
-#: theme-options.php:43
+#: theme-options.php:62
+#. translators: %s = theme name
 msgid "Help others find %s by leaving a review on wordpress.org."
 msgstr ""
 
-#: theme-options.php:47 theme-options.php:55
+#: theme-options.php:68 theme-options.php:79
 msgid "Reset Customizer Settings"
 msgstr ""
 
-#: theme-options.php:49
+#: theme-options.php:72
+#. translators: %1$s = URL to theme page. %2$s = theme name
 msgid ""
 "<strong>Warning:</strong> Clicking this button will erase the %2$s theme's "
 "current settings in the <a href=\"%1$s\">Customizer</a>."
@@ -478,12 +480,12 @@ msgstr ""
 #. Description of the plugin/theme
 msgid ""
 "Startup Blog is a modern and minimalist theme for blogging. Use it for your "
-"company's blog or a personal blog on professional topics. It's fully "
-"responsive (mobile-friendly), so it looks great on all devices. The simple "
-"and clean aesthetic will put emphasis on your content and help it perform "
-"well across platforms. Startup Blog comes with a \"Recent Posts\" slider, "
-"custom colors, two layouts, display options, and over 50+ social media "
-"icons."
+"company's business blog or a personal blog on professional topics. It's "
+"fully responsive (mobile-friendly), so it looks great on all devices. The "
+"simple and clean aesthetic will put emphasis on your content and help it "
+"perform well across platforms. Startup Blog comes with a \"Recent Posts\" "
+"slider, custom colors, two layouts, display options, and over 50+ social "
+"media icons."
 msgstr ""
 
 #: content/archive-header.php:8
@@ -502,20 +504,20 @@ msgid "Posts published in"
 msgstr ""
 
 #: content/post-byline.php:20
-#. translators: placeholder is the date the post was published
+#. translators: %s = the date the post was published
 msgctxt "This blog post was published on some date"
 msgid "Published %s"
 msgstr ""
 
 #: content/post-byline.php:23
-#. translators: placeholder is the author who published the post
+#. translators: %s = the author who published the post
 msgctxt "This blog post was published by some author"
 msgid "Published by %s"
 msgstr ""
 
 #: content/post-byline.php:26
-#. translators: placeholders are the date the post was published and the author
-#. who published it
+#. translators: %1$s = the date the post was published. %2$s = the author who
+#. published it
 msgctxt "This blog post was published on some date by some author"
 msgid "Published %1$s by %2$s"
 msgstr ""
@@ -531,18 +533,19 @@ msgid "and"
 msgstr ""
 
 #: content/post-categories.php:17
-#. translators: placeholder is the name of the post category
+#. translators: %s = the name of the post category
 msgctxt "View all posts in post category"
 msgid "View all posts in %s"
 msgstr ""
 
-#: inc/customizer.php:30
+#: inc/customizer.php:32
+#. translators: %s = theme name
 msgctxt "Startup Blog Pro adds the following features:"
 msgid "%s Pro adds the following features:"
 msgstr ""
 
-#: inc/customizer.php:38
-#. translators: placeholder is "Startup Blog"
+#: inc/customizer.php:40
+#. translators: %s = theme name
 msgctxt "View Startup Blog Pro"
 msgid "View %s Pro"
 msgstr ""

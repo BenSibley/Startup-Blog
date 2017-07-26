@@ -582,6 +582,18 @@ if ( ! function_exists( 'ct_startup_blog_modify_archive_titles' ) ) {
 }
 add_filter( 'get_the_archive_title', 'ct_startup_blog_modify_archive_titles' );
 
+// add paragraph tags for author bio. the_archive_description includes them for category & tag descriptions only
+if ( ! function_exists( 'ct_startup_blog_modify_archive_descriptions' ) ) {
+	function ct_startup_blog_modify_archive_descriptions( $description ) {
+
+		if ( is_author() ) {
+			$description = wpautop( $description );
+		}
+		return $description;
+	}
+}
+add_filter( 'get_the_archive_description', 'ct_startup_blog_modify_archive_descriptions' );
+
 // Update the colors used throughout the site based on the user's Customizer selected color
 if ( ! function_exists( 'ct_startup_blog_override_colors' ) ) {
 	function ct_startup_blog_override_colors() {

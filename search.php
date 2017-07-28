@@ -5,8 +5,8 @@
             global $wp_query;
             $total_results = $wp_query->found_posts;
             if ( $total_results ) {
-                // translators: %s = search query
-                printf( esc_html__( 'Search Results for %s', 'startup-blog' ), '<span>&ldquo;' . get_search_query() . '&rdquo;</span>' );
+                // translators: %1$s = number of results. %2$s = search query
+                printf( esc_html( _n( '%1$s search result for %2$s', '%1$s search results for %2$s', $total_results, 'startup-blog' ) ), $total_results, '&ldquo;' . get_search_query() . '&rdquo;' );
             } else {
                 printf( esc_html__( 'No search results for "%s"', 'startup-blog' ), get_search_query() );
             }

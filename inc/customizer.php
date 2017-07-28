@@ -77,6 +77,14 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 		}
 	}
 
+	class ct_startup_blog_slider_help extends WP_Customize_Control {
+		public function render_content() {
+			$link = 'https://www.competethemes.com/help/customize-slider-startup-blog/';
+			echo '<hr>';
+			echo '<p>'. sprintf( __( 'Slide titles, excerpts, and images can all be edited with built-in WordPress features. Please check our <a href="%s">slider customization tutorial</a> for instructions.', 'startup-blog' ), $link ) .'</p>';
+		}
+	}
+
 	/********** Add Panels **********/
 
 	// Add panel for colors
@@ -118,13 +126,12 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 	// section
 	$wp_customize->add_section( 'startup_blog_slider_content', array(
 		'title'       => __( 'Content', 'startup-blog' ),
-		'description' => __( 'Choose how to source the content for the slides.', 'startup-blog' ),
 		'panel'       => 'ct_startup_blog_slider_panel',
 		'priority'    => 1
 	) );
 	// setting
 	$wp_customize->add_setting( 'slider_posts_or_pages', array(
-		'default'           => 'pages',
+		'default'           => 'posts',
 		'sanitize_callback' => 'ct_startup_blog_sanitize_posts_or_pages',
 	) );
 	// control
@@ -139,20 +146,9 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 		)
 	) );
 	// setting
-	$wp_customize->add_setting( 'slider_pages', array(
-		'default'           => '',
-		'sanitize_callback' => '', // 99|103|7
-	));
-	// control
-	$wp_customize->add_control(new ct_startup_blog_repeater_control( $wp_customize, 'slider_pages', array(
-		'label'    		=> __( 'Add pages to the slider', 'startup-blog' ),
-		'settings'		=> 'slider_pages',
-		'section'  		=> 'startup_blog_slider_content',
-	)));
-	// setting
 	$wp_customize->add_setting( 'slider_recent_posts', array(
 		'default'           => '5',
-		'sanitize_callback' => 'absint'
+		'sanitize_callback' => 'sanitize_text_field'
 	) );
 	// control
 	$wp_customize->add_control( 'slider_recent_posts', array(
@@ -178,6 +174,27 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 		'type'     => 'select',
 		'choices' => $categories_array
 	) );
+	// setting
+	$wp_customize->add_setting( 'slider_pages', array(
+		'default'           => '',
+		'sanitize_callback' => '', // 99|103|7
+	));
+	// control
+	$wp_customize->add_control(new ct_startup_blog_repeater_control( $wp_customize, 'slider_pages', array(
+		'label'    		=> __( 'Add pages to the slider', 'startup-blog' ),
+		'settings'		=> 'slider_pages',
+		'section'  		=> 'startup_blog_slider_content',
+	)));
+	// setting
+	$wp_customize->add_setting( 'slider_help', array(
+		'default'           => '',
+		'sanitize_callback' => 'absint',
+	));
+	// control
+	$wp_customize->add_control(new ct_startup_blog_slider_help( $wp_customize, 'slider_help', array(
+		'settings'		=> 'slider_help',
+		'section'  		=> 'startup_blog_slider_content',
+	)));
 
 	// section
 	$wp_customize->add_section( 'startup_blog_slider_settings', array(

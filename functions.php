@@ -39,6 +39,8 @@ if ( ! function_exists( ( 'ct_startup_blog_theme_setup' ) ) ) {
 			'flex-height' => true,
 			'flex-width'  => true
 		) );
+		// add only so user's can add a custom excerpt for pages in the slider
+		add_post_type_support( 'page', 'excerpt' );
 
 		register_nav_menus( array(
 			'primary'   => esc_html__( 'Primary', 'startup-blog' ),
@@ -704,17 +706,25 @@ if ( ! function_exists( 'ct_startup_blog_slider' ) ) {
 		$nav_counter    = 1;
 		$display_arrows = get_theme_mod( 'slider_arrow_navigation' );
 		$display_dots   = get_theme_mod( 'slider_dot_navigation' );
+		$post_type      = get_theme_mod( 'slider_posts_or_pages' );
+		$pages          = get_theme_mod( 'slider_pages' );
 		$num_posts      = get_theme_mod( 'slider_recent_posts' );
+		$args           = array();
 		if ( $num_posts == '' ) {
 			$num_posts = 5;
 		}
-		$args          = array( 'posts_per_page' => $num_posts );
-		$post_category = get_theme_mod( 'slider_post_category' );
-		if ( $post_category != '' && $post_category != 'all' ) {
-			$args['cat'] = $post_category;
-		}
-		if ( get_theme_mod( 'slider_sticky' ) == 'no' ) {
-			$args['ignore_sticky_posts'] = true;
+		if ( $post_type == 'pages' ) {
+			$args['post_type'] = 'page';
+			$args['post__in']  = explode( '|', $pages );
+		} else {
+			$args['posts_per_page'] = $num_posts;
+			$post_category          = get_theme_mod( 'slider_post_category' );
+			if ( $post_category != '' && $post_category != 'all' ) {
+				$args['cat'] = $post_category;
+			}
+			if ( get_theme_mod( 'slider_sticky' ) == 'no' ) {
+				$args['ignore_sticky_posts'] = true;
+			}
 		}
 
 		$the_query = new WP_Query( $args );

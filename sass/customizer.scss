@@ -122,3 +122,32 @@
 #customize-control-layout input {
   display: none;
 }
+
+// Repeater controls
+#blueprint-page-select {
+  display: none;
+}
+#customize-control-slider_pages .customize_repeater_page_select {
+  width: calc(100% - 28px);
+  margin-bottom: 4px;
+}
+.customize_repeater_remove_field {
+  display: inline-block;
+  margin: 1px 0 0 6px;
+  color: #E64520;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: #FF4C23;
+  }
+  i {
+    font-size: 19px;
+  }
+}
+#customize-control-slider_pages .customize_repeater_add_field {
+  margin-top: 12px;
+}
+#sub-accordion-section-startup_blog_slider_content .hide {
+  display: none !important;
+}

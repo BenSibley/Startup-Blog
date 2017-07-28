@@ -41,6 +41,55 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 		}
 	}
 
+	class ct_startup_blog_repeater_control extends WP_Customize_Control {
+		public $type = 'repeater';
+		public function render_content(){
+			$pages = get_pages();
+			?>
+			<label class="customize_repeater">
+				<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+				<p><?php echo wp_kses_post($this->description); ?></p>
+				<input type="hidden" id="<?php echo esc_attr($this->id); ?>" name="<?php echo esc_attr($this->id); ?>" value="<?php echo esc_attr($this->value()); ?>" class="customize_repeater_value_field" data-customize-setting-link="<?php echo esc_attr($this->id); ?>"/>
+				<select id="blueprint-page-select" class="customize_repeater_page_select">
+					<?php
+					echo '<option value="">'. esc_html( "Select a page", "startup-blog" ) .'</option>';
+					foreach ( $pages as $page ) {
+						echo '<option value="'. absint( $page->ID ) .'">'. esc_html( $page->post_title ) .'</option>';
+					}
+					?>
+				</select>
+				<div class="customize_repeater_fields">
+					<div class="set">
+						<select class="customize_repeater_page_select">
+							<?php
+							// Adding select here so it's available if nothing is saved yet
+							echo '<option value="">'. esc_html( "Select a page", "startup-blog" ) .'</option>';
+							foreach ( $pages as $page ) {
+								echo '<option value="'. absint( $page->ID ) .'">'. esc_html( $page->post_title ) .'</option>';
+							}
+							?>
+						</select>
+					</div>
+				</div>
+				<a href="#" class="button button-primary customize_repeater_add_field"><?php esc_html_e('Add a Page', 'startup-blog') ?></a>
+			</label>
+			<?php
+		}
+	}
+
+	/********** Add Panels **********/
+
+	// Add panel for colors
+	if ( method_exists( 'WP_Customize_Manager', 'add_panel' ) ) {
+
+		$wp_customize->add_panel( 'ct_startup_blog_slider_panel', array(
+			'priority'    => 20,
+			'title'       => __( 'Slider', 'startup-blog' ),
+			'description' => __( 'Use these settings to add a slider to the header.', 'apex-pro' )
+		) );
+	}
+
+
 	/***** Startup Blog Pro Section *****/
 
 	// don't add if Startup Blog Pro is active
@@ -67,10 +116,39 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 	/***** Slider *****/
 
 	// section
-	$wp_customize->add_section( 'startup_blog_slider_settings', array(
-		'title'    => __( 'Recent Posts Slider', 'startup-blog' ),
-		'priority' => 20
+	$wp_customize->add_section( 'startup_blog_slider_content', array(
+		'title'       => __( 'Content', 'startup-blog' ),
+		'description' => __( 'Choose how to source the content for the slides.', 'startup-blog' ),
+		'panel'       => 'ct_startup_blog_slider_panel',
+		'priority'    => 1
 	) );
+	// setting
+	$wp_customize->add_setting( 'slider_posts_or_pages', array(
+		'default'           => 'pages',
+		'sanitize_callback' => 'ct_startup_blog_sanitize_posts_or_pages',
+	) );
+	// control
+	$wp_customize->add_control( 'slider_posts_or_pages', array(
+		'label'    => __( 'Use posts or pages?', 'startup-blog' ),
+		'section'  => 'startup_blog_slider_content',
+		'settings' => 'slider_posts_or_pages',
+		'type'     => 'radio',
+		'choices'  => array(
+			'pages' => __( 'Pages', 'startup-blog' ),
+			'posts' => __( 'Posts', 'startup-blog' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'slider_pages', array(
+		'default'           => '',
+		'sanitize_callback' => '', // 99|103|7
+	));
+	// control
+	$wp_customize->add_control(new ct_startup_blog_repeater_control( $wp_customize, 'slider_pages', array(
+		'label'    		=> __( 'Add pages to the slider', 'startup-blog' ),
+		'settings'		=> 'slider_pages',
+		'section'  		=> 'startup_blog_slider_content',
+	)));
 	// setting
 	$wp_customize->add_setting( 'slider_recent_posts', array(
 		'default'           => '5',
@@ -79,7 +157,7 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 	// control
 	$wp_customize->add_control( 'slider_recent_posts', array(
 		'label'    => __( 'Number of posts in slider', 'startup-blog' ),
-		'section'  => 'startup_blog_slider_settings',
+		'section'  => 'startup_blog_slider_content',
 		'settings' => 'slider_recent_posts',
 		'type'     => 'number'
 	) );
@@ -95,10 +173,17 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 	// control
 	$wp_customize->add_control( 'slider_post_category', array(
 		'label'    => __( 'Post category', 'startup-blog' ),
-		'section'  => 'startup_blog_slider_settings',
+		'section'  => 'startup_blog_slider_content',
 		'settings' => 'slider_post_category',
 		'type'     => 'select',
 		'choices' => $categories_array
+	) );
+
+	// section
+	$wp_customize->add_section( 'startup_blog_slider_settings', array(
+		'title'    => __( 'Style', 'startup-blog' ),
+		'panel'    => 'ct_startup_blog_slider_panel',
+		'priority' => 2
 	) );
 	// setting
 	$wp_customize->add_setting( 'slider_display', array(
@@ -613,6 +698,16 @@ function ct_startup_blog_sanitize_layout( $input ) {
 		'two-left'      => __( 'Two column - Left sidebar', 'startup-blog' ),
 		'two-narrow'    => __( 'Two column - No Sidebar - Narrow', 'startup-blog' ),
 		'two-wide'      => __( 'Two column - No Sidebar - Wide', 'startup-blog' )
+	);
+
+	return array_key_exists( $input, $valid ) ? $input : '';
+}
+
+function ct_startup_blog_sanitize_posts_or_pages( $input ) {
+
+	$valid = array(
+		'pages' => __( 'Pages', 'startup-blog' ),
+		'posts' => __( 'Posts', 'startup-blog' )
 	);
 
 	return array_key_exists( $input, $valid ) ? $input : '';

@@ -33,6 +33,7 @@ add_action( 'admin_enqueue_scripts', 'ct_startup_blog_enqueue_admin_styles' );
 function ct_startup_blog_enqueue_customizer_scripts() {
 	wp_enqueue_style( 'ct-startup-blog-customizer-styles', get_template_directory_uri() . '/styles/customizer.min.css' );
 	wp_enqueue_script( 'ct-startup-blog-customizer-js', get_template_directory_uri() . '/js/build/customizer.min.js', array( 'jquery' ), '', true );
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/font-awesome/css/font-awesome.min.css' );
 }
 add_action( 'customize_controls_enqueue_scripts', 'ct_startup_blog_enqueue_customizer_scripts' );
 

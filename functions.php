@@ -701,7 +701,7 @@ if ( ! function_exists( 'ct_startup_blog_slider' ) ) {
 			return;
 		}
 
-		// Setup other variables needed
+		// Setup variables needed to get content
 		$counter        = 1;
 		$nav_counter    = 1;
 		$display_arrows = get_theme_mod( 'slider_arrow_navigation' );
@@ -713,6 +713,7 @@ if ( ! function_exists( 'ct_startup_blog_slider' ) ) {
 		if ( $num_posts == '' ) {
 			$num_posts = 5;
 		}
+		// prepare query args
 		if ( $post_type == 'pages' ) {
 			$args['post_type'] = 'page';
 			$args['post__in']  = explode( '|', $pages );
@@ -735,7 +736,7 @@ if ( ! function_exists( 'ct_startup_blog_slider' ) ) {
 			echo '<ul id="bb-slide-list" class="slide-list">';
 			while ( $the_query->have_posts() ) {
 				$the_query->the_post();
-				$classes = 'slide slide-' . $counter;
+				$classes = 'slide slide-' . esc_attr( $counter );
 				if ( $counter == 1 ) {
 					$classes .= ' current';
 				}

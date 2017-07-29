@@ -41,7 +41,7 @@ jQuery(document).ready(function($){
         }
     }
 
-    // *************  Repeater Control *********************
+    // *************  Repeater Control ********************* //
 
     // update Customizer based on user changes
     function customize_repeater_write($element){
@@ -49,6 +49,7 @@ jQuery(document).ready(function($){
         // combine user-entered values into one string
         $element.find('.customize_repeater_fields .customize_repeater_page_select').each(function(){
             if ( $(this).find(':selected').val() != '' ) {
+                // add pipeline character to easily split string later
                 customize_repeater_val += $(this).find(':selected').val() + '|';
             }
         });
@@ -60,8 +61,9 @@ jQuery(document).ready(function($){
     function customize_repeater_add_field(e){
         e.preventDefault();
         var $control = $(this).parents('#customize-control-slider_pages');
-        // $control.find('.customize_repeater_fields').append('<div class="set"><input type="text" value="" class="customize_repeater_single_field" /><a href="#" class="customize_repeater_remove_field">X</a></div>');
+        // duplicate the blueprint select
         $control.find('#blueprint-page-select').clone().removeAttr('id').appendTo('.customize_repeater_fields');
+        // add the removal link
         $control.find('.customize_repeater_fields').append('<a href="#" class="customize_repeater_remove_field"><i class="fa fa-times-circle"></i></a>');
     }
 
@@ -73,14 +75,14 @@ jQuery(document).ready(function($){
 
     function customize_repeater_remove_field(e){
         e.preventDefault();
-        // $this = "remove" link
+        // $this = .customize_repeater_remove_field
         var $this = $(this);
         var $control = $this.parents('#customize-control-slider_pages');
         // Remove the select dropdown
         $this.prev().remove();
-        // Remove the "remove" link
+        // Remove .customize_repeater_remove_field
         $this.remove();
-        // update new value and update Customizer
+        // update value and refresh Customizer
         customize_repeater_write($control);
     }
 
@@ -89,7 +91,7 @@ jQuery(document).ready(function($){
         .on('change', '.customize_repeater_page_select', customize_repeater_single_field)
         .on('click', '.customize_repeater_remove_field', customize_repeater_remove_field);
 
-    // Add the saved inputs right away
+    // Add select elements based on saved data right away
     $('#customize-control-slider_pages').each(function(){
         var $this = $(this);
         var repeater_saved_value = $this.find('.customize_repeater_value_field').val();
@@ -118,10 +120,9 @@ jQuery(document).ready(function($){
         }
     });
 
-    // track user input changes
     $(document).on('change', '#customize-control-slider_posts_or_pages input', updateSlideSettingDisplay);
 
-    // show/hide post/page slider settings
+    // Show either the page or post settings based on whether user has chose to use pages/posts for the content
     function updateSlideSettingDisplay() {
         if ( $('#customize-control-slider_posts_or_pages').find('input:checked').val() == 'pages' ) {
             $('#customize-control-slider_recent_posts').addClass('hide');

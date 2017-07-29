@@ -397,8 +397,10 @@ if ( ! function_exists( 'ct_startup_blog_reset_customizer_options' ) ) {
 		}
 
 		$mods_array = array(
+			'slider_posts_or_pages',
 			'slider_recent_posts',
 			'slider_post_category',
+			'slider_pages',
 			'slider_display',
 			'slider_arrow_navigation',
 			'slider_dot_navigation',

@@ -381,6 +381,7 @@ if ( ! function_exists( 'ct_startup_blog_sticky_post_marker' ) ) {
 }
 add_action( 'startup_blog_sticky_post_status', 'ct_startup_blog_sticky_post_marker' );
 
+// TRT: If users modify a lot of settings and want to return to defaults, this provides them an instant solution
 if ( ! function_exists( 'ct_startup_blog_reset_customizer_options' ) ) {
 	function ct_startup_blog_reset_customizer_options() {
 

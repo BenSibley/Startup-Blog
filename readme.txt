@@ -19,7 +19,7 @@ View a fully-setup live demo of Startup Blog here: [Live demo](https://www.compe
 
 Startup Blog comes with the following features:
 
-* Recent Posts slider,
+* Responsive Slider,
 * Custom colors
 * Two layouts
 * Show/Hide elements

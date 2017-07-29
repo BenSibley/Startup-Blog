@@ -136,3 +136,26 @@
 #sub-accordion-section-startup_blog_slider_content .hide {
   display: none !important;
 }
+
+#customize-control-slider_help {
+  position: relative;
+}
+#customize-control-slider_help .featured-image-link,
+#customize-control-slider_help .excerpt-box-link {
+  text-decoration: none;
+  margin-left: 2px;
+}
+#customize-control-slider_help .featured-image-link:hover ~ .featured-image {
+  display: inline-block;
+}
+#customize-control-slider_help .excerpt-box-link:hover ~ .excerpt-box {
+  display: inline-block;
+}
+#customize-control-slider_help .featured-image,
+#customize-control-slider_help .excerpt-box {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.2);
+  display: none;
+}

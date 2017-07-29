@@ -39,7 +39,7 @@ if ( ! function_exists( ( 'ct_startup_blog_theme_setup' ) ) ) {
 			'flex-height' => true,
 			'flex-width'  => true
 		) );
-		// add only so user's can add a custom excerpt for pages in the slider
+		// TRT: this is added so users can customize the excerpt if they add pages to the slider
 		add_post_type_support( 'page', 'excerpt' );
 
 		register_nav_menus( array(

@@ -41,6 +41,7 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 		}
 	}
 
+	// Repeater control so users can add as many pages as they want to the slider
 	class ct_startup_blog_repeater_control extends WP_Customize_Control {
 		public $type = 'repeater';
 		public function render_content(){
@@ -52,6 +53,7 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 				<input type="hidden" id="<?php echo esc_attr($this->id); ?>" name="<?php echo esc_attr($this->id); ?>" value="<?php echo esc_attr($this->value()); ?>" class="customize_repeater_value_field" data-customize-setting-link="<?php echo esc_attr($this->id); ?>"/>
 				<select id="blueprint-page-select" class="customize_repeater_page_select">
 					<?php
+					// Hidden dropdown where all pages are listed. Duplicated via JS for use.
 					echo '<option value="">'. esc_html( "Select a page", "startup-blog" ) .'</option>';
 					foreach ( $pages as $page ) {
 						echo '<option value="'. absint( $page->ID ) .'">'. esc_html( $page->post_title ) .'</option>';
@@ -79,21 +81,28 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 
 	class ct_startup_blog_slider_help extends WP_Customize_Control {
 		public function render_content() {
-			$link = 'https://www.competethemes.com/help/customize-slider-startup-blog/';
+			$link           = 'https://www.competethemes.com/help/customize-slider-startup-blog/';
+			$featured_image = trailingslashit( get_template_directory_uri() ) . 'assets/images/featured-image.png';
+			$excerpt_box    = trailingslashit( get_template_directory_uri() ) . 'assets/images/excerpt-box.png';
 			echo '<hr>';
-			echo '<p>'. sprintf( __( 'Slide titles, excerpts, and images can all be edited with built-in WordPress features. Please check our <a href="%s">slider customization tutorial</a> for instructions.', 'startup-blog' ), $link ) .'</p>';
+			echo '<p>';
+				echo __( 'Add a <a href="#" class="featured-image-link"><i class="fa fa-search-plus"></i> Featured Image</a> to any post/page to display a background image in the slider. Use the <a href="#" class="excerpt-box-link"><i class="fa fa-search-plus"></i> Excerpt box</a> to craft a custom excerpt for any slide.', 'startup-blog' );
+				echo '<img class="featured-image" src="'. esc_url( $featured_image ) .'" />';
+				echo '<img class="excerpt-box" src="'. esc_url( $excerpt_box ) .'" />';
+			echo '</p>';
+//			echo '<p>'. sprintf( __( 'Slide titles, excerpts, and images can all be edited with built-in WordPress features. Follow our <a href="%s">slider customization tutorial</a> tofor instructions.', 'startup-blog' ), $link ) .'</p>';
 		}
 	}
 
 	/********** Add Panels **********/
 
-	// Add panel for colors
+	// Adding panel for slider
 	if ( method_exists( 'WP_Customize_Manager', 'add_panel' ) ) {
 
 		$wp_customize->add_panel( 'ct_startup_blog_slider_panel', array(
 			'priority'    => 20,
 			'title'       => __( 'Slider', 'startup-blog' ),
-			'description' => __( 'Use these settings to add a slider to the header.', 'apex-pro' )
+			'description' => __( 'Use these settings to add a slider to the header.', 'startup-blog' )
 		) );
 	}
 
@@ -141,18 +150,18 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 		'settings' => 'slider_posts_or_pages',
 		'type'     => 'radio',
 		'choices'  => array(
-			'pages' => __( 'Pages', 'startup-blog' ),
-			'posts' => __( 'Posts', 'startup-blog' )
+			'posts' => __( 'Posts', 'startup-blog' ),
+			'pages' => __( 'Pages', 'startup-blog' )
 		)
 	) );
 	// setting
 	$wp_customize->add_setting( 'slider_recent_posts', array(
 		'default'           => '5',
-		'sanitize_callback' => 'sanitize_text_field'
+		'sanitize_callback' => 'absint'
 	) );
 	// control
 	$wp_customize->add_control( 'slider_recent_posts', array(
-		'label'    => __( 'Number of posts in slider', 'startup-blog' ),
+		'label'    => __( 'Number of posts in the slider', 'startup-blog' ),
 		'section'  => 'startup_blog_slider_content',
 		'settings' => 'slider_recent_posts',
 		'type'     => 'number'
@@ -177,7 +186,7 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'slider_pages', array(
 		'default'           => '',
-		'sanitize_callback' => '', // 99|103|7
+		'sanitize_callback' => 'sanitize_text_field', // 99|103|7
 	));
 	// control
 	$wp_customize->add_control(new ct_startup_blog_repeater_control( $wp_customize, 'slider_pages', array(
@@ -723,8 +732,8 @@ function ct_startup_blog_sanitize_layout( $input ) {
 function ct_startup_blog_sanitize_posts_or_pages( $input ) {
 
 	$valid = array(
-		'pages' => __( 'Pages', 'startup-blog' ),
-		'posts' => __( 'Posts', 'startup-blog' )
+		'posts' => __( 'Posts', 'startup-blog' ),
+		'pages' => __( 'Pages', 'startup-blog' )
 	);
 
 	return array_key_exists( $input, $valid ) ? $input : '';

@@ -721,7 +721,6 @@ if ( ! function_exists( 'ct_startup_blog_slider' ) ) {
 			$args['post_type'] = 'page';
 			$args['post__in']  = explode( '|', $pages );
 			$args['orderby']      = 'post__in';
-			echo $pages;
 		} else {
 			$args['posts_per_page'] = $num_posts;
 			$post_category          = get_theme_mod( 'slider_post_category' );

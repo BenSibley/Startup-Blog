@@ -5,31 +5,36 @@ add_action( 'customize_register', 'ct_startup_blog_add_customizer_content' );
 
 function ct_startup_blog_add_customizer_content( $wp_customize ) {
 
-	/***** Reorder default sections *****/
-
+	//----------------------------------------------------------------------------------
+	// Reorder default sections
+	//----------------------------------------------------------------------------------
 	$wp_customize->get_section( 'title_tagline' )->priority = 2;
 
-	// check if exists in case user has no pages
+	//----------------------------------------------------------------------------------
+	// Make sure Front Page setting exists before moving. (Doesn't show if user has no published pages)
+	//----------------------------------------------------------------------------------
 	if ( is_object( $wp_customize->get_section( 'static_front_page' ) ) ) {
 		$wp_customize->get_section( 'static_front_page' )->priority = 5;
 		$wp_customize->get_section( 'static_front_page' )->title    = __( 'Front Page', 'startup-blog' );
 	}
 
-	/***** Add PostMessage Support *****/
-
+	//----------------------------------------------------------------------------------
+	// Add postMessage support for site title and tagline
+	//----------------------------------------------------------------------------------
 	$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
-	/***** Custom Controls *****/
-
+	//----------------------------------------------------------------------------------
+	// Custom control for Startup Blog Pro advertisement
+	//----------------------------------------------------------------------------------
 	class ct_startup_blog_pro_ad extends WP_Customize_Control {
 		public function render_content() {
 			$link = 'https://www.competethemes.com/startup-blog-pro/';
 			echo "<a href='" . $link . "' target='_blank'><img src='" . get_template_directory_uri() . "/assets/images/startup-blog-pro.gif' /></a>";
 			// translators: %1$s = link to theme page. %2$s = theme name
-			echo "<p class='bold'>" . sprintf( __('<a target="_blank" href="%1$s">%2$s Pro</a> makes advanced customization simple - and fun too!', 'startup-blog'), $link, wp_get_theme( get_template() ) ) . "</p>";
+			echo "<p class='bold'>" . sprintf( __('<a target="_blank" href="%1$s">%2$s Pro</a> makes advanced customization simple - and fun too!', 'startup-blog'), $link, esc_attr( wp_get_theme( get_template() ) ) ) . "</p>";
 			// translators: %s = theme name
-			echo "<p>" . sprintf( esc_html_x('%s Pro adds the following features:', 'Startup Blog Pro adds the following features:', 'startup-blog'), wp_get_theme( get_template() ) ) . "</p>";
+			echo "<p>" . sprintf( esc_html_x('%s Pro adds the following features:', 'Startup Blog Pro adds the following features:', 'startup-blog'), esc_attr( wp_get_theme( get_template() ) ) ) . "</p>";
 			echo "<ul>
 					<li>" . esc_html__('6 new layouts', 'startup-blog') . "</li>
 					<li>" . esc_html__('4 post templates', 'startup-blog') . "</li>
@@ -37,11 +42,13 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 					<li>" . esc_html__('+ 5 more features', 'startup-blog') . "</li>
 				  </ul>";
 			// translators: %s = theme name
-			echo "<p class='button-wrapper'><a target=\"_blank\" class='startup-blog-pro-button' href='" . $link . "'>" . sprintf( esc_html_x('View %s Pro', 'View Startup Blog Pro', 'startup-blog'), wp_get_theme( get_template() ) ) . "</a></p>";
+			echo "<p class='button-wrapper'><a target=\"_blank\" class='startup-blog-pro-button' href='" . $link . "'>" . sprintf( esc_html_x('View %s Pro', 'View Startup Blog Pro', 'startup-blog'), esc_attr( wp_get_theme( get_template() ) ) ) . "</a></p>";
 		}
 	}
 
-	// Repeater control so users can add as many pages as they want to the slider
+	//----------------------------------------------------------------------------------
+	// Repeater control for users to add pages to the slider
+	//----------------------------------------------------------------------------------
 	class ct_startup_blog_repeater_control extends WP_Customize_Control {
 		public $type = 'repeater';
 		public function render_content(){
@@ -79,6 +86,9 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 		}
 	}
 
+	//----------------------------------------------------------------------------------
+	// Help section to instruct users how to add content to slides in slider. No actual input added.
+	//----------------------------------------------------------------------------------
 	class ct_startup_blog_slider_help extends WP_Customize_Control {
 		public function render_content() {
 			$link           = 'https://www.competethemes.com/help/customize-slider-startup-blog/';
@@ -90,13 +100,12 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 				echo '<img class="featured-image" src="'. esc_url( $featured_image ) .'" />';
 				echo '<img class="excerpt-box" src="'. esc_url( $excerpt_box ) .'" />';
 			echo '</p>';
-//			echo '<p>'. sprintf( __( 'Slide titles, excerpts, and images can all be edited with built-in WordPress features. Follow our <a href="%s">slider customization tutorial</a> tofor instructions.', 'startup-blog' ), $link ) .'</p>';
 		}
 	}
 
-	/********** Add Panels **********/
-
-	// Adding panel for slider
+	//----------------------------------------------------------------------------------
+	// Add panels
+	//----------------------------------------------------------------------------------
 	if ( method_exists( 'WP_Customize_Manager', 'add_panel' ) ) {
 
 		$wp_customize->add_panel( 'ct_startup_blog_slider_panel', array(
@@ -106,15 +115,15 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 		) );
 	}
 
-
-	/***** Startup Blog Pro Section *****/
-
+	//----------------------------------------------------------------------------------
+	// Section: Startup Blog Pro
+	//----------------------------------------------------------------------------------
 	// don't add if Startup Blog Pro is active
 	if ( !defined( 'STARTUP_BLOG_PRO_FILE' ) ) {
 		// section
 		$wp_customize->add_section( 'ct_startup_blog_pro', array(
 			// translators: %s = theme name
-			'title'    => sprintf( __( '%s Pro', 'startup-blog' ), wp_get_theme( get_template() ) ),
+			'title'    => sprintf( __( '%s Pro', 'startup-blog' ), esc_attr( wp_get_theme( get_template() ) ) ),
 			'priority' => 1
 		) );
 		// setting
@@ -130,9 +139,9 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 		) );
 	}
 
-	/***** Slider *****/
-
-	// section
+	//----------------------------------------------------------------------------------
+	// Panel: Slider. Section: Content
+	//----------------------------------------------------------------------------------
 	$wp_customize->add_section( 'startup_blog_slider_content', array(
 		'title'       => __( 'Content', 'startup-blog' ),
 		'panel'       => 'ct_startup_blog_slider_panel',
@@ -205,7 +214,9 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 		'section'  		=> 'startup_blog_slider_content',
 	)));
 
-	// section
+	//----------------------------------------------------------------------------------
+	// Panel: Slider. Section: Style
+	//----------------------------------------------------------------------------------
 	$wp_customize->add_section( 'startup_blog_slider_settings', array(
 		'title'    => __( 'Style', 'startup-blog' ),
 		'panel'    => 'ct_startup_blog_slider_panel',
@@ -289,10 +300,10 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 			'no'  => __( 'No', 'startup-blog' )
 		)
 	) );
-	
-	/***** Colors *****/
 
-	// section
+	//----------------------------------------------------------------------------------
+	// Section: Colors
+	//----------------------------------------------------------------------------------
 	$wp_customize->add_section( 'startup_blog_colors', array(
 		'title'    => __( 'Colors', 'startup-blog' ),
 		'priority' => 20
@@ -337,9 +348,9 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 		)
 	) );
 
-	/***** Layout *****/
-
-	// section
+	//----------------------------------------------------------------------------------
+	// Section: Layout
+	//----------------------------------------------------------------------------------
 	$wp_customize->add_section( 'startup_blog_layout', array(
 		'title'       => __( 'Layout', 'startup-blog' ),
 		'priority'    => 25,
@@ -362,21 +373,21 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 			'left-sidebar'  => __( 'Left sidebar', 'startup-blog' )
 		)
 	) );
-	
-	/***** Social Media Icons *****/
+
+	//----------------------------------------------------------------------------------
+	// Section: Social Media Icons
+	//----------------------------------------------------------------------------------
+	$wp_customize->add_section( 'ct_startup_blog_social_media_icons', array(
+		'title'       => __( 'Social Media Icons', 'startup-blog' ),
+		'priority'    => 30,
+		'description' => __( 'Add the URL for each of your social profiles.', 'startup-blog' )
+	) );
 
 	// get the social sites array
 	$social_sites = ct_startup_blog_social_array();
 
 	// set a priority used to order the social sites
 	$priority = 5;
-
-	// section
-	$wp_customize->add_section( 'ct_startup_blog_social_media_icons', array(
-		'title'       => __( 'Social Media Icons', 'startup-blog' ),
-		'priority'    => 30,
-		'description' => __( 'Add the URL for each of your social profiles.', 'startup-blog' )
-	) );
 
 	// create a setting and control for each social site
 	foreach ( $social_sites as $social_site => $value ) {
@@ -462,9 +473,9 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 		$priority = $priority + 5;
 	}
 
-	/***** Show/Hide *****/
-
-	// section
+	//----------------------------------------------------------------------------------
+	// Section: Show/Hide Elements
+	//----------------------------------------------------------------------------------
 	$wp_customize->add_section( 'startup_blog_show_hide', array(
 		'title'    => __( 'Show/Hide Elements', 'startup-blog' ),
 		'priority' => 25
@@ -601,9 +612,9 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 		)
 	) );
 
-	/***** Blog *****/
-
-	// section
+	//----------------------------------------------------------------------------------
+	// Section: Blog
+	//----------------------------------------------------------------------------------
 	$wp_customize->add_section( 'startup_blog_blog', array(
 		'title'    => __( 'Blog', 'startup-blog' ),
 		'priority' => 50
@@ -638,13 +649,16 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 	) );
 }
 
-/***** Custom Sanitization Functions *****/
-
+//----------------------------------------------------------------------------------
+// Sanitize email.
+//----------------------------------------------------------------------------------
 function ct_startup_blog_sanitize_email( $input ) {
 	return sanitize_email( $input );
 }
 
-// sanitize yes/no settings
+//----------------------------------------------------------------------------------
+// Sanitize yes/no settings
+//----------------------------------------------------------------------------------
 function ct_startup_blog_sanitize_yes_no_settings( $input ) {
 
 	$valid = array(
@@ -655,14 +669,23 @@ function ct_startup_blog_sanitize_yes_no_settings( $input ) {
 	return array_key_exists( $input, $valid ) ? $input : '';
 }
 
+//----------------------------------------------------------------------------------
+// Sanitize text
+//----------------------------------------------------------------------------------
 function ct_startup_blog_sanitize_text( $input ) {
 	return wp_kses_post( force_balance_tags( $input ) );
 }
 
+//----------------------------------------------------------------------------------
+// Sanitize Skype URI
+//----------------------------------------------------------------------------------
 function ct_startup_blog_sanitize_skype( $input ) {
 	return esc_url_raw( $input, array( 'http', 'https', 'skype' ) );
 }
 
+//----------------------------------------------------------------------------------
+// Sanitize tagline settings
+//----------------------------------------------------------------------------------
 function ct_startup_blog_sanitize_tagline_settings( $input ) {
 
 	$valid = array(
@@ -675,6 +698,9 @@ function ct_startup_blog_sanitize_tagline_settings( $input ) {
 	return array_key_exists( $input, $valid ) ? $input : '';
 }
 
+//----------------------------------------------------------------------------------
+// Sanitize sidebar settings
+//----------------------------------------------------------------------------------
 function ct_startup_blog_sanitize_sidebar_settings( $input ) {
 
 	$valid = array(
@@ -686,6 +712,9 @@ function ct_startup_blog_sanitize_sidebar_settings( $input ) {
 	return array_key_exists( $input, $valid ) ? $input : '';
 }
 
+//----------------------------------------------------------------------------------
+// Sanitize slider display settings
+//----------------------------------------------------------------------------------
 function ct_startup_blog_sanitize_slider_display( $input ) {
 
 	$valid = array(
@@ -698,6 +727,9 @@ function ct_startup_blog_sanitize_slider_display( $input ) {
 	return array_key_exists( $input, $valid ) ? $input : '';
 }
 
+//----------------------------------------------------------------------------------
+// Sanitize post categories setting
+//----------------------------------------------------------------------------------
 function ct_startup_blog_sanitize_post_categories( $input ) {
 
 	$categories_array = array( 'all' => 'All' );
@@ -708,13 +740,14 @@ function ct_startup_blog_sanitize_post_categories( $input ) {
 	return array_key_exists( $input, $categories_array ) ? $input : '';
 }
 
+//----------------------------------------------------------------------------------
+// Sanitize layout settings
+//----------------------------------------------------------------------------------
 function ct_startup_blog_sanitize_layout( $input ) {
 
-	/*
-	 * Also allow layouts only included in the premium plugin.
-	 * Needs to be done this way b/c sanitize_callback cannot by updated
-	 * via get_setting()
-	 */
+	/* TRT Note: Also allowing layouts only included in the premium plugin.
+	 * Needs to be done this way b/c sanitize_callback cannot be updated
+	 * via get_setting() */
 	$valid = array(
 		'right-sidebar' => __( 'Right sidebar', 'startup-blog' ),
 		'left-sidebar'  => __( 'Left sidebar', 'startup-blog' ),
@@ -729,6 +762,9 @@ function ct_startup_blog_sanitize_layout( $input ) {
 	return array_key_exists( $input, $valid ) ? $input : '';
 }
 
+//----------------------------------------------------------------------------------
+// Sanitize posts or pages settings
+//----------------------------------------------------------------------------------
 function ct_startup_blog_sanitize_posts_or_pages( $input ) {
 
 	$valid = array(

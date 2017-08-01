@@ -553,10 +553,10 @@ if ( ! function_exists( 'ct_startup_blog_slider' ) ) {
 
 		// Decide if slider should be displayed based on user's Customizer settings
 		$display = get_theme_mod( 'slider_display' );
-		if ( ( $display == 'homepage' || $display == '' ) && ! is_front_page() ) {
+		if ( ( $display == 'homepage' || $display == '' ) && ( !is_front_page() || is_paged() ) ) {
 			return;
 		}
-		if ( $display == 'blog' && ! is_home() ) {
+		if ( $display == 'blog' && ( !is_home() || is_paged() ) ) {
 			return;
 		}
 		if ( $display == 'no' ) {

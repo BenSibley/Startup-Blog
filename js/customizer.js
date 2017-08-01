@@ -1,7 +1,5 @@
 jQuery(document).ready(function($){
 
-    $('#sub-accordion-section-startup_blog_layout').find('.customize-section-description').appendTo('#customize-control-layout');
-
     // set context to customizer panel outside iframe site content is in
     var panel = $('html', window.parent.document);
 

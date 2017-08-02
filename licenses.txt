@@ -10,4 +10,3 @@ Startup Blog also uses:
 * Google Fonts, http://google.com/fonts, licensed under open source licenses, see: https://developers.google.com/fonts/faq#Any_Page_OK.
 * Font Awesome by Dave Gandy, licensed under open source licenses, see: http://fortawesome.github.io/Font-Awesome/license/.
 * iPad & iMac image in screenshot.png : CC0 by William Iven, https://pixabay.com/en/imac-apple-mockup-app-ipad-mouse-606765/, licensed under Public Domain, see: https://pixabay.com/en/service/terms/#usage
-* Lake images used in Featured Image screenshot in Customize > Slider > : CC0 by Eberhard Grossgasteiger, https://www.pexels.com/photo/grass-hd-wallpaper-lake-landscape-534164/, licensed under Public Domain, see: https://pixabay.com/en/service/terms/#usage

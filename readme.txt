@@ -3,7 +3,7 @@ Contributors: bensibley
 Tags: two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-logo, custom-menu, featured-images, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, blog, education, news
 Requires at least: 4.5
 Tested up to: 4.8
-Stable tag: 1.08
+Stable tag: 1.09
 
 Startup Blog is a beautiful modern WordPress theme for business blogs.
 

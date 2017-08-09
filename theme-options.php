@@ -76,6 +76,11 @@ if ( ! function_exists( 'ct_startup_blog_options_content' ) ) {
 					<a target="_blank" class="button-primary"
 					   href="https://wordpress.org/support/theme/startup-blog/reviews/"><?php esc_html_e( 'Leave a Review', 'startup-blog' ); ?></a>
 				</div>
+				<div class="content content-presspad">
+					<h3><?php esc_html_e( 'Turn Startup Blog into a Mobile App', 'startup-blog' ); ?></h3>
+					<p><?php printf( esc_html__( '%s can be converted into a mobile app and listed on the App Store with the help of PressPad News. Read our tutorial to learn more.', 'startup-blog' ), wp_get_theme( get_template() ) ); ?></p>
+					<a target="_blank" class="button-primary" href="https://www.competethemes.com/help/convert-mobile-app-startup-blog/"><?php esc_html_e( 'Read Tutorial', 'startup-blog' ); ?></a>
+				</div>
 				<div class="content content-delete-settings">
 					<h3><?php esc_html_e( 'Reset Customizer Settings', 'startup-blog' ); ?></h3>
 					<p>

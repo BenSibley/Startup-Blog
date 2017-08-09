@@ -9,12 +9,13 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 	// Reorder default sections
 	//----------------------------------------------------------------------------------
 	$wp_customize->get_section( 'title_tagline' )->priority = 2;
+	$wp_customize->get_section( 'header_image' )->priority = 4;
 
 	//----------------------------------------------------------------------------------
 	// Make sure Front Page setting exists before moving. (Doesn't show if user has no published pages)
 	//----------------------------------------------------------------------------------
 	if ( is_object( $wp_customize->get_section( 'static_front_page' ) ) ) {
-		$wp_customize->get_section( 'static_front_page' )->priority = 5;
+		$wp_customize->get_section( 'static_front_page' )->priority = 3;
 		$wp_customize->get_section( 'static_front_page' )->title    = __( 'Front Page', 'startup-blog' );
 	}
 

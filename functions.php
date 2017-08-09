@@ -56,6 +56,10 @@ if ( ! function_exists( ( 'ct_startup_blog_theme_setup' ) ) ) {
 			'flex-height' => true,
 			'flex-width'  => true
 		) );
+		add_theme_support( 'custom-header', array(
+			'width' => '1200',
+			'height' => '360'
+		) );
 		// TRT Note: this is added so users can customize the excerpt if they add pages to the slider
 		add_post_type_support( 'page', 'excerpt' );
 		

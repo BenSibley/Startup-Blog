@@ -9,6 +9,13 @@
     }
   }
 }
+.page-template-full-width {
+
+  .main {
+    width: 100%;
+    float: none;
+  }
+}
 
 @media all and (min-width: $seven-hundred) {
 

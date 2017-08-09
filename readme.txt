@@ -9,7 +9,7 @@ Startup Blog is a beautiful modern WordPress theme for business blogs.
 
 == Description ==
 
-Startup Blog is a modern and minimalist theme for blogging. Use it for your company\'s business blog or a personal blog on professional topics. It\'s fully responsive (mobile-friendly), so it looks great on all devices. The simple and clean aesthetic will put emphasis on your content and help it perform well across platforms.
+Startup Blog is a modern and minimalist theme for blogging. Use it for your company's business blog or a personal journal website. It's fully responsive (mobile-friendly), so it looks great on all devices. The simple and clean aesthetic of this free theme emphasizes your content and helps it perform well across all screens. Startup Blog comes with numerous features including a responsive slider, header image, custom colors, two layouts, display options, and over 50+ social media icons. With complete WooCommerce integration, you can even launch an eCommerce store on your site. Startup Blog’s slick design is best-suited for professional and corporate blogs, but can work well for resumes, magazines, and even modern newspaper sites.
 
 **Live Demo**
 

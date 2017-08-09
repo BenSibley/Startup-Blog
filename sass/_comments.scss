@@ -120,6 +120,10 @@
     }
   }
 }
+#disqus_thread {
+  @extend %white-box;
+  padding: $baseline-height $column * 2 * 1.125 $baseline-height/2;
+}
 
 @media all and (min-width: $one-thousand){
 

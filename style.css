@@ -62,7 +62,7 @@ textarea, input[type="submit"], .archive-header h1, .comment-respond label, .sit
 }
 
 .archive-header, .comment-respond, .comment-list li.comment,
-.comment-list li.pingback, .comment-pagination p, .comments-closed, .primary-header, .pagination a,
+.comment-list li.pingback, .comment-pagination p, .comments-closed, #disqus_thread, .primary-header, .pagination a,
 .pagination span, .entry, .search-header, .sidebar-primary .widget, .woocommerce.archive .loop-container, .woocommerce-message,
 .woocommerce-info, input[type="text"]:focus,
 input[type="email"]:focus,
@@ -76,7 +76,7 @@ textarea:focus {
 }
 
 .archive-header, .comment-respond, .comment-list li.comment,
-.comment-list li.pingback, .comment-pagination p, .comments-closed, .primary-header, .pagination a,
+.comment-list li.pingback, .comment-pagination p, .comments-closed, #disqus_thread, .primary-header, .pagination a,
 .pagination span, .entry, .search-header, .sidebar-primary .widget, .woocommerce.archive .loop-container, .woocommerce-message,
 .woocommerce-info {
   background: #fff;
@@ -581,6 +581,10 @@ a img {
 .rtl .comment-list .comment-footer {
   left: auto;
   right: 6.2505%;
+}
+
+#disqus_thread {
+  padding: 1.5em 6.2505% 0.75em;
 }
 
 @media all and (min-width: 62.5em) {

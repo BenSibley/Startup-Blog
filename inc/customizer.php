@@ -9,7 +9,7 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 	// Reorder default sections
 	//----------------------------------------------------------------------------------
 	$wp_customize->get_section( 'title_tagline' )->priority = 2;
-	$wp_customize->get_section( 'header_image' )->priority = 4;
+	$wp_customize->get_section( 'header_image' )->priority = 15;
 
 	//----------------------------------------------------------------------------------
 	// Make sure Front Page setting exists before moving. (Doesn't show if user has no published pages)

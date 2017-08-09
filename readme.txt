@@ -19,8 +19,24 @@ View a fully-setup live demo of Startup Blog here: [Live demo](https://www.compe
 
 Startup Blog comes with the following features:
 
-* Responsive Slider,
+* Responsive Slider
+* Header Image
 * Custom colors
 * Two layouts
 * Show/Hide elements
 * Over 50+ social media icons
+* Show excerpts VS full posts
+* Custom excerpt word count
+
+**Startup Blog Pro**
+
+Startup Blog also has an upgrade called Startup Blog Pro that comes with the following features:
+
+* 6 new layouts
+* 4 post templates
+* Featured Videos
+* Advanced custom colors
+* 728 fonts to choose from
+* Font size controls
+* 12 Featured Image aspect ratios
+* Custom footer text

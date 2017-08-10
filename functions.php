@@ -657,3 +657,43 @@ function ct_startup_blog_no_missing_titles( $title, $id = null ) {
 	return $title;
 }
 add_filter( 'the_title', 'ct_startup_blog_no_missing_titles', 10, 2 );
+
+//----------------------------------------------------------------------------------
+// Create a helper function for easy Freemius SDK access.
+// Use to collect theme user analytics
+//----------------------------------------------------------------------------------
+function sb_fs() {
+	global $sb_fs;
+
+	if ( ! isset( $sb_fs ) ) {
+		// Include Freemius SDK.
+		require_once dirname(__FILE__) . '/freemius/start.php';
+
+		$sb_fs = fs_dynamic_init( array(
+			'id'                  => '1277',
+			'slug'                => 'startup-blog',
+			'type'                => 'theme',
+			'public_key'          => 'pk_99c8a08c7396cadbd5e0aac8face1',
+			'is_premium'          => false,
+			'has_addons'          => false,
+			'has_paid_plans'      => false,
+			'menu'                => array(
+				'slug'           => 'startup-blog-options',
+				'first-path'     => 'themes.php?page=startup-blog-options&startup-blog_status=activated',
+				'account'        => false,
+				'contact'        => false,
+				'support'        => false,
+				'parent'         => array(
+					'slug' => 'themes.php',
+				),
+			),
+		) );
+	}
+
+	return $sb_fs;
+}
+
+// Init Freemius.
+sb_fs();
+// Signal that SDK was initiated.
+do_action( 'sb_fs_loaded' );

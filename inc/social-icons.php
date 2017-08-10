@@ -99,22 +99,27 @@ if ( ! function_exists( 'ct_startup_blog_social_icons_output' ) ) {
 				} else {
 					$class = 'fa fa-' . $active_site;
 				}
+				if ( $source == 'header' ) {
+					$url = get_theme_mod( $key );
+				} elseif ( $source == 'author' ) {
+					$url = get_the_author_meta( $key );
+				}
 
 				echo '<li>';
 				if ( $active_site == 'email' ) { ?>
 					<a class="email" target="_blank"
-					   href="mailto:<?php echo antispambot( is_email( get_theme_mod( $key ) ) ); ?>">
+					   href="mailto:<?php echo antispambot( is_email( $url ) ); ?>">
 						<i class="fa fa-envelope" title="<?php esc_attr_e( 'email', 'startup-blog' ); ?>"></i>
 					</a>
 				<?php } elseif ( $active_site == 'skype' ) { ?>
 					<a class="<?php echo esc_attr( $active_site ); ?>" target="_blank"
-					   href="<?php echo esc_url( get_theme_mod( $key ), array( 'http', 'https', 'skype' ) ); ?>">
+					   href="<?php echo esc_url( $url, array( 'http', 'https', 'skype' ) ); ?>">
 						<i class="<?php echo esc_attr( $class ); ?>"
 						   title="<?php echo esc_attr( $active_site ); ?>"></i>
 					</a>
 				<?php } else { ?>
 					<a class="<?php echo esc_attr( $active_site ); ?>" target="_blank"
-					   href="<?php echo esc_url( get_theme_mod( $key ) ); ?>">
+					   href="<?php echo esc_url( $url ); ?>">
 						<i class="<?php echo esc_attr( $class ); ?>"
 						   title="<?php echo esc_attr( $active_site ); ?>"></i>
 					</a>

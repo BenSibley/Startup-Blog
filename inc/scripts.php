@@ -8,10 +8,12 @@ if ( ! function_exists( ( 'ct_startup_blog_load_scripts_styles' ) ) ) {
 		wp_enqueue_style( 'ct-startup-blog-google-fonts', '//fonts.googleapis.com/css?family=Montserrat:400|Source+Sans+Pro:400,400italic,700' );
 		wp_enqueue_script( 'ct-startup-blog-js', get_template_directory_uri() . '/js/build/production.min.js', array( 'jquery' ), '', true );
 		wp_localize_script( 'ct-startup-blog-js', 'objectL10n', array(
-			'openMenu'       => esc_html__( 'open menu', 'startup-blog' ),
-			'closeMenu'      => esc_html__( 'close menu', 'startup-blog' ),
-			'openChildMenu'  => esc_html__( 'open dropdown menu', 'startup-blog' ),
-			'closeChildMenu' => esc_html__( 'close dropdown menu', 'startup-blog' )
+			'openMenu'         => esc_html__( 'open menu', 'startup-blog' ),
+			'closeMenu'        => esc_html__( 'close menu', 'startup-blog' ),
+			'openChildMenu'    => esc_html__( 'open dropdown menu', 'startup-blog' ),
+			'closeChildMenu'   => esc_html__( 'close dropdown menu', 'startup-blog' ),
+			'autoRotateSlider' => get_theme_mod( 'slider_auto_rotate' ),
+			'sliderTime'       => get_theme_mod( 'slider_time' )
 		) );
 		wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/font-awesome/css/font-awesome.min.css' );
 		wp_enqueue_style( 'ct-startup-blog-style', get_stylesheet_uri() );

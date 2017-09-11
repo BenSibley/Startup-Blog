@@ -94,10 +94,15 @@ jQuery(document).ready(function($){
     
     sliderContainer.css('min-height', sliderContainer.find('.slide.current').find('.content-container').outerHeight() + 60);
 
+    var autoRotation = autoRotateSlider;
+    if ( objectL10n.autoRotateSlider == 'yes' ) {
+        var autoRotationID = setInterval( autoRotation, objectL10n.sliderTime + '000' );
+    }
+
     $('.slide-nav').on('click', function(e) {
         e.preventDefault();
         var current = slider.find('.current');
-        current .removeClass('current');
+        current.removeClass('current');
         var currentDot = $('#dot-navigation').children('.current');
         currentDot.removeClass('current');
         if ( $(this).hasClass('left') ) {
@@ -119,6 +124,11 @@ jQuery(document).ready(function($){
         }
         current = slider.find('.current');
         sliderContainer.css('min-height', current.find('.content-container').outerHeight() + 60);
+
+        if ( objectL10n.autoRotateSlider == 'yes' ) {
+            clearInterval(autoRotationID);
+            autoRotationID = setInterval( autoRotation, objectL10n.sliderTime + '000' );
+        }
     });
     
     $('.dot').on('click', function(e) {
@@ -131,6 +141,20 @@ jQuery(document).ready(function($){
         currentSlide.addClass('current');
         sliderContainer.css('min-height', currentSlide.find('.content-container').outerHeight() + 60);
     });
+
+    function autoRotateSlider() {
+        var current = slider.find('.current');
+        current.removeClass('current');
+        var currentDot = $('#dot-navigation').children('.current');
+        currentDot.removeClass('current');
+        if (current.next().length) {
+            current.next().addClass('current');
+            currentDot.next().addClass('current');
+        } else {
+            current.siblings(":first").addClass('current');
+            currentDot.siblings(":first").addClass('current');
+        }
+    }
 
     // mimic cover positioning without using cover
     function objectFitAdjustment() {

@@ -133,7 +133,8 @@
   margin-top: 12px;
 }
 
-#sub-accordion-section-startup_blog_slider_content .hide {
+#sub-accordion-section-startup_blog_slider_content .hide,
+#sub-accordion-section-startup_blog_slider_settings .hide {
   display: none !important;
 }
 

@@ -118,10 +118,10 @@ jQuery(document).ready(function($){
         }
     });
 
-    $(document).on('change', '#customize-control-slider_posts_or_pages input', updateSlideSettingDisplay);
+    $(document).on('change', '#customize-control-slider_posts_or_pages input', updateSlideContentDisplay);
 
     // Show either the page or post settings based on whether user has chose to use pages/posts for the content
-    function updateSlideSettingDisplay() {
+    function updateSlideContentDisplay() {
         if ( $('#customize-control-slider_posts_or_pages').find('input:checked').val() == 'pages' ) {
             $('#customize-control-slider_recent_posts').addClass('hide');
             $('#customize-control-slider_post_category').addClass('hide');
@@ -132,5 +132,18 @@ jQuery(document).ready(function($){
             $('#customize-control-slider_post_category').removeClass('hide');
         }
     }
-    updateSlideSettingDisplay();
+    updateSlideContentDisplay();
+
+    $(document).on('change', '#customize-control-slider_auto_rotate input', updateSlideSettingsDisplay);
+
+    // Show either the page or post settings based on whether user has chose to use pages/posts for the content
+    function updateSlideSettingsDisplay() {
+        if ( $('#customize-control-slider_auto_rotate').find('input:checked').val() == 'no' ) {
+            $('#customize-control-slider_time').addClass('hide');
+            console.log('asdfsfd');
+        } else {
+            $('#customize-control-slider_time').removeClass('hide');
+        }
+    }
+    updateSlideSettingsDisplay();
 });

@@ -286,6 +286,34 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 		'type'     => 'text'
 	) );
 	// setting
+	$wp_customize->add_setting( 'slider_auto_rotate', array(
+		'default'           => 'no',
+		'sanitize_callback' => 'ct_startup_blog_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'slider_auto_rotate', array(
+		'label'    => __( 'Automatically rotate through slides?', 'startup-blog' ),
+		'section'  => 'startup_blog_slider_settings',
+		'settings' => 'slider_auto_rotate',
+		'type'     => 'radio',
+		'choices' => array(
+			'yes' => __( 'Yes', 'startup-blog' ),
+			'no'  => __( 'No', 'startup-blog' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'slider_time', array(
+		'default'           => 5,
+		'sanitize_callback' => 'absint'
+	) );
+	// control
+	$wp_customize->add_control( 'slider_time', array(
+		'label'    => __( 'How many seconds between slides?', 'startup-blog' ),
+		'section'  => 'startup_blog_slider_settings',
+		'settings' => 'slider_time',
+		'type'     => 'number'
+	) );
+	// setting
 	$wp_customize->add_setting( 'slider_sticky', array(
 		'default'           => 'yes',
 		'sanitize_callback' => 'ct_startup_blog_sanitize_yes_no_settings'

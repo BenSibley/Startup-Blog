@@ -1,10 +1,16 @@
 <?php
+global $post;
 $button_text = get_theme_mod('slider_button_text');
 ?>
 <li class="<?php echo esc_attr( $classes ); ?>">
 	<div class="content-container">
 		<div class="max-width">
-			<div class="title"><?php the_title(); ?></div>
+			<div class="title">
+				<?php
+				$custom_title = get_post_meta( $post->ID, 'startup_blog_title', true);
+				echo $custom_title ? $custom_title : get_the_title();
+				?>
+			</div>
 			<?php
 			// echo'ing get_the_excerpt() instead of using the_excerpt() to avoid plugins adding content via filters.
 			// Ex. Jetpack will add social sharing buttons into the slide when using the_excerpt(): http://pics.competethemes.com/l3AM

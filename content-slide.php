@@ -8,7 +8,7 @@ $button_text = get_theme_mod('slider_button_text');
 			<div class="title">
 				<?php
 				$custom_title = get_post_meta( $post->ID, 'startup_blog_title', true);
-				echo $custom_title ? $custom_title : get_the_title();
+				echo $custom_title ? esc_html( $custom_title ) : esc_html( get_the_title() );
 				?>
 			</div>
 			<?php

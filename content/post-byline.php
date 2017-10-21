@@ -12,7 +12,7 @@ if ( empty( $author ) ) {
 	global $post;
 	$author = get_the_author_meta( 'display_name', $post->post_author );
 }
-$date   = date_i18n( get_option( 'date_format' ), strtotime( get_the_date() ) );
+$date   = date_i18n( get_option( 'date_format' ), strtotime( get_the_date( 'r' ) ) );
 
 echo '<div class="post-byline">';
 if ( $author_display == 'no' ) {

@@ -410,6 +410,22 @@ if ( ! function_exists( 'ct_startup_blog_allow_skype_protocol' ) ) {
 add_filter( 'kses_allowed_protocols', 'ct_startup_blog_allow_skype_protocol' );
 
 //----------------------------------------------------------------------------------
+// Redirect to Startup Blog dashboard upon theme activation
+//----------------------------------------------------------------------------------
+function ct_startup_blog_welcome_redirect() {
+
+	$welcome_url = add_query_arg(
+		array(
+			'page'                => 'startup-blog-options',
+			'startup_blog_status' => 'activated'
+		),
+		admin_url( 'themes.php' )
+	);
+	wp_safe_redirect( esc_url_raw( $welcome_url ) );
+}
+add_action( 'after_switch_theme', 'ct_startup_blog_welcome_redirect' );
+
+//----------------------------------------------------------------------------------
 // Add class to primary menu if all menu items are single-tiered.
 // Then mobile menu items can be styled horizontally instead of vertically
 //----------------------------------------------------------------------------------

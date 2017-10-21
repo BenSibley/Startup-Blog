@@ -42,12 +42,12 @@ if ( ! function_exists( 'ct_startup_blog_options_content' ) ) {
 					<p>
 						<?php
 						// translators: %s = theme name
-						printf( esc_html__( 'Not sure where to start? The %1$s Support Center is filled with tutorials that will take you step-by-step through every feature in %1$s.', 'startup-blog' ), esc_attr( wp_get_theme( get_template() ) ) );
+						printf( __( 'Not sure where to start? The <strong>%1$s Getting Started Guide</strong> will take you step-by-step through every feature in  %1$s.', 'startup-blog' ), esc_attr( wp_get_theme( get_template() ) ) );
 						?>
 					</p>
 					<p>
 						<a target="_blank" class="button-primary"
-						   href="https://www.competethemes.com/documentation/startup-blog-support-center/"><?php esc_html_e( 'Visit Support Center', 'startup-blog' ); ?></a>
+						   href="https://www.competethemes.com/help/getting-started-startup-blog/"><?php esc_html_e( 'Get Started', 'startup-blog' ); ?></a>
 					</p>
 				</div>
 				<?php if ( ! function_exists( 'ct_startup_blog_pro_init' ) ) : ?>

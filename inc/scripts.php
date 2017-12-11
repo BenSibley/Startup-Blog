@@ -5,7 +5,12 @@
 if ( ! function_exists( ( 'ct_startup_blog_load_scripts_styles' ) ) ) {
 	function ct_startup_blog_load_scripts_styles() {
 
-		wp_enqueue_style( 'ct-startup-blog-google-fonts', '//fonts.googleapis.com/css?family=Montserrat:400|Source+Sans+Pro:400,400italic,700' );
+		$font_args = array(
+			'family' => urlencode( 'Montserrat:400|Source Sans Pro:400,400italic,700' ),
+			'subset' => urlencode( 'latin,latin-ext' )
+		);
+		$fonts_url = add_query_arg( $font_args, '//fonts.googleapis.com/css' );
+		wp_enqueue_style( 'ct-startup-blog-google-fonts', $fonts_url );
 		wp_enqueue_script( 'ct-startup-blog-js', get_template_directory_uri() . '/js/build/production.min.js', array( 'jquery' ), '', true );
 		wp_localize_script( 'ct-startup-blog-js', 'objectL10n', array(
 			'openMenu'         => esc_html__( 'open menu', 'startup-blog' ),

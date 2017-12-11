@@ -98,19 +98,19 @@ msgstr ""
 
 #: search.php:34
 msgid "Can't find what you're looking for?  Try refining your search:"
-msgstr ""
+msgstr "Vous ne trouvez pas ce que vous voulez ? Modifiez votre requête:"
 
 #. translators: %s = search query
 #: search.php:12
 msgid "No search results for \"%s\""
-msgstr ""
+msgstr "Pas de résultats pour votre recherche \"%s\""
 
 #. translators: %1$s = number of results. %2$s = search query
 #: search.php:9
 msgid "%1$s search result for %2$s"
 msgid_plural "%1$s search results for %2$s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$s résultat pour %2$s"
+msgstr[1] "%1$s résultats pour %2$s"
 
 #: inc/user-profile.php:18
 msgid "Social Profiles"
@@ -227,7 +227,7 @@ msgstr ""
 
 #: inc/customizer.php:429 inc/user-profile.php:64
 msgid "Email Address"
-msgstr ""
+msgstr "Email"
 
 #: inc/customizer.php:410
 msgid "Add the URL for each of your social profiles."
@@ -433,7 +433,7 @@ msgstr ""
 
 #: inc/comments.php:51
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: inc/comments.php:46
 msgid "(optional)"
@@ -445,7 +445,7 @@ msgstr ""
 
 #: inc/comments.php:17
 msgid "Your comment is awaiting moderation."
-msgstr ""
+msgstr "Votre commentaire est en cours de modération"
 
 #: header.php:23 header.php:40 inc/scripts.php:11
 msgid "open menu"
@@ -531,7 +531,7 @@ msgstr "et"
 #: content/post-categories.php:10
 msgctxt "PUBLISHED IN post category"
 msgid "Published in"
-msgstr "Articles publiés dans"
+msgstr "Publié dans"
 
 #. translators: %1$s = the date the post was published. %2$s = the author who
 #. published it
@@ -573,7 +573,7 @@ msgstr "Articles tagués"
 #: content/archive-header.php:8
 msgctxt "Posts published in CATEGORY"
 msgid "Posts published in"
-msgstr "Publié dans"
+msgstr "Articles publiés dans"
 
 #: comments.php:55 comments.php:71
 msgid "Comments are closed."

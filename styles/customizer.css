@@ -78,8 +78,16 @@
   background: #FF8A23;
 }
 
+#customize-control-layout input {
+  display: none;
+}
 #customize-control-layout .customize-control-title {
   margin-bottom: 12px;
+}
+#customize-control-layout .customize-inside-control-row {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
 }
 #customize-control-layout label {
   display: inline-block;
@@ -93,19 +101,14 @@
   transition: opacity 0.2s ease;
   color: transparent;
 }
+#customize-control-layout label:hover {
+  opacity: 0.8;
+}
 #customize-control-layout label:nth-child(even) {
   margin-right: 9px;
 }
 #customize-control-layout label.selected {
   outline: solid 1px #05B0E7;
-}
-
-#customize-control-layout label:hover {
-  opacity: 0.8;
-}
-
-#customize-control-layout input {
-  display: none;
 }
 
 #blueprint-page-select {

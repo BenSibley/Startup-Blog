@@ -94,8 +94,16 @@
 // layout picture controls
 #customize-control-layout {
 
+  input {
+    display: none;
+  }
   .customize-control-title {
     margin-bottom: 12px;
+  }
+  .customize-inside-control-row {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
   }
   label {
     display: inline-block;
@@ -108,6 +116,9 @@
     transition: opacity 0.2s ease;
     color: transparent; // hides the description text eg "Right sidebar"
 
+    &:hover {
+      opacity: 0.8;
+    }
     &:nth-child(even) {
       margin-right: 9px; // +4 from inline-block
     }
@@ -115,12 +126,6 @@
       outline: solid 1px #05B0E7;
     }
   }
-}
-#customize-control-layout label:hover {
-  opacity: 0.8;
-}
-#customize-control-layout input {
-  display: none;
 }
 
 // Repeater controls

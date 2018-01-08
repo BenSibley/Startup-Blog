@@ -574,6 +574,22 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 		)
 	) );
 	// setting
+	$wp_customize->add_setting( 'comment_link', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_startup_blog_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'comment_link', array(
+		'label'    => __( 'Show comment icon link?', 'startup-blog' ),
+		'section'  => 'startup_blog_show_hide',
+		'settings' => 'comment_link',
+		'type'     => 'radio',
+		'choices'  => array(
+			'yes' => __( 'Yes', 'startup-blog' ),
+			'no'  => __( 'No', 'startup-blog' )
+		)
+	) );
+	// setting
 	$wp_customize->add_setting( 'author_box', array(
 		'default'           => 'yes',
 		'sanitize_callback' => 'ct_startup_blog_sanitize_yes_no_settings'

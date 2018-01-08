@@ -1,11 +1,12 @@
 <?php
+if ( get_theme_mod( 'comment_link' ) == 'no' ) return;
+
 $classes = 'post-comments-link';
 $icon = 'fa-comment-o';
 if ( !comments_open() ) {
 	$classes .= ' closed';
 	$icon = 'fa-comment';
 }
-
 ?>
 <span class="<?php echo esc_attr( $classes ); ?>">
 	<?php

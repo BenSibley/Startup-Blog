@@ -293,7 +293,7 @@ img,
 .wp-caption-text,
 .gallery-caption {
   line-height: 1.5;
-  margin: 0 0 1.84502em;
+  margin: 0 0 1.8450184502em;
   color: #666666;
 }
 
@@ -441,7 +441,7 @@ a img {
 
 @media all and (min-width: 62.5em) {
   .archive-header {
-    padding: 1.5em 5.8838%;
+    padding: 1.5em 5.883804%;
   }
 }
 #infinite-handle {
@@ -473,7 +473,7 @@ a img {
 
 @media all and (min-width: 62.5em) {
   .comment-respond {
-    padding: 1.5em 5.8838% 0.75em;
+    padding: 1.5em 5.883804% 0.75em;
   }
 }
 .comment-list {
@@ -591,7 +591,7 @@ a img {
 @media all and (min-width: 62.5em) {
   .comment-list li.comment,
   .comment-list .li.pingback {
-    padding: 1.5em 5.8838% 0.75em;
+    padding: 1.5em 5.883804% 0.75em;
   }
   .comment-list li.comment .avatar,
   .comment-list .li.pingback .avatar {
@@ -980,7 +980,7 @@ a img {
 
 @media all and (min-width: 43.75em) {
   .main {
-    width: 60.73264%;
+    width: 60.732636%;
     float: left;
   }
 
@@ -998,7 +998,7 @@ a img {
   }
 
   .main {
-    width: 60.73264%;
+    width: 60.732636%;
   }
 }
 @media all and (min-width: 75em) {
@@ -1007,7 +1007,7 @@ a img {
   }
 
   .main {
-    width: 60.73264%;
+    width: 60.732636%;
   }
 }
 .toggle-navigation {
@@ -1765,7 +1765,7 @@ a img {
 }
 @media all and (min-width: 62.5em) {
   .post-header {
-    padding: 1.5em 5.8838% 0;
+    padding: 1.5em 5.883804% 0;
     margin-bottom: 1.5em;
   }
   .post-header .avatar {
@@ -1790,11 +1790,11 @@ a img {
   }
 
   .post-content {
-    padding: 0 5.8838% 0;
+    padding: 0 5.883804% 0;
   }
 
   .post-meta {
-    padding: 1.5em 5.8838% 0;
+    padding: 1.5em 5.883804% 0;
   }
 
   .sticky-status {
@@ -1802,7 +1802,7 @@ a img {
   }
 
   .attachment .post-content {
-    padding: 0 5.8838% 1.5em;
+    padding: 0 5.883804% 1.5em;
   }
 }
 .search-form {
@@ -1881,7 +1881,7 @@ a img {
 }
 @media all and (min-width: 62.5em) {
   .sidebar-primary {
-    width: 32.15257%;
+    width: 32.152572%;
   }
 }
 .sidebar-primary .widget {
@@ -2017,7 +2017,7 @@ a img {
 }
 @media all and (min-width: 62.5em) {
   .sidebar-primary .widget {
-    padding: 1.5em 11.10922% 0.75em;
+    padding: 1.5em 11.109222% 0.75em;
   }
   .sidebar-primary .widget_media_image,
   .sidebar-primary .widget_media_video {
@@ -2401,13 +2401,13 @@ a img {
 
 @media all and (min-width: 62.5em) {
   .woocommerce .product {
-    padding: 1.5em 5.8838% 0;
+    padding: 1.5em 5.883804% 0;
   }
 
   .woocommerce-cart .entry,
   .woocommerce-checkout .entry,
   .woocommerce-page .entry {
-    padding: 1.5em 5.8838% 2.25em;
+    padding: 1.5em 5.883804% 2.25em;
   }
 }
 .woocommerce-cart .main th, .woocommerce-cart .main td,

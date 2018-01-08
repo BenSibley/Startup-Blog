@@ -253,6 +253,7 @@ if ( ! function_exists( 'ct_startup_blog_reset_customizer_options' ) ) {
 			'post_byline_date',
 			'post_byline_author',
 			'author_avatars',
+			'comment_link',
 			'author_box',
 			'sidebar',
 			'full_post',

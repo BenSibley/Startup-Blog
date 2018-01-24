@@ -24,8 +24,4 @@
         } );
     } );
 
-    /* prevent logo's selective refresh from acting b/c has_custom_logo() will always be true,
-     so the site title cannot return */
-    $('.custom-logo-link').removeClass('custom-logo-link');
-
 } )( jQuery );

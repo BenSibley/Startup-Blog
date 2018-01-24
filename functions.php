@@ -677,3 +677,10 @@ function ct_startup_blog_no_missing_titles( $title, $id = null ) {
 	return $title;
 }
 add_filter( 'the_title', 'ct_startup_blog_no_missing_titles', 10, 2 );
+
+//----------------------------------------------------------------------------------
+// Turn of partial refresh for logo, so title shows up when logo is removed
+//----------------------------------------------------------------------------------
+add_action( 'customize_register', function( $wp_customize ) {
+	$wp_customize->get_setting( 'custom_logo' )->transport = 'refresh';
+}, 20 );

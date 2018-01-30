@@ -140,7 +140,6 @@ jQuery(document).ready(function($){
     function updateSlideSettingsDisplay() {
         if ( $('#customize-control-slider_auto_rotate').find('input:checked').val() == 'no' ) {
             $('#customize-control-slider_time').addClass('hide');
-            console.log('asdfsfd');
         } else {
             $('#customize-control-slider_time').removeClass('hide');
         }

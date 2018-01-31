@@ -24,37 +24,37 @@ if ( ! function_exists( ( 'startup_blog_add_social_profile_settings' ) ) ) {
 				$label = ucfirst( $key );
 
 				if ( $key == 'google-plus' ) {
-					$label = 'Google Plus';
+					$label = __('Google Plus', 'startup-blog');
 				} elseif ( $key == 'rss' ) {
-					$label = 'RSS';
+					$label = __('RSS', 'startup-blog');
 				} elseif ( $key == 'soundcloud' ) {
-					$label = 'SoundCloud';
+					$label = __('SoundCloud', 'startup-blog');
 				} elseif ( $key == 'slideshare' ) {
-					$label = 'SlideShare';
+					$label = __('SlideShare', 'startup-blog');
 				} elseif ( $key == 'codepen' ) {
-					$label = 'CodePen';
+					$label = __('CodePen', 'startup-blog');
 				} elseif ( $key == 'stumbleupon' ) {
-					$label = 'StumbleUpon';
+					$label = __('StumbleUpon', 'startup-blog');
 				} elseif ( $key == 'deviantart' ) {
-					$label = 'DeviantArt';
+					$label = __('DeviantArt', 'startup-blog');
 				} elseif ( $key == 'hacker-news' ) {
-					$label = 'Hacker News';
+					$label = __('Hacker News', 'startup-blog');
 				} elseif ( $key == 'whatsapp' ) {
-					$label = 'WhatsApp';
+					$label = __('WhatsApp', 'startup-blog');
 				} elseif ( $key == 'qq' ) {
-					$label = 'QQ';
+					$label = __('QQ', 'startup-blog');
 				} elseif ( $key == 'vk' ) {
-					$label = 'VK';
+					$label = __('VK', 'startup-blog');
 				} elseif ( $key == 'wechat' ) {
-					$label = 'WeChat';
+					$label = __('WeChat', 'startup-blog');
 				} elseif ( $key == 'tencent-weibo' ) {
-					$label = 'Tencent Weibo';
+					$label = __('Tencent Weibo', 'startup-blog');
 				} elseif ( $key == 'paypal' ) {
-					$label = 'PayPal';
+					$label = __('PayPal', 'startup-blog');
 				} elseif ( $key == 'email-form' ) {
-					$label = 'Contact Form';
+					$label = __('Contact Form', 'startup-blog');
 				} elseif ( $key == 'google-wallet' ) {
-					$label = 'Google Wallet';
+					$label = __('Google Wallet', 'startup-blog');
 				}
 				?>
 				<tr>

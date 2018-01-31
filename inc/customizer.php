@@ -435,37 +435,37 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 			$label = ucfirst( $social_site );
 
 			if ( $social_site == 'google-plus' ) {
-				$label = 'Google Plus';
+				$label = __('Google Plus', 'startup-blog');
 			} elseif ( $social_site == 'rss' ) {
-				$label = 'RSS';
+				$label = __('RSS', 'startup-blog');
 			} elseif ( $social_site == 'soundcloud' ) {
-				$label = 'SoundCloud';
+				$label = __('SoundCloud', 'startup-blog');
 			} elseif ( $social_site == 'slideshare' ) {
-				$label = 'SlideShare';
+				$label = __('SlideShare', 'startup-blog');
 			} elseif ( $social_site == 'codepen' ) {
-				$label = 'CodePen';
+				$label = __('CodePen', 'startup-blog');
 			} elseif ( $social_site == 'stumbleupon' ) {
-				$label = 'StumbleUpon';
+				$label = __('StumbleUpon', 'startup-blog');
 			} elseif ( $social_site == 'deviantart' ) {
-				$label = 'DeviantArt';
+				$label = __('DeviantArt', 'startup-blog');
 			} elseif ( $social_site == 'hacker-news' ) {
-				$label = 'Hacker News';
+				$label = __('Hacker News', 'startup-blog');
 			} elseif ( $social_site == 'whatsapp' ) {
-				$label = 'WhatsApp';
+				$label = __('WhatsApp', 'startup-blog');
 			} elseif ( $social_site == 'qq' ) {
-				$label = 'QQ';
+				$label = __('QQ', 'startup-blog');
 			} elseif ( $social_site == 'vk' ) {
-				$label = 'VK';
+				$label = __('VK', 'startup-blog');
 			} elseif ( $social_site == 'wechat' ) {
-				$label = 'WeChat';
+				$label = __('WeChat', 'startup-blog');
 			} elseif ( $social_site == 'tencent-weibo' ) {
-				$label = 'Tencent Weibo';
+				$label = __('Tencent Weibo', 'startup-blog');
 			} elseif ( $social_site == 'paypal' ) {
-				$label = 'PayPal';
+				$label = __('PayPal', 'startup-blog');
 			} elseif ( $social_site == 'email-form' ) {
-				$label = 'Contact Form';
+				$label = __('Contact Form', 'startup-blog');
 			} elseif ( $social_site == 'google-wallet' ) {
-				$label = 'Google Wallet';
+				$label = __('Google Wallet', 'startup-blog');
 			}
 
 			if ( $social_site == 'skype' ) {

@@ -54,6 +54,7 @@ if ( ! function_exists( 'ct_startup_blog_social_array' ) ) {
 			'vimeo'         => 'startup_blog_vimeo_profile',
 			'vine'          => 'startup_blog_vine_profile',
 			'vk'            => 'startup_blog_vk_profile',
+			'ok-ru'         => 'startup_blog_ok_ru_profile',
 			'wechat'        => 'startup_blog_wechat_profile',
 			'weibo'         => 'startup_blog_weibo_profile',
 			'whatsapp'      => 'startup_blog_whatsapp_profile',
@@ -96,6 +97,8 @@ if ( ! function_exists( 'ct_startup_blog_social_icons_output' ) ) {
 
 				if ( $active_site == 'email-form' ) {
 					$class = 'fa fa-envelope-o';
+				} else if ( $active_site == 'ok-ru' ) {
+					$class = 'fa fa-odnoklassniki';
 				} else {
 					$class = 'fa fa-' . $active_site;
 				}

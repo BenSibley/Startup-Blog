@@ -466,6 +466,8 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 				$label = __('Contact Form', 'startup-blog');
 			} elseif ( $social_site == 'google-wallet' ) {
 				$label = __('Google Wallet', 'startup-blog');
+			} elseif ( $social_site == 'ok-ru' ) {
+				$label = __('OK.ru', 'startup-blog');
 			}
 
 			if ( $social_site == 'skype' ) {

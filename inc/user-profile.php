@@ -55,6 +55,8 @@ if ( ! function_exists( ( 'startup_blog_add_social_profile_settings' ) ) ) {
 					$label = __('Contact Form', 'startup-blog');
 				} elseif ( $key == 'google-wallet' ) {
 					$label = __('Google Wallet', 'startup-blog');
+				} elseif ( $key == 'ok-ru' ) {
+					$label = __('OK.ru', 'startup-blog');
 				}
 				?>
 				<tr>

@@ -60,3 +60,13 @@
     }
   }
 }
+.rtl {
+
+  .pagination {
+
+    .prev,
+    .next {
+      transform: rotate(180deg);
+    }
+  }
+}

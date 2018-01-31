@@ -960,6 +960,13 @@ a img {
   content: '\f104';
 }
 
+.rtl .pagination .prev,
+.rtl .pagination .next {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
 .main-content-container {
   padding: 0 5.556%;
   min-height: calc(100% - 154px);
@@ -2209,10 +2216,16 @@ a img {
 .rtl .bb-slider .arrow-navigation .left {
   left: 5.556%;
   right: auto;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 .rtl .bb-slider .arrow-navigation .right {
   right: 5.556%;
   left: auto;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 @media all and (min-width: 31.25em) {

@@ -185,10 +185,12 @@
       .left {
         right: $column * 2;
         left: auto;
+        transform: rotate(180deg);
       }
       .right {
         left: $column * 2;
         right: auto;
+        transform: rotate(180deg);
       }
     }
   }

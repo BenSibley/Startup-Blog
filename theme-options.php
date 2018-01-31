@@ -50,7 +50,7 @@ if ( ! function_exists( 'ct_startup_blog_options_content' ) ) {
 						   href="https://www.competethemes.com/help/getting-started-startup-blog/"><?php esc_html_e( 'Get Started', 'startup-blog' ); ?></a>
 					</p>
 				</div>
-				<?php if ( ! function_exists( 'ct_startup_blog_pro_init' ) ) : ?>
+				<?php if ( ! function_exists( 'ct_startup_blog_pro_activation_notice' ) ) : ?>
 					<div class="content content-premium-upgrade">
 						<h3><?php printf( esc_html__( 'Startup Blog Pro', 'startup-blog' ), esc_attr( wp_get_theme( get_template() ) ) ); ?></h3>
 						<p>

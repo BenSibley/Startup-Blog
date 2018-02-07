@@ -188,7 +188,10 @@ jQuery(document).ready(function($){
         current.removeClass('current');
         var currentDot = $('#dot-navigation').children('.current');
         currentDot.removeClass('current');
-        if ( $(this).hasClass('left') ) {
+        if ( 
+            ($(this).hasClass('left') && !$('body').hasClass('rtl') ) 
+            || (($(this).hasClass('right') && $('body').hasClass('rtl') ) )
+        ) {
             if( current.prev().length ) {
                 current.prev().addClass('current');
                 currentDot.prev().addClass('current');

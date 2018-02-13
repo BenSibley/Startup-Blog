@@ -20,6 +20,7 @@ if ( ! function_exists( 'ct_startup_blog_social_array' ) ) {
 			'amazon'        => 'startup_blog_amazon_profile',
 			'bandcamp'      => 'startup_blog_bandcamp_profile',
 			'behance'       => 'startup_blog_behance_profile',
+			'bitbucket'     => 'startup_blog_bitbucket_profile',
 			'codepen'       => 'startup_blog_codepen_profile',
 			'delicious'     => 'startup_blog_delicious_profile',
 			'deviantart'    => 'startup_blog_deviantart_profile',

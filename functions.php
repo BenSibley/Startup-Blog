@@ -291,11 +291,19 @@ if ( ! function_exists( 'ct_startup_blog_delete_settings_notice' ) ) {
 	function ct_startup_blog_delete_settings_notice() {
 
 		if ( isset( $_GET['startup_blog_status'] ) ) {
-			?>
-			<div class="updated">
-				<p><?php esc_html_e( 'Customizer settings deleted', 'startup-blog' ); ?>.</p>
-			</div>
-			<?php
+			if ( $_GET['startup_blog_status'] == 'deleted' ) {
+				?>
+				<div class="updated">
+					<p><?php esc_html_e( 'Customizer settings deleted.', 'startup-blog' ); ?></p>
+				</div>
+				<?php
+			} else if ( $_GET['startup_blog_status'] == 'activated' ) {
+				?>
+				<div class="updated">
+					<p><?php printf( __( '%s successfully activated!', 'startup-blog' ), wp_get_theme( get_template() ) ); ?></p>
+				</div>
+				<?php
+			}
 		}
 	}
 }

@@ -494,7 +494,7 @@ if ( ! function_exists( 'ct_startup_blog_modify_archive_descriptions' ) ) {
 add_filter( 'get_the_archive_description', 'ct_startup_blog_modify_archive_descriptions' );
 
 //----------------------------------------------------------------------------------
-// Update the colors used throughout Startup Blog based on the user's Customizer selected colors.
+// Return CSS based on the user's Customizer selected colors.
 //----------------------------------------------------------------------------------
 if ( ! function_exists( 'ct_startup_blog_override_colors' ) ) {
 	function ct_startup_blog_override_colors() {
@@ -568,13 +568,40 @@ if ( ! function_exists( 'ct_startup_blog_override_colors' ) ) {
 		if ( $bg_color != '#f0f5f8' ) {
 			$color_css .= "body {background: $bg_color;}";
 		}
-		// Add CSS if any one of the colors has changed
-		if ( $primary_color != '#20a4e6' || $secondary_color != '#17e6c3' || $bg_color != '#f0f5f8' ) {
-			wp_add_inline_style( 'ct-startup-blog-style', ct_startup_blog_sanitize_css( $color_css ) );
+		return $color_css;
+	}
+}
+
+//----------------------------------------------------------------------------------
+// Output the user's custom colors
+//----------------------------------------------------------------------------------
+if ( ! function_exists( 'ct_startup_blog_output_color_css' ) ) {
+	function ct_startup_blog_output_color_css() {
+		if ( !is_rtl() ) {
+			$color_css = ct_startup_blog_override_colors();
+			if ( !empty($color_css) ) {
+				wp_add_inline_style( 'ct-startup-blog-style', ct_startup_blog_sanitize_css( $color_css ) );
+			}
 		}
 	}
 }
-add_action( 'wp_enqueue_scripts', 'ct_startup_blog_override_colors', 20 );
+add_action( 'wp_enqueue_scripts', 'ct_startup_blog_output_color_css', 20 );
+
+//----------------------------------------------------------------------------------
+// Output differently for RTL b/c RTL stylesheets have no handle (not enqueued) and the <link>
+// element is output so late
+//----------------------------------------------------------------------------------
+if ( ! function_exists( 'ct_startup_blog_output_color_css_rtl' ) ) {
+	function ct_startup_blog_output_color_css_rtl() {
+		if ( is_rtl() ) {
+			$color_css = ct_startup_blog_override_colors();
+			if ( !empty($color_css) ) {
+				echo '<style id="ct-startup-blog-style-inline-css" type="text/css">'. ct_startup_blog_sanitize_css( $color_css ) .'</style>';
+			}
+		}
+	}
+}
+add_action( 'wp_head', 'ct_startup_blog_output_color_css_rtl', 99 );
 
 //----------------------------------------------------------------------------------
 // Sanitize CSS then convert "&gt;" back into ">" character so direct descendant CSS selectors work

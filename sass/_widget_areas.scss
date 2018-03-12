@@ -7,10 +7,64 @@
 .sidebar-after-page-content {
   margin-bottom: $baseline-height;
 }
+.sidebar-footer-area {
+  margin: $baseline-height 0;
+  color: #fff;
+
+  .widget {
+    color: #fff;
+    margin-bottom: $baseline-height;
+
+    li {
+      color: #fff;
+    } 
+    a {
+      color: #fff;
+
+      &:link,
+      &:visited {
+        color: #fff;
+      }
+    }
+  }
+  
+}
 
 @media all and (min-width: $six-hundred) {
 
   .sidebar-after-post-content {
     margin-bottom: $baseline-height * 2.5;
+  }
+  .sidebar:not(.active-1) {
+    display: flex;
+
+    .widget {
+      width: 50%;
+      float: left;
+      padding: 0 12px;
+
+      &:nth-child(odd) {
+        clear: left;
+      }
+    }
+  }
+}
+
+@media all and (min-width: $eight-hundred) {
+  // 3 in a row unless only 1 or 2 widgets
+  .sidebar:not(.active-1):not(.active-2) {
+    display: flex;
+
+    .widget {
+      width: 33.3%;
+
+      &:nth-child(odd) {
+        clear: none;
+      }
+      // every 3rd starting with #4 clears left, so layout doesn't get messed up in FF
+      &:nth-child(3n + 4) {
+        clear: left;
+      }
+    }
   }
 }

@@ -9,6 +9,7 @@
 <footer id="site-footer" class="site-footer" role="contentinfo">
     <div class="max-width">
         <?php do_action( 'startup_blog_footer_top' ); ?>
+        <?php get_sidebar( 'footer-area' ); ?>
         <div class="site-credit">
             <?php
             echo '<a href="' . esc_url( get_home_url() ) . '">' . esc_html( get_bloginfo( 'name' ) ) . '</a>';

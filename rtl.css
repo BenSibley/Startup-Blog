@@ -2318,9 +2318,57 @@ a img {
   margin-bottom: 1.5em;
 }
 
+.sidebar-footer-area {
+  margin: 1.5em 0;
+  color: #fff;
+}
+.sidebar-footer-area .widget {
+  color: #fff;
+  margin-bottom: 1.5em;
+}
+.sidebar-footer-area .widget li {
+  color: #fff;
+}
+.sidebar-footer-area .widget a {
+  color: #fff;
+}
+.sidebar-footer-area .widget a:link, .sidebar-footer-area .widget a:visited {
+  color: #fff;
+}
+
 @media all and (min-width: 37.5em) {
   .sidebar-after-post-content {
     margin-bottom: 3.75em;
+  }
+
+  .sidebar:not(.active-1) {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .sidebar:not(.active-1) .widget {
+    width: 50%;
+    float: right;
+    padding: 0 12px;
+  }
+  .sidebar:not(.active-1) .widget:nth-child(odd) {
+    clear: right;
+  }
+}
+@media all and (min-width: 50em) {
+  .sidebar:not(.active-1):not(.active-2) {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .sidebar:not(.active-1):not(.active-2) .widget {
+    width: 33.3%;
+  }
+  .sidebar:not(.active-1):not(.active-2) .widget:nth-child(odd) {
+    clear: none;
+  }
+  .sidebar:not(.active-1):not(.active-2) .widget:nth-child(3n + 4) {
+    clear: right;
   }
 }
 .woocommerce .product {

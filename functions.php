@@ -565,14 +565,26 @@ if ( ! function_exists( 'ct_startup_blog_override_colors' ) ) {
 		// Update gradients if either color has changed
 		if ( $primary_color != '#20a4e6' || $secondary_color != '#17e6c3' ) {
 
-			$color_css .= ".site-header:before,.featured-image > a:after,.entry:before,.bb-slider .image-container:after,.overflow-container .hero-image-header:before {
-			  background-image: -webkit-linear-gradient(left, $primary_color, $secondary_color);
-			  background-image: linear-gradient(to right, $primary_color, $secondary_color);
-			}";
-			$color_css .= "@media all and (min-width: 50em) { .menu-primary-items ul:before,.menu-secondary-items ul:before {
-			  background-image: -webkit-linear-gradient(left, $primary_color, $secondary_color);
-			  background-image: linear-gradient(to right, $primary_color, $secondary_color);
-			} }";
+			if ( is_rtl() ) {	
+				$color_css .= ".rtl .site-header:before,.rtl .featured-image > a:after,.rtl .entry:before,.rtl .bb-slider .image-container:after,.rtl .overflow-container .hero-image-header:before {
+					background-image: -webkit-linear-gradient(left, $secondary_color, $primary_color);
+					background-image: linear-gradient(to right, $secondary_color, $primary_color);
+				}";
+				$color_css .= "@media all and (min-width: 50em) { .rtl .menu-primary-items ul:before,.rtl .menu-secondary-items ul:before {
+					background-image: -webkit-linear-gradient(left, $secondary_color, $primary_color);
+					background-image: linear-gradient(to right, $secondary_color, $primary_color);
+				} }";
+			} else {
+				$color_css .= ".site-header:before,.featured-image > a:after,.entry:before,.bb-slider .image-container:after,.overflow-container .hero-image-header:before {
+					background-image: -webkit-linear-gradient(left, $primary_color, $secondary_color);
+					background-image: linear-gradient(to right, $primary_color, $secondary_color);
+				}";
+				$color_css .= "@media all and (min-width: 50em) { .menu-primary-items ul:before,.menu-secondary-items ul:before {
+					background-image: -webkit-linear-gradient(left, $primary_color, $secondary_color);
+					background-image: linear-gradient(to right, $primary_color, $secondary_color);
+				} }";
+			}
+			
 		}
 		if ( $bg_color != '#f0f5f8' ) {
 			$color_css .= "body {background: $bg_color;}";

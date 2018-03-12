@@ -106,6 +106,12 @@
 }
 .rtl {
 
+  .site-header {
+  
+    &:before {
+      background-image: linear-gradient(to right, $color-blue, $color-green);
+    }
+  }
   .social-media-icons {
 
     li {

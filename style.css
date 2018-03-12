@@ -862,6 +862,10 @@ a img {
   margin: 0.75em 5.556%;
 }
 
+.rtl .site-header:before {
+  background-image: -webkit-linear-gradient(left, #20A4E6, #17E6C3);
+  background-image: linear-gradient(to right, #20A4E6, #17E6C3);
+}
 .rtl .social-media-icons li {
   margin-right: 0;
   margin-left: 0.75em;
@@ -1572,6 +1576,11 @@ a img {
   font-size: 13px;
 }
 
+.rtl .featured-image > a:after {
+  background-image: -webkit-linear-gradient(left, #20A4E6, #17E6C3);
+  background-image: linear-gradient(to right, #20A4E6, #17E6C3);
+}
+
 .archive .featured-image > a > img,
 .blog .featured-image > a > img,
 .search .featured-image > a > img {
@@ -2213,6 +2222,10 @@ a img {
   transition: background 0.4s;
 }
 
+.rtl .bb-slider .image-container:after {
+  background-image: -webkit-linear-gradient(left, #20A4E6, #17E6C3);
+  background-image: linear-gradient(to right, #20A4E6, #17E6C3);
+}
 .rtl .bb-slider .arrow-navigation .left {
   right: 5.556%;
   left: auto;

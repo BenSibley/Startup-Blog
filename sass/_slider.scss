@@ -180,6 +180,12 @@
 
   .bb-slider {
 
+    .image-container {
+  
+      &:after {
+        background-image: linear-gradient(to right, $color-blue, $color-green);
+      }
+    }
     .arrow-navigation {
 
       .left {

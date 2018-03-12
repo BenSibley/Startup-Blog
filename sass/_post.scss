@@ -77,6 +77,9 @@
     font-size: 13px;
   }
 }
+.rtl .featured-image > a:after {
+  background-image: linear-gradient(to right, $color-blue, $color-green);
+}
 // so the object-fit polyfill isn't animated on single posts
 .archive,
 .blog,

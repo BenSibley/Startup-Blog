@@ -181,7 +181,7 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 		'default'           => 'all',
 		'sanitize_callback' => 'ct_startup_blog_sanitize_post_categories'
 	) );
-	$categories_array = array( 'all' => 'All' );
+	$categories_array = array( 'all' => __('All', 'startup-blog') );
 	foreach ( get_categories() as $category ) {
 		$categories_array[$category->term_id] = $category->name;
 	}

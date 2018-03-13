@@ -35,7 +35,7 @@
   .sidebar-after-post-content {
     margin-bottom: $baseline-height * 2.5;
   }
-  .sidebar:not(.active-1) {
+  .widget-area:not(.active-1) {
     display: flex;
 
     .widget {
@@ -52,7 +52,7 @@
 
 @media all and (min-width: $eight-hundred) {
   // 3 in a row unless only 1 or 2 widgets
-  .sidebar:not(.active-1):not(.active-2) {
+  .widget-area:not(.active-1):not(.active-2) {
     display: flex;
 
     .widget {

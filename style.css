@@ -65,7 +65,7 @@ textarea, input[type="submit"], .archive-header h1, .comment-respond label, .sit
 .archive-header, .comment-respond, .comment-list li.comment,
 .comment-list li.pingback, .comment-pagination p, .comments-closed, #disqus_thread, .primary-header, .pagination a,
 .pagination span, .entry, .search-header, .sidebar-primary .widget, .woocommerce.archive .loop-container, .woocommerce-message,
-.woocommerce-info, input[type="text"]:focus,
+.woocommerce-info, .tribe-events-pg-template, input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus,
 input[type="number"]:focus,
@@ -79,7 +79,7 @@ textarea:focus {
 .archive-header, .comment-respond, .comment-list li.comment,
 .comment-list li.pingback, .comment-pagination p, .comments-closed, #disqus_thread, .primary-header, .pagination a,
 .pagination span, .entry, .search-header, .sidebar-primary .widget, .woocommerce.archive .loop-container, .woocommerce-message,
-.woocommerce-info {
+.woocommerce-info, .tribe-events-pg-template {
   background: #fff;
   border-radius: 3px;
 }
@@ -2630,6 +2630,24 @@ a img {
     /* 28px / 16px */
     line-height: 1.358;
     /* 38px */
+  }
+}
+.tribe-events-pg-template {
+  margin: 1.5em 0 !important;
+  padding: 1.5em 6.2505%;
+  background: #fff;
+}
+.tribe-events-pg-template .entry {
+  margin: 0;
+  padding: 0;
+  border-radius: none;
+  background: none;
+  box-shadow: none;
+}
+
+@media all and (min-width: 62.5em) {
+  .tribe-events-pg-template {
+    padding: 1.5em 5.883804%;
   }
 }
 /*

@@ -255,6 +255,8 @@ if ( ! function_exists( 'ct_startup_blog_reset_customizer_options' ) ) {
 			'slider_dot_navigation',
 			'slider_button_text',
 			'slider_sticky',
+			'slider_time',
+			'slider_auto_rotate',
 			'color_primary',
 			'color_secondary',
 			'color_background',

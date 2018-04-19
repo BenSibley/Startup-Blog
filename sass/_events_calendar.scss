@@ -1,0 +1,21 @@
+.tribe-events-pg-template {
+  @extend %white-box;
+  margin: $baseline-height 0 !important;
+  padding: $baseline-height $column * 2 * 1.125;
+  background: #fff;
+
+  .entry {
+    margin: 0;
+    padding: 0;
+    border-radius: none;
+    background: none;
+    box-shadow: none;
+  }
+}
+
+@media all and (min-width: $one-thousand) {
+
+  .tribe-events-pg-template {
+    padding: $baseline-height $column * 2.118;
+  }
+}

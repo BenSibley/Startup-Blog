@@ -94,6 +94,7 @@ jQuery(document).ready(function($){
     var menuLink = $('.menu-item').children('a');
     var slider = $('#bb-slide-list');
     var sliderContainer = $('#bb-slider');
+    const sliderTime = objectL10n.sliderTime === '' ? 5 : objectL10n.sliderTime;
 
     $('.post-content').fitVids({
         customSelector: 'iframe[src*="dailymotion.com"], iframe[src*="slideshare.net"], iframe[src*="animoto.com"], iframe[src*="blip.tv"], iframe[src*="funnyordie.com"], iframe[src*="hulu.com"], iframe[src*="ted.com"], iframe[src*="wordpress.tv"]'
@@ -179,7 +180,7 @@ jQuery(document).ready(function($){
 
     var autoRotation = autoRotateSlider;
     if ( objectL10n.autoRotateSlider == 'yes' ) {
-        var autoRotationID = setInterval( autoRotation, objectL10n.sliderTime + '000' );
+        var autoRotationID = setInterval( autoRotation, sliderTime + '000' );
     }
 
     $('.slide-nav').on('click', function(e) {
@@ -213,7 +214,7 @@ jQuery(document).ready(function($){
 
         if ( objectL10n.autoRotateSlider == 'yes' ) {
             clearInterval(autoRotationID);
-            autoRotationID = setInterval( autoRotation, objectL10n.sliderTime + '000' );
+            autoRotationID = setInterval( autoRotation, sliderTime + '000' );
         }
     });
     

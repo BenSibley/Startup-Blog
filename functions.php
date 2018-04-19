@@ -72,6 +72,9 @@ if ( ! function_exists( ( 'ct_startup_blog_theme_setup' ) ) ) {
 		) );
 
 		load_theme_textdomain( 'startup-blog', get_template_directory() . '/languages' );
+
+		// image size for Featured Images in two column layouts
+		add_image_size( 'two-columns', 640 );
 	}
 }
 add_action( 'after_setup_theme', 'ct_startup_blog_theme_setup', 10 );
@@ -185,11 +188,16 @@ if ( ! function_exists( 'ct_startup_blog_featured_image' ) ) {
 		$featured_image = '';
 
 		if ( has_post_thumbnail( $post->ID ) ) {
+			$size = 'full';
+			$two_column_layouts = array( 'two-right', 'two-left', 'two-narrow', 'two-wide' );
+			if ( in_array( get_theme_mod( 'layout' ), $two_column_layouts ) ) {
+				$size = 'two-columns';
+			}
 
 			if ( is_singular() ) {
 				$featured_image = '<div class="featured-image">' . get_the_post_thumbnail( $post->ID, 'full' ) . '</div>';
 			} else {
-				$featured_image = '<div class="featured-image"><a href="' . esc_url( get_permalink() ) . '">' . esc_html( get_the_title() ) . get_the_post_thumbnail( $post->ID, 'full' ) . '</a></div>';
+				$featured_image = '<div class="featured-image"><a href="' . esc_url( get_permalink() ) . '">' . esc_html( get_the_title() ) . get_the_post_thumbnail( $post->ID, $size ) . '</a></div>';
 			}
 		}
 

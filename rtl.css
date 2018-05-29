@@ -810,6 +810,12 @@ a img {
   align-self: center;
 }
 
+.wp-custom-logo .title-container {
+  -webkit-flex-shrink: 1;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
+}
+
 .site-title {
   font-family: "Montserrat", sans-serif;
 }

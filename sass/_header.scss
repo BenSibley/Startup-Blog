@@ -42,6 +42,9 @@
   flex-shrink: 0;
   align-self: center;
 }
+.wp-custom-logo .title-container {
+  flex-shrink: 1;
+}
 .site-title {
   @extend %twenty-one-pixels;
   font-family: $heading-font-stack;

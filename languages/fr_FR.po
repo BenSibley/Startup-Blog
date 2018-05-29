@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Startup Blog\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2018-03-15 18:57:52+00:00\n"
-"PO-Revision-Date: 2018-03-15 14:58-0400\n"
+"POT-Creation-Date: 2018-05-29 16:32+0200\n"
+"PO-Revision-Date: 2018-05-29 16:32+0200\n"
 "Last-Translator: Guillaume Blet <guillaume.blet@mycinetheque.fr>\n"
 "Language-Team: Guillaume Blet\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.0.7\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
@@ -24,11 +24,11 @@ msgstr ""
 
 #: 404.php:6
 msgid "404: Page Not Found"
-msgstr "Page introuvable"
+msgstr "Erreur : la page est introuvable"
 
 #: 404.php:9
 msgid "Sorry, we couldn't find a page at this URL"
-msgstr "Cette page s'est égarée en cours de chemin."
+msgstr "Cette page s'est égarée en cours de chemin"
 
 #: 404.php:10
 msgid ""
@@ -42,6 +42,7 @@ msgstr ""
 
 #. translators: %s = link to the trackback URL
 #: comments.php:37
+#, php-format
 msgid ""
 "Comments are closed, but <a href=\"%s\" title=\"Trackback URL for this post"
 "\">trackbacks</a> and pingbacks are open."
@@ -53,43 +54,87 @@ msgstr ""
 msgid "Comments are closed."
 msgstr "Les commentaires sont fermés."
 
+#: content-page.php:11 content.php:16 templates/full-width.php:21
+msgid "Pages:"
+msgstr "Pages :"
+
+#: content-slide.php:21 inc/customizer.php:278
+msgid "Read more"
+msgstr "Lire la suite"
+
+#: content/archive-header.php:8
+msgctxt "Posts published in CATEGORY"
+msgid "Posts published in"
+msgstr "Articles publiés dans"
+
 #: content/archive-header.php:12
 msgid "Posts tagged as"
 msgstr "Tous les articles marqués"
+
+#: content/archive-header.php:15
+msgctxt "Posts published by AUTHOR"
+msgid "Posts published by"
+msgstr "Articles publiés par"
+
+#: content/archive-header.php:19
+msgctxt "Posts published in MONTH"
+msgid "Posts published in"
+msgstr "Articles publiés dans"
 
 #: content/comments-link.php:14
 msgid "comment icon"
 msgstr "icône du commentaire"
 
+#. translators: %s = the date the post was published
+#: content/post-byline.php:20
+#, php-format
+msgctxt "This blog post was published on some date"
+msgid "Published %s"
+msgstr "Publié le %s"
+
+#. translators: %s = the author who published the post
+#: content/post-byline.php:23
+#, php-format
+msgctxt "This blog post was published by some author"
+msgid "Published by %s"
+msgstr "Publié par %s"
+
+#. translators: %1$s = the date the post was published. %2$s = the author who published it
+#: content/post-byline.php:26
+#, php-format
+msgctxt "This blog post was published on some date by some author"
+msgid "Published %1$s by %2$s"
+msgstr "Publié %1$s par %2$s"
+
+#: content/post-categories.php:10
+msgctxt "PUBLISHED IN post category"
+msgid "Published in"
+msgstr "Publié dans"
+
+#: content/post-categories.php:14
+msgctxt "category AND category"
+msgid "and"
+msgstr "et"
+
+#. translators: %s = the name of the post category
+#: content/post-categories.php:17
+#, php-format
+msgctxt "View all posts in post category"
+msgid "View all posts in %s"
+msgstr "Voir tous les articles dans %s"
+
 #. translators: %s = the name of the post tag
 #: content/post-tags.php:11
+#, php-format
 msgid "View all posts tagged %s"
 msgstr "Voir les articles marqués %s"
-
-#: content-page.php:11 content.php:16 templates/full-width.php:21
-msgid "Pages:"
-msgstr "Pages :"
-
-#: content-slide.php:22 inc/customizer.php:278
-msgid "Read more"
-msgstr "Lire la suite"
 
 # Merci de ne pas utiliser mon nom et prénom.
 #. translators: %1$s = URL to the theme's page. %2$s = theme name
 #: footer.php:25
+#, php-format
 msgid "<a href=\"%1$s\">%2$s</a> by Compete Themes."
-msgstr ""
-"Liens personnels : <a href=\"https://www.cinemasgaumontpathe.com/\">Cinéma "
-"Gaumont Pathé</a>.\n"
-"<a href=\"https://cineday.orange.fr/\">Le cinéma avec Orange</a>.\n"
-"<a href=\"https://mytf1vod.tf1.fr/\">MyTF1 VOD</a>.\n"
-"<br/>Liens web : <a href=\"http://www.baz-art.org/\">Baz'art</a>. \n"
-"<a href=\"https://www.filmotv.fr/\">Filmo TV</a>. \n"
-"<a href=\"https://www.leblogducinema.com/\">Le Blog du Cinéma</a>. \n"
-"<a href=\"https://www.silence-action.com/\">Silence... Action !</a>.\n"
-"<a href=\"https://www.universcine.com/\">UniversCiné</a>.\n"
-"<br/>Crédits : <a href=\"https://www.mycinetheque.fr/\">myCinéthèque</a> par "
-"Guillaume Blet et <a href=\"%1$s\">%2$s</a> par Compete Themes."
+msgstr "<a href=\"%1$s\">%2$s</a> par Compete Themes."
 
 #: functions.php:15
 msgid ""
@@ -110,57 +155,58 @@ msgstr "Primaire"
 msgid "Secondary"
 msgstr "Secondaire"
 
-#: functions.php:86
+#: functions.php:89
 msgid "Primary Sidebar"
 msgstr "Barre latérale principale"
 
-#: functions.php:88
+#: functions.php:91
 msgid ""
 "Widgets in this area will be shown in the sidebar next to the main content."
 msgstr ""
 "Les widgets dans cette zone seront affichés dans la barre latérale à côté du "
 "contenu principal."
 
-#: functions.php:95
+#: functions.php:98
 msgid "After Post Content"
 msgstr "Après le contenu de l’article"
 
-#: functions.php:97
+#: functions.php:100
 msgid "Widgets in this area will be shown on posts after the content."
 msgstr ""
 "Les widgets dans cette zone seront affichés sur les articles après le "
 "contenu."
 
-#: functions.php:104
+#: functions.php:107
 msgid "After Page Content"
 msgstr "Après le contenu de la page"
 
-#: functions.php:106
+#: functions.php:109
 msgid "Widgets in this area will be shown on pages after the content."
 msgstr ""
 "Les widgets dans cette zone seront affichés sur les pages après le contenu."
 
-#: functions.php:113
+#: functions.php:116
 msgid "Footer"
 msgstr "Pied de page"
 
-#: functions.php:115
+#: functions.php:118
 msgid "Widgets in this area will be shown in the footer."
 msgstr "Les widgets dans cette zone seront affichés dans le pied de page."
 
-#: functions.php:224
+#: functions.php:232
 msgid "Featured"
 msgstr "Mis en avant"
 
-#: functions.php:306
+#: functions.php:316
 msgid "Customizer settings deleted."
 msgstr "Réglage personnalisé supprimé."
 
-#: functions.php:312
+#: functions.php:322
+#, php-format
 msgid "%s successfully activated!"
 msgstr "%s a été activé avec succès !"
 
-#: functions.php:732
+#: functions.php:742
 msgid "(title)"
 msgstr "(titre)"
 
@@ -214,12 +260,20 @@ msgstr "Page d’accueil"
 
 #. translators: %1$s = link to theme page. %2$s = theme name
 #: inc/customizer.php:36
+#, php-format
 msgid ""
 "<a target=\"_blank\" href=\"%1$s\">%2$s Pro</a> makes advanced customization "
 "simple - and fun too!"
 msgstr ""
 "<a target=\"_blank\" href=\"%1$s\">%2$s</a> (version payante) simplifie la "
 "personnalisation avancée !"
+
+#. translators: %s = theme name
+#: inc/customizer.php:38
+#, php-format
+msgctxt "Startup Blog Pro adds the following features:"
+msgid "%s Pro adds the following features:"
+msgstr "%s (version payante) ajoute les fonctionnalités suivantes :"
 
 #: inc/customizer.php:40
 msgid "6 new layouts"
@@ -236,6 +290,13 @@ msgstr "61 contrôles de couleur avancés"
 #: inc/customizer.php:43
 msgid "+ 5 more features"
 msgstr "5 autres fonctionnalités"
+
+#. translators: %s = theme name
+#: inc/customizer.php:46
+#, php-format
+msgctxt "View Startup Blog Pro"
+msgid "View %s Pro"
+msgstr "Visualiser %s"
 
 #: inc/customizer.php:84
 msgid "Add a Page"
@@ -268,6 +329,7 @@ msgstr ""
 
 #. translators: %s = theme name
 #: inc/customizer.php:127
+#, php-format
 msgid "%s Pro"
 msgstr "%s (version payante)"
 
@@ -293,7 +355,7 @@ msgstr "Nombre d'articles dans le carrousel d'images de l'en-tête"
 
 #: inc/customizer.php:184
 msgid "All"
-msgstr "Tout"
+msgstr "Toutes"
 
 #: inc/customizer.php:190
 msgid "Post category"
@@ -483,6 +545,7 @@ msgstr "OK.ru"
 
 #. translators: %s = link to article
 #: inc/customizer.php:483
+#, php-format
 msgid ""
 "Accepts Skype link protocol (<a href=\"%s\" target=\"_blank\">learn more</a>)"
 msgstr ""
@@ -608,6 +671,7 @@ msgstr "Gestion de réseaux"
 
 #. translators: %1$s = number of results. %2$s = search query
 #: search.php:9
+#, php-format
 msgid "%1$s search result for %2$s"
 msgid_plural "%1$s search results for %2$s"
 msgstr[0] "%1$s résultat pour %2$s"
@@ -615,6 +679,7 @@ msgstr[1] "%1$s résultats pour %2$s"
 
 #. translators: %s = search query
 #: search.php:12
+#, php-format
 msgid "No search results for \"%s\""
 msgstr "Aucun résultat de recherche pour : « %s »"
 
@@ -625,6 +690,7 @@ msgstr ""
 
 #. translators: %s = theme name
 #: theme-options.php:11 theme-options.php:35
+#, php-format
 msgid "%s Dashboard"
 msgstr "%s"
 
@@ -634,6 +700,7 @@ msgstr "Démarrer"
 
 #. translators: %s = theme name
 #: theme-options.php:45
+#, php-format
 msgid ""
 "Not sure where to start? The <strong>%1$s Getting Started Guide</strong> "
 "will take you step-by-step through every feature in  %1$s."
@@ -647,6 +714,7 @@ msgstr "Startup Blog"
 
 #. translators: %s = theme name
 #: theme-options.php:59
+#, php-format
 msgid ""
 "Download the %s Pro plugin and unlock six new layouts, four post templates, "
 "advanced color controls, and more."
@@ -664,6 +732,7 @@ msgstr "Laisser un commentaire"
 
 #. translators: %s = theme name
 #: theme-options.php:73
+#, php-format
 msgid "Help others find %s by leaving a review on wordpress.org."
 msgstr ""
 "Aider les autres à trouver %s en laissant un commentaire sur wordpress.org."
@@ -673,6 +742,7 @@ msgid "Turn Startup Blog into a Mobile App"
 msgstr "Transformer Startup Blog en une application mobile"
 
 #: theme-options.php:81
+#, php-format
 msgid ""
 "%s can be converted into a mobile app and listed on the App Store and Google "
 "Play Store with the help of PressPad News. Read our tutorial to learn more."
@@ -691,6 +761,7 @@ msgstr "Réinitialisation des paramètres"
 
 #. translators: %1$s = URL to theme page. %2$s = theme name
 #: theme-options.php:89
+#, php-format
 msgid ""
 "<strong>Warning:</strong> Clicking this button will erase the %2$s theme's "
 "current settings in the <a href=\"%1$s\">Customizer</a>."
@@ -698,6 +769,14 @@ msgstr ""
 "<strong>Avertissement :</strong> en cliquant sur ce bouton, vous effacerez "
 "les paramètres actuels du thème %2$s dans le <a href=\"%1$s\">tableau de "
 "bord</a> de WordPress."
+
+#. Theme Name of the plugin/theme
+msgid "Startup Blog"
+msgstr "Startup Blog"
+
+#. Theme URI of the plugin/theme
+msgid "https://www.competethemes.com/startup-blog/"
+msgstr "https://www.competethemes.com/startup-blog/"
 
 #. Description of the plugin/theme
 msgid ""
@@ -734,89 +813,16 @@ msgstr ""
 "competethemes.com/demos/?theme=Startup%20Blog\" target=\"_blank\">https://"
 "www.competethemes.com/demos/?theme=Startup%20Blog</a>"
 
-#. Template Name of the plugin/theme
-msgid "Full-width"
-msgstr "Toute la largeur"
+#. Author of the plugin/theme
+msgid "Compete Themes"
+msgstr "Compete Themes"
 
-#: content/archive-header.php:8
-msgctxt "Posts published in CATEGORY"
-msgid "Posts published in"
-msgstr "Articles publiés dans"
+#. Author URI of the plugin/theme
+msgid "https://www.competethemes.com/"
+msgstr "https://www.competethemes.com/"
 
-#: content/archive-header.php:15
-msgctxt "Posts published by AUTHOR"
-msgid "Posts published by"
-msgstr "Articles publiés par"
-
-#: content/archive-header.php:19
-msgctxt "Posts published in MONTH"
-msgid "Posts published in"
-msgstr "Articles publiés dans"
-
-#. translators: %s = the date the post was published
-#: content/post-byline.php:20
-msgctxt "This blog post was published on some date"
-msgid "Published %s"
-msgstr "Publié le %s"
-
-#. translators: %s = the author who published the post
-#: content/post-byline.php:23
-msgctxt "This blog post was published by some author"
-msgid "Published by %s"
-msgstr "Publié par %s"
-
-#. translators: %1$s = the date the post was published. %2$s = the author who
-#. published it
-#: content/post-byline.php:26
-msgctxt "This blog post was published on some date by some author"
-msgid "Published %1$s by %2$s"
-msgstr "Publié %1$s par %2$s"
-
-#: content/post-categories.php:10
-msgctxt "PUBLISHED IN post category"
-msgid "Published in"
-msgstr "Publié dans"
-
-#: content/post-categories.php:14
-msgctxt "category AND category"
-msgid "and"
-msgstr "et"
-
-#. translators: %s = the name of the post category
-#: content/post-categories.php:17
-msgctxt "View all posts in post category"
-msgid "View all posts in %s"
-msgstr "Voir tous les articles dans %s"
-
-#. translators: %s = theme name
-#: inc/customizer.php:38
-msgctxt "Startup Blog Pro adds the following features:"
-msgid "%s Pro adds the following features:"
-msgstr "%s (version payante) ajoute les fonctionnalités suivantes :"
-
-#. translators: %s = theme name
-#: inc/customizer.php:46
-msgctxt "View Startup Blog Pro"
-msgid "View %s Pro"
-msgstr "Visualiser %s"
-
-#~ msgid "Header"
-#~ msgstr "Haaaader"
-
-#~ msgid "Top"
-#~ msgstr "Toooop"
-
-#~ msgid "Startup Blog"
-#~ msgstr "Startup Blog"
-
-#~ msgid "https://www.competethemes.com/startup-blog/"
-#~ msgstr "https://www.competethemes.com/startup-blog/"
-
-#~ msgid "Compete Themes"
-#~ msgstr "Compete Themes"
-
-#~ msgid "https://www.competethemes.com/"
-#~ msgstr "https://www.competethemes.com/"
+#~ msgid "Full-width"
+#~ msgstr "Toute la largeur"
 
 #~ msgid ""
 #~ "Unable to connect to the filesystem. Please confirm your credentials."

@@ -101,7 +101,7 @@ jQuery(document).ready(function($){
     });
 
     objectFitAdjustment();
-    $(window).resize(function(){
+    $(window).on('resize', function(){
         objectFitAdjustment();
     });
     // Jetpack infinite scroll event that reloads posts.

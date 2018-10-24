@@ -102,6 +102,10 @@ jQuery(document).ready(function($){
 
     $('.slide-nav').on('click', function(e) {
         e.preventDefault();
+        
+        // Don't do anything if there's only one slide
+        if ( slider.find('.slide').length == 1 ) { return; }
+        
         var current = slider.find('.current');
         current.removeClass('current');
         var currentDot = $('#dot-navigation').children('.current');

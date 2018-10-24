@@ -274,6 +274,22 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 		)
 	) );
 	// setting
+	$wp_customize->add_setting( 'slider_button_display', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_startup_blog_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'slider_button_display', array(
+		'label'    => __( 'Display button?', 'startup-blog' ),
+		'section'  => 'startup_blog_slider_settings',
+		'settings' => 'slider_button_display',
+		'type'     => 'radio',
+		'choices' => array(
+			'yes' => __( 'Yes', 'startup-blog' ),
+			'no'  => __( 'No', 'startup-blog' )
+		)
+	) );
+	// setting
 	$wp_customize->add_setting( 'slider_button_text', array(
 		'default'           => __( 'Read more', 'startup-blog'),
 		'sanitize_callback' => 'ct_startup_blog_sanitize_text'

@@ -47,6 +47,7 @@ if ( ! function_exists( 'ct_startup_blog_social_array' ) ) {
 			'snapchat'      => 'startup_blog_snapchat_profile',
 			'soundcloud'    => 'startup_blog_soundcloud_profile',
 			'spotify'       => 'startup_blog_spotify_profile',
+			'stack-overflow' => 'startup_blog_stack_overflow_profile',
 			'steam'         => 'startup_blog_steam_profile',
 			'stumbleupon'   => 'startup_blog_stumbleupon_profile',
 			'telegram'      => 'startup_blog_telegram_profile',

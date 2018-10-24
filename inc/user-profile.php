@@ -57,6 +57,8 @@ if ( ! function_exists( ( 'startup_blog_add_social_profile_settings' ) ) ) {
 					$label = __('Google Wallet', 'startup-blog');
 				} elseif ( $key == 'ok-ru' ) {
 					$label = __('OK.ru', 'startup-blog');
+				} elseif ( $key == 'stack-overflow' ) {
+					$label = __('Stack Overflow', 'startup-blog');
 				}
 				?>
 				<tr>

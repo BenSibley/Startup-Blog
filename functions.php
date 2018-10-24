@@ -64,7 +64,12 @@ if ( ! function_exists( ( 'ct_startup_blog_theme_setup' ) ) ) {
 		// TRT Note: this is added so users can customize the excerpt if they add pages to the slider
 		add_post_type_support( 'page', array('excerpt', 'custom-fields') );
 		
+		// WooCommerce support
 		add_theme_support( 'woocommerce' );
+		// Support WooCommerce image gallery features 
+		add_theme_support( 'wc-product-gallery-zoom' ); 
+		add_theme_support( 'wc-product-gallery-lightbox' ); 
+		add_theme_support( 'wc-product-gallery-slider' );
 
 		register_nav_menus( array(
 			'primary'   => esc_html__( 'Primary', 'startup-blog' ),

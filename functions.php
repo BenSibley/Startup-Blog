@@ -4,9 +4,16 @@
 //	Include all required files
 //----------------------------------------------------------------------------------
 require_once( trailingslashit( get_template_directory() ) . 'theme-options.php' );
-foreach ( glob( trailingslashit( get_template_directory() ) . 'inc/*.php' ) as $filename ) {
-	include $filename;
-}
+require_once( trailingslashit( get_template_directory() ) . 'inc/comments.php' );
+require_once( trailingslashit( get_template_directory() ) . 'inc/customizer.php' );
+require_once( trailingslashit( get_template_directory() ) . 'inc/review.php' );
+require_once( trailingslashit( get_template_directory() ) . 'inc/scripts.php' );
+require_once( trailingslashit( get_template_directory() ) . 'inc/social-icons.php' );
+require_once( trailingslashit( get_template_directory() ) . 'inc/user-profile.php' );
+
+//----------------------------------------------------------------------------------
+//	Include review request
+//----------------------------------------------------------------------------------
 require_once( trailingslashit( get_template_directory() ) . 'dnh/handler.php' );
 new WP_Review_Me( array(
 		'days_after' => 14,

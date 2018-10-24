@@ -11,7 +11,7 @@ if ( !comments_open() ) {
 <span class="<?php echo esc_attr( $classes ); ?>">
 	<?php
 	echo '<a href="' . esc_url( get_comments_link() ) . '">';
-		echo '<i class="fa ' . esc_attr( $icon ) . '" title="' . esc_attr__( "comment icon", "startup-blog" ) . '"></i>';
+		echo '<i class="fas ' . esc_attr( $icon ) . '" title="' . esc_attr__( "comment icon", "startup-blog" ) . '"></i>';
 		echo '<span>';
 			comments_number( 0, 1, '%' );
 		echo '</span>';

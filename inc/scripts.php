@@ -20,7 +20,7 @@ if ( ! function_exists( ( 'ct_startup_blog_load_scripts_styles' ) ) ) {
 			'autoRotateSlider' => get_theme_mod( 'slider_auto_rotate' ),
 			'sliderTime'       => get_theme_mod( 'slider_time' )
 		) );
-		wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/font-awesome/css/font-awesome.min.css' );
+		wp_enqueue_style( 'ct-startup-blog-font-awesome', get_template_directory_uri() . '/assets/font-awesome/css/all.min.css' );
 		wp_enqueue_style( 'ct-startup-blog-style', get_stylesheet_uri() );
 
 		// enqueue comment-reply script only on posts & pages with comments open ( included in WP core )

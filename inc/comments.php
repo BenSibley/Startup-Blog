@@ -23,11 +23,11 @@ if ( ! function_exists( ( 'ct_startup_blog_customize_comments' ) ) ) {
 				<?php comment_reply_link( array_merge( $args, array(
 					'depth'     => $depth,
 					'max_depth' => $args['max_depth'],
-					'before'    => '<i class="fa fa-reply" aria-hidden="true"></i>'
+					'before'    => '<i class="fas fa-reply" aria-hidden="true"></i>'
 				) ) ); ?>
 				<?php edit_comment_link(
 					esc_html__( 'Edit', 'startup-blog' ),
-					'<i class="fa fa-pencil" aria-hidden="true"></i>'
+					'<i class="fas fa-edit" aria-hidden="true"></i>'
 				); ?>
 			</div>
 		</article>

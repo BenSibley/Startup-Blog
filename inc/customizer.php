@@ -97,7 +97,7 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 			$excerpt_box    = trailingslashit( get_template_directory_uri() ) . 'assets/images/excerpt-box.png';
 			echo '<hr>';
 			echo '<p>';
-				echo __( 'Add a <a href="#" class="featured-image-link"><i class="fa fa-search-plus"></i> Featured Image</a> to any post/page to display a background image in the slider. Use the <a href="#" class="excerpt-box-link"><i class="fa fa-search-plus"></i> Excerpt box</a> to craft a custom excerpt for any slide.', 'startup-blog' );
+				echo __( 'Add a <a href="#" class="featured-image-link"><i class="fas fa-search-plus"></i> Featured Image</a> to any post/page to display a background image in the slider. Use the <a href="#" class="excerpt-box-link"><i class="fas fa-search-plus"></i> Excerpt box</a> to craft a custom excerpt for any slide.', 'startup-blog' );
 				echo '<img class="featured-image" src="'. esc_url( $featured_image ) .'" />';
 				echo '<img class="excerpt-box" src="'. esc_url( $excerpt_box ) .'" />';
 			echo '</p>';
@@ -708,31 +708,31 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 		'settings' => 'excerpt_length',
 		'type'     => 'number'
 	) );
-}
 
-//----------------------------------------------------------------------------------
-// Section: Scroll-to-top Arrow
-//----------------------------------------------------------------------------------
-$wp_customize->add_section( 'ct_startup_blog_scroll_to_stop', array(
-	'title'    => __( 'Scroll-to-Top Arrow', 'startup-blog' ),
-	'priority' => 55
-) );
-// setting - scroll-to-top arrow
-$wp_customize->add_setting( 'scroll_to_top', array(
-	'default'           => 'no',
-	'sanitize_callback' => 'ct_startup_blog_sanitize_yes_no_settings'
-) );
-// control - scroll-to-top arrow
-$wp_customize->add_control( 'scroll_to_top', array(
-	'label'    => __( 'Display Scroll-to-top arrow?', 'startup-blog' ),
-	'section'  => 'ct_startup_blog_scroll_to_stop',
-	'settings' => 'scroll_to_top',
-	'type'     => 'radio',
-	'choices'  => array(
-		'yes' => __( 'Yes', 'startup-blog' ),
-		'no'  => __( 'No', 'startup-blog' )
-	)
-) );
+	//----------------------------------------------------------------------------------
+	// Section: Scroll-to-top Arrow
+	//----------------------------------------------------------------------------------
+	$wp_customize->add_section( 'startup_blog_scroll_to_top', array(
+		'title'    => __( 'Scroll-to-Top Arrow', 'startup-blog' ),
+		'priority' => 55
+	) );
+	// setting - scroll-to-top arrow
+	$wp_customize->add_setting( 'scroll_to_top', array(
+		'default'           => 'no',
+		'sanitize_callback' => 'ct_startup_blog_sanitize_yes_no_settings'
+	) );
+	// control - scroll-to-top arrow
+	$wp_customize->add_control( 'scroll_to_top', array(
+		'label'    => __( 'Display Scroll-to-top arrow?', 'startup-blog' ),
+		'section'  => 'startup_blog_scroll_to_top',
+		'settings' => 'scroll_to_top',
+		'type'     => 'radio',
+		'choices'  => array(
+			'yes' => __( 'Yes', 'startup-blog' ),
+			'no'  => __( 'No', 'startup-blog' )
+		)
+	) );
+}
 
 //----------------------------------------------------------------------------------
 // Sanitize email.

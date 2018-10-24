@@ -716,8 +716,8 @@ if ( ! function_exists( 'ct_startup_blog_slider' ) ) {
 			echo '</ul>';
 			if ( $display_arrows != 'no' ) {
 				echo '<div class="arrow-navigation">';
-					echo '<a id="bb-slider-left" class="left slide-nav" href="#"><i class="fa fa-angle-left"></i></a>';
-					echo '<a id="bb-slider-right" class="right slide-nav" href="#"><i class="fa fa-angle-right"></i></a>';
+					echo '<a id="bb-slider-left" class="left slide-nav" href="#"><i class="fas fa-angle-left"></i></a>';
+					echo '<a id="bb-slider-right" class="right slide-nav" href="#"><i class="fas fa-angle-right"></i></a>';
 				echo '</div>';
 			}
 			if ( $display_dots != 'no' ) {
@@ -765,7 +765,7 @@ function ct_startup_blog_scroll_to_top_arrow() {
 	$setting = get_theme_mod('scroll_to_top');
 	
 	if ( $setting == 'yes' ) {
-		echo '<button id="scroll-to-top" class="scroll-to-top"><span class="screen-reader-text">'. esc_html__('Scroll to the top', 'startup-blog') .'</span><i class="fa fa-arrow-up"></i></button>';
+		echo '<button id="scroll-to-top" class="scroll-to-top"><span class="screen-reader-text">'. esc_html__('Scroll to the top', 'startup-blog') .'</span><i class="fas fa-arrow-up"></i></button>';
 	}
 }
 add_action( 'startup_blog_body_bottom', 'ct_startup_blog_scroll_to_top_arrow');

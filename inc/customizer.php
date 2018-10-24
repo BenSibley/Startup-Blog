@@ -695,6 +695,30 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 }
 
 //----------------------------------------------------------------------------------
+// Section: Scroll-to-top Arrow
+//----------------------------------------------------------------------------------
+$wp_customize->add_section( 'ct_startup_blog_scroll_to_stop', array(
+	'title'    => __( 'Scroll-to-Top Arrow', 'startup-blog' ),
+	'priority' => 55
+) );
+// setting - scroll-to-top arrow
+$wp_customize->add_setting( 'scroll_to_top', array(
+	'default'           => 'no',
+	'sanitize_callback' => 'ct_startup_blog_sanitize_yes_no_settings'
+) );
+// control - scroll-to-top arrow
+$wp_customize->add_control( 'scroll_to_top', array(
+	'label'    => __( 'Display Scroll-to-top arrow?', 'startup-blog' ),
+	'section'  => 'ct_startup_blog_scroll_to_stop',
+	'settings' => 'scroll_to_top',
+	'type'     => 'radio',
+	'choices'  => array(
+		'yes' => __( 'Yes', 'startup-blog' ),
+		'no'  => __( 'No', 'startup-blog' )
+	)
+) );
+
+//----------------------------------------------------------------------------------
 // Sanitize email.
 //----------------------------------------------------------------------------------
 function ct_startup_blog_sanitize_email( $input ) {

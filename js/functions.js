@@ -102,7 +102,7 @@ jQuery(document).ready(function($){
 
     $('.slide-nav').on('click', function(e) {
         e.preventDefault();
-        
+
         // Don't do anything if there's only one slide
         if ( slider.find('.slide').length == 1 ) { return; }
         
@@ -210,6 +210,23 @@ jQuery(document).ready(function($){
                 }
             });
         }
+    }
+    
+    // ===== Scroll to Top ==== //
+
+    if ( $('#scroll-to-top').length !== 0 ) {
+        $(window).on( 'scroll', function() {
+            if ($(this).scrollTop() >= 200) {        // If page is scrolled more than 50px
+                $('#scroll-to-top').addClass('visible');    // Fade in the arrow
+            } else {
+                $('#scroll-to-top').removeClass('visible');   // Else fade out the arrow
+            }
+        });
+        $('#scroll-to-top').click(function(e) {      // When arrow is clicked
+            $('body,html').animate({
+                scrollTop : 0                       // Scroll to top of body
+            }, 600);
+        });
     }
 });
 

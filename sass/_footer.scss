@@ -42,6 +42,36 @@
     }
   }
 }
+.scroll-to-top {
+  @extend %box-shadow;
+  position: fixed;
+  bottom: -45px;
+  right: 0;
+  z-index: 9;
+  background: #fff;
+  border: none;
+  color: $color-gray-20;
+  padding: 12px 0;
+  width: 60px;
+  transition: background 0.2s, color 0.2s, transform 0.3s;
+
+  &.visible {
+    transform: translateY(-45px);
+  }
+  &:hover {
+    cursor: pointer;
+    background: $color-blue;
+    color: #fff;
+
+    i {
+      transform: translateY(-4px);
+    }
+  }
+  i {
+    font-size: 21px;
+    transition: transform 0.2s;
+  }
+}
 
 @media all and (min-width: $seven-hundred) {
 

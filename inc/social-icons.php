@@ -25,6 +25,7 @@ if ( ! function_exists( 'ct_startup_blog_social_array' ) ) {
 			'delicious'     => 'startup_blog_delicious_profile',
 			'deviantart'    => 'startup_blog_deviantart_profile',
 			'digg'          => 'startup_blog_digg_profile',
+			'discord'       => 'startup_blog_discord_profile',
 			'dribbble'      => 'startup_blog_dribbble_profile',
 			'etsy'          => 'startup_blog_etsy_profile',
 			'flickr'        => 'startup_blog_flickr_profile',

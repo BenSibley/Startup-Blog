@@ -33,6 +33,7 @@ if ( ! function_exists( 'ct_startup_blog_social_array' ) ) {
 			'github'        => 'startup_blog_github_profile',
 			'google-wallet' => 'startup_blog_google_wallet_profile',
 			'hacker-news'   => 'startup_blog_hacker-news_profile',
+			'medium'        => 'startup_blog_medium_profile',
 			'meetup'        => 'startup_blog_meetup_profile',
 			'mixcloud'      => 'startup_blog_mixcloud_profile',
 			'paypal'        => 'startup_blog_paypal_profile',

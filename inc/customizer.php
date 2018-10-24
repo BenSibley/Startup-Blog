@@ -446,6 +446,18 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 				'section'  => 'ct_startup_blog_social_media_icons',
 				'priority' => $priority
 			) );
+		} else if ( $social_site == 'phone' ) {
+			// setting
+			$wp_customize->add_setting( $social_site, array(
+				'sanitize_callback' => 'ct_startup_blog_sanitize_phone'
+			) );
+			// control
+			$wp_customize->add_control( $social_site, array(
+				'label'    => __( 'Phone', 'startup-blog' ),
+				'section'     => 'ct_startup_blog_social_media_icons',
+				'priority'    => $priority,
+				'type'        => 'text'
+			) );
 		} else {
 
 			$label = ucfirst( $social_site );
@@ -858,4 +870,15 @@ function ct_startup_blog_sanitize_posts_or_pages( $input ) {
 	);
 
 	return array_key_exists( $input, $valid ) ? $input : '';
+}
+
+//----------------------------------------------------------------------------------
+// Sanitize phone social icon
+//----------------------------------------------------------------------------------
+function ct_startup_blog_sanitize_phone( $input ) {
+	if ( $input != '' ) {
+		return esc_url_raw( 'tel:' . $input, array( 'tel' ) );
+	} else {
+		return '';
+	}
 }

@@ -15,8 +15,8 @@ if ( ! function_exists( 'ct_startup_blog_social_array' ) ) {
 			'google-plus'   => 'startup_blog_googleplus_profile',
 			'youtube'       => 'startup_blog_youtube_profile',
 			'email'         => 'startup_blog_email_profile',
+			'phone'         => 'startup_blog_phone_profile',
 			'email-form'    => 'startup_blog_email_form_profile',
-			'500px'         => 'startup_blog_500px_profile',
 			'amazon'        => 'startup_blog_amazon_profile',
 			'bandcamp'      => 'startup_blog_bandcamp_profile',
 			'behance'       => 'startup_blog_behance_profile',
@@ -61,7 +61,8 @@ if ( ! function_exists( 'ct_startup_blog_social_array' ) ) {
 			'whatsapp'      => 'startup_blog_whatsapp_profile',
 			'xing'          => 'startup_blog_xing_profile',
 			'yahoo'         => 'startup_blog_yahoo_profile',
-			'yelp'          => 'startup_blog_yelp_profile'
+			'yelp'          => 'startup_blog_yelp_profile',
+			'500px'         => 'startup_blog_500px_profile'
 		);
 
 		return apply_filters( 'ct_startup_blog_social_array_filter', $social_sites );
@@ -128,6 +129,12 @@ if ( ! function_exists( 'ct_startup_blog_social_icons_output' ) ) {
 					   href="<?php echo esc_url( $url, array( 'http', 'https', 'skype' ) ); ?>">
 						<i class="<?php echo esc_attr( $class ); ?>"
 						   title="<?php echo esc_attr( $active_site ); ?>"></i>
+					</a>
+				<?php } elseif ( $active_site == 'phone' ) { ?>
+					<a class="<?php echo esc_attr( $active_site ); ?>" target="_blank"
+							href="<?php echo esc_url( get_theme_mod( $active_site ), array( 'tel' ) ); ?>">
+						<i class="<?php echo esc_attr( $class ); ?>"></i>
+						<span class="screen-reader-text"><?php echo esc_html( $active_site );  ?></span>
 					</a>
 				<?php } else { ?>
 					<a class="<?php echo esc_attr( $active_site ); ?>" target="_blank"

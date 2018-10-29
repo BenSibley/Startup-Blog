@@ -119,7 +119,7 @@ module.exports = function(grunt) {
                     'rm -R /Users/bensibley/Documents/compete-themes/dist/startup-blog || true',
                     'rm -R /Users/bensibley/Documents/compete-themes/dist/startup-blog.zip || true',
                     // copy folder without any project/meta files
-                    'rsync -r /Applications/MAMP/htdocs/wordpress/wp-content/themes/startup-blog /Users/bensibley/Documents/compete-themes/dist/ <%= excludeFiles %>',
+                    'rsync -r "/Users/bensibley/Local Sites/startup-blog/app/public/wp-content/themes/startup-blog" /Users/bensibley/Documents/compete-themes/dist/ <%= excludeFiles %>',
                     // open dist
                     'cd /Users/bensibley/Documents/compete-themes/dist/',
                     // zip the startup_blog folder

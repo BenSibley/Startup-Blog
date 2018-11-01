@@ -36,6 +36,7 @@ if ( ! function_exists( 'ct_startup_blog_social_array' ) ) {
 			'medium'        => 'startup_blog_medium_profile',
 			'meetup'        => 'startup_blog_meetup_profile',
 			'mixcloud'      => 'startup_blog_mixcloud_profile',
+			'patreon'       => 'startup_blog_patreon_profile',
 			'paypal'        => 'startup_blog_paypal_profile',
 			'podcast'       => 'startup_blog_podcast_profile',
 			'quora'         => 'startup_blog_quora_profile',

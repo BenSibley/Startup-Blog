@@ -995,7 +995,8 @@ a img {
 .pagination .next:after {
   position: relative;
   content: '\f105';
-  font-family: "FontAwesome";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
   top: 6px;
   font-size: 38px;
   line-height: 0;

@@ -18,15 +18,15 @@ function ct_startup_blog_options_content() {
 	?>
 	<div id="startup-blog-dashboard-wrap" class="wrap startup-blog-dashboard-wrap">
 		<h2><?php printf( esc_html__( '%s Dashboard', 'startup-blog' ), wp_get_theme() ); ?></h2>
-		<?php do_action( 'theme_options_before' ); ?>
+		<?php do_action( 'ct_startup_blog_theme_options_before' ); ?>
 		<div class="main">
-			<?php if ( function_exists( 'ct_startup_blog_pro_init' ) ) : ?>
+			<?php if ( defined( 'STARTUP_BLOG_PRO_FILE' ) ) : ?>
 			<div class="thanks-upgrading" style="background-image: url(<?php echo trailingslashit(get_template_directory_uri()) . 'assets/images/bg-texture.png'; ?>)">
 				<h3>Thanks for upgrading!</h3>
 				<p>You can find the new features in the Customizer</p>
 			</div>
 			<?php endif; ?>
-			<?php if ( !function_exists( 'ct_startup_blog_pro_init' ) ) : ?>
+			<?php if ( !defined( 'STARTUP_BLOG_PRO_FILE' ) ) : ?>
 			<div class="getting-started">
 				<h3>Get Started with Startup Blog</h3>
 				<p>Follow this step-by-step guide to customize your website with Startup Blog:</p>
@@ -156,6 +156,6 @@ function ct_startup_blog_options_content() {
 				</form>
 			</div>
 		</div>
-		<?php do_action( 'theme_options_after' ); ?>
+		<?php do_action( 'ct_startup_blog_theme_options_after' ); ?>
 	</div>
 <?php }

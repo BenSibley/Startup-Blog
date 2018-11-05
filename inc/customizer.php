@@ -26,28 +26,6 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
 	//----------------------------------------------------------------------------------
-	// Custom control for Startup Blog Pro advertisement
-	//----------------------------------------------------------------------------------
-	class ct_startup_blog_pro_ad extends WP_Customize_Control {
-		public function render_content() {
-			$link = 'https://www.competethemes.com/startup-blog-pro/';
-			echo "<a href='" . $link . "' target='_blank'><img src='" . get_template_directory_uri() . "/assets/images/startup-blog-pro.gif' /></a>";
-			// translators: %1$s = link to theme page. %2$s = theme name
-			echo "<p class='bold'>" . sprintf( __('<a target="_blank" href="%1$s">%2$s Pro</a> makes advanced customization simple - and fun too!', 'startup-blog'), $link, esc_attr( wp_get_theme( get_template() ) ) ) . "</p>";
-			// translators: %s = theme name
-			echo "<p>" . sprintf( esc_html_x('%s Pro adds the following features:', 'Startup Blog Pro adds the following features:', 'startup-blog'), esc_attr( wp_get_theme( get_template() ) ) ) . "</p>";
-			echo "<ul>
-					<li>" . esc_html__('6 new layouts', 'startup-blog') . "</li>
-					<li>" . esc_html__('4 post templates', 'startup-blog') . "</li>
-					<li>" . esc_html__('61 advanced color controls', 'startup-blog') . "</li>
-					<li>" . esc_html__('+ 5 more features', 'startup-blog') . "</li>
-				  </ul>";
-			// translators: %s = theme name
-			echo "<p class='button-wrapper'><a target=\"_blank\" class='startup-blog-pro-button' href='" . $link . "'>" . sprintf( esc_html_x('View %s Pro', 'View Startup Blog Pro', 'startup-blog'), esc_attr( wp_get_theme( get_template() ) ) ) . "</a></p>";
-		}
-	}
-
-	//----------------------------------------------------------------------------------
 	// Repeater control for users to add pages to the slider
 	//----------------------------------------------------------------------------------
 	class ct_startup_blog_repeater_control extends WP_Customize_Control {
@@ -113,30 +91,6 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 			'priority'    => 20,
 			'title'       => __( 'Slider', 'startup-blog' ),
 			'description' => __( 'Use these settings to add a slider to the header.', 'startup-blog' )
-		) );
-	}
-
-	//----------------------------------------------------------------------------------
-	// Section: Startup Blog Pro
-	//----------------------------------------------------------------------------------
-	// don't add if Startup Blog Pro is active
-	if ( !defined( 'STARTUP_BLOG_PRO_FILE' ) ) {
-		// section
-		$wp_customize->add_section( 'ct_startup_blog_pro', array(
-			// translators: %s = theme name
-			'title'    => sprintf( __( '%s Pro', 'startup-blog' ), esc_attr( wp_get_theme( get_template() ) ) ),
-			'priority' => 1
-		) );
-		// setting
-		$wp_customize->add_setting( 'startup_blog_pro', array(
-			'sanitize_callback' => 'absint'
-		) );
-		// control
-		$wp_customize->add_control( new ct_startup_blog_pro_ad(
-			$wp_customize, 'startup_blog_pro', array(
-				'section'  => 'ct_startup_blog_pro',
-				'settings' => 'startup_blog_pro'
-			)
 		) );
 	}
 
@@ -884,3 +838,12 @@ function ct_startup_blog_sanitize_phone( $input ) {
 		return '';
 	}
 }
+
+function ct_startup_blog_customize_preview_js() {
+	if ( !defined( 'STARTUP_BLOG_PRO_FILE' ) ) {
+		$url = 'https://www.competethemes.com/startup-blog-pro/?utm_source=wp-dashboard&utm_medium=Customizer&utm_campaign=Startup%20Blog%20Pro%20-%20Customizer';
+		$content = "<script>jQuery('#customize-info').prepend('<div class=\"upgrades-ad\"><a href=\"". $url ."\" target=\"_blank\">Get New Layouts with Startup Blog Pro <span>&rarr;</span></a></div>')</script>";
+		echo apply_filters('ct_startup_blog_customizer_ad', $content);
+	}
+}
+add_action('customize_controls_print_footer_scripts', 'ct_startup_blog_customize_preview_js');

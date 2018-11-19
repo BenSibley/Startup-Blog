@@ -78,8 +78,7 @@ if ( ! function_exists( ( 'ct_startup_blog_theme_setup' ) ) ) {
 		add_theme_support( 'wc-product-gallery-lightbox' ); 
 		add_theme_support( 'wc-product-gallery-slider' );
 
-		// Gutenberg - wide & full images
-		add_theme_support( 'align-wide' );
+		// Gutenberg - full images
 		add_theme_support( 'align-full' );
 
 		// Gutenberg - add support for editor styles

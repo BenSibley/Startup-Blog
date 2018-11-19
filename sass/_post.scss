@@ -282,6 +282,26 @@
   }
 }
 
+// New Gutenberg blocks
+.wp-block-image.alignfull,
+.wp-block-cover {
+  position: relative;
+  left: -7.1%;
+  width: 114.2%;
+  max-width: none;
+}
+.wp-block-quote.is-large {
+  padding-left: 0;
+  border-left: none;
+  margin: $baseline-height;
+}
+.wp-block-embed {
+  margin: $baseline-height 0;
+}
+.wp-block-code code {
+  background: none;
+}
+
 @media all and (min-width: $six-hundred) {
 
   .post-author {
@@ -340,5 +360,15 @@
   }
   .attachment .post-content {
     padding: 0 $column * 2.118 $baseline-height;
+  }
+}
+
+@media all and (min-width: $eleven-hundred) {
+
+  // New Gutenberg blocks
+  .wp-block-image.alignfull,
+  .wp-block-cover {
+    left: -6.6%;
+    width: 113.2%;
   }
 }

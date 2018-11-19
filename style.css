@@ -1805,6 +1805,28 @@ a img {
   left: auto;
 }
 
+.wp-block-image.alignfull,
+.wp-block-cover {
+  position: relative;
+  left: -7.1%;
+  width: 114.2%;
+  max-width: none;
+}
+
+.wp-block-quote.is-large {
+  padding-left: 0;
+  border-left: none;
+  margin: 1.5em;
+}
+
+.wp-block-embed {
+  margin: 1.5em 0;
+}
+
+.wp-block-code code {
+  background: none;
+}
+
 @media all and (min-width: 37.5em) {
   .post-author .avatar {
     width: 65px;
@@ -1862,6 +1884,13 @@ a img {
 
   .attachment .post-content {
     padding: 0 5.883804% 1.5em;
+  }
+}
+@media all and (min-width: 68.75em) {
+  .wp-block-image.alignfull,
+  .wp-block-cover {
+    left: -6.6%;
+    width: 113.2%;
   }
 }
 .search-form {

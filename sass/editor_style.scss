@@ -15,3 +15,58 @@ html {
   color: $color-gray-20;
   max-width: 744px;
 }
+
+// Gutenberg
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  background: #fff;
+}
+.wp-block {
+  max-width: 717px;
+}
+.editor-post-title textarea {
+  @extend h1;
+  color: $color-gray-20;
+  outline: none;
+  padding: 19px;
+  font-family: $heading-font-stack;
+}
+.wp-block[data-align="wide"],
+.wp-block[data-align="full"] {
+  max-width: none;
+}
+.wp-block-quote.is-large {
+  padding-left: 0;
+  border-left: none;
+}
+.wp-block-embed {
+  margin: $baseline-height 0;
+}
+.has-small-font-size {
+  font-size: 12px;
+}
+.has-regular-font-size {
+  font-size: 16px;
+}
+.has-large-font-size {
+  font-size: 28px;
+}
+.has-extra-large-font-size {
+  font-size: 38px;
+}
+
+// @media all and (min-width: 600px) {
+
+//   .editor-post-title textarea {
+//     font-size: 1.75em; /* 28px / 16px */
+//     line-height: 1.321;
+//   }
+// }
+// @media all and (min-width: 1200px) {
+
+//   .editor-post-title textarea {
+//     font-size: 2.375em; /* 28px / 16px */
+//     line-height: 1.342;
+//   }
+// }

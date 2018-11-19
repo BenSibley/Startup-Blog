@@ -84,6 +84,34 @@ if ( ! function_exists( ( 'ct_startup_blog_theme_setup' ) ) ) {
 		// Gutenberg - add support for editor styles
 		add_theme_support('editor-styles');
 
+		// Gutenberg - modify the font sizes
+		add_theme_support( 'editor-font-sizes', array(
+			array(
+					'name' => __( 'small', 'startup-blog' ),
+					'shortName' => __( 'S', 'startup-blog' ),
+					'size' => 12,
+					'slug' => 'small'
+			),
+			array(
+					'name' => __( 'regular', 'startup-blog' ),
+					'shortName' => __( 'M', 'startup-blog' ),
+					'size' => 16,
+					'slug' => 'regular'
+			),
+			array(
+					'name' => __( 'large', 'startup-blog' ),
+					'shortName' => __( 'L', 'startup-blog' ),
+					'size' => 28,
+					'slug' => 'large'
+			),
+			array(
+					'name' => __( 'larger', 'startup-blog' ),
+					'shortName' => __( 'XL', 'startup-blog' ),
+					'size' => 38,
+					'slug' => 'larger'
+			)
+		) );
+
 		register_nav_menus( array(
 			'primary'   => esc_html__( 'Primary', 'startup-blog' ),
 			'secondary' => esc_html__( 'Secondary', 'startup-blog' )

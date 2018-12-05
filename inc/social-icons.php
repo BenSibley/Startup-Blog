@@ -31,6 +31,7 @@ if ( ! function_exists( 'ct_startup_blog_social_array' ) ) {
 			'flickr'        => 'startup_blog_flickr_profile',
 			'foursquare'    => 'startup_blog_foursquare_profile',
 			'github'        => 'startup_blog_github_profile',
+			'goodreads'			=> 'startup_blog_goodreads_profile',
 			'google-wallet' => 'startup_blog_google_wallet_profile',
 			'hacker-news'   => 'startup_blog_hacker-news_profile',
 			'medium'        => 'startup_blog_medium_profile',

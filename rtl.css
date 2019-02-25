@@ -1805,6 +1805,10 @@ a img {
   right: auto;
 }
 
+.last-updated {
+  font-style: italic;
+}
+
 .wp-block-image.alignfull,
 .wp-block-cover {
   position: relative;

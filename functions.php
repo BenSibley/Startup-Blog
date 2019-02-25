@@ -333,7 +333,8 @@ if ( ! function_exists( 'ct_startup_blog_reset_customizer_options' ) ) {
 			'author_box',
 			'sidebar',
 			'full_post',
-			'excerpt_length'
+			'excerpt_length',
+			'last_updated'
 		);
 
 		$social_sites = ct_startup_blog_social_array();
@@ -820,3 +821,22 @@ function ct_startup_blog_scroll_to_top_arrow() {
 	}
 }
 add_action( 'startup_blog_body_bottom', 'ct_startup_blog_scroll_to_top_arrow');
+
+//----------------------------------------------------------------------------------
+// Output the "Last Updated" date on posts
+//----------------------------------------------------------------------------------
+function ct_startup_blog_output_last_updated_date() {
+	
+	global $post;
+
+	if ( get_the_modified_date() != get_the_date() ) {
+		$updated_post = get_post_meta( $post->ID, 'ct_startup_blog_last_updated', true );
+		$updated_customizer = get_theme_mod( 'last_updated' );
+		if ( 
+			( $updated_customizer == 'yes' && ($updated_post != 'no') )
+			|| $updated_post == 'yes' 
+			) {
+				echo '<p class="last-updated">'. esc_html__("Last updated on", "startup-blog") . ' ' . get_the_modified_date() . ' </p>';
+			}
+	}
+}

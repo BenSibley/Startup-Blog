@@ -678,6 +678,30 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 	) );
 
 	//----------------------------------------------------------------------------------
+	// Section: Additional Options
+	//----------------------------------------------------------------------------------
+	$wp_customize->add_section( 'ct_startup_blog_additional_options', array(
+		'title'    => __( 'Additional Options', 'startup-blog' ),
+		'priority' => 55
+	) );
+	// setting - last updated
+	$wp_customize->add_setting( 'last_updated', array(
+		'default'           => 'no',
+		'sanitize_callback' => 'ct_startup_blog_sanitize_yes_no_settings'
+	) );
+	// control - last updated
+	$wp_customize->add_control( 'last_updated', array(
+		'label'    => __( 'Display the date each post was last updated?', 'startup_blog' ),
+		'section'  => 'ct_startup_blog_additional_options',
+		'settings' => 'last_updated',
+		'type'     => 'radio',
+		'choices'  => array(
+			'yes' => __( 'Yes', 'startup-blog' ),
+			'no'  => __( 'No', 'startup-blog' )
+		)
+	) );
+
+	//----------------------------------------------------------------------------------
 	// Section: Scroll-to-top Arrow
 	//----------------------------------------------------------------------------------
 	$wp_customize->add_section( 'startup_blog_scroll_to_top', array(

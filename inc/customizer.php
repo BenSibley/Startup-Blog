@@ -691,7 +691,7 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 	) );
 	// control - last updated
 	$wp_customize->add_control( 'last_updated', array(
-		'label'    => __( 'Display the date each post was last updated?', 'startup_blog' ),
+		'label'    => __( 'Display the date each post was last updated?', 'startup-blog' ),
 		'section'  => 'ct_startup_blog_additional_options',
 		'settings' => 'last_updated',
 		'type'     => 'radio',

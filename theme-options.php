@@ -13,13 +13,6 @@ add_action( 'admin_menu', 'ct_startup_blog_register_theme_page' );
 
 function ct_startup_blog_options_content() {
 
-	$customizer_url = add_query_arg(
-		array(
-			'url'    => get_home_url(),
-			'return' => add_query_arg( 'page', 'startup-blog-options', admin_url( 'themes.php' ) )
-		),
-		admin_url( 'customize.php' )
-	);
 	$pro_url = 'https://www.competethemes.com/startup-blog-pro/?utm_source=wp-dashboard&utm_medium=Dashboard&utm_campaign=Startup%20Blog%20Pro%20-%20Dashboard';
 	?>
 	<div id="startup-blog-dashboard-wrap" class="wrap startup-blog-dashboard-wrap">

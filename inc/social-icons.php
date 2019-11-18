@@ -39,6 +39,7 @@ if ( ! function_exists( 'ct_startup_blog_social_array' ) ) {
 			'mixcloud'      => 'startup_blog_mixcloud_profile',
 			'patreon'       => 'startup_blog_patreon_profile',
 			'paypal'        => 'startup_blog_paypal_profile',
+			'pocket'        => 'startup_blog_pocket_profile',
 			'podcast'       => 'startup_blog_podcast_profile',
 			'quora'         => 'startup_blog_quora_profile',
 			'qq'            => 'startup_blog_qq_profile',
@@ -113,6 +114,8 @@ if ( ! function_exists( 'ct_startup_blog_social_icons_output' ) ) {
 					$class = 'fab fa-odnoklassniki';
 				} elseif ( $active_site == 'wechat' ) {
 					$class = 'fab fa-weixin';
+				} elseif ( $active_site == 'pocket' ) {
+					$class = 'fab fa-get-pocket';
 				} elseif ( $active_site == 'phone' ) {
 					$class = 'fas fa-phone';
 				} else {

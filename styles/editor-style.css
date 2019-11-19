@@ -14,11 +14,12 @@
 .size-full figcaption,
 .size-large figcaption,
 .size-medium figcaption,
-.size-thumbnail figcaption, .wp-block-image figcaption, .wp-caption-text {
-  font-size: 0.75em;
-  /* 12px / 16px */
-  line-height: 2;
-  /* 24px */
+.size-thumbnail figcaption, .wp-block-image figcaption, .wp-caption-text,
+.wp-caption-dd {
+  font-size: 0.875em;
+  /* 14px / 16px */
+  line-height: 1.572;
+  /* 22px */
 }
 
 .mce-content-body.wp-editor {
@@ -159,7 +160,6 @@ th {
   height: auto;
   line-height: 0;
   max-width: 100%;
-  max-width: calc(100% - 48px);
 }
 .alignright img,
 .alignleft img,
@@ -232,7 +232,8 @@ img {
   max-width: 100%;
 }
 
-.wp-caption-text {
+.wp-caption-text,
+.wp-caption-dd {
   margin: 3px 0 0 0;
   color: #999999;
 }

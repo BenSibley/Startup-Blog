@@ -18,6 +18,7 @@ if ( ! function_exists( 'ct_startup_blog_social_array' ) ) {
 			'phone'         => 'startup_blog_phone_profile',
 			'email-form'    => 'startup_blog_email_form_profile',
 			'amazon'        => 'startup_blog_amazon_profile',
+			'artstation'    => 'startup_blog_artstation_profile',
 			'bandcamp'      => 'startup_blog_bandcamp_profile',
 			'behance'       => 'startup_blog_behance_profile',
 			'bitbucket'     => 'startup_blog_bitbucket_profile',

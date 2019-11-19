@@ -452,6 +452,8 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 				$label = __('OK.ru', 'startup-blog');
 			} elseif ( $social_site == 'stack-overflow' ) {
 				$label = __('Stack Overflow', 'startup-blog');
+			} elseif ( $social_site == 'artstation' ) {
+				$label = __('ArtStation', 'startup-blog');
 			}
 
 			if ( $social_site == 'skype' ) {

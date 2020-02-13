@@ -26,7 +26,11 @@
         ?>
     </div>
 
-<?php the_posts_pagination();
+<?php the_posts_pagination( array(
+        'mid_size' => 1,
+        'prev_text' => '',
+        'next_text' => ''
+    ) );
 
 // No need to output two search forms if no results
 if ( $total_results ) { ?>

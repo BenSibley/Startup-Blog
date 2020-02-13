@@ -25,7 +25,7 @@ function ct_startup_blog_last_updated_callback( $post ) {
 
   ?>
 	<p>
-		<select name="startup_blog-last-updated" id="startup_blog-last-updated" class="widefat">
+		<select name="startup_blog-last-updated" id="startup_blog-last-updated" style="box-sizing: border-box; width: 100%;">
 			<option value="default"><?php esc_html_e( 'Use Customizer setting', 'startup-blog' ); ?></option>
 			<option value="yes" <?php if ( $display == 'yes' ) {
 				echo 'selected';

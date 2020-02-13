@@ -187,7 +187,10 @@ add_action( 'widgets_init', 'ct_startup_blog_register_widget_areas' );
 //----------------------------------------------------------------------------------
 if ( ! function_exists( 'ct_startup_blog_excerpt' ) ) {
 	function ct_startup_blog_excerpt() {
-		if ( get_theme_mod( 'full_post' ) == 'yes' ) {
+		global $post;
+		$show_full_post = get_theme_mod( 'full_post' );
+		$ismore         = strpos( $post->post_content, '<!--more-->' );
+		if ( $show_full_post === 'yes' || $ismore ) {
 			return wpautop( get_the_content() );
 		} else {
 			return wpautop( get_the_excerpt() );
@@ -223,6 +226,16 @@ if ( ! function_exists( 'ct_startup_blog_excerpt_ellipsis' ) ) {
 	}
 }
 add_filter( 'excerpt_more', 'ct_startup_blog_excerpt_ellipsis', 10 );
+
+//----------------------------------------------------------------------------------
+// Removes the "(more...)" link that will only appear if a more tag is used
+//----------------------------------------------------------------------------------
+if ( ! function_exists( 'ct_startup_blog_remove_read_more_link' ) ) {
+	function ct_startup_blog_remove_read_more_link() {
+		return '';
+	}
+}
+add_filter( 'the_content_more_link', 'ct_startup_blog_remove_read_more_link', 9999 ); // more tags
 
 //----------------------------------------------------------------------------------
 // Don't scroll to text after clicking a "more tag" link

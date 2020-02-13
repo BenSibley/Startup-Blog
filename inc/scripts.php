@@ -6,8 +6,9 @@ if ( ! function_exists( ( 'ct_startup_blog_load_scripts_styles' ) ) ) {
 	function ct_startup_blog_load_scripts_styles() {
 
 		$font_args = array(
-			'family' => urlencode( 'Montserrat:400|Source Sans Pro:400,400i,700' ),
-			'subset' => urlencode( 'latin,latin-ext' )
+			'family' 	=> urlencode( 'Montserrat:400|Source Sans Pro:400,400i,700' ),
+			'subset' 	=> urlencode( 'latin,latin-ext' ),
+			'display' => 'swap'
 		);
 		$fonts_url = add_query_arg( $font_args, '//fonts.googleapis.com/css' );
 		wp_enqueue_style( 'ct-startup-blog-google-fonts', $fonts_url );

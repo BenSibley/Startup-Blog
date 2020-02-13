@@ -18,6 +18,7 @@
   background: #05B0E7;
   -webkit-transition: background 0.2s;
   transition: background 0.2s;
+  font-size: 12px;
 }
 .upgrades-ad a:hover {
   background: #3FBEE8;

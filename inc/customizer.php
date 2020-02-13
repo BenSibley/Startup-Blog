@@ -16,7 +16,6 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 	//----------------------------------------------------------------------------------
 	if ( is_object( $wp_customize->get_section( 'static_front_page' ) ) ) {
 		$wp_customize->get_section( 'static_front_page' )->priority = 3;
-		$wp_customize->get_section( 'static_front_page' )->title    = __( 'Front Page', 'startup-blog' );
 	}
 
 	//----------------------------------------------------------------------------------

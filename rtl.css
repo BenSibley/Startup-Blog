@@ -1917,6 +1917,10 @@ a img {
   background: none;
 }
 
+.wp-block-social-links a {
+  color: #fff;
+}
+
 @media all and (min-width: 37.5em) {
   .post-author .avatar {
     width: 65px;

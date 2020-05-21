@@ -486,6 +486,13 @@ if ( ! function_exists( 'ct_startup_blog_infinite_scroll_render' ) ) {
 if ( ! function_exists( 'ct_startup_blog_get_content_template' ) ) {
 	function ct_startup_blog_get_content_template() {
 
+		// Get bbpress.php for all bbpress pages
+		if ( function_exists( 'is_bbpress' ) ) {
+			if ( is_bbpress() ) {
+				get_template_part( 'content/bbpress' );
+				return;
+			} 
+		}
 		if ( is_home() || is_archive() ) {
 			get_template_part( 'content-archive', get_post_type() );
 		} else {
@@ -873,3 +880,33 @@ if ( !function_exists('ct_startup_blog_header_image_output_position') ) {
 	}	
 }
 add_action( 'wp_head', 'ct_startup_blog_header_image_output_position' );
+
+
+//----------------------------------------------------------------------------------
+// Output standard post pagination
+//----------------------------------------------------------------------------------
+if ( ! function_exists( ( 'ct_startup_blog_pagination' ) ) ) {
+  function ct_startup_blog_pagination() {
+
+    // Never output pagination on bbpress pages
+    if ( function_exists( 'is_bbpress' ) ) {
+      if ( is_bbpress() ) {
+        return;
+      } 
+    }
+    // Output pagination if Jetpack not installed, otherwise check if infinite scroll is active before outputting
+    if ( !class_exists( 'Jetpack' ) ) {
+      the_posts_pagination( array(
+        'mid_size' => 1,
+				'prev_text' => '',
+				'next_text' => ''
+      ) );
+    } elseif ( !Jetpack::is_module_active( 'infinite-scroll' ) ) {
+      the_posts_pagination( array(
+        'mid_size' => 1,
+				'prev_text' => '',
+				'next_text' => ''
+      ) );
+    }
+  }
+}

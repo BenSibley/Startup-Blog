@@ -3,6 +3,12 @@
 if ( ! is_archive() ) {
 	return;
 }
+// Don't output on bbPress (Forum pages count as archives)
+if ( function_exists( 'is_bbpress' ) ) {
+	if ( is_bbpress() ) {
+		return;
+	} 
+}
 
 $icon_class = 'folder-open';
 $prefix = esc_html_x( 'Posts published in', 'Posts published in CATEGORY', 'startup-blog' );

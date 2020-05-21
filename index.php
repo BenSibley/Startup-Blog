@@ -13,19 +13,6 @@ get_template_part( 'content/archive-header' ); ?>
         ?>
     </div>
 <?php
-// Output pagination if Jetpack not installed, otherwise check if infinite scroll is active before outputting
-if ( !class_exists( 'Jetpack' ) ) {
-    the_posts_pagination( array(
-        'mid_size' => 1,
-        'prev_text' => '',
-        'next_text' => ''
-    ) );
-} elseif ( !Jetpack::is_module_active( 'infinite-scroll' ) ) {
-    the_posts_pagination( array(
-        'mid_size' => 1,
-        'prev_text' => '',
-        'next_text' => ''
-    ) );
-}
+ct_startup_blog_pagination();
 
 get_footer();

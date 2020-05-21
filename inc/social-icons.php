@@ -12,7 +12,6 @@ if ( ! function_exists( 'ct_startup_blog_social_array' ) ) {
 			'instagram'     => 'startup_blog_instagram_profile',
 			'linkedin'      => 'startup_blog_linkedin_profile',
 			'pinterest'     => 'startup_blog_pinterest_profile',
-			'google-plus'   => 'startup_blog_googleplus_profile',
 			'youtube'       => 'startup_blog_youtube_profile',
 			'email'         => 'startup_blog_email_profile',
 			'phone'         => 'startup_blog_phone_profile',

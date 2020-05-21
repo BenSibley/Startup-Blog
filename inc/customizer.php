@@ -436,9 +436,7 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 
 			$label = ucfirst( $social_site );
 
-			if ( $social_site == 'google-plus' ) {
-				$label = __('Google Plus', 'startup-blog');
-			} elseif ( $social_site == 'rss' ) {
+			if ( $social_site == 'rss' ) {
 				$label = __('RSS', 'startup-blog');
 			} elseif ( $social_site == 'soundcloud' ) {
 				$label = __('SoundCloud', 'startup-blog');

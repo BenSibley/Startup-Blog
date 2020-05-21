@@ -898,7 +898,7 @@ function ct_startup_blog_sanitize_header_image_positions( $input ) {
 }
 
 function ct_startup_blog_customize_preview_js() {
-	if ( !defined( 'STARTUP_BLOG_PRO_FILE' ) ) {
+	if ( !defined( 'STARTUP_BLOG_PRO_FILE' ) && !(isset($_GET['mailoptin_optin_campaign_id']) || isset($_GET['mailoptin_email_campaign_id'])) ) {
 		$url = 'https://www.competethemes.com/startup-blog-pro/?utm_source=wp-dashboard&utm_medium=Customizer&utm_campaign=Startup%20Blog%20Pro%20-%20Customizer';
 		$content = "<script>jQuery('#customize-info').prepend('<div class=\"upgrades-ad\"><a href=\"". $url ."\" target=\"_blank\">Customize Colors with Startup Blog Pro <span>&rarr;</span></a></div>')</script>";
 		echo apply_filters('ct_startup_blog_customizer_ad', $content);

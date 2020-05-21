@@ -34,7 +34,7 @@ Startup Blog is distributed under the terms of the GNU GPL
   /* 24px */
 }
 
-.alignright figcaption,
+.wp-block-table figcaption, .alignright figcaption,
 .alignleft figcaption,
 .aligncenter figcaption,
 .alignnone figcaption,
@@ -275,6 +275,11 @@ th {
 .wp-block-table td,
 .wp-block-table th {
   border-color: #DEDEDE;
+}
+.wp-block-table figcaption {
+  margin: -16px 0 0 0;
+  text-align: center;
+  color: #999999;
 }
 
 .wp-block-table.is-style-stripes thead {

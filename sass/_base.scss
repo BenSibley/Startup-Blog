@@ -140,6 +140,12 @@ th {
   th {
     border-color: $color-gray-87;
   }
+  figcaption {
+    margin: -16px 0 0 0;
+    text-align: center;
+    @extend %fourteen-pixels;
+    color: $color-gray-60;
+  }
 }
 .wp-block-table.is-style-stripes {
 

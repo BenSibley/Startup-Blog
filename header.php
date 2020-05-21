@@ -16,9 +16,7 @@
 		if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'header' ) ) :
 	?>
 	<header class="site-header" id="site-header" role="banner">
-		<?php if ( ! empty( get_custom_header()->attachment_id ) ) : ?>
-			<img class="header-image" src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" />
-		<?php endif; ?>
+		<?php do_action( 'startup_blog_header_opening' ); ?>
 		<div class="secondary-header">
 			<?php
 			ct_startup_blog_social_icons_output();
@@ -32,6 +30,7 @@
 			</div>
 			<?php endif; ?>
 		</div>
+		<?php do_action( 'startup_blog_after_secondary_header' ); ?>
 		<div class="primary-header">
 			<div class="max-width">
 				<div id="title-container" class="title-container">
@@ -50,6 +49,7 @@
 				</div>
 			</div>
 		</div>
+		<?php do_action( 'startup_blog_header_closing' ); ?>
 	</header>
 	<?php endif; ?>
 	<?php ct_startup_blog_slider(); ?>

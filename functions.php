@@ -843,3 +843,33 @@ function ct_startup_blog_register_elementor_locations( $elementor_theme_manager 
 	$elementor_theme_manager->register_location( 'footer' );
 }
 add_action( 'elementor/theme/register_locations', 'ct_startup_blog_register_elementor_locations' ); 
+
+//----------------------------------------------------------------------------------
+// Output the Header Image
+//----------------------------------------------------------------------------------
+if ( !function_exists('ct_startup_blog_output_header_image') ) {
+	function ct_startup_blog_output_header_image() {
+		if ( ! empty( get_custom_header()->attachment_id ) ) : ?>
+			<img class="header-image" src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" />
+		<?php endif; 
+	}	
+}
+
+//----------------------------------------------------------------------------------
+// Hook header image based on user's position selection
+//----------------------------------------------------------------------------------
+if ( !function_exists('ct_startup_blog_header_image_output_position') ) {
+	function ct_startup_blog_header_image_output_position() {
+		if ( ! empty( get_custom_header()->attachment_id ) ) {
+			$position = get_theme_mod('header_image_position');
+			if ( empty($position) || $position == 'top' ) {
+				add_action( 'startup_blog_header_opening', 'ct_startup_blog_output_header_image' );
+			} else if ( $position == 'middle' ) {
+				add_action( 'startup_blog_after_secondary_header' , 'ct_startup_blog_output_header_image' );
+			} else if ( $position == 'bottom' ) {
+				add_action( 'startup_blog_header_closing' , 'ct_startup_blog_output_header_image' );
+			}
+		}
+	}	
+}
+add_action( 'wp_head', 'ct_startup_blog_header_image_output_position' );

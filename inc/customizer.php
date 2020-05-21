@@ -94,6 +94,27 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 	}
 
 	//----------------------------------------------------------------------------------
+	// Header Image: adding new options (section registered by Core)
+	//----------------------------------------------------------------------------------
+	// setting
+	$wp_customize->add_setting( 'header_image_position', array(
+		'default'           => 'top',
+		'sanitize_callback' => 'ct_startup_blog_sanitize_header_image_positions'
+	) );
+	// control
+	$wp_customize->add_control( 'header_image_position', array(
+		'label'    => __( 'Where should the header image display?', 'startup-blog' ),
+		'section'  => 'header_image',
+		'settings' => 'header_image_position',
+		'type'     => 'radio',
+		'choices'  => array(
+			'top' 	 => __( 'Above everything', 'startup-blog' ),
+			'middle' => __( 'Below the social icons', 'startup-blog' ),
+			'bottom' => __( 'Below the header', 'startup-blog' )
+		)
+	) );
+
+	//----------------------------------------------------------------------------------
 	// Panel: Slider. Section: Content
 	//----------------------------------------------------------------------------------
 	$wp_customize->add_section( 'startup_blog_slider_content', array(
@@ -862,6 +883,20 @@ function ct_startup_blog_sanitize_phone( $input ) {
 	} else {
 		return '';
 	}
+}
+
+//----------------------------------------------------------------------------------
+// Sanitize header image positions
+//----------------------------------------------------------------------------------
+function ct_startup_blog_sanitize_header_image_positions( $input ) {
+
+	$valid = array(
+		'top' 	 => __( 'Above everything', 'startup-blog' ),
+		'middle' => __( 'Below the social icons', 'startup-blog' ),
+		'bottom' => __( 'Below the header', 'startup-blog' )
+	);
+
+	return array_key_exists( $input, $valid ) ? $input : '';
 }
 
 function ct_startup_blog_customize_preview_js() {

@@ -882,6 +882,7 @@ a img {
 }
 
 .header-image {
+  display: block;
   width: 100%;
 }
 

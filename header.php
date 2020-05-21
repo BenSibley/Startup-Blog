@@ -11,6 +11,10 @@
 <a class="skip-content" href="#main"><?php esc_html_e( 'Press "Enter" to skip to content', 'startup-blog' ); ?></a>
 <div id="overflow-container" class="overflow-container">
 	<?php do_action( 'startup_blog_before_header' ); ?>
+	<?php
+		// Elementor `header` location
+		if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'header' ) ) :
+	?>
 	<header class="site-header" id="site-header" role="banner">
 		<?php if ( ! empty( get_custom_header()->attachment_id ) ) : ?>
 			<img class="header-image" src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" />
@@ -47,6 +51,7 @@
 			</div>
 		</div>
 	</header>
+	<?php endif; ?>
 	<?php ct_startup_blog_slider(); ?>
 	<?php do_action( 'startup_blog_after_header' ); ?>
 	<div class="main-content-container">

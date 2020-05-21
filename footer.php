@@ -6,6 +6,10 @@
 <?php do_action( 'startup_blog_after_main' ); ?>
 </div> <!-- .max-width -->
 </div> <!-- .main-content-container -->
+<?php 
+// Elementor `footer` location
+if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'footer' ) ) :
+?>
 <footer id="site-footer" class="site-footer" role="contentinfo">
     <div class="max-width">
         <?php do_action( 'startup_blog_footer_top' ); ?>
@@ -31,6 +35,7 @@
     </div>
     <?php do_action( 'startup_blog_footer_bottom' ); ?>
 </footer>
+<?php endif; ?>
 </div><!-- .overflow-container -->
 
 <?php do_action( 'startup_blog_body_bottom' ); ?>

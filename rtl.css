@@ -336,6 +336,10 @@ th {
   line-height: 0;
 }
 
+.wp-block-media-text {
+  line-height: 1.5;
+}
+
 .wp-block-image figcaption {
   line-height: 1.5;
   margin: 3px 0 0 0;

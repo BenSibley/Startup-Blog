@@ -185,6 +185,9 @@ th {
   margin: 0;
   line-height: 0;
 }
+.wp-block-media-text {
+  line-height: 1.5;
+}
 .wp-block-image figcaption {
   @extend %fourteen-pixels;
   line-height: 1.5;

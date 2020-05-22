@@ -23,9 +23,7 @@ if ( ! function_exists( ( 'startup_blog_add_social_profile_settings' ) ) ) {
 
 				$label = ucfirst( $key );
 
-				if ( $key == 'google-plus' ) {
-					$label = __('Google Plus', 'startup-blog');
-				} elseif ( $key == 'rss' ) {
+				if ( $key == 'rss' ) {
 					$label = __('RSS', 'startup-blog');
 				} elseif ( $key == 'soundcloud' ) {
 					$label = __('SoundCloud', 'startup-blog');

@@ -264,7 +264,8 @@ textarea {
 textarea {
   overflow: auto; /* to hide scrollbar in IE */
 }
-input[type="submit"] {
+input[type="submit"],
+#bbp_reply_submit {
   @extend %fourteen-pixels;
   font-family: $body-font-stack;
   padding: 13px;

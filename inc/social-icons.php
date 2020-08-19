@@ -59,6 +59,7 @@ if ( ! function_exists( 'ct_startup_blog_social_array' ) ) {
 			'tencent-weibo' => 'startup_blog_tencent_weibo_profile',
 			'tumblr'        => 'startup_blog_tumblr_profile',
 			'twitch'        => 'startup_blog_twitch_profile',
+			'untappd'       => 'startup_blog_untappd_profile',
 			'vimeo'         => 'startup_blog_vimeo_profile',
 			'vine'          => 'startup_blog_vine_profile',
 			'vk'            => 'startup_blog_vk_profile',

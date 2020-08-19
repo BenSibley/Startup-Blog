@@ -4,7 +4,8 @@
 /* Social Media Brand Colors */
 /*===== Mixins =====*/
 /***** Silent Classes *****/
-.alignright figcaption,
+.wp-caption-text,
+.wp-caption-dd, .wp-block-image figcaption, .alignright figcaption,
 .alignleft figcaption,
 .aligncenter figcaption,
 .alignnone figcaption,
@@ -14,8 +15,7 @@
 .size-full figcaption,
 .size-large figcaption,
 .size-medium figcaption,
-.size-thumbnail figcaption, .wp-block-image figcaption, .wp-caption-text,
-.wp-caption-dd {
+.size-thumbnail figcaption {
   font-size: 0.875em;
   /* 14px / 16px */
   line-height: 1.572;
@@ -116,6 +116,10 @@ pre {
 code {
   background: #F0F5F8;
   padding: 0 0.375em;
+}
+
+pre code {
+  padding: 0;
 }
 
 blockquote {
@@ -269,8 +273,8 @@ img {
   font-family: "Montserrat", sans-serif;
 }
 
-.wp-block[data-align="wide"],
-.wp-block[data-align="full"] {
+.wp-block[data-align=wide],
+.wp-block[data-align=full] {
   max-width: none;
 }
 
@@ -298,3 +302,5 @@ img {
 .has-extra-large-font-size {
   font-size: 38px;
 }
+
+/*# sourceMappingURL=editor-style.css.map */

@@ -8,6 +8,12 @@
 
 <body id="<?php print esc_attr( get_stylesheet() ); ?>" <?php body_class(); ?>>
 <?php do_action( 'startup_blog_body_top' ); ?>
+<?php 
+if ( function_exists( 'wp_body_open' ) ) {
+			wp_body_open();
+	} else {
+			do_action( 'wp_body_open' );
+} ?>
 <a class="skip-content" href="#main"><?php esc_html_e( 'Press "Enter" to skip to content', 'startup-blog' ); ?></a>
 <div id="overflow-container" class="overflow-container">
 	<?php do_action( 'startup_blog_before_header' ); ?>

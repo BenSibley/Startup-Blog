@@ -236,6 +236,12 @@ img {
   @extend %fourteen-pixels;
   color: $color-gray-60;
 }
+.wp-block-group.alignwide,
+.wp-block-group .alignwide,
+.wp-block-group.alignfull,
+.wp-block-group .alignfull {
+  line-height: 1.5;
+}
 
 /* Form styles */
 

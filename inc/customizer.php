@@ -438,6 +438,8 @@ function ct_startup_blog_add_customizer_content( $wp_customize ) {
 
 			if ( $social_site == 'rss' ) {
 				$label = __('RSS', 'startup-blog');
+			} elseif ( $social_site == 'researchgate' ) {
+				$label = __('ResearchGate', 'startup-blog');
 			} elseif ( $social_site == 'soundcloud' ) {
 				$label = __('SoundCloud', 'startup-blog');
 			} elseif ( $social_site == 'slideshare' ) {

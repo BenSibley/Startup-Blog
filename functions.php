@@ -193,7 +193,7 @@ if ( ! function_exists( 'ct_startup_blog_excerpt' ) ) {
 		$show_full_post = get_theme_mod( 'full_post' );
 		$ismore         = strpos( $post->post_content, '<!--more-->' );
 		if ( $show_full_post === 'yes' || $ismore ) {
-			return wpautop( get_the_content() );
+			return get_the_content();
 		} else {
 			return wpautop( get_the_excerpt() );
 		}

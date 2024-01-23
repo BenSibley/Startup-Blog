@@ -967,25 +967,3 @@ if (!function_exists(('ct_startup_blog_pagination'))) {
         }
     }
 }
-
-
-function custom_wpkses_post_tags($tags, $context)
-{
-
-    if ('post' === $context) {
-        $tags['iframe'] = array(
-            'title'             => true,
-            'src'             => true,
-            'height'          => true,
-            'width'           => true,
-            'frameborder'     => true,
-            'allow'             => true,
-            'allowfullscreen' => true,
-            'id'             => true,
-        );
-    }
-
-    return $tags;
-}
-
-add_filter('wp_kses_allowed_html', 'custom_wpkses_post_tags', 10, 2);

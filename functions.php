@@ -24,7 +24,7 @@ function ct_startup_blog_register_required_plugins()
             'required'  => false,
         ),
     );
-    
+
     $config = array(
         'id'           => 'ct-startup-blog',
         'default_path' => '',
@@ -65,10 +65,10 @@ new WP_Review_Me(
 //----------------------------------------------------------------------------------
 //	Set content width variable
 //----------------------------------------------------------------------------------
-if (! function_exists(('ct_startup_blog_set_content_width'))) {
+if (!function_exists(('ct_startup_blog_set_content_width'))) {
     function ct_startup_blog_set_content_width()
     {
-        if (! isset($content_width)) {
+        if (!isset($content_width)) {
             $content_width = 780;
         }
     }
@@ -78,7 +78,7 @@ add_action('after_setup_theme', 'ct_startup_blog_set_content_width', 0);
 //----------------------------------------------------------------------------------
 //	Add theme support for various features, register menus, load text domain
 //----------------------------------------------------------------------------------
-if (! function_exists(('ct_startup_blog_theme_setup'))) {
+if (!function_exists(('ct_startup_blog_theme_setup'))) {
     function ct_startup_blog_theme_setup()
     {
         add_theme_support('post-thumbnails');
@@ -112,7 +112,7 @@ if (! function_exists(('ct_startup_blog_theme_setup'))) {
         ));
         // TRT Note: this is added so users can customize the excerpt if they add pages to the slider
         add_post_type_support('page', array('excerpt', 'custom-fields'));
-        
+
         // WooCommerce support
         add_theme_support('woocommerce');
         // Support WooCommerce image gallery features
@@ -170,7 +170,7 @@ add_action('after_setup_theme', 'ct_startup_blog_theme_setup', 10);
 //-----------------------------------------------------------------------------
 // Load custom stylesheet for the post editor
 //-----------------------------------------------------------------------------
-if (! function_exists('ct_startup_blog_add_editor_styles')) {
+if (!function_exists('ct_startup_blog_add_editor_styles')) {
     function ct_startup_blog_add_editor_styles()
     {
         add_editor_style('styles/editor-style.css');
@@ -181,7 +181,7 @@ add_action('admin_init', 'ct_startup_blog_add_editor_styles');
 //----------------------------------------------------------------------------------
 //	Register widget areas
 //----------------------------------------------------------------------------------
-if (! function_exists(('ct_startup_blog_register_widget_areas'))) {
+if (!function_exists(('ct_startup_blog_register_widget_areas'))) {
     function ct_startup_blog_register_widget_areas()
     {
         register_sidebar(array(
@@ -227,7 +227,7 @@ add_action('widgets_init', 'ct_startup_blog_register_widget_areas');
 //----------------------------------------------------------------------------------
 //	Output excerpt/content
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_startup_blog_excerpt')) {
+if (!function_exists('ct_startup_blog_excerpt')) {
     function ct_startup_blog_excerpt()
     {
         global $post;
@@ -244,12 +244,12 @@ if (! function_exists('ct_startup_blog_excerpt')) {
 //----------------------------------------------------------------------------------
 //	Update excerpt length. Allow user input from Customizer.
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_startup_blog_custom_excerpt_length')) {
+if (!function_exists('ct_startup_blog_custom_excerpt_length')) {
     function ct_startup_blog_custom_excerpt_length($length)
     {
         $new_excerpt_length = get_theme_mod('excerpt_length');
 
-        if (! empty($new_excerpt_length) && $new_excerpt_length != 30) {
+        if (!empty($new_excerpt_length) && $new_excerpt_length != 30) {
             return $new_excerpt_length;
         } elseif ($new_excerpt_length === 0) {
             return 0;
@@ -263,7 +263,7 @@ add_filter('excerpt_length', 'ct_startup_blog_custom_excerpt_length', 99);
 //----------------------------------------------------------------------------------
 // Add plain ellipsis for automatic excerpts (removes "[]")
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_startup_blog_excerpt_ellipsis')) {
+if (!function_exists('ct_startup_blog_excerpt_ellipsis')) {
     function ct_startup_blog_excerpt_ellipsis()
     {
         return '&#8230;';
@@ -274,7 +274,7 @@ add_filter('excerpt_more', 'ct_startup_blog_excerpt_ellipsis', 10);
 //----------------------------------------------------------------------------------
 // Removes the "(more...)" link that will only appear if a more tag is used
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_startup_blog_remove_read_more_link')) {
+if (!function_exists('ct_startup_blog_remove_read_more_link')) {
     function ct_startup_blog_remove_read_more_link()
     {
         return '';
@@ -285,7 +285,7 @@ add_filter('the_content_more_link', 'ct_startup_blog_remove_read_more_link', 999
 //----------------------------------------------------------------------------------
 // Don't scroll to text after clicking a "more tag" link
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_startup_blog_remove_more_link_scroll')) {
+if (!function_exists('ct_startup_blog_remove_more_link_scroll')) {
     function ct_startup_blog_remove_more_link_scroll($link)
     {
         $link = preg_replace('|#more-[0-9]+|', '', $link);
@@ -297,7 +297,7 @@ add_filter('the_content_more_link', 'ct_startup_blog_remove_more_link_scroll');
 //----------------------------------------------------------------------------------
 // Output the Featured Image
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_startup_blog_featured_image')) {
+if (!function_exists('ct_startup_blog_featured_image')) {
     function ct_startup_blog_featured_image()
     {
         global $post;
@@ -329,13 +329,13 @@ if (! function_exists('ct_startup_blog_featured_image')) {
  * WP will apply the ".menu-primary-items" class & id to the containing <div> instead of <ul>
  * making styling confusing. This simple wrapper adds a unique class to make styling easier.
  */
-if (! function_exists('ct_startup_blog_wp_page_menu')) {
+if (!function_exists('ct_startup_blog_wp_page_menu')) {
     function ct_startup_blog_wp_page_menu()
     {
         wp_page_menu(
             array(
                 "menu_class" => "menu-unset",
-                "depth"      => - 1
+                "depth"      => -1
             )
         );
     }
@@ -344,7 +344,7 @@ if (! function_exists('ct_startup_blog_wp_page_menu')) {
 //----------------------------------------------------------------------------------
 // Add a label to "sticky" posts on archive pages
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_startup_blog_sticky_post_marker')) {
+if (!function_exists('ct_startup_blog_sticky_post_marker')) {
     function ct_startup_blog_sticky_post_marker()
     {
         if (is_sticky() && !is_archive() && !is_search()) {
@@ -357,18 +357,18 @@ add_action('startup_blog_sticky_post_status', 'ct_startup_blog_sticky_post_marke
 //----------------------------------------------------------------------------------
 // Reset Customizer settings added by Startup Blog. Button added in theme-options.php.
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_startup_blog_reset_customizer_options')) {
+if (!function_exists('ct_startup_blog_reset_customizer_options')) {
     function ct_startup_blog_reset_customizer_options()
     {
         if (!isset($_POST['startup_blog_reset_customizer']) || 'startup_blog_reset_customizer_settings' !== $_POST['startup_blog_reset_customizer']) {
             return;
         }
 
-        if (! wp_verify_nonce(wp_unslash($_POST['startup_blog_reset_customizer_nonce']), 'startup_blog_reset_customizer_nonce')) {
+        if (!wp_verify_nonce(wp_unslash($_POST['startup_blog_reset_customizer_nonce']), 'startup_blog_reset_customizer_nonce')) {
             return;
         }
 
-        if (! current_user_can('edit_theme_options')) {
+        if (!current_user_can('edit_theme_options')) {
             return;
         }
 
@@ -426,7 +426,7 @@ add_action('admin_init', 'ct_startup_blog_reset_customizer_options');
 //----------------------------------------------------------------------------------
 // Notice to let users know when their Customizer settings have been reset
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_startup_blog_delete_settings_notice')) {
+if (!function_exists('ct_startup_blog_delete_settings_notice')) {
     function ct_startup_blog_delete_settings_notice()
     {
         if (isset($_GET['startup_blog_status'])) {
@@ -445,7 +445,7 @@ add_action('admin_notices', 'ct_startup_blog_delete_settings_notice');
 //----------------------------------------------------------------------------------
 // Add body classes for styling purposes
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_startup_blog_body_class')) {
+if (!function_exists('ct_startup_blog_body_class')) {
     function ct_startup_blog_body_class($classes)
     {
         global $post;
@@ -472,7 +472,7 @@ add_filter('body_class', 'ct_startup_blog_body_class');
 //----------------------------------------------------------------------------------
 // Add a shared class for post divs on archive and single pages
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_startup_blog_post_class')) {
+if (!function_exists('ct_startup_blog_post_class')) {
     function ct_startup_blog_post_class($classes)
     {
         $classes[] = 'entry';
@@ -484,7 +484,7 @@ add_filter('post_class', 'ct_startup_blog_post_class');
 //----------------------------------------------------------------------------------
 // Used to get messy SVG HTML out of content markup. Currently one SVG used for the mobile menu icon
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_startup_blog_svg_output')) {
+if (!function_exists('ct_startup_blog_svg_output')) {
     function ct_startup_blog_svg_output($type)
     {
         $svg = '';
@@ -498,7 +498,7 @@ if (! function_exists('ct_startup_blog_svg_output')) {
 //----------------------------------------------------------------------------------
 // Add meta elements for the charset, viewport, and template
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_startup_blog_add_meta_elements')) {
+if (!function_exists('ct_startup_blog_add_meta_elements')) {
     function ct_startup_blog_add_meta_elements()
     {
         $meta_elements = '';
@@ -518,7 +518,7 @@ add_action('wp_head', 'ct_startup_blog_add_meta_elements', 1);
 //----------------------------------------------------------------------------------
 // Get the right template for Jetpack infinite scroll
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_startup_blog_infinite_scroll_render')) {
+if (!function_exists('ct_startup_blog_infinite_scroll_render')) {
     function ct_startup_blog_infinite_scroll_render()
     {
         while (have_posts()) {
@@ -532,10 +532,9 @@ if (! function_exists('ct_startup_blog_infinite_scroll_render')) {
 // Template routing function. Setup to follow DRY coding patterns.
 // Using index.php file only instead of duplicating loop in page.php, post.php, etc.
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_startup_blog_get_content_template')) {
+if (!function_exists('ct_startup_blog_get_content_template')) {
     function ct_startup_blog_get_content_template()
     {
-
         // Get bbpress.php for all bbpress pages
         if (function_exists('is_bbpress')) {
             if (is_bbpress()) {
@@ -554,7 +553,7 @@ if (! function_exists('ct_startup_blog_get_content_template')) {
 //----------------------------------------------------------------------------------
 // Allow Skype URIs to be used. Used for the Skype social icon in Customizer
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_startup_blog_allow_skype_protocol')) {
+if (!function_exists('ct_startup_blog_allow_skype_protocol')) {
     function ct_startup_blog_allow_skype_protocol($protocols)
     {
         $protocols[] = 'skype';
@@ -567,7 +566,7 @@ add_filter('kses_allowed_protocols', 'ct_startup_blog_allow_skype_protocol');
 // Add class to primary menu if all menu items are single-tiered.
 // Then mobile menu items can be styled horizontally instead of vertically
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_startup_blog_primary_dropdown_check')) {
+if (!function_exists('ct_startup_blog_primary_dropdown_check')) {
     function ct_startup_blog_primary_dropdown_check($item_output, $item, $depth, $args)
     {
         if ($args->theme_location == 'primary') {
@@ -586,7 +585,7 @@ add_filter('walker_nav_menu_start_el', 'ct_startup_blog_primary_dropdown_check',
 // Filters the_archive_title() like this: "Category: Business" => "Business"
 // the_archive_title() used in content/archive-header.php
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_startup_blog_modify_archive_titles')) {
+if (!function_exists('ct_startup_blog_modify_archive_titles')) {
     function ct_startup_blog_modify_archive_titles($title)
     {
         if (is_category()) {
@@ -609,7 +608,7 @@ add_filter('get_the_archive_title', 'ct_startup_blog_modify_archive_titles');
 // Add paragraph tags for author bio displayed in content/archive-header.php.
 // the_archive_description includes paragraph tags for tag and category descriptions, but not the author bio.
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_startup_blog_modify_archive_descriptions')) {
+if (!function_exists('ct_startup_blog_modify_archive_descriptions')) {
     function ct_startup_blog_modify_archive_descriptions($description)
     {
         if (is_author()) {
@@ -623,7 +622,7 @@ add_filter('get_the_archive_description', 'ct_startup_blog_modify_archive_descri
 //----------------------------------------------------------------------------------
 // Return CSS based on the user's Customizer selected colors.
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_startup_blog_override_colors')) {
+if (!function_exists('ct_startup_blog_override_colors')) {
     function ct_startup_blog_override_colors()
     {
         $color_css       = '';
@@ -666,13 +665,13 @@ if (! function_exists('ct_startup_blog_override_colors')) {
             $color_css .= ".site-title a:hover,.site-title a:active,.site-title a:focus {
 				color: $primary_color;
 			}";
-    
+
             // Create translucent variation and apply to hovers
             $red                 = hexdec(substr($primary_color, 1, 2));
             $green               = hexdec(substr($primary_color, 3, 2));
             $blue                = hexdec(substr($primary_color, 5, 2));
             $primary_color_hover = "rgba($red, $green, $blue, 0.6)";
-            
+
             $color_css .= "a:hover,a:active,a:focus,.widget_recent_comments li a:hover,.widget_recent_comments li a:active,.widget_recent_comments li a:focus {
 			  color: $primary_color_hover;
 			}";
@@ -712,7 +711,7 @@ if (! function_exists('ct_startup_blog_override_colors')) {
 //----------------------------------------------------------------------------------
 // Output the user's custom colors
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_startup_blog_output_color_css')) {
+if (!function_exists('ct_startup_blog_output_color_css')) {
     function ct_startup_blog_output_color_css()
     {
         if (!is_rtl()) {
@@ -729,13 +728,13 @@ add_action('wp_enqueue_scripts', 'ct_startup_blog_output_color_css', 20);
 // Output differently for RTL b/c RTL stylesheets have no handle (not enqueued) and the <link>
 // element is output so late
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_startup_blog_output_color_css_rtl')) {
+if (!function_exists('ct_startup_blog_output_color_css_rtl')) {
     function ct_startup_blog_output_color_css_rtl()
     {
         if (is_rtl()) {
             $color_css = ct_startup_blog_override_colors();
             if (!empty($color_css)) {
-                echo '<style id="ct-startup-blog-style-inline-css" type="text/css">'. ct_startup_blog_sanitize_css($color_css) .'</style>';
+                echo '<style id="ct-startup-blog-style-inline-css" type="text/css">' . ct_startup_blog_sanitize_css($color_css) . '</style>';
             }
         }
     }
@@ -745,7 +744,7 @@ add_action('wp_head', 'ct_startup_blog_output_color_css_rtl', 99);
 //----------------------------------------------------------------------------------
 // Sanitize CSS then convert "&gt;" back into ">" character so direct descendant CSS selectors work
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_startup_blog_sanitize_css')) {
+if (!function_exists('ct_startup_blog_sanitize_css')) {
     function ct_startup_blog_sanitize_css($css)
     {
         $css = wp_kses($css, '');
@@ -758,10 +757,9 @@ if (! function_exists('ct_startup_blog_sanitize_css')) {
 //----------------------------------------------------------------------------------
 // Create and output the slider setup in the Customizer
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_startup_blog_slider')) {
+if (!function_exists('ct_startup_blog_slider')) {
     function ct_startup_blog_slider()
     {
-
         // Decide if slider should be displayed based on user's Customizer settings
         $display = get_theme_mod('slider_display');
         if (($display == 'homepage' || $display == '') && (!is_front_page() || is_paged())) {
@@ -782,6 +780,7 @@ if (! function_exists('ct_startup_blog_slider')) {
         $post_type      = get_theme_mod('slider_posts_or_pages');
         $pages          = get_theme_mod('slider_pages');
         $num_posts      = get_theme_mod('slider_recent_posts');
+        $fallback       = get_theme_mod('slider_fallback_image');
         $args           = array();
         if ($num_posts == '') {
             $num_posts = 5;
@@ -816,7 +815,7 @@ if (! function_exists('ct_startup_blog_slider')) {
                 }
                 // Getting template this way instead of using get_template_part() so variables are accessible
                 include(locate_template('content-slide.php', false, false));
-                $counter ++;
+                $counter++;
             }
             echo '</ul>';
             if ($display_arrows != 'no') {
@@ -833,7 +832,7 @@ if (! function_exists('ct_startup_blog_slider')) {
                         $dot_class .= ' current';
                     }
                     echo '<li class="' . esc_attr($dot_class) . '"><a href="#"></a></li>';
-                    $nav_counter ++;
+                    $nav_counter++;
                 }
                 echo '</ul>';
             }
@@ -871,9 +870,9 @@ add_action('customize_register', 'ct_startup_blog_update_logo_refresh', 20);
 function ct_startup_blog_scroll_to_top_arrow()
 {
     $setting = get_theme_mod('scroll_to_top');
-    
+
     if ($setting == 'yes') {
-        echo '<button id="scroll-to-top" class="scroll-to-top"><span class="screen-reader-text">'. esc_html__('Scroll to the top', 'startup-blog') .'</span><i class="fas fa-arrow-up"></i></button>';
+        echo '<button id="scroll-to-top" class="scroll-to-top"><span class="screen-reader-text">' . esc_html__('Scroll to the top', 'startup-blog') . '</span><i class="fas fa-arrow-up"></i></button>';
     }
 }
 add_action('startup_blog_body_bottom', 'ct_startup_blog_scroll_to_top_arrow');
@@ -892,7 +891,7 @@ function ct_startup_blog_output_last_updated_date()
             ($updated_customizer == 'yes' && ($updated_post != 'no'))
             || $updated_post == 'yes'
         ) {
-            echo '<p class="last-updated">'. esc_html__("Last updated on", "startup-blog") . ' ' . get_the_modified_date() . ' </p>';
+            echo '<p class="last-updated">' . esc_html__("Last updated on", "startup-blog") . ' ' . get_the_modified_date() . ' </p>';
         }
     }
 }
@@ -913,7 +912,7 @@ add_action('elementor/theme/register_locations', 'ct_startup_blog_register_eleme
 if (!function_exists('ct_startup_blog_output_header_image')) {
     function ct_startup_blog_output_header_image()
     {
-        if (! empty(get_custom_header()->attachment_id)) : ?>
+        if (!empty(get_custom_header()->attachment_id)) : ?>
 			<img class="header-image" src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" />
 		<?php endif;
     }
@@ -925,7 +924,7 @@ if (!function_exists('ct_startup_blog_output_header_image')) {
 if (!function_exists('ct_startup_blog_header_image_output_position')) {
     function ct_startup_blog_header_image_output_position()
     {
-        if (! empty(get_custom_header()->attachment_id)) {
+        if (!empty(get_custom_header()->attachment_id)) {
             $position = get_theme_mod('header_image_position');
             if (empty($position) || $position == 'top') {
                 add_action('startup_blog_header_opening', 'ct_startup_blog_output_header_image');
@@ -943,10 +942,9 @@ add_action('wp_head', 'ct_startup_blog_header_image_output_position');
 //----------------------------------------------------------------------------------
 // Output standard post pagination
 //----------------------------------------------------------------------------------
-if (! function_exists(('ct_startup_blog_pagination'))) {
+if (!function_exists(('ct_startup_blog_pagination'))) {
     function ct_startup_blog_pagination()
     {
-
         // Never output pagination on bbpress pages
         if (function_exists('is_bbpress')) {
             if (is_bbpress()) {
@@ -969,3 +967,25 @@ if (! function_exists(('ct_startup_blog_pagination'))) {
         }
     }
 }
+
+
+function custom_wpkses_post_tags($tags, $context)
+{
+
+    if ('post' === $context) {
+        $tags['iframe'] = array(
+            'title'             => true,
+            'src'             => true,
+            'height'          => true,
+            'width'           => true,
+            'frameborder'     => true,
+            'allow'             => true,
+            'allowfullscreen' => true,
+            'id'             => true,
+        );
+    }
+
+    return $tags;
+}
+
+add_filter('wp_kses_allowed_html', 'custom_wpkses_post_tags', 10, 2);

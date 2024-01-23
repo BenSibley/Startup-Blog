@@ -74,13 +74,10 @@
   text-decoration: none;
   color: white;
   background: #FF931E;
-  -webkit-transition: background 0.2s, -webkit-transform 0.2s, box-shadow 0.2s;
   transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 .startup-blog-dashboard-wrap .pro-ad a:hover, .startup-blog-dashboard-wrap .thanks-upgrading a:hover, .startup-blog-dashboard-wrap .pro-ad a:active, .startup-blog-dashboard-wrap .thanks-upgrading a:active, .startup-blog-dashboard-wrap .pro-ad a:focus, .startup-blog-dashboard-wrap .thanks-upgrading a:focus {
   background: #FFA33F;
-  -webkit-transform: translateY(-2px);
-  -ms-transform: translateY(-2px);
   transform: translateY(-2px);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
 }
@@ -158,7 +155,6 @@
   font-weight: 700;
   border: none;
   text-decoration: none;
-  -webkit-transition: color 0.2s, background-color 0.2s;
   transition: color 0.2s, background-color 0.2s;
 }
 .startup-blog-dashboard-wrap .ad .button a:link, .startup-blog-dashboard-wrap .ad .button a:visited {
@@ -197,13 +193,9 @@
 
 @media all and (min-width: 600px) {
   .startup-blog-dashboard-wrap .feature-list li {
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
   }
   .startup-blog-dashboard-wrap .feature-list .image {
-    -webkit-flex-shrink: 0;
-    -ms-flex-negative: 0;
     flex-shrink: 0;
   }
   .startup-blog-dashboard-wrap .feature-list img {
@@ -257,8 +249,6 @@
 }
 @media all and (min-width: 1100px) {
   .startup-blog-dashboard-wrap .feature-list li {
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
   }
   .startup-blog-dashboard-wrap .feature-list img {

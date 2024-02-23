@@ -13,6 +13,8 @@ if ( ! function_exists( 'ct_startup_blog_social_array' ) ) {
 			'linkedin'      => 'startup_blog_linkedin_profile',
 			'pinterest'     => 'startup_blog_pinterest_profile',
 			'youtube'       => 'startup_blog_youtube_profile',
+			'tiktok'        => 'startup_blog_tiktok_profile',
+			'threads'       => 'startup_blog_threads_profile',
 			'email'         => 'startup_blog_email_profile',
 			'phone'         => 'startup_blog_phone_profile',
 			'email-form'    => 'startup_blog_email_form_profile',

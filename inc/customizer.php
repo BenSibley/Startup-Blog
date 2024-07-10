@@ -502,6 +502,8 @@ function ct_startup_blog_add_customizer_content($wp_customize)
                 $label = __('IMDB', 'startup-blog');
             } elseif ($social_site == 'diaspora') {
                 $label = __('diaspora*', 'startup-blog');
+            } elseif ($social_site == 'twitter') {
+                $label = __('X (Twitter)', 'startup-blog');
             }
 
             if ($social_site == 'skype') {

@@ -22,13 +22,11 @@ function ct_startup_blog_register_recommended_plugins()
                 'name'        => 'Independent Analytics',
                 'slug'        => 'independent-analytics',
                 'description' => __('a simple, privacy-friendly alternative to Google Analytics.', 'startup-blog'),
-                'url'         => 'https://independentwp.com',
             ),
             array(
                 'name'        => 'Resolver',
                 'slug'        => 'resolver-ai-chatbot',
                 'description' => __('an AI-powered chatbot that trains on your website\'s content and answers visitor questions intelligently.', 'startup-blog'),
-                'url'         => 'https://resolverchatbot.com',
             ),
         ),
     ));

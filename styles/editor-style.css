@@ -16,10 +16,8 @@
 .size-large figcaption,
 .size-medium figcaption,
 .size-thumbnail figcaption {
-  font-size: 0.875em;
-  /* 14px / 16px */
-  line-height: 1.572;
-  /* 22px */
+  font-size: 0.875em; /* 14px / 16px */
+  line-height: 1.572; /* 22px */
 }
 
 .mce-content-body.wp-editor {
@@ -70,17 +68,12 @@ h1, .editor-post-title textarea, h2, h3, h4, h5, h6 {
 
 @media all and (min-width: 37.5em) {
   h1, .editor-post-title textarea {
-    font-size: 1.3125em;
-    /* 21px / 16px */
-    line-height: 1.143;
-    /* 24px */
+    font-size: 1.3125em; /* 21px / 16px */
+    line-height: 1.143; /* 24px */
   }
-
   h2 {
-    font-size: 1.125em;
-    /* 18px / 16px */
-    line-height: 1.333;
-    /* 24px */
+    font-size: 1.125em; /* 18px / 16px */
+    line-height: 1.333; /* 24px */
   }
 }
 ul,
@@ -302,5 +295,4 @@ img {
 .has-extra-large-font-size {
   font-size: 38px;
 }
-
 /*# sourceMappingURL=editor-style.css.map */
